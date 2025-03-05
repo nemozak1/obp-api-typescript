@@ -12,17 +12,13 @@
 
 import * as api from "./api"
 import { Configuration } from "./configuration"
-import { describe, beforeEach, test, expect } from "vitest"
-import fetch from 'isomorphic-fetch';
-
-// Make fetch globally available for tests
 
 const config: Configuration = {}
 
 describe("APIApi", () => {
   let instance: api.APIApi
   beforeEach(function() {
-    instance = new api.APIApi(config, "https://test.openbankproject.com", fetch)
+    instance = new api.APIApi(config)
   });
 
   test("oBPv140GetBankLevelDynamicResourceDocsObp", () => {
@@ -55,7 +51,7 @@ describe("APIApi", () => {
     return expect(instance.oBPv310Config({})).resolves.toBe(null)
   })
   test("oBPv310CreateMethodRouting", () => {
-    const body: api.MethodRoutingCommons = undefined
+    const body: api.ManagementMethodRoutingsBody = undefined
     return expect(instance.oBPv310CreateMethodRouting(body, {})).resolves.toBe(null)
   })
   test("oBPv310DeleteMethodRouting", () => {
@@ -81,7 +77,7 @@ describe("APIApi", () => {
     return expect(instance.oBPv310GetServerJWK({})).resolves.toBe(null)
   })
   test("oBPv310UpdateMethodRouting", () => {
-    const body: api.MethodRoutingCommons = undefined
+    const body: api.MethodRoutingsMETHODROUTINGIDBody = undefined
     const METHOD_ROUTING_ID: string = "METHOD_ROUTING_ID_example"
     return expect(instance.oBPv310UpdateMethodRouting(body, METHOD_ROUTING_ID, {})).resolves.toBe(null)
   })
@@ -91,12 +87,12 @@ describe("APIApi", () => {
     return expect(instance.oBPv400CreateBankLevelDynamicEndpoint(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateBankLevelDynamicEntity", () => {
-    const body: api.DynamicEntityFooBar = undefined
+    const body: api.BANKIDDynamicentitiesBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateBankLevelDynamicEntity(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateBankLevelEndpointTag", () => {
-    const body: api.EndpointTagJson400 = undefined
+    const body: api.OPERATIONIDTagsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateBankLevelEndpointTag(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -105,11 +101,11 @@ describe("APIApi", () => {
     return expect(instance.oBPv400CreateDynamicEndpoint(body, {})).resolves.toBe(null)
   })
   test("oBPv400CreateSystemDynamicEntity", () => {
-    const body: api.DynamicEntityFooBar = undefined
+    const body: api.ManagementSystemdynamicentitiesBody = undefined
     return expect(instance.oBPv400CreateSystemDynamicEntity(body, {})).resolves.toBe(null)
   })
   test("oBPv400CreateSystemLevelEndpointTag", () => {
-    const body: api.EndpointTagJson400 = undefined
+    const body: api.OPERATIONIDTagsBody1 = undefined
     return expect(instance.oBPv400CreateSystemLevelEndpointTag(body, {})).resolves.toBe(null)
   })
   test("oBPv400DeleteBankLevelDynamicEndpoint", () => {
@@ -186,37 +182,37 @@ describe("APIApi", () => {
     return expect(instance.oBPv400GetSystemLevelEndpointTags({})).resolves.toBe(null)
   })
   test("oBPv400UpdateBankLevelDynamicEndpointHost", () => {
-    const body: api.DynamicEndpointHostJson400 = undefined
+    const body: api.DYNAMICENDPOINTIDHostBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateBankLevelDynamicEndpointHost(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateBankLevelDynamicEntity", () => {
-    const body: api.DynamicEntityFooBar = undefined
+    const body: api.DynamicentitiesDYNAMICENTITYIDBody = undefined
     const DYNAMIC_ENTITY_ID: string = "DYNAMIC_ENTITY_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateBankLevelDynamicEntity(body, DYNAMIC_ENTITY_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateBankLevelEndpointTag", () => {
-    const body: api.EndpointTagJson400 = undefined
+    const body: api.TagsENDPOINTTAGIDBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateBankLevelEndpointTag(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateDynamicEndpointHost", () => {
-    const body: api.DynamicEndpointHostJson400 = undefined
+    const body: api.DYNAMICENDPOINTIDHostBody1 = undefined
     return expect(instance.oBPv400UpdateDynamicEndpointHost(body, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateMyDynamicEntity", () => {
-    const body: api.DynamicEntityFooBar = undefined
+    const body: api.DynamicentitiesDYNAMICENTITYIDBody1 = undefined
     const DYNAMIC_ENTITY_ID: string = "DYNAMIC_ENTITY_ID_example"
     return expect(instance.oBPv400UpdateMyDynamicEntity(body, DYNAMIC_ENTITY_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateSystemDynamicEntity", () => {
-    const body: api.DynamicEntityFooBar = undefined
+    const body: api.SystemdynamicentitiesDYNAMICENTITYIDBody = undefined
     const DYNAMIC_ENTITY_ID: string = "DYNAMIC_ENTITY_ID_example"
     return expect(instance.oBPv400UpdateSystemDynamicEntity(body, DYNAMIC_ENTITY_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateSystemLevelEndpointTag", () => {
-    const body: api.EndpointTagJson400 = undefined
+    const body: api.TagsENDPOINTTAGIDBody1 = undefined
     return expect(instance.oBPv400UpdateSystemLevelEndpointTag(body, {})).resolves.toBe(null)
   })
   test("oBPv400VerifyRequestSignResponse", () => {
@@ -230,7 +226,7 @@ describe("APIApi", () => {
     return expect(instance.oBPv500GetMetricsAtBank(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510CreateRegulatedEntity", () => {
-    const body: api.RegulatedEntityPostJsonV510 = undefined
+    const body: api.V510RegulatedentitiesBody = undefined
     return expect(instance.oBPv510CreateRegulatedEntity(body, {})).resolves.toBe(null)
   })
   test("oBPv510DeleteRegulatedEntity", () => {
@@ -266,37 +262,37 @@ describe("ATMApi", () => {
   });
 
   test("oBPv400UpdateAtmAccessibilityFeatures", () => {
-    const body: api.AccessibilityFeaturesJson = undefined
+    const body: api.ATMIDAccessibilityfeaturesBody = undefined
     const ATM_ID: string = "ATM_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateAtmAccessibilityFeatures(body, ATM_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateAtmLocationCategories", () => {
-    const body: api.AtmLocationCategoriesJsonV400 = undefined
+    const body: api.ATMIDLocationcategoriesBody = undefined
     const ATM_ID: string = "ATM_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateAtmLocationCategories(body, ATM_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateAtmNotes", () => {
-    const body: api.AtmNotesJsonV400 = undefined
+    const body: api.ATMIDNotesBody = undefined
     const ATM_ID: string = "ATM_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateAtmNotes(body, ATM_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateAtmServices", () => {
-    const body: api.AtmServicesJsonV400 = undefined
+    const body: api.ATMIDServicesBody = undefined
     const ATM_ID: string = "ATM_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateAtmServices(body, ATM_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateAtmSupportedCurrencies", () => {
-    const body: api.SupportedCurrenciesJson = undefined
+    const body: api.ATMIDSupportedcurrenciesBody = undefined
     const ATM_ID: string = "ATM_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateAtmSupportedCurrencies(body, ATM_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateAtmSupportedLanguages", () => {
-    const body: api.SupportedLanguagesJson = undefined
+    const body: api.ATMIDSupportedlanguagesBody = undefined
     const ATM_ID: string = "ATM_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateAtmSupportedLanguages(body, ATM_ID, BANK_ID, {})).resolves.toBe(null)
@@ -306,12 +302,12 @@ describe("ATMApi", () => {
     return expect(instance.oBPv500HeadAtms(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510CreateAtm", () => {
-    const body: api.PostAtmJsonV510 = undefined
+    const body: api.BANKIDAtmsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510CreateAtm(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510CreateAtmAttribute", () => {
-    const body: api.AtmAttributeJsonV510 = undefined
+    const body: api.ATMIDAttributesBody = undefined
     const ATM_ID: string = "ATM_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510CreateAtmAttribute(body, ATM_ID, BANK_ID, {})).resolves.toBe(null)
@@ -348,13 +344,13 @@ describe("ATMApi", () => {
     return expect(instance.oBPv510GetAtms(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510UpdateAtm", () => {
-    const body: api.AtmJsonV510 = undefined
+    const body: api.AtmsATMIDBody = undefined
     const ATM_ID: string = "ATM_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510UpdateAtm(body, ATM_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510UpdateAtmAttribute", () => {
-    const body: api.AtmAttributeJsonV510 = undefined
+    const body: api.AttributesATMATTRIBUTEIDBody = undefined
     const ATM_ATTRIBUTE_ID: string = "ATM_ATTRIBUTE_ID_example"
     const ATM_ID: string = "ATM_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -390,7 +386,7 @@ describe("AccountApi", () => {
     return expect(instance.oBPv300CorePrivateAccountsAllBanks({})).resolves.toBe(null)
   })
   test("oBPv300CreateViewForBankAccount", () => {
-    const body: api.CreateViewJsonV300 = undefined
+    const body: api.ACCOUNTIDViewsBody = undefined
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv300CreateViewForBankAccount(body, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
@@ -445,7 +441,7 @@ describe("AccountApi", () => {
     return expect(instance.oBPv300PrivateAccountsAtOneBank(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv300UpdateViewForBankAccount", () => {
-    const body: api.UpdateViewJsonV300 = undefined
+    const body: api.ViewsVIEWIDBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -458,12 +454,12 @@ describe("AccountApi", () => {
     return expect(instance.oBPv310CheckFundsAvailable(VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateAccountApplication", () => {
-    const body: api.AccountApplicationJson = undefined
+    const body: api.BANKIDAccountapplicationsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateAccountApplication(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateAccountAttribute", () => {
-    const body: api.AccountAttributeJson = undefined
+    const body: api.PRODUCTCODEAttributeBody = undefined
     const PRODUCT_CODE: string = "PRODUCT_CODE_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -485,19 +481,19 @@ describe("AccountApi", () => {
     return expect(instance.oBPv310GetCheckbookOrders(VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdateAccount", () => {
-    const body: api.UpdateAccountRequestJsonV310 = undefined
+    const body: api.AccountsACCOUNTIDBody = undefined
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310UpdateAccount(body, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdateAccountApplicationStatus", () => {
-    const body: api.AccountApplicationUpdateStatusJson = undefined
+    const body: api.AccountapplicationsACCOUNTAPPLICATIONIDBody = undefined
     const ACCOUNT_APPLICATION_ID: string = "ACCOUNT_APPLICATION_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310UpdateAccountApplicationStatus(body, ACCOUNT_APPLICATION_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdateAccountAttribute", () => {
-    const body: api.AccountAttributeJson = undefined
+    const body: api.AttributesACCOUNTATTRIBUTEIDBody = undefined
     const ACCOUNT_ATTRIBUTE_ID: string = "ACCOUNT_ATTRIBUTE_ID_example"
     const PRODUCT_CODE: string = "PRODUCT_CODE_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
@@ -505,58 +501,58 @@ describe("AccountApi", () => {
     return expect(instance.oBPv310UpdateAccountAttribute(body, ACCOUNT_ATTRIBUTE_ID, PRODUCT_CODE, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400AddAccount", () => {
-    const body: api.CreateAccountRequestJsonV310 = undefined
+    const body: api.BANKIDAccountsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400AddAccount(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400AddTagForViewOnAccount", () => {
-    const body: api.PostAccountTagJSON = undefined
+    const body: api.MetadataTagsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400AddTagForViewOnAccount(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateCounterparty", () => {
-    const body: api.PostCounterpartyJson400 = undefined
+    const body: api.VIEWIDCounterpartiesBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateCounterparty(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateCounterpartyForAnyAccount", () => {
-    const body: api.PostCounterpartyJson400 = undefined
+    const body: api.VIEWIDCounterpartiesBody1 = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateCounterpartyForAnyAccount(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateDirectDebit", () => {
-    const body: api.PostDirectDebitJsonV400 = undefined
+    const body: api.VIEWIDDirectdebitBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateDirectDebit(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateDirectDebitManagement", () => {
-    const body: api.PostDirectDebitJsonV400 = undefined
+    const body: api.ACCOUNTIDDirectdebitBody = undefined
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateDirectDebitManagement(body, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateOrUpdateAccountAttributeDefinition", () => {
-    const body: api.AttributeDefinitionJsonV400 = undefined
+    const body: api.AttributedefinitionsAccountBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateOrUpdateAccountAttributeDefinition(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateStandingOrder", () => {
-    const body: api.PostStandingOrderJsonV400 = undefined
+    const body: api.VIEWIDStandingorderBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateStandingOrder(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateStandingOrderManagement", () => {
-    const body: api.PostStandingOrderJsonV400 = undefined
+    const body: api.ACCOUNTIDStandingorderBody = undefined
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateStandingOrderManagement(body, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
@@ -596,11 +592,11 @@ describe("AccountApi", () => {
     return expect(instance.oBPv400GetAccountAttributeDefinition(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400GetAccountByAccountRouting", () => {
-    const body: api.BankAccountRoutingJson = undefined
+    const body: api.AccountsAccountroutingqueryBody = undefined
     return expect(instance.oBPv400GetAccountByAccountRouting(body, {})).resolves.toBe(null)
   })
   test("oBPv400GetAccountsByAccountRoutingRegex", () => {
-    const body: api.BankAccountRoutingJson = undefined
+    const body: api.AccountsAccountroutingregexqueryBody = undefined
     return expect(instance.oBPv400GetAccountsByAccountRoutingRegex(body, {})).resolves.toBe(null)
   })
   test("oBPv400GetAccountsMinimalByCustomerId", () => {
@@ -669,23 +665,23 @@ describe("AccountApi", () => {
     return expect(instance.oBPv400GetTagsForViewOnAccount(VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400IbanChecker", () => {
-    const body: api.IbanAddress = undefined
+    const body: api.SchemeIbanBody = undefined
     return expect(instance.oBPv400IbanChecker(body, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateAccountLabel", () => {
-    const body: api.UpdateAccountJsonV400 = undefined
+    const body: api.AccountsACCOUNTIDBody1 = undefined
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateAccountLabel(body, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500CreateAccount", () => {
-    const body: api.CreateAccountRequestJsonV500 = undefined
+    const body: api.AccountsACCOUNTIDBody2 = undefined
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500CreateAccount(body, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500CreateCustomerAccountLink", () => {
-    const body: api.CreateCustomerAccountLinkJson = undefined
+    const body: api.BANKIDCustomeraccountlinksBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500CreateCustomerAccountLink(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -695,14 +691,14 @@ describe("AccountApi", () => {
     return expect(instance.oBPv500GetViewsForBankAccount(ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510CreateCustomView", () => {
-    const body: api.CreateCustomViewJson = undefined
+    const body: api.VIEWIDTargetviewsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510CreateCustomView(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510CreateUserWithAccountAccessById", () => {
-    const body: api.PostCreateUserAccountAccessJsonV400 = undefined
+    const body: api.VIEWIDUseraccountaccessBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -763,21 +759,21 @@ describe("AccountApi", () => {
     return expect(instance.oBPv510GetCustomView(VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510GrantUserAccessToViewById", () => {
-    const body: api.PostAccountAccessJsonV510 = undefined
+    const body: api.AccountaccessGrantBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510GrantUserAccessToViewById(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510RevokeUserAccessToViewById", () => {
-    const body: api.PostAccountAccessJsonV510 = undefined
+    const body: api.AccountaccessRevokeBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510RevokeUserAccessToViewById(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510UpdateCustomView", () => {
-    const body: api.UpdateCustomViewJson = undefined
+    const body: api.TargetviewsTARGETVIEWIDBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -792,21 +788,21 @@ describe("AccountAccessApi", () => {
   });
 
   test("oBPv510CreateUserWithAccountAccessById", () => {
-    const body: api.PostCreateUserAccountAccessJsonV400 = undefined
+    const body: api.VIEWIDUseraccountaccessBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510CreateUserWithAccountAccessById(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510GrantUserAccessToViewById", () => {
-    const body: api.PostAccountAccessJsonV510 = undefined
+    const body: api.AccountaccessGrantBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510GrantUserAccessToViewById(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510RevokeUserAccessToViewById", () => {
-    const body: api.PostAccountAccessJsonV510 = undefined
+    const body: api.AccountaccessRevokeBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -821,7 +817,7 @@ describe("AccountApplicationApi", () => {
   });
 
   test("oBPv310CreateAccountApplication", () => {
-    const body: api.AccountApplicationJson = undefined
+    const body: api.BANKIDAccountapplicationsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateAccountApplication(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -835,7 +831,7 @@ describe("AccountApplicationApi", () => {
     return expect(instance.oBPv310GetAccountApplications(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdateAccountApplicationStatus", () => {
-    const body: api.AccountApplicationUpdateStatusJson = undefined
+    const body: api.AccountapplicationsACCOUNTAPPLICATIONIDBody = undefined
     const ACCOUNT_APPLICATION_ID: string = "ACCOUNT_APPLICATION_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310UpdateAccountApplicationStatus(body, ACCOUNT_APPLICATION_ID, BANK_ID, {})).resolves.toBe(null)
@@ -896,23 +892,23 @@ describe("AccountInformationServiceAISApi", () => {
     return expect(instance.oBPv300PrivateAccountsAtOneBank(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310AnswerConsentChallenge", () => {
-    const body: api.PostConsentChallengeJsonV310 = undefined
+    const body: api.CONSENTIDChallengeBody = undefined
     const CONSENT_ID: string = "CONSENT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310AnswerConsentChallenge(body, CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateConsentEmail", () => {
-    const body: api.PostConsentEmailJsonV310 = undefined
+    const body: api.ConsentsEMAILBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateConsentEmail(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateConsentImplicit", () => {
-    const body: api.PostConsentImplicitJsonV310 = undefined
+    const body: api.ConsentsIMPLICITBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateConsentImplicit(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateConsentSms", () => {
-    const body: api.PostConsentPhoneJsonV310 = undefined
+    const body: api.ConsentsSMSBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateConsentSms(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -925,7 +921,7 @@ describe("AccountInformationServiceAISApi", () => {
     return expect(instance.oBPv310RevokeConsent(CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400AddConsentUser", () => {
-    const body: api.PutConsentUserJsonV400 = undefined
+    const body: api.CONSENTIDUserupdaterequestBody = undefined
     const CONSENT_ID: string = "CONSENT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400AddConsentUser(body, CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
@@ -948,7 +944,7 @@ describe("AccountInformationServiceAISApi", () => {
     return expect(instance.oBPv400GetCoreAccountById(ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateConsentStatus", () => {
-    const body: api.PutConsentStatusJsonV400 = undefined
+    const body: api.ConsentsCONSENTIDBody = undefined
     const CONSENT_ID: string = "CONSENT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateConsentStatus(body, CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
@@ -963,7 +959,7 @@ describe("AccountInformationServiceAISApi", () => {
     return expect(instance.oBPv500CreateConsentByConsentRequestIdSms({})).resolves.toBe(null)
   })
   test("oBPv500CreateConsentRequest", () => {
-    const body: api.PostConsentRequestJsonV500 = undefined
+    const body: api.ConsumerConsentrequestsBody = undefined
     return expect(instance.oBPv500CreateConsentRequest(body, {})).resolves.toBe(null)
   })
   test("oBPv500GetBank", () => {
@@ -977,7 +973,7 @@ describe("AccountInformationServiceAISApi", () => {
     return expect(instance.oBPv500GetConsentRequest({})).resolves.toBe(null)
   })
   test("oBPv510CreateConsentImplicit", () => {
-    const body: api.PostConsentImplicitJsonV310 = undefined
+    const body: api.ConsentsIMPLICITBody1 = undefined
     return expect(instance.oBPv510CreateConsentImplicit(body, {})).resolves.toBe(null)
   })
   test("oBPv510GetBankAccountBalances", () => {
@@ -1032,19 +1028,19 @@ describe("AccountInformationServiceAISApi", () => {
     return expect(instance.oBPv510SelfRevokeConsent({})).resolves.toBe(null)
   })
   test("oBPv510UpdateConsentAccountAccessByConsentId", () => {
-    const body: api.PutConsentPayloadJsonV510 = undefined
+    const body: api.CONSENTIDAccountaccessBody = undefined
     const CONSENT_ID: string = "CONSENT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510UpdateConsentAccountAccessByConsentId(body, CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510UpdateConsentStatusByConsent", () => {
-    const body: api.PutConsentStatusJsonV400 = undefined
+    const body: api.ConsentsCONSENTIDBody1 = undefined
     const CONSENT_ID: string = "CONSENT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510UpdateConsentStatusByConsent(body, CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510UpdateConsentUserIdByConsentId", () => {
-    const body: api.PutConsentUserJsonV400 = undefined
+    const body: api.CONSENTIDCreatedbyuserBody = undefined
     const CONSENT_ID: string = "CONSENT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510UpdateConsentUserIdByConsentId(body, CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
@@ -1058,7 +1054,7 @@ describe("AccountMetadataApi", () => {
   });
 
   test("oBPv400AddTagForViewOnAccount", () => {
-    const body: api.PostAccountTagJSON = undefined
+    const body: api.MetadataTagsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -1118,15 +1114,15 @@ describe("ApiCollectionApi", () => {
   });
 
   test("oBPv400CreateMyApiCollection", () => {
-    const body: api.PostApiCollectionJson400 = undefined
+    const body: api.MyApicollectionsBody = undefined
     return expect(instance.oBPv400CreateMyApiCollection(body, {})).resolves.toBe(null)
   })
   test("oBPv400CreateMyApiCollectionEndpoint", () => {
-    const body: api.PostApiCollectionEndpointJson400 = undefined
+    const body: api.APICOLLECTIONNAMEApicollectionendpointsBody = undefined
     return expect(instance.oBPv400CreateMyApiCollectionEndpoint(body, {})).resolves.toBe(null)
   })
   test("oBPv400CreateMyApiCollectionEndpointById", () => {
-    const body: api.PostApiCollectionEndpointJson400 = undefined
+    const body: api.APICOLLECTIONIDApicollectionendpointsBody = undefined
     return expect(instance.oBPv400CreateMyApiCollectionEndpointById(body, {})).resolves.toBe(null)
   })
   test("oBPv400DeleteMyApiCollection", () => {
@@ -1176,7 +1172,7 @@ describe("ApiCollectionApi", () => {
     return expect(instance.oBPv510GetAllApiCollections({})).resolves.toBe(null)
   })
   test("oBPv510UpdateMyApiCollection", () => {
-    const body: api.PostApiCollectionJson400 = undefined
+    const body: api.ApicollectionsAPICOLLECTIONIDBody = undefined
     return expect(instance.oBPv510UpdateMyApiCollection(body, {})).resolves.toBe(null)
   })
 })
@@ -1188,7 +1184,7 @@ describe("AuthenticationTypeValidationApi", () => {
   });
 
   test("oBPv400CreateAuthenticationTypeValidation", () => {
-    const body: api.NotSupportedYet = undefined
+    const body: Array<string> = undefined
     return expect(instance.oBPv400CreateAuthenticationTypeValidation(body, {})).resolves.toBe(null)
   })
   test("oBPv400DeleteAuthenticationTypeValidation", () => {
@@ -1204,7 +1200,7 @@ describe("AuthenticationTypeValidationApi", () => {
     return expect(instance.oBPv400GetAuthenticationTypeValidation({})).resolves.toBe(null)
   })
   test("oBPv400UpdateAuthenticationTypeValidation", () => {
-    const body: api.NotSupportedYet = undefined
+    const body: Array<string> = undefined
     return expect(instance.oBPv400UpdateAuthenticationTypeValidation(body, {})).resolves.toBe(null)
   })
 })
@@ -1220,7 +1216,7 @@ describe("BankApi", () => {
     return expect(instance.oBPv200GetTransactionTypes(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv210CreateTransactionType", () => {
-    const body: api.TransactionTypeJsonV200 = undefined
+    const body: api.BANKIDTransactiontypesBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv210CreateTransactionType(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -1238,12 +1234,12 @@ describe("BankApi", () => {
     return expect(instance.oBPv300GetBranches(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateAccountWebhook", () => {
-    const body: api.AccountWebhookPostJson = undefined
+    const body: api.BANKIDAccountwebhooksBody1 = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateAccountWebhook(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310EnableDisableAccountWebhook", () => {
-    const body: api.AccountWebhookPutJson = undefined
+    const body: api.BANKIDAccountwebhooksBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310EnableDisableAccountWebhook(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -1252,27 +1248,27 @@ describe("BankApi", () => {
     return expect(instance.oBPv310GetAccountWebhooks(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateBankAccountNotificationWebhook", () => {
-    const body: api.AccountNotificationWebhookPostJson = undefined
+    const body: api.NotificationsOncreatetransactionBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateBankAccountNotificationWebhook(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateBankAttribute", () => {
-    const body: api.BankAttributeJsonV400 = undefined
+    const body: api.BANKIDAttributeBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateBankAttribute(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateOrUpdateBankAttributeDefinition", () => {
-    const body: api.AttributeDefinitionJsonV400 = undefined
+    const body: api.AttributedefinitionsBankBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateOrUpdateBankAttributeDefinition(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateSettlementAccount", () => {
-    const body: api.SettlementAccountRequestJson = undefined
+    const body: api.BANKIDSettlementaccountsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateSettlementAccount(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateSystemAccountNotificationWebhook", () => {
-    const body: api.AccountNotificationWebhookPostJson = undefined
+    const body: api.NotificationsOncreatetransactionBody1 = undefined
     return expect(instance.oBPv400CreateSystemAccountNotificationWebhook(body, {})).resolves.toBe(null)
   })
   test("oBPv400DeleteBankAttribute", () => {
@@ -1299,12 +1295,12 @@ describe("BankApi", () => {
     return expect(instance.oBPv400GetSettlementAccounts(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateBankAttribute", () => {
-    const body: api.BankAttributeJsonV400 = undefined
+    const body: api.AttributesBANKATTRIBUTEIDBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateBankAttribute(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500CreateBank", () => {
-    const body: api.PostBankJson500 = undefined
+    const body: api.V500BanksBody1 = undefined
     return expect(instance.oBPv500CreateBank(body, {})).resolves.toBe(null)
   })
   test("oBPv500GetBank", () => {
@@ -1312,7 +1308,7 @@ describe("BankApi", () => {
     return expect(instance.oBPv500GetBank(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500UpdateBank", () => {
-    const body: api.PostBankJson500 = undefined
+    const body: api.V500BanksBody = undefined
     return expect(instance.oBPv500UpdateBank(body, {})).resolves.toBe(null)
   })
 })
@@ -1341,7 +1337,7 @@ describe("BranchApi", () => {
   });
 
   test("oBPv300CreateBranch", () => {
-    const body: api.BranchJsonV300 = undefined
+    const body: api.BANKIDBranchesBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv300CreateBranch(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -1371,7 +1367,7 @@ describe("CardApi", () => {
     return expect(instance.oBPv130GetCards({})).resolves.toBe(null)
   })
   test("oBPv310CreateCardAttribute", () => {
-    const body: api.CardAttributeJson = undefined
+    const body: api.CARDIDAttributeBody = undefined
     const CARD_ID: string = "CARD_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateCardAttribute(body, CARD_ID, BANK_ID, {})).resolves.toBe(null)
@@ -1397,20 +1393,20 @@ describe("CardApi", () => {
     return expect(instance.oBPv310GetStatusOfCreditCardOrder(VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdateCardAttribute", () => {
-    const body: api.CardAttributeJson = undefined
+    const body: api.AttributesCARDATTRIBUTEIDBody = undefined
     const CARD_ATTRIBUTE_ID: string = "CARD_ATTRIBUTE_ID_example"
     const CARD_ID: string = "CARD_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310UpdateCardAttribute(body, CARD_ATTRIBUTE_ID, CARD_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdatedCardForBank", () => {
-    const body: api.UpdatePhysicalCardJsonV310 = undefined
+    const body: api.CardsCARDIDBody = undefined
     const CARD_ID: string = "CARD_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310UpdatedCardForBank(body, CARD_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateOrUpdateCardAttributeDefinition", () => {
-    const body: api.AttributeDefinitionJsonV400 = undefined
+    const body: api.AttributedefinitionsCardBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateOrUpdateCardAttributeDefinition(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -1423,7 +1419,7 @@ describe("CardApi", () => {
     return expect(instance.oBPv400GetCardAttributeDefinition(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500AddCardForBank", () => {
-    const body: api.CreatePhysicalCardJsonV500 = undefined
+    const body: api.BANKIDCardsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500AddCardForBank(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -1450,7 +1446,7 @@ describe("ConnectorMethodApi", () => {
   });
 
   test("oBPv400CreateConnectorMethod", () => {
-    const body: api.JsonConnectorMethod = undefined
+    const body: api.ManagementConnectormethodsBody = undefined
     return expect(instance.oBPv400CreateConnectorMethod(body, {})).resolves.toBe(null)
   })
   test("oBPv400GetAllConnectorMethods", () => {
@@ -1460,7 +1456,7 @@ describe("ConnectorMethodApi", () => {
     return expect(instance.oBPv400GetConnectorMethod({})).resolves.toBe(null)
   })
   test("oBPv400UpdateConnectorMethod", () => {
-    const body: api.JsonConnectorMethodMethodBody = undefined
+    const body: api.ConnectormethodsCONNECTORMETHODIDBody = undefined
     return expect(instance.oBPv400UpdateConnectorMethod(body, {})).resolves.toBe(null)
   })
 })
@@ -1472,23 +1468,23 @@ describe("ConsentApi", () => {
   });
 
   test("oBPv310AnswerConsentChallenge", () => {
-    const body: api.PostConsentChallengeJsonV310 = undefined
+    const body: api.CONSENTIDChallengeBody = undefined
     const CONSENT_ID: string = "CONSENT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310AnswerConsentChallenge(body, CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateConsentEmail", () => {
-    const body: api.PostConsentEmailJsonV310 = undefined
+    const body: api.ConsentsEMAILBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateConsentEmail(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateConsentImplicit", () => {
-    const body: api.PostConsentImplicitJsonV310 = undefined
+    const body: api.ConsentsIMPLICITBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateConsentImplicit(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateConsentSms", () => {
-    const body: api.PostConsentPhoneJsonV310 = undefined
+    const body: api.ConsentsSMSBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateConsentSms(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -1498,7 +1494,7 @@ describe("ConsentApi", () => {
     return expect(instance.oBPv310RevokeConsent(CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400AddConsentUser", () => {
-    const body: api.PutConsentUserJsonV400 = undefined
+    const body: api.CONSENTIDUserupdaterequestBody = undefined
     const CONSENT_ID: string = "CONSENT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400AddConsentUser(body, CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
@@ -1508,7 +1504,7 @@ describe("ConsentApi", () => {
     return expect(instance.oBPv400GetConsentInfos(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateConsentStatus", () => {
-    const body: api.PutConsentStatusJsonV400 = undefined
+    const body: api.ConsentsCONSENTIDBody = undefined
     const CONSENT_ID: string = "CONSENT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateConsentStatus(body, CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
@@ -1523,7 +1519,7 @@ describe("ConsentApi", () => {
     return expect(instance.oBPv500CreateConsentByConsentRequestIdSms({})).resolves.toBe(null)
   })
   test("oBPv500CreateConsentRequest", () => {
-    const body: api.PostConsentRequestJsonV500 = undefined
+    const body: api.ConsumerConsentrequestsBody = undefined
     return expect(instance.oBPv500CreateConsentRequest(body, {})).resolves.toBe(null)
   })
   test("oBPv500GetConsentByConsentRequestId", () => {
@@ -1533,11 +1529,11 @@ describe("ConsentApi", () => {
     return expect(instance.oBPv500GetConsentRequest({})).resolves.toBe(null)
   })
   test("oBPv510CreateConsentImplicit", () => {
-    const body: api.PostConsentImplicitJsonV310 = undefined
+    const body: api.ConsentsIMPLICITBody1 = undefined
     return expect(instance.oBPv510CreateConsentImplicit(body, {})).resolves.toBe(null)
   })
   test("oBPv510CreateVRPConsentRequest", () => {
-    const body: api.PostVRPConsentRequestJsonV510 = undefined
+    const body: api.ConsumerVrpconsentrequestsBody = undefined
     return expect(instance.oBPv510CreateVRPConsentRequest(body, {})).resolves.toBe(null)
   })
   test("oBPv510GetConsentByConsentId", () => {
@@ -1571,19 +1567,19 @@ describe("ConsentApi", () => {
     return expect(instance.oBPv510SelfRevokeConsent({})).resolves.toBe(null)
   })
   test("oBPv510UpdateConsentAccountAccessByConsentId", () => {
-    const body: api.PutConsentPayloadJsonV510 = undefined
+    const body: api.CONSENTIDAccountaccessBody = undefined
     const CONSENT_ID: string = "CONSENT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510UpdateConsentAccountAccessByConsentId(body, CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510UpdateConsentStatusByConsent", () => {
-    const body: api.PutConsentStatusJsonV400 = undefined
+    const body: api.ConsentsCONSENTIDBody1 = undefined
     const CONSENT_ID: string = "CONSENT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510UpdateConsentStatusByConsent(body, CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510UpdateConsentUserIdByConsentId", () => {
-    const body: api.PutConsentUserJsonV400 = undefined
+    const body: api.CONSENTIDCreatedbyuserBody = undefined
     const CONSENT_ID: string = "CONSENT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510UpdateConsentUserIdByConsentId(body, CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
@@ -1602,7 +1598,7 @@ describe("ConsumerApi", () => {
     return expect(instance.oBPv300DeleteScope(SCOPE_ID, CONSUMER_ID, {})).resolves.toBe(null)
   })
   test("oBPv310EnableDisableConsumers", () => {
-    const body: api.PutEnabledJSON = undefined
+    const body: api.ConsumersCONSUMERIDBody = undefined
     const CONSUMER_ID: string = "CONSUMER_ID_example"
     return expect(instance.oBPv310EnableDisableConsumers(body, CONSUMER_ID, {})).resolves.toBe(null)
   })
@@ -1614,12 +1610,12 @@ describe("ConsumerApi", () => {
     return expect(instance.oBPv310GetConsumersForCurrentUser({})).resolves.toBe(null)
   })
   test("oBPv400AddScope", () => {
-    const body: api.CreateScopeJson = undefined
+    const body: api.CONSUMERIDScopesBody = undefined
     const CONSUMER_ID: string = "CONSUMER_ID_example"
     return expect(instance.oBPv400AddScope(body, CONSUMER_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CallsLimit", () => {
-    const body: api.CallLimitPostJsonV400 = undefined
+    const body: api.ConsumerCalllimitsBody = undefined
     const CONSUMER_ID: string = "CONSUMER_ID_example"
     return expect(instance.oBPv400CallsLimit(body, CONSUMER_ID, {})).resolves.toBe(null)
   })
@@ -1628,11 +1624,11 @@ describe("ConsumerApi", () => {
     return expect(instance.oBPv400GetScopes(CONSUMER_ID, {})).resolves.toBe(null)
   })
   test("oBPv510CreateConsumer", () => {
-    const body: api.CreateConsumerRequestJsonV510 = undefined
+    const body: api.ManagementConsumersBody = undefined
     return expect(instance.oBPv510CreateConsumer(body, {})).resolves.toBe(null)
   })
   test("oBPv510CreateConsumerDynamicRegistraion", () => {
-    const body: api.ConsumerJwtPostJsonV510 = undefined
+    const body: api.DynamicregistrationConsumersBody = undefined
     return expect(instance.oBPv510CreateConsumerDynamicRegistraion(body, {})).resolves.toBe(null)
   })
   test("oBPv510GetConsumer", () => {
@@ -1643,12 +1639,12 @@ describe("ConsumerApi", () => {
     return expect(instance.oBPv510GetConsumers({})).resolves.toBe(null)
   })
   test("oBPv510UpdateConsumerLogoURL", () => {
-    const body: api.ConsumerLogoUrlJson = undefined
+    const body: api.ConsumerLogoUrlBody = undefined
     const CONSUMER_ID: string = "CONSUMER_ID_example"
     return expect(instance.oBPv510UpdateConsumerLogoURL(body, CONSUMER_ID, {})).resolves.toBe(null)
   })
   test("oBPv510UpdateConsumerRedirectUrl", () => {
-    const body: api.ConsumerRedirectUrlJSON = undefined
+    const body: api.ConsumerRedirectUrlBody = undefined
     const CONSUMER_ID: string = "CONSUMER_ID_example"
     return expect(instance.oBPv510UpdateConsumerRedirectUrl(body, CONSUMER_ID, {})).resolves.toBe(null)
   })
@@ -1886,14 +1882,14 @@ describe("CounterpartyApi", () => {
     return expect(instance.oBPv300GetOtherAccountsForBankAccount(VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateCounterparty", () => {
-    const body: api.PostCounterpartyJson400 = undefined
+    const body: api.VIEWIDCounterpartiesBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateCounterparty(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateCounterpartyForAnyAccount", () => {
-    const body: api.PostCounterpartyJson400 = undefined
+    const body: api.VIEWIDCounterpartiesBody1 = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -1955,7 +1951,7 @@ describe("CounterpartyLimitsApi", () => {
   });
 
   test("oBPv510CreateCounterpartyLimit", () => {
-    const body: api.PostCounterpartyLimitV510 = undefined
+    const body: api.COUNTERPARTYIDLimitsBody1 = undefined
     const COUNTERPARTY_ID: string = "COUNTERPARTY_ID_example"
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
@@ -1984,7 +1980,7 @@ describe("CounterpartyLimitsApi", () => {
     return expect(instance.oBPv510GetCounterpartyLimitStatus(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510UpdateCounterpartyLimit", () => {
-    const body: api.PostCounterpartyLimitV510 = undefined
+    const body: api.COUNTERPARTYIDLimitsBody = undefined
     const COUNTERPARTY_ID: string = "COUNTERPARTY_ID_example"
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
@@ -2291,18 +2287,18 @@ describe("CustomerApi", () => {
     return expect(instance.oBPv300GetCustomersForUser({})).resolves.toBe(null)
   })
   test("oBPv310CreateCustomerAddress", () => {
-    const body: api.PostCustomerAddressJsonV310 = undefined
+    const body: api.CUSTOMERIDAddressBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateCustomerAddress(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateMeeting", () => {
-    const body: api.CreateMeetingJsonV310 = undefined
+    const body: api.BANKIDMeetingsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateMeeting(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateTaxResidence", () => {
-    const body: api.PostTaxResidenceJsonV310 = undefined
+    const body: api.CUSTOMERIDTaxresidenceBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateTaxResidence(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
@@ -2330,7 +2326,7 @@ describe("CustomerApi", () => {
     return expect(instance.oBPv310GetCustomerByCustomerId(CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310GetCustomerByCustomerNumber", () => {
-    const body: api.PostCustomerNumberJsonV310 = undefined
+    const body: api.CustomersCustomernumberBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310GetCustomerByCustomerNumber(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -2353,79 +2349,79 @@ describe("CustomerApi", () => {
     return expect(instance.oBPv310GetTaxResidence(CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdateCustomerAddress", () => {
-    const body: api.PostCustomerAddressJsonV310 = undefined
+    const body: api.AddressesCUSTOMERADDRESSIDBody = undefined
     const CUSTOMER_ADDRESS_ID: string = "CUSTOMER_ADDRESS_ID_example"
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310UpdateCustomerAddress(body, CUSTOMER_ADDRESS_ID, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdateCustomerBranch", () => {
-    const body: api.PutUpdateCustomerBranchJsonV310 = undefined
+    const body: api.CUSTOMERIDBranchBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310UpdateCustomerBranch(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdateCustomerCreditLimit", () => {
-    const body: api.PutUpdateCustomerCreditLimitJsonV310 = undefined
+    const body: api.CUSTOMERIDCreditlimitBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310UpdateCustomerCreditLimit(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdateCustomerCreditRatingAndSource", () => {
-    const body: api.PutUpdateCustomerCreditRatingAndSourceJsonV310 = undefined
+    const body: api.CUSTOMERIDCreditratingandsourceBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310UpdateCustomerCreditRatingAndSource(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdateCustomerData", () => {
-    const body: api.PutUpdateCustomerDataJsonV310 = undefined
+    const body: api.CUSTOMERIDDataBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310UpdateCustomerData(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdateCustomerEmail", () => {
-    const body: api.PutUpdateCustomerEmailJsonV310 = undefined
+    const body: api.CUSTOMERIDEmailBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310UpdateCustomerEmail(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdateCustomerIdentity", () => {
-    const body: api.PutUpdateCustomerIdentityJsonV310 = undefined
+    const body: api.CUSTOMERIDIdentityBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310UpdateCustomerIdentity(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdateCustomerMobileNumber", () => {
-    const body: api.PutUpdateCustomerMobilePhoneNumberJsonV310 = undefined
+    const body: api.CUSTOMERIDMobilenumberBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310UpdateCustomerMobileNumber(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310UpdateCustomerNumber", () => {
-    const body: api.PutUpdateCustomerNumberJsonV310 = undefined
+    const body: api.CUSTOMERIDNumberBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310UpdateCustomerNumber(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateCustomerAttribute", () => {
-    const body: api.CustomerAttributeJsonV400 = undefined
+    const body: api.CUSTOMERIDAttributeBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateCustomerAttribute(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateCustomerMessage", () => {
-    const body: api.CreateMessageJsonV400 = undefined
+    const body: api.CUSTOMERIDMessagesBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateCustomerMessage(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateOrUpdateCustomerAttributeAttributeDefinition", () => {
-    const body: api.AttributeDefinitionJsonV400 = undefined
+    const body: api.AttributedefinitionsCustomerBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateOrUpdateCustomerAttributeAttributeDefinition(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateUserCustomerLinks", () => {
-    const body: api.CreateUserCustomerLinkJson = undefined
+    const body: api.BANKIDUserCustomerLinksBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateUserCustomerLinks(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -2475,7 +2471,7 @@ describe("CustomerApi", () => {
     return expect(instance.oBPv400GetCustomersAtAnyBank({})).resolves.toBe(null)
   })
   test("oBPv400GetCustomersByCustomerPhoneNumber", () => {
-    const body: api.PostCustomerPhoneNumberJsonV400 = undefined
+    const body: api.CustomersMobilephonenumberBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400GetCustomersByCustomerPhoneNumber(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -2496,18 +2492,18 @@ describe("CustomerApi", () => {
     return expect(instance.oBPv400GetUserCustomerLinksByUserId(USER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateCustomerAttribute", () => {
-    const body: api.CustomerAttributeJsonV400 = undefined
+    const body: api.AttributesCUSTOMERATTRIBUTEIDBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateCustomerAttribute(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500CreateCustomer", () => {
-    const body: api.PostCustomerJsonV500 = undefined
+    const body: api.BANKIDCustomersBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500CreateCustomer(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500CreateCustomerAccountLink", () => {
-    const body: api.CreateCustomerAccountLinkJson = undefined
+    const body: api.BANKIDCustomeraccountlinksBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500CreateCustomerAccountLink(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -2530,12 +2526,12 @@ describe("CustomerApi", () => {
     return expect(instance.oBPv500GetCustomerAccountLinksByCustomerId(CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500GetCustomerOverview", () => {
-    const body: api.PostCustomerOverviewJsonV500 = undefined
+    const body: api.CustomernumberqueryOverviewBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500GetCustomerOverview(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500GetCustomerOverviewFlat", () => {
-    const body: api.PostCustomerOverviewJsonV500 = undefined
+    const body: api.CustomernumberqueryOverviewflatBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500GetCustomerOverviewFlat(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -2555,17 +2551,17 @@ describe("CustomerApi", () => {
     return expect(instance.oBPv500GetMyCustomersAtBank(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500UpdateCustomerAccountLinkById", () => {
-    const body: api.UpdateCustomerAccountLinkJson = undefined
+    const body: api.CustomeraccountlinksCUSTOMERACCOUNTLINKIDBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500UpdateCustomerAccountLinkById(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510CreateAgent", () => {
-    const body: api.PostAgentJsonV510 = undefined
+    const body: api.BANKIDAgentsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510CreateAgent(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510GetCustomersByLegalName", () => {
-    const body: api.PostCustomerLegalNameJsonV510 = undefined
+    const body: api.CustomersLegalnameBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510GetCustomersByLegalName(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -2573,7 +2569,7 @@ describe("CustomerApi", () => {
     return expect(instance.oBPv510GetCustomersForUserIdsOnly({})).resolves.toBe(null)
   })
   test("oBPv510UpdateAgentStatus", () => {
-    const body: api.PutAgentJsonV510 = undefined
+    const body: api.AgentsAGENTIDBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510UpdateAgentStatus(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -2586,7 +2582,7 @@ describe("CustomerMeetingApi", () => {
   });
 
   test("oBPv310CreateMeeting", () => {
-    const body: api.CreateMeetingJsonV310 = undefined
+    const body: api.BANKIDMeetingsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateMeeting(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -2618,7 +2614,7 @@ describe("CustomerMessageApi", () => {
     return expect(instance.oBPv140GetCustomersMessages(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateCustomerMessage", () => {
-    const body: api.CreateMessageJsonV400 = undefined
+    const body: api.CUSTOMERIDMessagesBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateCustomerMessage(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
@@ -2637,11 +2633,11 @@ describe("DAuthApi", () => {
   });
 
   test("oBPv400CreateUserWithRoles", () => {
-    const body: api.PostCreateUserWithRolesJsonV400 = undefined
+    const body: api.V400UserentitlementsBody = undefined
     return expect(instance.oBPv400CreateUserWithRoles(body, {})).resolves.toBe(null)
   })
   test("oBPv510CreateUserWithAccountAccessById", () => {
-    const body: api.PostCreateUserAccountAccessJsonV400 = undefined
+    const body: api.VIEWIDUseraccountaccessBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -2656,12 +2652,12 @@ describe("DataWarehouseApi", () => {
   });
 
   test("oBPv300DataWarehouseSearch", () => {
-    const body: api.ElasticSearchJsonV300 = undefined
+    const body: api.WarehouseINDEXBody = undefined
     const INDEX: string = "INDEX_example"
     return expect(instance.oBPv300DataWarehouseSearch(body, INDEX, {})).resolves.toBe(null)
   })
   test("oBPv300DataWarehouseStatistics", () => {
-    const body: api.ElasticSearchJsonV300 = undefined
+    const body: api.INDEXFIELDBody = undefined
     const FIELD: string = "FIELD_example"
     const INDEX: string = "INDEX_example"
     return expect(instance.oBPv300DataWarehouseStatistics(body, FIELD, INDEX, {})).resolves.toBe(null)
@@ -2675,14 +2671,14 @@ describe("DirectDebitApi", () => {
   });
 
   test("oBPv400CreateDirectDebit", () => {
-    const body: api.PostDirectDebitJsonV400 = undefined
+    const body: api.VIEWIDDirectdebitBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateDirectDebit(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateDirectDebitManagement", () => {
-    const body: api.PostDirectDebitJsonV400 = undefined
+    const body: api.ACCOUNTIDDirectdebitBody = undefined
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateDirectDebitManagement(body, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
@@ -2696,11 +2692,11 @@ describe("DirectoryApi", () => {
   });
 
   test("oBPv510CreateConsumerDynamicRegistraion", () => {
-    const body: api.ConsumerJwtPostJsonV510 = undefined
+    const body: api.DynamicregistrationConsumersBody = undefined
     return expect(instance.oBPv510CreateConsumerDynamicRegistraion(body, {})).resolves.toBe(null)
   })
   test("oBPv510CreateRegulatedEntity", () => {
-    const body: api.RegulatedEntityPostJsonV510 = undefined
+    const body: api.V510RegulatedentitiesBody = undefined
     return expect(instance.oBPv510CreateRegulatedEntity(body, {})).resolves.toBe(null)
   })
   test("oBPv510DeleteRegulatedEntity", () => {
@@ -2790,12 +2786,12 @@ describe("DynamicEndpointManageApi", () => {
     return expect(instance.oBPv400GetMyDynamicEndpoints({})).resolves.toBe(null)
   })
   test("oBPv400UpdateBankLevelDynamicEndpointHost", () => {
-    const body: api.DynamicEndpointHostJson400 = undefined
+    const body: api.DYNAMICENDPOINTIDHostBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateBankLevelDynamicEndpointHost(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateDynamicEndpointHost", () => {
-    const body: api.DynamicEndpointHostJson400 = undefined
+    const body: api.DYNAMICENDPOINTIDHostBody1 = undefined
     return expect(instance.oBPv400UpdateDynamicEndpointHost(body, {})).resolves.toBe(null)
   })
 })
@@ -2807,12 +2803,12 @@ describe("DynamicEntityManageApi", () => {
   });
 
   test("oBPv400CreateBankLevelDynamicEntity", () => {
-    const body: api.DynamicEntityFooBar = undefined
+    const body: api.BANKIDDynamicentitiesBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateBankLevelDynamicEntity(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateSystemDynamicEntity", () => {
-    const body: api.DynamicEntityFooBar = undefined
+    const body: api.ManagementSystemdynamicentitiesBody = undefined
     return expect(instance.oBPv400CreateSystemDynamicEntity(body, {})).resolves.toBe(null)
   })
   test("oBPv400DeleteBankLevelDynamicEntity", () => {
@@ -2839,18 +2835,18 @@ describe("DynamicEntityManageApi", () => {
     return expect(instance.oBPv400GetSystemDynamicEntities({})).resolves.toBe(null)
   })
   test("oBPv400UpdateBankLevelDynamicEntity", () => {
-    const body: api.DynamicEntityFooBar = undefined
+    const body: api.DynamicentitiesDYNAMICENTITYIDBody = undefined
     const DYNAMIC_ENTITY_ID: string = "DYNAMIC_ENTITY_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateBankLevelDynamicEntity(body, DYNAMIC_ENTITY_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateMyDynamicEntity", () => {
-    const body: api.DynamicEntityFooBar = undefined
+    const body: api.DynamicentitiesDYNAMICENTITYIDBody1 = undefined
     const DYNAMIC_ENTITY_ID: string = "DYNAMIC_ENTITY_ID_example"
     return expect(instance.oBPv400UpdateMyDynamicEntity(body, DYNAMIC_ENTITY_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateSystemDynamicEntity", () => {
-    const body: api.DynamicEntityFooBar = undefined
+    const body: api.SystemdynamicentitiesDYNAMICENTITYIDBody = undefined
     const DYNAMIC_ENTITY_ID: string = "DYNAMIC_ENTITY_ID_example"
     return expect(instance.oBPv400UpdateSystemDynamicEntity(body, DYNAMIC_ENTITY_ID, {})).resolves.toBe(null)
   })
@@ -2863,12 +2859,12 @@ describe("DynamicMessageDocApi", () => {
   });
 
   test("oBPv400CreateBankLevelDynamicMessageDoc", () => {
-    const body: api.JsonDynamicMessageDoc = undefined
+    const body: api.BANKIDDynamicmessagedocsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateBankLevelDynamicMessageDoc(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateDynamicMessageDoc", () => {
-    const body: api.JsonDynamicMessageDoc = undefined
+    const body: api.ManagementDynamicmessagedocsBody = undefined
     return expect(instance.oBPv400CreateDynamicMessageDoc(body, {})).resolves.toBe(null)
   })
   test("oBPv400DeleteBankLevelDynamicMessageDoc", () => {
@@ -2893,12 +2889,12 @@ describe("DynamicMessageDocApi", () => {
     return expect(instance.oBPv400GetDynamicMessageDoc({})).resolves.toBe(null)
   })
   test("oBPv400UpdateBankLevelDynamicMessageDoc", () => {
-    const body: api.JsonDynamicMessageDoc = undefined
+    const body: api.DynamicmessagedocsDYNAMICMESSAGEDOCIDBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateBankLevelDynamicMessageDoc(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateDynamicMessageDoc", () => {
-    const body: api.JsonDynamicMessageDoc = undefined
+    const body: api.DynamicmessagedocsDYNAMICMESSAGEDOCIDBody1 = undefined
     return expect(instance.oBPv400UpdateDynamicMessageDoc(body, {})).resolves.toBe(null)
   })
 })
@@ -2910,16 +2906,16 @@ describe("DynamicResourceDocApi", () => {
   });
 
   test("oBPv400BuildDynamicEndpointTemplate", () => {
-    const body: api.ResourceDocFragment = undefined
+    const body: api.DynamicresourcedocsEndpointcodeBody = undefined
     return expect(instance.oBPv400BuildDynamicEndpointTemplate(body, {})).resolves.toBe(null)
   })
   test("oBPv400CreateBankLevelDynamicResourceDoc", () => {
-    const body: api.JsonDynamicResourceDoc = undefined
+    const body: api.BANKIDDynamicresourcedocsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateBankLevelDynamicResourceDoc(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateDynamicResourceDoc", () => {
-    const body: api.JsonDynamicResourceDoc = undefined
+    const body: api.ManagementDynamicresourcedocsBody = undefined
     return expect(instance.oBPv400CreateDynamicResourceDoc(body, {})).resolves.toBe(null)
   })
   test("oBPv400DeleteBankLevelDynamicResourceDoc", () => {
@@ -2944,12 +2940,12 @@ describe("DynamicResourceDocApi", () => {
     return expect(instance.oBPv400GetDynamicResourceDoc({})).resolves.toBe(null)
   })
   test("oBPv400UpdateBankLevelDynamicResourceDoc", () => {
-    const body: api.JsonDynamicResourceDoc = undefined
+    const body: api.DynamicresourcedocsDYNAMICRESOURCEDOCIDBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateBankLevelDynamicResourceDoc(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateDynamicResourceDoc", () => {
-    const body: api.JsonDynamicResourceDoc = undefined
+    const body: api.DynamicresourcedocsDYNAMICRESOURCEDOCIDBody1 = undefined
     return expect(instance.oBPv400UpdateDynamicResourceDoc(body, {})).resolves.toBe(null)
   })
 })
@@ -3028,7 +3024,7 @@ describe("EntitlementApi", () => {
     return expect(instance.oBPv210GetEntitlementsByBankAndUser(USER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv300AddEntitlementRequest", () => {
-    const body: api.CreateEntitlementJSON = undefined
+    const body: api.V300EntitlementrequestsBody = undefined
     return expect(instance.oBPv300AddEntitlementRequest(body, {})).resolves.toBe(null)
   })
   test("oBPv300DeleteEntitlementRequest", () => {
@@ -3052,7 +3048,7 @@ describe("EntitlementApi", () => {
     return expect(instance.oBPv310GetAllEntitlements({})).resolves.toBe(null)
   })
   test("oBPv400CreateUserWithRoles", () => {
-    const body: api.PostCreateUserWithRolesJsonV400 = undefined
+    const body: api.V400UserentitlementsBody = undefined
     return expect(instance.oBPv400CreateUserWithRoles(body, {})).resolves.toBe(null)
   })
   test("oBPv400GetEntitlements", () => {
@@ -3076,7 +3072,7 @@ describe("ExperimentalApi", () => {
   });
 
   test("oBPv310CreateMeeting", () => {
-    const body: api.CreateMeetingJsonV310 = undefined
+    const body: api.BANKIDMeetingsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateMeeting(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -3098,7 +3094,7 @@ describe("FXApi", () => {
   });
 
   test("oBPv220CreateFx", () => {
-    const body: api.FXRateJsonV220 = undefined
+    const body: api.BANKIDFxBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv220CreateFx(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -3148,7 +3144,7 @@ describe("JSONSchemaValidationApi", () => {
   });
 
   test("oBPv400CreateJsonSchemaValidation", () => {
-    const body: api.JsonSchemaV400 = undefined
+    const body: api.JsonschemavalidationsOPERATIONIDBody1 = undefined
     return expect(instance.oBPv400CreateJsonSchemaValidation(body, {})).resolves.toBe(null)
   })
   test("oBPv400DeleteJsonSchemaValidation", () => {
@@ -3164,7 +3160,7 @@ describe("JSONSchemaValidationApi", () => {
     return expect(instance.oBPv400GetJsonSchemaValidation({})).resolves.toBe(null)
   })
   test("oBPv400UpdateJsonSchemaValidation", () => {
-    const body: api.JsonSchemaV400 = undefined
+    const body: api.JsonschemavalidationsOPERATIONIDBody = undefined
     return expect(instance.oBPv400UpdateJsonSchemaValidation(body, {})).resolves.toBe(null)
   })
 })
@@ -3219,7 +3215,7 @@ describe("KYCApi", () => {
     return expect(instance.oBPv200GetKycStatuses(CUSTOMER_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateTaxResidence", () => {
-    const body: api.PostTaxResidenceJsonV310 = undefined
+    const body: api.CUSTOMERIDTaxresidenceBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateTaxResidence(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
@@ -3242,7 +3238,7 @@ describe("KYCApi", () => {
     return expect(instance.oBPv310GetCustomerAddresses(CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310GetCustomerByCustomerNumber", () => {
-    const body: api.PostCustomerNumberJsonV310 = undefined
+    const body: api.CustomersCustomernumberBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310GetCustomerByCustomerNumber(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -3252,32 +3248,32 @@ describe("KYCApi", () => {
     return expect(instance.oBPv310GetTaxResidence(CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateUserInvitation", () => {
-    const body: api.PostUserInvitationJsonV400 = undefined
+    const body: api.BANKIDUserinvitationBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateUserInvitation(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400GetCustomersByCustomerPhoneNumber", () => {
-    const body: api.PostCustomerPhoneNumberJsonV400 = undefined
+    const body: api.CustomersMobilephonenumberBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400GetCustomersByCustomerPhoneNumber(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400GetUserInvitationAnonymous", () => {
-    const body: api.PostUserInvitationAnonymousJsonV400 = undefined
+    const body: api.BANKIDUserinvitationsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400GetUserInvitationAnonymous(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500GetCustomerOverview", () => {
-    const body: api.PostCustomerOverviewJsonV500 = undefined
+    const body: api.CustomernumberqueryOverviewBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500GetCustomerOverview(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500GetCustomerOverviewFlat", () => {
-    const body: api.PostCustomerOverviewJsonV500 = undefined
+    const body: api.CustomernumberqueryOverviewflatBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500GetCustomerOverviewFlat(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510GetCustomersByLegalName", () => {
-    const body: api.PostCustomerLegalNameJsonV510 = undefined
+    const body: api.CustomersLegalnameBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510GetCustomersByLegalName(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -3290,7 +3286,7 @@ describe("MethodRoutingApi", () => {
   });
 
   test("oBPv310CreateMethodRouting", () => {
-    const body: api.MethodRoutingCommons = undefined
+    const body: api.ManagementMethodRoutingsBody = undefined
     return expect(instance.oBPv310CreateMethodRouting(body, {})).resolves.toBe(null)
   })
   test("oBPv310DeleteMethodRouting", () => {
@@ -3301,7 +3297,7 @@ describe("MethodRoutingApi", () => {
     return expect(instance.oBPv310GetMethodRoutings({})).resolves.toBe(null)
   })
   test("oBPv310UpdateMethodRouting", () => {
-    const body: api.MethodRoutingCommons = undefined
+    const body: api.MethodRoutingsMETHODROUTINGIDBody = undefined
     const METHOD_ROUTING_ID: string = "METHOD_ROUTING_ID_example"
     return expect(instance.oBPv310UpdateMethodRouting(body, METHOD_ROUTING_ID, {})).resolves.toBe(null)
   })
@@ -3359,7 +3355,7 @@ describe("OnboardingApi", () => {
     return expect(instance.oBPv200CreateUser(body, {})).resolves.toBe(null)
   })
   test("oBPv500CreateAccount", () => {
-    const body: api.CreateAccountRequestJsonV500 = undefined
+    const body: api.AccountsACCOUNTIDBody2 = undefined
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500CreateAccount(body, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
@@ -3373,21 +3369,21 @@ describe("OwnerViewRequiredApi", () => {
   });
 
   test("oBPv510CreateUserWithAccountAccessById", () => {
-    const body: api.PostCreateUserAccountAccessJsonV400 = undefined
+    const body: api.VIEWIDUseraccountaccessBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510CreateUserWithAccountAccessById(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510GrantUserAccessToViewById", () => {
-    const body: api.PostAccountAccessJsonV510 = undefined
+    const body: api.AccountaccessGrantBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510GrantUserAccessToViewById(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510RevokeUserAccessToViewById", () => {
-    const body: api.PostAccountAccessJsonV510 = undefined
+    const body: api.AccountaccessRevokeBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -3412,7 +3408,7 @@ describe("PSD2Api", () => {
     return expect(instance.oBPv200GetTransactionTypes(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv210CreateTransactionRequestSandboxTan", () => {
-    const body: api.TransactionRequestBodyJsonV200 = undefined
+    const body: api.SANDBOXTANTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -3439,7 +3435,7 @@ describe("PSD2Api", () => {
     return expect(instance.oBPv300PrivateAccountsAtOneBank(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310AnswerConsentChallenge", () => {
-    const body: api.PostConsentChallengeJsonV310 = undefined
+    const body: api.CONSENTIDChallengeBody = undefined
     const CONSENT_ID: string = "CONSENT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310AnswerConsentChallenge(body, CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
@@ -3451,17 +3447,17 @@ describe("PSD2Api", () => {
     return expect(instance.oBPv310CheckFundsAvailable(VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateConsentEmail", () => {
-    const body: api.PostConsentEmailJsonV310 = undefined
+    const body: api.ConsentsEMAILBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateConsentEmail(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateConsentImplicit", () => {
-    const body: api.PostConsentImplicitJsonV310 = undefined
+    const body: api.ConsentsIMPLICITBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateConsentImplicit(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310CreateConsentSms", () => {
-    const body: api.PostConsentPhoneJsonV310 = undefined
+    const body: api.ConsentsSMSBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateConsentSms(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -3474,7 +3470,7 @@ describe("PSD2Api", () => {
     return expect(instance.oBPv310RevokeConsent(CONSENT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400AnswerTransactionRequestChallenge", () => {
-    const body: api.ChallengeAnswerJson400 = undefined
+    const body: api.TRANSACTIONREQUESTIDChallengeBody = undefined
     const TRANSACTION_REQUEST_ID: string = "TRANSACTION_REQUEST_ID_example"
     const TRANSACTION_REQUEST_TYPE: string = "TRANSACTION_REQUEST_TYPE_example"
     const VIEW_ID: string = "VIEW_ID_example"
@@ -3483,53 +3479,53 @@ describe("PSD2Api", () => {
     return expect(instance.oBPv400AnswerTransactionRequestChallenge(body, TRANSACTION_REQUEST_ID, TRANSACTION_REQUEST_TYPE, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestAccount", () => {
-    const body: api.TransactionRequestBodyJsonV200 = undefined
+    const body: api.ACCOUNTTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestAccount(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestAccountOtp", () => {
-    const body: api.TransactionRequestBodyJsonV200 = undefined
+    const body: api.ACCOUNTOTPTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestAccountOtp(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestAgentCashWithDrawal", () => {
-    const body: api.TransactionRequestBodyAgentJsonV400 = undefined
+    const body: api.AGENTCASHWITHDRAWALTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestAgentCashWithDrawal(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestCard", () => {
-    const body: api.TransactionRequestBodyCardJsonV400 = undefined
+    const body: api.CARDTransactionrequestsBody = undefined
     return expect(instance.oBPv400CreateTransactionRequestCard(body, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestCounterparty", () => {
-    const body: api.TransactionRequestBodyCounterpartyJSON = undefined
+    const body: api.COUNTERPARTYTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestCounterparty(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestRefund", () => {
-    const body: api.TransactionRequestBodyRefundJsonV400 = undefined
+    const body: api.REFUNDTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestRefund(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestSepa", () => {
-    const body: api.TransactionRequestBodySEPAJsonV400 = undefined
+    const body: api.SEPATransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestSepa(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestSimple", () => {
-    const body: api.TransactionRequestBodySimpleJsonV400 = undefined
+    const body: api.SIMPLETransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -3592,7 +3588,7 @@ describe("PSD2Api", () => {
     return expect(instance.oBPv500CreateConsentByConsentRequestIdSms({})).resolves.toBe(null)
   })
   test("oBPv500CreateConsentRequest", () => {
-    const body: api.PostConsentRequestJsonV500 = undefined
+    const body: api.ConsumerConsentrequestsBody = undefined
     return expect(instance.oBPv500CreateConsentRequest(body, {})).resolves.toBe(null)
   })
   test("oBPv500GetBank", () => {
@@ -3606,7 +3602,7 @@ describe("PSD2Api", () => {
     return expect(instance.oBPv500GetConsentRequest({})).resolves.toBe(null)
   })
   test("oBPv510CreateConsentImplicit", () => {
-    const body: api.PostConsentImplicitJsonV310 = undefined
+    const body: api.ConsentsIMPLICITBody1 = undefined
     return expect(instance.oBPv510CreateConsentImplicit(body, {})).resolves.toBe(null)
   })
   test("oBPv510GetBankAccountBalances", () => {
@@ -3679,14 +3675,14 @@ describe("PaymentInitiationServicePISApi", () => {
     return expect(instance.oBPv140GetTransactionRequestTypes(VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv210CreateTransactionRequestSandboxTan", () => {
-    const body: api.TransactionRequestBodyJsonV200 = undefined
+    const body: api.SANDBOXTANTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv210CreateTransactionRequestSandboxTan(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400AnswerTransactionRequestChallenge", () => {
-    const body: api.ChallengeAnswerJson400 = undefined
+    const body: api.TRANSACTIONREQUESTIDChallengeBody = undefined
     const TRANSACTION_REQUEST_ID: string = "TRANSACTION_REQUEST_ID_example"
     const TRANSACTION_REQUEST_TYPE: string = "TRANSACTION_REQUEST_TYPE_example"
     const VIEW_ID: string = "VIEW_ID_example"
@@ -3695,60 +3691,60 @@ describe("PaymentInitiationServicePISApi", () => {
     return expect(instance.oBPv400AnswerTransactionRequestChallenge(body, TRANSACTION_REQUEST_ID, TRANSACTION_REQUEST_TYPE, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestAccount", () => {
-    const body: api.TransactionRequestBodyJsonV200 = undefined
+    const body: api.ACCOUNTTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestAccount(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestAccountOtp", () => {
-    const body: api.TransactionRequestBodyJsonV200 = undefined
+    const body: api.ACCOUNTOTPTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestAccountOtp(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestAgentCashWithDrawal", () => {
-    const body: api.TransactionRequestBodyAgentJsonV400 = undefined
+    const body: api.AGENTCASHWITHDRAWALTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestAgentCashWithDrawal(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestCard", () => {
-    const body: api.TransactionRequestBodyCardJsonV400 = undefined
+    const body: api.CARDTransactionrequestsBody = undefined
     return expect(instance.oBPv400CreateTransactionRequestCard(body, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestCounterparty", () => {
-    const body: api.TransactionRequestBodyCounterpartyJSON = undefined
+    const body: api.COUNTERPARTYTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestCounterparty(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestFreeForm", () => {
-    const body: api.TransactionRequestBodyFreeFormJSON = undefined
+    const body: api.FREEFORMTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestFreeForm(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestRefund", () => {
-    const body: api.TransactionRequestBodyRefundJsonV400 = undefined
+    const body: api.REFUNDTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestRefund(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestSepa", () => {
-    const body: api.TransactionRequestBodySEPAJsonV400 = undefined
+    const body: api.SEPATransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestSepa(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestSimple", () => {
-    const body: api.TransactionRequestBodySimpleJsonV400 = undefined
+    const body: api.SIMPLETransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -3805,23 +3801,23 @@ describe("PersonApi", () => {
     return expect(instance.oBPv140AddCustomerMessage(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateCustomerMessage", () => {
-    const body: api.CreateMessageJsonV400 = undefined
+    const body: api.CUSTOMERIDMessagesBody = undefined
     const CUSTOMER_ID: string = "CUSTOMER_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateCustomerMessage(body, CUSTOMER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500CreateCustomer", () => {
-    const body: api.PostCustomerJsonV500 = undefined
+    const body: api.BANKIDCustomersBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500CreateCustomer(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510CreateAgent", () => {
-    const body: api.PostAgentJsonV510 = undefined
+    const body: api.BANKIDAgentsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510CreateAgent(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510UpdateAgentStatus", () => {
-    const body: api.PutAgentJsonV510 = undefined
+    const body: api.AgentsAGENTIDBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510UpdateAgentStatus(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -3849,7 +3845,7 @@ describe("ProductApi", () => {
   });
 
   test("oBPv310CreateProductCollection", () => {
-    const body: api.PutProductCollectionsV310 = undefined
+    const body: api.ProductcollectionsCOLLECTIONCODEBody = undefined
     const COLLECTION_CODE: string = "COLLECTION_CODE_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateProductCollection(body, COLLECTION_CODE, BANK_ID, {})).resolves.toBe(null)
@@ -3871,18 +3867,18 @@ describe("ProductApi", () => {
     return expect(instance.oBPv310GetProductTree(PRODUCT_CODE, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateOrUpdateProductAttributeDefinition", () => {
-    const body: api.AttributeDefinitionJsonV400 = undefined
+    const body: api.AttributedefinitionsProductBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateOrUpdateProductAttributeDefinition(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateProductAttribute", () => {
-    const body: api.ProductAttributeJsonV400 = undefined
+    const body: api.PRODUCTCODEAttributeBody1 = undefined
     const PRODUCT_CODE: string = "PRODUCT_CODE_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateProductAttribute(body, PRODUCT_CODE, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateProductFee", () => {
-    const body: api.ProductFeeJsonV400 = undefined
+    const body: api.PRODUCTCODEFeeBody = undefined
     const PRODUCT_CODE: string = "PRODUCT_CODE_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateProductFee(body, PRODUCT_CODE, BANK_ID, {})).resolves.toBe(null)
@@ -3931,20 +3927,20 @@ describe("ProductApi", () => {
     return expect(instance.oBPv400GetProducts(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateProductAttribute", () => {
-    const body: api.ProductAttributeJsonV400 = undefined
+    const body: api.AttributesPRODUCTATTRIBUTEIDBody = undefined
     const PRODUCT_ATTRIBUTE_ID: string = "PRODUCT_ATTRIBUTE_ID_example"
     const PRODUCT_CODE: string = "PRODUCT_CODE_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateProductAttribute(body, PRODUCT_ATTRIBUTE_ID, PRODUCT_CODE, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateProductFee", () => {
-    const body: api.ProductFeeJsonV400 = undefined
+    const body: api.FeesPRODUCTFEEIDBody = undefined
     const PRODUCT_CODE: string = "PRODUCT_CODE_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateProductFee(body, PRODUCT_CODE, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500CreateProduct", () => {
-    const body: api.PutProductJsonV500 = undefined
+    const body: api.ProductsPRODUCTCODEBody = undefined
     const PRODUCT_CODE: string = "PRODUCT_CODE_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500CreateProduct(body, PRODUCT_CODE, BANK_ID, {})).resolves.toBe(null)
@@ -3958,7 +3954,7 @@ describe("ProductCollectionApi", () => {
   });
 
   test("oBPv310CreateProductCollection", () => {
-    const body: api.PutProductCollectionsV310 = undefined
+    const body: api.ProductcollectionsCOLLECTIONCODEBody = undefined
     const COLLECTION_CODE: string = "COLLECTION_CODE_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateProductCollection(body, COLLECTION_CODE, BANK_ID, {})).resolves.toBe(null)
@@ -3999,7 +3995,7 @@ describe("RateLimitsApi", () => {
     return expect(instance.oBPv310GetRateLimitingInfo({})).resolves.toBe(null)
   })
   test("oBPv400CallsLimit", () => {
-    const body: api.CallLimitPostJsonV400 = undefined
+    const body: api.ConsumerCalllimitsBody = undefined
     const CONSUMER_ID: string = "CONSUMER_ID_example"
     return expect(instance.oBPv400CallsLimit(body, CONSUMER_ID, {})).resolves.toBe(null)
   })
@@ -4030,7 +4026,7 @@ describe("RoleApi", () => {
     return expect(instance.oBPv210GetRoles({})).resolves.toBe(null)
   })
   test("oBPv300AddEntitlementRequest", () => {
-    const body: api.CreateEntitlementJSON = undefined
+    const body: api.V300EntitlementrequestsBody = undefined
     return expect(instance.oBPv300AddEntitlementRequest(body, {})).resolves.toBe(null)
   })
   test("oBPv300DeleteEntitlementRequest", () => {
@@ -4054,7 +4050,7 @@ describe("RoleApi", () => {
     return expect(instance.oBPv310GetAllEntitlements({})).resolves.toBe(null)
   })
   test("oBPv400CreateUserWithRoles", () => {
-    const body: api.PostCreateUserWithRolesJsonV400 = undefined
+    const body: api.V400UserentitlementsBody = undefined
     return expect(instance.oBPv400CreateUserWithRoles(body, {})).resolves.toBe(null)
   })
   test("oBPv400GetEntitlements", () => {
@@ -4078,7 +4074,7 @@ describe("SandboxApi", () => {
   });
 
   test("oBPv210SandboxDataImport", () => {
-    const body: api.SandboxDataImport = undefined
+    const body: api.SandboxDataimportBody = undefined
     return expect(instance.oBPv210SandboxDataImport(body, {})).resolves.toBe(null)
   })
 })
@@ -4095,7 +4091,7 @@ describe("ScopeApi", () => {
     return expect(instance.oBPv300DeleteScope(SCOPE_ID, CONSUMER_ID, {})).resolves.toBe(null)
   })
   test("oBPv400AddScope", () => {
-    const body: api.CreateScopeJson = undefined
+    const body: api.CONSUMERIDScopesBody = undefined
     const CONSUMER_ID: string = "CONSUMER_ID_example"
     return expect(instance.oBPv400AddScope(body, CONSUMER_ID, {})).resolves.toBe(null)
   })
@@ -4112,14 +4108,14 @@ describe("StandingOrderApi", () => {
   });
 
   test("oBPv400CreateStandingOrder", () => {
-    const body: api.PostStandingOrderJsonV400 = undefined
+    const body: api.VIEWIDStandingorderBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateStandingOrder(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateStandingOrderManagement", () => {
-    const body: api.PostStandingOrderJsonV400 = undefined
+    const body: api.ACCOUNTIDStandingorderBody = undefined
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateStandingOrderManagement(body, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
@@ -4318,12 +4314,12 @@ describe("TransactionApi", () => {
     return expect(instance.oBPv310GetTransactionByIdForBankAccount(TRANSACTION_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateOrUpdateTransactionAttributeDefinition", () => {
-    const body: api.AttributeDefinitionJsonV400 = undefined
+    const body: api.AttributedefinitionsTransactionBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateOrUpdateTransactionAttributeDefinition(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionAttribute", () => {
-    const body: api.TransactionAttributeJsonV400 = undefined
+    const body: api.TRANSACTIONIDAttributeBody = undefined
     const TRANSACTION_ID: string = "TRANSACTION_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -4367,7 +4363,7 @@ describe("TransactionApi", () => {
     return expect(instance.oBPv400GetTransactionAttributes(TRANSACTION_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateTransactionAttribute", () => {
-    const body: api.TransactionAttributeJsonV400 = undefined
+    const body: api.AttributesACCOUNTATTRIBUTEIDBody1 = undefined
     const ACCOUNT_ATTRIBUTE_ID: string = "ACCOUNT_ATTRIBUTE_ID_example"
     const TRANSACTION_ID: string = "TRANSACTION_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
@@ -4540,7 +4536,7 @@ describe("TransactionRequestApi", () => {
     return expect(instance.oBPv140GetTransactionRequestTypes(VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv210CreateTransactionRequestSandboxTan", () => {
-    const body: api.TransactionRequestBodyJsonV200 = undefined
+    const body: api.SANDBOXTANTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -4551,11 +4547,11 @@ describe("TransactionRequestApi", () => {
     return expect(instance.oBPv210GetTransactionRequestTypesSupportedByBank(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310SaveHistoricalTransaction", () => {
-    const body: api.PostHistoricalTransactionJson = undefined
+    const body: api.HistoricalTransactionsBody = undefined
     return expect(instance.oBPv310SaveHistoricalTransaction(body, {})).resolves.toBe(null)
   })
   test("oBPv400AnswerTransactionRequestChallenge", () => {
-    const body: api.ChallengeAnswerJson400 = undefined
+    const body: api.TRANSACTIONREQUESTIDChallengeBody = undefined
     const TRANSACTION_REQUEST_ID: string = "TRANSACTION_REQUEST_ID_example"
     const TRANSACTION_REQUEST_TYPE: string = "TRANSACTION_REQUEST_TYPE_example"
     const VIEW_ID: string = "VIEW_ID_example"
@@ -4564,77 +4560,77 @@ describe("TransactionRequestApi", () => {
     return expect(instance.oBPv400AnswerTransactionRequestChallenge(body, TRANSACTION_REQUEST_ID, TRANSACTION_REQUEST_TYPE, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateHistoricalTransactionAtBank", () => {
-    const body: api.PostHistoricalTransactionAtBankJson = undefined
+    const body: api.HistoricalTransactionsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateHistoricalTransactionAtBank(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateOrUpdateTransactionRequestAttributeDefinition", () => {
-    const body: api.AttributeDefinitionJsonV400 = undefined
+    const body: api.AttributedefinitionsTransactionrequestBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateOrUpdateTransactionRequestAttributeDefinition(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestAccount", () => {
-    const body: api.TransactionRequestBodyJsonV200 = undefined
+    const body: api.ACCOUNTTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestAccount(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestAccountOtp", () => {
-    const body: api.TransactionRequestBodyJsonV200 = undefined
+    const body: api.ACCOUNTOTPTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestAccountOtp(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestAgentCashWithDrawal", () => {
-    const body: api.TransactionRequestBodyAgentJsonV400 = undefined
+    const body: api.AGENTCASHWITHDRAWALTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestAgentCashWithDrawal(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestAttribute", () => {
-    const body: api.TransactionRequestAttributeJsonV400 = undefined
+    const body: api.TRANSACTIONREQUESTIDAttributeBody = undefined
     const TRANSACTION_REQUEST_ID: string = "TRANSACTION_REQUEST_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestAttribute(body, TRANSACTION_REQUEST_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestCard", () => {
-    const body: api.TransactionRequestBodyCardJsonV400 = undefined
+    const body: api.CARDTransactionrequestsBody = undefined
     return expect(instance.oBPv400CreateTransactionRequestCard(body, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestCounterparty", () => {
-    const body: api.TransactionRequestBodyCounterpartyJSON = undefined
+    const body: api.COUNTERPARTYTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestCounterparty(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestFreeForm", () => {
-    const body: api.TransactionRequestBodyFreeFormJSON = undefined
+    const body: api.FREEFORMTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestFreeForm(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestRefund", () => {
-    const body: api.TransactionRequestBodyRefundJsonV400 = undefined
+    const body: api.REFUNDTransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestRefund(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestSepa", () => {
-    const body: api.TransactionRequestBodySEPAJsonV400 = undefined
+    const body: api.SEPATransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateTransactionRequestSepa(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateTransactionRequestSimple", () => {
-    const body: api.TransactionRequestBodySimpleJsonV400 = undefined
+    const body: api.SIMPLETransactionrequestsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -4668,14 +4664,14 @@ describe("TransactionRequestApi", () => {
     return expect(instance.oBPv400GetTransactionRequestAttributes(TRANSACTION_REQUEST_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateTransactionRequestAttribute", () => {
-    const body: api.TransactionRequestAttributeJsonV400 = undefined
+    const body: api.AttributesATTRIBUTEIDBody = undefined
     const TRANSACTION_REQUEST_ID: string = "TRANSACTION_REQUEST_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400UpdateTransactionRequestAttribute(body, TRANSACTION_REQUEST_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510CreateVRPConsentRequest", () => {
-    const body: api.PostVRPConsentRequestJsonV510 = undefined
+    const body: api.ConsumerVrpconsentrequestsBody = undefined
     return expect(instance.oBPv510CreateVRPConsentRequest(body, {})).resolves.toBe(null)
   })
   test("oBPv510GetTransactionRequestById", () => {
@@ -4689,7 +4685,7 @@ describe("TransactionRequestApi", () => {
     return expect(instance.oBPv510GetTransactionRequests(VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510UpdateTransactionRequestStatus", () => {
-    const body: api.PostTransactionRequestStatusJsonV510 = undefined
+    const body: api.TransactionrequestsTRANSACTIONREQUESTIDBody = undefined
     const TRANSACTION_REQUEST_ID: string = "TRANSACTION_REQUEST_ID_example"
     return expect(instance.oBPv510UpdateTransactionRequestStatus(body, TRANSACTION_REQUEST_ID, {})).resolves.toBe(null)
   })
@@ -4726,7 +4722,7 @@ describe("UserApi", () => {
     return expect(instance.oBPv210GetEntitlementsByBankAndUser(USER_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv300AddEntitlementRequest", () => {
-    const body: api.CreateEntitlementJSON = undefined
+    const body: api.V300EntitlementrequestsBody = undefined
     return expect(instance.oBPv300AddEntitlementRequest(body, {})).resolves.toBe(null)
   })
   test("oBPv300DeleteEntitlementRequest", () => {
@@ -4773,16 +4769,16 @@ describe("UserApi", () => {
     return expect(instance.oBPv310RefreshUser(USER_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateMyPersonalUserAttribute", () => {
-    const body: api.UserAttributeJsonV400 = undefined
+    const body: api.UserAttributesBody = undefined
     return expect(instance.oBPv400CreateMyPersonalUserAttribute(body, {})).resolves.toBe(null)
   })
   test("oBPv400CreateUserCustomerLinks", () => {
-    const body: api.CreateUserCustomerLinkJson = undefined
+    const body: api.BANKIDUserCustomerLinksBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateUserCustomerLinks(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateUserWithRoles", () => {
-    const body: api.PostCreateUserWithRolesJsonV400 = undefined
+    const body: api.V400UserentitlementsBody = undefined
     return expect(instance.oBPv400CreateUserWithRoles(body, {})).resolves.toBe(null)
   })
   test("oBPv400DeleteUser", () => {
@@ -4830,26 +4826,26 @@ describe("UserApi", () => {
     return expect(instance.oBPv400GetUsersByEmail({})).resolves.toBe(null)
   })
   test("oBPv400ResetPasswordUrl", () => {
-    const body: api.PostResetPasswordUrlJsonV400 = undefined
+    const body: api.UserResetpasswordurlBody = undefined
     return expect(instance.oBPv400ResetPasswordUrl(body, {})).resolves.toBe(null)
   })
   test("oBPv400UpdateMyPersonalUserAttribute", () => {
-    const body: api.UserAttributeJsonV400 = undefined
+    const body: api.AttributesUSERATTRIBUTEIDBody = undefined
     return expect(instance.oBPv400UpdateMyPersonalUserAttribute(body, {})).resolves.toBe(null)
   })
   test("oBPv500AnswerUserAuthContextUpdateChallenge", () => {
-    const body: api.PostUserAuthContextUpdateJsonV310 = undefined
+    const body: api.AUTHCONTEXTUPDATEIDChallengeBody = undefined
     const AUTH_CONTEXT_UPDATE_ID: string = "AUTH_CONTEXT_UPDATE_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500AnswerUserAuthContextUpdateChallenge(body, AUTH_CONTEXT_UPDATE_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv500CreateUserAuthContext", () => {
-    const body: api.PostUserAuthContextJson = undefined
+    const body: api.USERIDAuthcontextBody = undefined
     const USER_ID: string = "USER_ID_example"
     return expect(instance.oBPv500CreateUserAuthContext(body, USER_ID, {})).resolves.toBe(null)
   })
   test("oBPv500CreateUserAuthContextUpdateRequest", () => {
-    const body: api.PostUserAuthContextJson = undefined
+    const body: api.AuthcontextupdatesSCAMETHODBody = undefined
     const SCA_METHOD: string = "SCA_METHOD_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv500CreateUserAuthContextUpdateRequest(body, SCA_METHOD, BANK_ID, {})).resolves.toBe(null)
@@ -4870,12 +4866,12 @@ describe("UserApi", () => {
     return expect(instance.oBPv500GetUserAuthContexts(USER_ID, {})).resolves.toBe(null)
   })
   test("oBPv510CreateNonPersonalUserAttribute", () => {
-    const body: api.UserAttributeJsonV510 = undefined
+    const body: api.NonpersonalAttributesBody = undefined
     const USER_ID: string = "USER_ID_example"
     return expect(instance.oBPv510CreateNonPersonalUserAttribute(body, USER_ID, {})).resolves.toBe(null)
   })
   test("oBPv510CreateUserWithAccountAccessById", () => {
-    const body: api.PostCreateUserAccountAccessJsonV400 = undefined
+    const body: api.VIEWIDUseraccountaccessBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -4907,7 +4903,7 @@ describe("UserApi", () => {
     return expect(instance.oBPv510GetUserLockStatus(PROVIDER, USERNAME, {})).resolves.toBe(null)
   })
   test("oBPv510GrantUserAccessToViewById", () => {
-    const body: api.PostAccountAccessJsonV510 = undefined
+    const body: api.AccountaccessGrantBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -4919,7 +4915,7 @@ describe("UserApi", () => {
     return expect(instance.oBPv510LockUserByProviderAndUsername(PROVIDER, USERNAME, {})).resolves.toBe(null)
   })
   test("oBPv510RevokeUserAccessToViewById", () => {
-    const body: api.PostAccountAccessJsonV510 = undefined
+    const body: api.AccountaccessRevokeBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -4948,7 +4944,7 @@ describe("UserInvitationApi", () => {
   });
 
   test("oBPv400CreateUserInvitation", () => {
-    const body: api.PostUserInvitationJsonV400 = undefined
+    const body: api.BANKIDUserinvitationBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateUserInvitation(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -4957,7 +4953,7 @@ describe("UserInvitationApi", () => {
     return expect(instance.oBPv400GetUserInvitation(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400GetUserInvitationAnonymous", () => {
-    const body: api.PostUserInvitationAnonymousJsonV400 = undefined
+    const body: api.BANKIDUserinvitationsBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400GetUserInvitationAnonymous(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -4977,7 +4973,7 @@ describe("VRPApi", () => {
     return expect(instance.oBPv500CreateConsentByConsentRequestIdEmail({})).resolves.toBe(null)
   })
   test("oBPv510CreateVRPConsentRequest", () => {
-    const body: api.PostVRPConsentRequestJsonV510 = undefined
+    const body: api.ConsumerVrpconsentrequestsBody = undefined
     return expect(instance.oBPv510CreateVRPConsentRequest(body, {})).resolves.toBe(null)
   })
 })
@@ -5000,7 +4996,7 @@ describe("ViewCustomApi", () => {
     return expect(instance.oBPv200GetPermissionsForBankAccount(ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv300CreateViewForBankAccount", () => {
-    const body: api.CreateViewJsonV300 = undefined
+    const body: api.ACCOUNTIDViewsBody = undefined
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv300CreateViewForBankAccount(body, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
@@ -5017,7 +5013,7 @@ describe("ViewCustomApi", () => {
     return expect(instance.oBPv300GetPermissionForUserForBankAccount(PROVIDER, PROVIDER_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv300UpdateViewForBankAccount", () => {
-    const body: api.UpdateViewJsonV300 = undefined
+    const body: api.ViewsVIEWIDBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -5029,14 +5025,14 @@ describe("ViewCustomApi", () => {
     return expect(instance.oBPv500GetViewsForBankAccount(ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510CreateCustomView", () => {
-    const body: api.CreateCustomViewJson = undefined
+    const body: api.VIEWIDTargetviewsBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510CreateCustomView(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510CreateUserWithAccountAccessById", () => {
-    const body: api.PostCreateUserAccountAccessJsonV400 = undefined
+    const body: api.VIEWIDUseraccountaccessBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -5055,21 +5051,21 @@ describe("ViewCustomApi", () => {
     return expect(instance.oBPv510GetCustomView(VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510GrantUserAccessToViewById", () => {
-    const body: api.PostAccountAccessJsonV510 = undefined
+    const body: api.AccountaccessGrantBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510GrantUserAccessToViewById(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510RevokeUserAccessToViewById", () => {
-    const body: api.PostAccountAccessJsonV510 = undefined
+    const body: api.AccountaccessRevokeBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv510RevokeUserAccessToViewById(body, VIEW_ID, ACCOUNT_ID, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv510UpdateCustomView", () => {
-    const body: api.UpdateCustomViewJson = undefined
+    const body: api.TargetviewsTARGETVIEWIDBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     const ACCOUNT_ID: string = "ACCOUNT_ID_example"
     const BANK_ID: string = "BANK_ID_example"
@@ -5084,7 +5080,7 @@ describe("ViewSystemApi", () => {
   });
 
   test("oBPv500CreateSystemView", () => {
-    const body: api.CreateViewJsonV500 = undefined
+    const body: api.V500SystemviewsBody = undefined
     return expect(instance.oBPv500CreateSystemView(body, {})).resolves.toBe(null)
   })
   test("oBPv500DeleteSystemView", () => {
@@ -5099,7 +5095,7 @@ describe("ViewSystemApi", () => {
     return expect(instance.oBPv500GetSystemViewsIds({})).resolves.toBe(null)
   })
   test("oBPv500UpdateSystemView", () => {
-    const body: api.UpdateViewJsonV500 = undefined
+    const body: api.SystemviewsVIEWIDBody = undefined
     const VIEW_ID: string = "VIEW_ID_example"
     return expect(instance.oBPv500UpdateSystemView(body, VIEW_ID, {})).resolves.toBe(null)
   })
@@ -5112,7 +5108,7 @@ describe("WebUiPropsApi", () => {
   });
 
   test("oBPv310CreateWebUiProps", () => {
-    const body: api.WebUiPropsCommons = undefined
+    const body: api.ManagementWebuiPropsBody = undefined
     return expect(instance.oBPv310CreateWebUiProps(body, {})).resolves.toBe(null)
   })
   test("oBPv310DeleteWebUiProps", () => {
@@ -5131,12 +5127,12 @@ describe("WebhookApi", () => {
   });
 
   test("oBPv310CreateAccountWebhook", () => {
-    const body: api.AccountWebhookPostJson = undefined
+    const body: api.BANKIDAccountwebhooksBody1 = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310CreateAccountWebhook(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv310EnableDisableAccountWebhook", () => {
-    const body: api.AccountWebhookPutJson = undefined
+    const body: api.BANKIDAccountwebhooksBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv310EnableDisableAccountWebhook(body, BANK_ID, {})).resolves.toBe(null)
   })
@@ -5145,12 +5141,12 @@ describe("WebhookApi", () => {
     return expect(instance.oBPv310GetAccountWebhooks(BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateBankAccountNotificationWebhook", () => {
-    const body: api.AccountNotificationWebhookPostJson = undefined
+    const body: api.NotificationsOncreatetransactionBody = undefined
     const BANK_ID: string = "BANK_ID_example"
     return expect(instance.oBPv400CreateBankAccountNotificationWebhook(body, BANK_ID, {})).resolves.toBe(null)
   })
   test("oBPv400CreateSystemAccountNotificationWebhook", () => {
-    const body: api.AccountNotificationWebhookPostJson = undefined
+    const body: api.NotificationsOncreatetransactionBody1 = undefined
     return expect(instance.oBPv400CreateSystemAccountNotificationWebhook(body, {})).resolves.toBe(null)
   })
 })
