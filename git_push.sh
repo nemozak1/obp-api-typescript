@@ -7,7 +7,7 @@ git_user_id=$1
 git_repo_id=$2
 release_note=$3
 
-echo git_user_id
+echo $git_user_id
 
 if [ "$git_user_id" = "" ]; then
     git_user_id="GIT_USER_ID"
