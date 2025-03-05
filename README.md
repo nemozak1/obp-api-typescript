@@ -1,4 +1,4 @@
-# obp-typescript
+# obp-api-typescript
 A typescript SDK for the OpenBankProject
 
 WIP

@@ -12,13 +12,17 @@
 
 import * as api from "./api"
 import { Configuration } from "./configuration"
+import { describe, beforeEach, test, expect } from "vitest"
+import fetch from 'isomorphic-fetch';
+
+// Make fetch globally available for tests
 
 const config: Configuration = {}
 
 describe("APIApi", () => {
   let instance: api.APIApi
   beforeEach(function() {
-    instance = new api.APIApi(config)
+    instance = new api.APIApi(config, "https://test.openbankproject.com", fetch)
   });
 
   test("oBPv140GetBankLevelDynamicResourceDocsObp", () => {

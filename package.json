@@ -1,5 +1,5 @@
 {
-  "name": "obp-typescript",
+  "name": "obp-api-typescript",
   "version": "0.0.1",
   "description": "A typescript SDK for the OpenBankProject",
   "main": "index.ts",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nemozak1/obp-typescript.git"
+    "url": "git+https://github.com/nemozak1/obp-api-typescript.git"
   },
   "keywords": [
     "SDK"
@@ -16,9 +16,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nemozak1/obp-typescript/issues"
+    "url": "https://github.com/nemozak1/obp-api-typescript/issues"
   },
-  "homepage": "https://github.com/nemozak1/obp-typescript#readme",
+  "homepage": "https://github.com/nemozak1/obp-api-typescript#readme",
   "devDependencies": {
     "vitest": "^3.0.7"
   },
