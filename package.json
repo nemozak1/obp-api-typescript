@@ -1,0 +1,28 @@
+{
+  "name": "obp-typescript",
+  "version": "0.0.1",
+  "description": "A typescript SDK for the OpenBankProject",
+  "main": "index.ts",
+  "scripts": {
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nemozak1/obp-typescript.git"
+  },
+  "keywords": [
+    "SDK"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nemozak1/obp-typescript/issues"
+  },
+  "homepage": "https://github.com/nemozak1/obp-typescript#readme",
+  "devDependencies": {
+    "vitest": "^3.0.7"
+  },
+  "dependencies": {
+    "isomorphic-fetch": "^3.0.0"
+  }
+}
