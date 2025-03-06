@@ -4,7 +4,7 @@
   "description": "A typescript SDK for the OpenBankProject",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "build": "tsc",
     "test": "vitest"
