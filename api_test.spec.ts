@@ -12,8 +12,9 @@
 
 import * as api from "./api"
 import { Configuration } from "./configuration"
+import {describe, beforeEach, test, expect} from 'vitest'
 
-const config: Configuration = {}
+const config: Configuration = { apiKey }
 
 describe("APIApi", () => {
   let instance: api.APIApi

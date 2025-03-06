@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "A typescript SDK for the OpenBankProject",
   "main": "index.ts",
+  "type": "module",
   "scripts": {
     "test": "vitest"
   },
