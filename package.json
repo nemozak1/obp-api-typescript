@@ -2,9 +2,11 @@
   "name": "obp-api-typescript",
   "version": "0.0.1",
   "description": "A typescript SDK for the OpenBankProject",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
+    "build": "tsc",
     "test": "vitest"
   },
   "repository": {
