@@ -1,31 +1,27 @@
 {
   "name": "obp-api-typescript",
-  "version": "0.0.1",
-  "description": "A typescript SDK for the OpenBankProject",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "type": "commonjs",
-  "scripts": {
-    "build": "tsc",
-    "test": "vitest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nemozak1/obp-api-typescript.git"
-  },
+  "version": "1.0.1",
+  "description": "OpenAPI client for ",
+  "author": "OpenAPI-Generator Contributors",
   "keywords": [
-    "SDK"
+    "axios",
+    "typescript",
+    "openapi-client",
+    "openapi-generator",
+    ""
   ],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nemozak1/obp-api-typescript/issues"
-  },
-  "homepage": "https://github.com/nemozak1/obp-api-typescript#readme",
-  "devDependencies": {
-    "vitest": "^3.0.7"
+  "license": "Unlicense",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --outDir dist/",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "isomorphic-fetch": "^3.0.0"
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.5",
+    "typescript": "^3.6.4"
   }
 }
