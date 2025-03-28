@@ -12,10 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse2009Holder } from './inline-response2009-holder';
-import { InlineResponse2009Metadata } from './inline-response2009-metadata';
-import { Obpv310managementbanksBANKIDaccountsACCOUNTIDAccountRoutings } from './obpv310managementbanks-bankidaccounts-accountidaccount-routings';
-import { Obpv500banksBankRoutings } from './obpv500banks-bank-routings';
+import { JsonConnectorMethod } from './json-connector-method';
  /**
  * 
  *
@@ -25,33 +22,8 @@ import { Obpv500banksBankRoutings } from './obpv500banks-bank-routings';
 export interface InlineResponse20010 {
 
     /**
-     * @type {string}
-     * @memberof InlineResponse20010
-     * @example 5995d6a2-01b3-423c-a173-5481df49bdaf
-     */
-    id: string;
-
-    /**
-     * @type {InlineResponse2009Holder}
+     * @type {Array<JsonConnectorMethod>}
      * @memberof InlineResponse20010
      */
-    holder: InlineResponse2009Holder;
-
-    /**
-     * @type {Obpv500banksBankRoutings}
-     * @memberof InlineResponse20010
-     */
-    bank_routing: Obpv500banksBankRoutings;
-
-    /**
-     * @type {Array<Obpv310managementbanksBANKIDaccountsACCOUNTIDAccountRoutings>}
-     * @memberof InlineResponse20010
-     */
-    account_routings: Array<Obpv310managementbanksBANKIDaccountsACCOUNTIDAccountRoutings>;
-
-    /**
-     * @type {InlineResponse2009Metadata}
-     * @memberof InlineResponse20010
-     */
-    metadata: InlineResponse2009Metadata;
+    connectors_methods: Array<JsonConnectorMethod>;
 }

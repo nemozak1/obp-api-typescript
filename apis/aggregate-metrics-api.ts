@@ -17,8 +17,8 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { AggregateMetricJSON } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse200145 } from '../models';
 /**
  * AggregateMetricsApi - axios parameter creator
  * @export
@@ -90,7 +90,7 @@ export const AggregateMetricsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetAggregateMetrics(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200145>>> {
+        async oBPv510GetAggregateMetrics(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AggregateMetricJSON>>> {
             const localVarAxiosArgs = await AggregateMetricsApiAxiosParamCreator(configuration).oBPv510GetAggregateMetrics(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -112,7 +112,7 @@ export const AggregateMetricsApiFactory = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetAggregateMetrics(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200145>> {
+        async oBPv510GetAggregateMetrics(options?: AxiosRequestConfig): Promise<AxiosResponse<AggregateMetricJSON>> {
             return AggregateMetricsApiFp(configuration).oBPv510GetAggregateMetrics(options).then((request) => request(axios, basePath));
         },
     };
@@ -132,7 +132,7 @@ export class AggregateMetricsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AggregateMetricsApi
      */
-    public async oBPv510GetAggregateMetrics(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200145>> {
+    public async oBPv510GetAggregateMetrics(options?: AxiosRequestConfig) : Promise<AxiosResponse<AggregateMetricJSON>> {
         return AggregateMetricsApiFp(this.configuration).oBPv510GetAggregateMetrics(options).then((request) => request(this.axios, this.basePath));
     }
 }

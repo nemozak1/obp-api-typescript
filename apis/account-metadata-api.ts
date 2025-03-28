@@ -17,11 +17,11 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { AccountTagJSON } from '../models';
+import { AccountTagsJSON } from '../models';
 import { ErrorNoViewPermission } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse20063 } from '../models';
-import { InlineResponse20120 } from '../models';
-import { MetadataTagsBody } from '../models';
+import { PostAccountTagJSON } from '../models';
 /**
  * AccountMetadataApi - axios parameter creator
  * @export
@@ -31,14 +31,14 @@ export const AccountMetadataApiAxiosParamCreator = function (configuration?: Con
         /**
          * <p>Posts a tag about an account ACCOUNT_ID on a <a href=\"#1_2_1-getViewsForBankAccount\">view</a> VIEW_ID.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>Authentication is required as the tag is linked with the user.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#display_name\"><strong>display_name</strong></a>:</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#provider\"><strong>provider</strong></a>: ETHEREUM</p><p><a href=\"/glossary#User\"><strong>user</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create a tag on account
-         * @param {MetadataTagsBody} body JObject object that needs to be added.
+         * @param {PostAccountTagJSON} body PostAccountTagJSON object that needs to be added.
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400AddTagForViewOnAccount: async (body: MetadataTagsBody, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400AddTagForViewOnAccount: async (body: PostAccountTagJSON, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400AddTagForViewOnAccount.');
@@ -259,14 +259,14 @@ export const AccountMetadataApiFp = function(configuration?: Configuration) {
         /**
          * <p>Posts a tag about an account ACCOUNT_ID on a <a href=\"#1_2_1-getViewsForBankAccount\">view</a> VIEW_ID.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>Authentication is required as the tag is linked with the user.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#display_name\"><strong>display_name</strong></a>:</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#provider\"><strong>provider</strong></a>: ETHEREUM</p><p><a href=\"/glossary#User\"><strong>user</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create a tag on account
-         * @param {MetadataTagsBody} body JObject object that needs to be added.
+         * @param {PostAccountTagJSON} body PostAccountTagJSON object that needs to be added.
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400AddTagForViewOnAccount(body: MetadataTagsBody, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20120>>> {
+        async oBPv400AddTagForViewOnAccount(body: PostAccountTagJSON, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AccountTagJSON>>> {
             const localVarAxiosArgs = await AccountMetadataApiAxiosParamCreator(configuration).oBPv400AddTagForViewOnAccount(body, VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -299,7 +299,7 @@ export const AccountMetadataApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetTagsForViewOnAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20063>>> {
+        async oBPv400GetTagsForViewOnAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AccountTagsJSON>>> {
             const localVarAxiosArgs = await AccountMetadataApiAxiosParamCreator(configuration).oBPv400GetTagsForViewOnAccount(VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -318,14 +318,14 @@ export const AccountMetadataApiFactory = function (configuration?: Configuration
         /**
          * <p>Posts a tag about an account ACCOUNT_ID on a <a href=\"#1_2_1-getViewsForBankAccount\">view</a> VIEW_ID.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>Authentication is required as the tag is linked with the user.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#display_name\"><strong>display_name</strong></a>:</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#provider\"><strong>provider</strong></a>: ETHEREUM</p><p><a href=\"/glossary#User\"><strong>user</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create a tag on account
-         * @param {MetadataTagsBody} body JObject object that needs to be added.
+         * @param {PostAccountTagJSON} body PostAccountTagJSON object that needs to be added.
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400AddTagForViewOnAccount(body: MetadataTagsBody, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20120>> {
+        async oBPv400AddTagForViewOnAccount(body: PostAccountTagJSON, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AccountTagJSON>> {
             return AccountMetadataApiFp(configuration).oBPv400AddTagForViewOnAccount(body, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -350,7 +350,7 @@ export const AccountMetadataApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetTagsForViewOnAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20063>> {
+        async oBPv400GetTagsForViewOnAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AccountTagsJSON>> {
             return AccountMetadataApiFp(configuration).oBPv400GetTagsForViewOnAccount(VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -366,7 +366,7 @@ export class AccountMetadataApi extends BaseAPI {
     /**
      * <p>Posts a tag about an account ACCOUNT_ID on a <a href=\"#1_2_1-getViewsForBankAccount\">view</a> VIEW_ID.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>Authentication is required as the tag is linked with the user.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#display_name\"><strong>display_name</strong></a>:</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#provider\"><strong>provider</strong></a>: ETHEREUM</p><p><a href=\"/glossary#User\"><strong>user</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
      * @summary Create a tag on account
-     * @param {MetadataTagsBody} body JObject object that needs to be added.
+     * @param {PostAccountTagJSON} body PostAccountTagJSON object that needs to be added.
      * @param {string} VIEW_ID The view id
      * @param {string} ACCOUNT_ID The account id
      * @param {string} BANK_ID The bank id
@@ -374,7 +374,7 @@ export class AccountMetadataApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountMetadataApi
      */
-    public async oBPv400AddTagForViewOnAccount(body: MetadataTagsBody, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20120>> {
+    public async oBPv400AddTagForViewOnAccount(body: PostAccountTagJSON, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AccountTagJSON>> {
         return AccountMetadataApiFp(this.configuration).oBPv400AddTagForViewOnAccount(body, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -401,7 +401,7 @@ export class AccountMetadataApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountMetadataApi
      */
-    public async oBPv400GetTagsForViewOnAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20063>> {
+    public async oBPv400GetTagsForViewOnAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AccountTagsJSON>> {
         return AccountMetadataApiFp(this.configuration).oBPv400GetTagsForViewOnAccount(VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -17,10 +17,10 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { CONSUMERIDScopesBody } from '../models';
+import { CreateScopeJson } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse200100 } from '../models';
-import { InlineResponse20133 } from '../models';
+import { ScopeJson } from '../models';
+import { ScopeJsons } from '../models';
 /**
  * ScopeApi - axios parameter creator
  * @export
@@ -92,12 +92,12 @@ export const ScopeApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * <p>Create Scope. Grant Role to Consumer.</p><p>Scopes are used to grant System or Bank level roles to the Consumer (App). (For Account level privileges, see Views)</p><p>For a System level Role (.e.g CanGetAnyUser), set bank_id to an empty string i.e. &quot;bank_id&quot;:&quot;&quot;</p><p>For a Bank level Role (e.g. CanCreateAccount), set bank_id to a valid value e.g. &quot;bank_id&quot;:&quot;my-bank-id&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">CONSUMER_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#role_name\"><strong>role_name</strong></a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#role_name\"><strong>role_name</strong></a>:</p><p><a href=\"/glossary#scope_id\"><strong>scope_id</strong></a>:</p>
          * @summary Create Scope for a Consumer
-         * @param {CONSUMERIDScopesBody} body JObject object that needs to be added.
+         * @param {CreateScopeJson} body CreateScopeJson object that needs to be added.
          * @param {string} CONSUMER_ID new consumer id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400AddScope: async (body: CONSUMERIDScopesBody, CONSUMER_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400AddScope: async (body: CreateScopeJson, CONSUMER_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400AddScope.');
@@ -237,12 +237,12 @@ export const ScopeApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create Scope. Grant Role to Consumer.</p><p>Scopes are used to grant System or Bank level roles to the Consumer (App). (For Account level privileges, see Views)</p><p>For a System level Role (.e.g CanGetAnyUser), set bank_id to an empty string i.e. &quot;bank_id&quot;:&quot;&quot;</p><p>For a Bank level Role (e.g. CanCreateAccount), set bank_id to a valid value e.g. &quot;bank_id&quot;:&quot;my-bank-id&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">CONSUMER_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#role_name\"><strong>role_name</strong></a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#role_name\"><strong>role_name</strong></a>:</p><p><a href=\"/glossary#scope_id\"><strong>scope_id</strong></a>:</p>
          * @summary Create Scope for a Consumer
-         * @param {CONSUMERIDScopesBody} body JObject object that needs to be added.
+         * @param {CreateScopeJson} body CreateScopeJson object that needs to be added.
          * @param {string} CONSUMER_ID new consumer id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400AddScope(body: CONSUMERIDScopesBody, CONSUMER_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20133>>> {
+        async oBPv400AddScope(body: CreateScopeJson, CONSUMER_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ScopeJson>>> {
             const localVarAxiosArgs = await ScopeApiAxiosParamCreator(configuration).oBPv400AddScope(body, CONSUMER_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -256,7 +256,7 @@ export const ScopeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetScopes(CONSUMER_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200100>>> {
+        async oBPv400GetScopes(CONSUMER_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ScopeJsons>>> {
             const localVarAxiosArgs = await ScopeApiAxiosParamCreator(configuration).oBPv400GetScopes(CONSUMER_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -286,12 +286,12 @@ export const ScopeApiFactory = function (configuration?: Configuration, basePath
         /**
          * <p>Create Scope. Grant Role to Consumer.</p><p>Scopes are used to grant System or Bank level roles to the Consumer (App). (For Account level privileges, see Views)</p><p>For a System level Role (.e.g CanGetAnyUser), set bank_id to an empty string i.e. &quot;bank_id&quot;:&quot;&quot;</p><p>For a Bank level Role (e.g. CanCreateAccount), set bank_id to a valid value e.g. &quot;bank_id&quot;:&quot;my-bank-id&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">CONSUMER_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#role_name\"><strong>role_name</strong></a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#role_name\"><strong>role_name</strong></a>:</p><p><a href=\"/glossary#scope_id\"><strong>scope_id</strong></a>:</p>
          * @summary Create Scope for a Consumer
-         * @param {CONSUMERIDScopesBody} body JObject object that needs to be added.
+         * @param {CreateScopeJson} body CreateScopeJson object that needs to be added.
          * @param {string} CONSUMER_ID new consumer id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400AddScope(body: CONSUMERIDScopesBody, CONSUMER_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20133>> {
+        async oBPv400AddScope(body: CreateScopeJson, CONSUMER_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ScopeJson>> {
             return ScopeApiFp(configuration).oBPv400AddScope(body, CONSUMER_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -301,7 +301,7 @@ export const ScopeApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetScopes(CONSUMER_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200100>> {
+        async oBPv400GetScopes(CONSUMER_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ScopeJsons>> {
             return ScopeApiFp(configuration).oBPv400GetScopes(CONSUMER_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -329,13 +329,13 @@ export class ScopeApi extends BaseAPI {
     /**
      * <p>Create Scope. Grant Role to Consumer.</p><p>Scopes are used to grant System or Bank level roles to the Consumer (App). (For Account level privileges, see Views)</p><p>For a System level Role (.e.g CanGetAnyUser), set bank_id to an empty string i.e. &quot;bank_id&quot;:&quot;&quot;</p><p>For a Bank level Role (e.g. CanCreateAccount), set bank_id to a valid value e.g. &quot;bank_id&quot;:&quot;my-bank-id&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">CONSUMER_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#role_name\"><strong>role_name</strong></a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#role_name\"><strong>role_name</strong></a>:</p><p><a href=\"/glossary#scope_id\"><strong>scope_id</strong></a>:</p>
      * @summary Create Scope for a Consumer
-     * @param {CONSUMERIDScopesBody} body JObject object that needs to be added.
+     * @param {CreateScopeJson} body CreateScopeJson object that needs to be added.
      * @param {string} CONSUMER_ID new consumer id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ScopeApi
      */
-    public async oBPv400AddScope(body: CONSUMERIDScopesBody, CONSUMER_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20133>> {
+    public async oBPv400AddScope(body: CreateScopeJson, CONSUMER_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ScopeJson>> {
         return ScopeApiFp(this.configuration).oBPv400AddScope(body, CONSUMER_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -346,7 +346,7 @@ export class ScopeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ScopeApi
      */
-    public async oBPv400GetScopes(CONSUMER_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200100>> {
+    public async oBPv400GetScopes(CONSUMER_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ScopeJsons>> {
         return ScopeApiFp(this.configuration).oBPv400GetScopes(CONSUMER_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

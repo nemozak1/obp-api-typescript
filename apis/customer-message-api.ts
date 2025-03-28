@@ -18,11 +18,10 @@ import { Configuration } from '../configuration';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 import { AddCustomerMessageJson } from '../models';
-import { CUSTOMERIDMessagesBody } from '../models';
+import { CreateMessageJsonV400 } from '../models';
 import { CustomerMessagesJson } from '../models';
+import { CustomerMessagesJsonV400 } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse20091 } from '../models';
-import { InlineResponse2011 } from '../models';
 import { SuccessMessage } from '../models';
 /**
  * CustomerMessageApi - axios parameter creator
@@ -52,7 +51,7 @@ export const CustomerMessageApiAxiosParamCreator = function (configuration?: Con
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv140AddCustomerMessage.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/customer/{CUSTOMER_ID}/messages`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/customer/{CUSTOMER_ID}/messages`
                 .replace(`{${"CUSTOMER_ID"}}`, encodeURIComponent(String(CUSTOMER_ID)))
                 .replace(`{${"BANK_ID"}}`, encodeURIComponent(String(BANK_ID)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -113,7 +112,7 @@ export const CustomerMessageApiAxiosParamCreator = function (configuration?: Con
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv140GetCustomersMessages.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/customer/messages`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/customer/messages`
                 .replace(`{${"BANK_ID"}}`, encodeURIComponent(String(BANK_ID)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -160,13 +159,13 @@ export const CustomerMessageApiAxiosParamCreator = function (configuration?: Con
         /**
          * <p>Create a message for the customer specified by CUSTOMER_ID<br />User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#Customer.customer_id\">CUSTOMER_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#from_department\"><strong>from_department</strong></a>: Open Bank</p><p><a href=\"/glossary#from_person\"><strong>from_person</strong></a>: Tom</p><p><a href=\"/glossary#message\"><strong>message</strong></a>: 123456</p><p><a href=\"/glossary#transport\"><strong>transport</strong></a>: SMS</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#success\"><strong>success</strong></a>:</p>
          * @summary Create Customer Message
-         * @param {CUSTOMERIDMessagesBody} body JObject object that needs to be added.
+         * @param {CreateMessageJsonV400} body CreateMessageJsonV400 object that needs to be added.
          * @param {string} CUSTOMER_ID The customer id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateCustomerMessage: async (body: CUSTOMERIDMessagesBody, CUSTOMER_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateCustomerMessage: async (body: CreateMessageJsonV400, CUSTOMER_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateCustomerMessage.');
@@ -332,13 +331,13 @@ export const CustomerMessageApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create a message for the customer specified by CUSTOMER_ID<br />User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#Customer.customer_id\">CUSTOMER_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#from_department\"><strong>from_department</strong></a>: Open Bank</p><p><a href=\"/glossary#from_person\"><strong>from_person</strong></a>: Tom</p><p><a href=\"/glossary#message\"><strong>message</strong></a>: 123456</p><p><a href=\"/glossary#transport\"><strong>transport</strong></a>: SMS</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#success\"><strong>success</strong></a>:</p>
          * @summary Create Customer Message
-         * @param {CUSTOMERIDMessagesBody} body JObject object that needs to be added.
+         * @param {CreateMessageJsonV400} body CreateMessageJsonV400 object that needs to be added.
          * @param {string} CUSTOMER_ID The customer id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateCustomerMessage(body: CUSTOMERIDMessagesBody, CUSTOMER_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2011>>> {
+        async oBPv400CreateCustomerMessage(body: CreateMessageJsonV400, CUSTOMER_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<SuccessMessage>>> {
             const localVarAxiosArgs = await CustomerMessageApiAxiosParamCreator(configuration).oBPv400CreateCustomerMessage(body, CUSTOMER_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -353,7 +352,7 @@ export const CustomerMessageApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetCustomerMessages(CUSTOMER_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20091>>> {
+        async oBPv400GetCustomerMessages(CUSTOMER_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CustomerMessagesJsonV400>>> {
             const localVarAxiosArgs = await CustomerMessageApiAxiosParamCreator(configuration).oBPv400GetCustomerMessages(CUSTOMER_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -394,13 +393,13 @@ export const CustomerMessageApiFactory = function (configuration?: Configuration
         /**
          * <p>Create a message for the customer specified by CUSTOMER_ID<br />User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#Customer.customer_id\">CUSTOMER_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#from_department\"><strong>from_department</strong></a>: Open Bank</p><p><a href=\"/glossary#from_person\"><strong>from_person</strong></a>: Tom</p><p><a href=\"/glossary#message\"><strong>message</strong></a>: 123456</p><p><a href=\"/glossary#transport\"><strong>transport</strong></a>: SMS</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#success\"><strong>success</strong></a>:</p>
          * @summary Create Customer Message
-         * @param {CUSTOMERIDMessagesBody} body JObject object that needs to be added.
+         * @param {CreateMessageJsonV400} body CreateMessageJsonV400 object that needs to be added.
          * @param {string} CUSTOMER_ID The customer id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateCustomerMessage(body: CUSTOMERIDMessagesBody, CUSTOMER_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2011>> {
+        async oBPv400CreateCustomerMessage(body: CreateMessageJsonV400, CUSTOMER_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<SuccessMessage>> {
             return CustomerMessageApiFp(configuration).oBPv400CreateCustomerMessage(body, CUSTOMER_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -411,7 +410,7 @@ export const CustomerMessageApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetCustomerMessages(CUSTOMER_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20091>> {
+        async oBPv400GetCustomerMessages(CUSTOMER_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CustomerMessagesJsonV400>> {
             return CustomerMessageApiFp(configuration).oBPv400GetCustomerMessages(CUSTOMER_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -451,14 +450,14 @@ export class CustomerMessageApi extends BaseAPI {
     /**
      * <p>Create a message for the customer specified by CUSTOMER_ID<br />User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#Customer.customer_id\">CUSTOMER_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#from_department\"><strong>from_department</strong></a>: Open Bank</p><p><a href=\"/glossary#from_person\"><strong>from_person</strong></a>: Tom</p><p><a href=\"/glossary#message\"><strong>message</strong></a>: 123456</p><p><a href=\"/glossary#transport\"><strong>transport</strong></a>: SMS</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#success\"><strong>success</strong></a>:</p>
      * @summary Create Customer Message
-     * @param {CUSTOMERIDMessagesBody} body JObject object that needs to be added.
+     * @param {CreateMessageJsonV400} body CreateMessageJsonV400 object that needs to be added.
      * @param {string} CUSTOMER_ID The customer id
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomerMessageApi
      */
-    public async oBPv400CreateCustomerMessage(body: CUSTOMERIDMessagesBody, CUSTOMER_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2011>> {
+    public async oBPv400CreateCustomerMessage(body: CreateMessageJsonV400, CUSTOMER_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<SuccessMessage>> {
         return CustomerMessageApiFp(this.configuration).oBPv400CreateCustomerMessage(body, CUSTOMER_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -470,7 +469,7 @@ export class CustomerMessageApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerMessageApi
      */
-    public async oBPv400GetCustomerMessages(CUSTOMER_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20091>> {
+    public async oBPv400GetCustomerMessages(CUSTOMER_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CustomerMessagesJsonV400>> {
         return CustomerMessageApiFp(this.configuration).oBPv400GetCustomerMessages(CUSTOMER_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

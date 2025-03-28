@@ -18,9 +18,8 @@ import { Configuration } from '../configuration';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse20053 } from '../models';
-import { InlineResponse20114 } from '../models';
-import { ManagementWebuiPropsBody } from '../models';
+import { InlineResponse2001 } from '../models';
+import { WebUiPropsCommons } from '../models';
 /**
  * WebUiPropsApi - axios parameter creator
  * @export
@@ -30,11 +29,11 @@ export const WebUiPropsApiAxiosParamCreator = function (configuration?: Configur
         /**
          * <p>Create a WebUiProps.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>Explaination of Fields:</p><ul><li>name is required String value</li><li>value is required String value</li></ul><p>The line break and double quotations should do escape, example:</p><pre><code>{&quot;name&quot;: &quot;webui_some&quot;, &quot;value&quot;: &quot;this valuehave &quot;line break&quot; and double quotations.&quot;}</code></pre><p>should do escape like this:</p><pre><code>{&quot;name&quot;: &quot;webui_some&quot;, &quot;value&quot;: &quot;this value\\nhave \\&quot;line break\\&quot; and double quotations.&quot;}</code></pre><p>Insert image examples:</p><pre><code>// set width=100 and height=50{&quot;name&quot;: &quot;webui_some_pic&quot;, &quot;value&quot;: &quot;here is a picture &lt;img alt=&quot;hello&quot; src=&quot;http://somedomain.com/images/pic.png&quot; width=&quot;100&quot; height=&quot;50&quot; /&gt;&quot;}<p>// only set height=50<br />{&quot;name&quot;: &quot;webui_some_pic&quot;, &quot;value&quot;: &quot;here is a picture &lt;img alt=&quot;hello&quot; src=&quot;<a href=\"http://somedomain.com/images/pic.png\">http://somedomain.com/images/pic.png</a>&quot; width=&quot;&quot; height=&quot;50&quot; /&gt;&quot;}</p><p>// only width=20%<br />{&quot;name&quot;: &quot;webui_some_pic&quot;, &quot;value&quot;: &quot;here is a picture &lt;img alt=&quot;hello&quot; src=&quot;<a href=\"http://somedomain.com/images/pic.png\">http://somedomain.com/images/pic.png</a>&quot; width=&quot;20%&quot; height=&quot;&quot; /&gt;&quot;}</p></code></pre><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create WebUiProps
-         * @param {ManagementWebuiPropsBody} body JObject object that needs to be added.
+         * @param {WebUiPropsCommons} body WebUiPropsCommons object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv310CreateWebUiProps: async (body: ManagementWebuiPropsBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv310CreateWebUiProps: async (body: WebUiPropsCommons, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv310CreateWebUiProps.');
@@ -204,11 +203,11 @@ export const WebUiPropsApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create a WebUiProps.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>Explaination of Fields:</p><ul><li>name is required String value</li><li>value is required String value</li></ul><p>The line break and double quotations should do escape, example:</p><pre><code>{&quot;name&quot;: &quot;webui_some&quot;, &quot;value&quot;: &quot;this valuehave &quot;line break&quot; and double quotations.&quot;}</code></pre><p>should do escape like this:</p><pre><code>{&quot;name&quot;: &quot;webui_some&quot;, &quot;value&quot;: &quot;this value\\nhave \\&quot;line break\\&quot; and double quotations.&quot;}</code></pre><p>Insert image examples:</p><pre><code>// set width=100 and height=50{&quot;name&quot;: &quot;webui_some_pic&quot;, &quot;value&quot;: &quot;here is a picture &lt;img alt=&quot;hello&quot; src=&quot;http://somedomain.com/images/pic.png&quot; width=&quot;100&quot; height=&quot;50&quot; /&gt;&quot;}<p>// only set height=50<br />{&quot;name&quot;: &quot;webui_some_pic&quot;, &quot;value&quot;: &quot;here is a picture &lt;img alt=&quot;hello&quot; src=&quot;<a href=\"http://somedomain.com/images/pic.png\">http://somedomain.com/images/pic.png</a>&quot; width=&quot;&quot; height=&quot;50&quot; /&gt;&quot;}</p><p>// only width=20%<br />{&quot;name&quot;: &quot;webui_some_pic&quot;, &quot;value&quot;: &quot;here is a picture &lt;img alt=&quot;hello&quot; src=&quot;<a href=\"http://somedomain.com/images/pic.png\">http://somedomain.com/images/pic.png</a>&quot; width=&quot;20%&quot; height=&quot;&quot; /&gt;&quot;}</p></code></pre><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create WebUiProps
-         * @param {ManagementWebuiPropsBody} body JObject object that needs to be added.
+         * @param {WebUiPropsCommons} body WebUiPropsCommons object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310CreateWebUiProps(body: ManagementWebuiPropsBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20114>>> {
+        async oBPv310CreateWebUiProps(body: WebUiPropsCommons, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<WebUiPropsCommons>>> {
             const localVarAxiosArgs = await WebUiPropsApiAxiosParamCreator(configuration).oBPv310CreateWebUiProps(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -235,7 +234,7 @@ export const WebUiPropsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetWebUiProps(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20053>>> {
+        async oBPv310GetWebUiProps(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2001>>> {
             const localVarAxiosArgs = await WebUiPropsApiAxiosParamCreator(configuration).oBPv310GetWebUiProps(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -254,11 +253,11 @@ export const WebUiPropsApiFactory = function (configuration?: Configuration, bas
         /**
          * <p>Create a WebUiProps.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>Explaination of Fields:</p><ul><li>name is required String value</li><li>value is required String value</li></ul><p>The line break and double quotations should do escape, example:</p><pre><code>{&quot;name&quot;: &quot;webui_some&quot;, &quot;value&quot;: &quot;this valuehave &quot;line break&quot; and double quotations.&quot;}</code></pre><p>should do escape like this:</p><pre><code>{&quot;name&quot;: &quot;webui_some&quot;, &quot;value&quot;: &quot;this value\\nhave \\&quot;line break\\&quot; and double quotations.&quot;}</code></pre><p>Insert image examples:</p><pre><code>// set width=100 and height=50{&quot;name&quot;: &quot;webui_some_pic&quot;, &quot;value&quot;: &quot;here is a picture &lt;img alt=&quot;hello&quot; src=&quot;http://somedomain.com/images/pic.png&quot; width=&quot;100&quot; height=&quot;50&quot; /&gt;&quot;}<p>// only set height=50<br />{&quot;name&quot;: &quot;webui_some_pic&quot;, &quot;value&quot;: &quot;here is a picture &lt;img alt=&quot;hello&quot; src=&quot;<a href=\"http://somedomain.com/images/pic.png\">http://somedomain.com/images/pic.png</a>&quot; width=&quot;&quot; height=&quot;50&quot; /&gt;&quot;}</p><p>// only width=20%<br />{&quot;name&quot;: &quot;webui_some_pic&quot;, &quot;value&quot;: &quot;here is a picture &lt;img alt=&quot;hello&quot; src=&quot;<a href=\"http://somedomain.com/images/pic.png\">http://somedomain.com/images/pic.png</a>&quot; width=&quot;20%&quot; height=&quot;&quot; /&gt;&quot;}</p></code></pre><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create WebUiProps
-         * @param {ManagementWebuiPropsBody} body JObject object that needs to be added.
+         * @param {WebUiPropsCommons} body WebUiPropsCommons object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310CreateWebUiProps(body: ManagementWebuiPropsBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20114>> {
+        async oBPv310CreateWebUiProps(body: WebUiPropsCommons, options?: AxiosRequestConfig): Promise<AxiosResponse<WebUiPropsCommons>> {
             return WebUiPropsApiFp(configuration).oBPv310CreateWebUiProps(body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -277,7 +276,7 @@ export const WebUiPropsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetWebUiProps(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20053>> {
+        async oBPv310GetWebUiProps(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2001>> {
             return WebUiPropsApiFp(configuration).oBPv310GetWebUiProps(options).then((request) => request(axios, basePath));
         },
     };
@@ -293,12 +292,12 @@ export class WebUiPropsApi extends BaseAPI {
     /**
      * <p>Create a WebUiProps.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>Explaination of Fields:</p><ul><li>name is required String value</li><li>value is required String value</li></ul><p>The line break and double quotations should do escape, example:</p><pre><code>{&quot;name&quot;: &quot;webui_some&quot;, &quot;value&quot;: &quot;this valuehave &quot;line break&quot; and double quotations.&quot;}</code></pre><p>should do escape like this:</p><pre><code>{&quot;name&quot;: &quot;webui_some&quot;, &quot;value&quot;: &quot;this value\\nhave \\&quot;line break\\&quot; and double quotations.&quot;}</code></pre><p>Insert image examples:</p><pre><code>// set width=100 and height=50{&quot;name&quot;: &quot;webui_some_pic&quot;, &quot;value&quot;: &quot;here is a picture &lt;img alt=&quot;hello&quot; src=&quot;http://somedomain.com/images/pic.png&quot; width=&quot;100&quot; height=&quot;50&quot; /&gt;&quot;}<p>// only set height=50<br />{&quot;name&quot;: &quot;webui_some_pic&quot;, &quot;value&quot;: &quot;here is a picture &lt;img alt=&quot;hello&quot; src=&quot;<a href=\"http://somedomain.com/images/pic.png\">http://somedomain.com/images/pic.png</a>&quot; width=&quot;&quot; height=&quot;50&quot; /&gt;&quot;}</p><p>// only width=20%<br />{&quot;name&quot;: &quot;webui_some_pic&quot;, &quot;value&quot;: &quot;here is a picture &lt;img alt=&quot;hello&quot; src=&quot;<a href=\"http://somedomain.com/images/pic.png\">http://somedomain.com/images/pic.png</a>&quot; width=&quot;20%&quot; height=&quot;&quot; /&gt;&quot;}</p></code></pre><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
      * @summary Create WebUiProps
-     * @param {ManagementWebuiPropsBody} body JObject object that needs to be added.
+     * @param {WebUiPropsCommons} body WebUiPropsCommons object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebUiPropsApi
      */
-    public async oBPv310CreateWebUiProps(body: ManagementWebuiPropsBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20114>> {
+    public async oBPv310CreateWebUiProps(body: WebUiPropsCommons, options?: AxiosRequestConfig) : Promise<AxiosResponse<WebUiPropsCommons>> {
         return WebUiPropsApiFp(this.configuration).oBPv310CreateWebUiProps(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -319,7 +318,7 @@ export class WebUiPropsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WebUiPropsApi
      */
-    public async oBPv310GetWebUiProps(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20053>> {
+    public async oBPv310GetWebUiProps(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2001>> {
         return WebUiPropsApiFp(this.configuration).oBPv310GetWebUiProps(options).then((request) => request(this.axios, this.basePath));
     }
 }

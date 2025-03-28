@@ -17,29 +17,26 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { AttributedefinitionsProductBody } from '../models';
-import { AttributesPRODUCTATTRIBUTEIDBody } from '../models';
+import { AttributeDefinitionJsonV400 } from '../models';
+import { AttributeDefinitionResponseJsonV400 } from '../models';
+import { AttributeDefinitionsResponseJsonV400 } from '../models';
 import { ErrorBankNotFound } from '../models';
 import { ErrorInvalidJsonFormat } from '../models';
 import { ErrorProductNotFoundByProductCode } from '../models';
 import { ErrorUserHasMissingRoles } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { FeesPRODUCTFEEIDBody } from '../models';
-import { InlineResponse200131 } from '../models';
-import { InlineResponse20035 } from '../models';
-import { InlineResponse20036 } from '../models';
-import { InlineResponse20037 } from '../models';
-import { InlineResponse20081 } from '../models';
-import { InlineResponse20082 } from '../models';
-import { InlineResponse20095 } from '../models';
-import { InlineResponse20096 } from '../models';
-import { InlineResponse20097 } from '../models';
-import { InlineResponse20127 } from '../models';
-import { InlineResponse20128 } from '../models';
-import { PRODUCTCODEAttributeBody1 } from '../models';
-import { PRODUCTCODEFeeBody } from '../models';
-import { ProductcollectionsCOLLECTIONCODEBody } from '../models';
-import { ProductsPRODUCTCODEBody } from '../models';
+import { ProductAttributeJsonV400 } from '../models';
+import { ProductAttributeResponseJsonV400 } from '../models';
+import { ProductCollectionJsonTreeV310 } from '../models';
+import { ProductCollectionsJsonV310 } from '../models';
+import { ProductFeeJsonV400 } from '../models';
+import { ProductFeeResponseJsonV400 } from '../models';
+import { ProductFeesResponseJsonV400 } from '../models';
+import { ProductJsonV400 } from '../models';
+import { ProductTreeJsonV310 } from '../models';
+import { ProductsJsonV400 } from '../models';
+import { PutProductCollectionsV310 } from '../models';
+import { PutProductJsonV500 } from '../models';
 /**
  * ProductApi - axios parameter creator
  * @export
@@ -49,13 +46,13 @@ export const ProductApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * <p>Create or Update a Product Collection at the Bank.</p><p>Use Product Collections to create Product &quot;Baskets&quot;, &quot;Portfolios&quot;, &quot;Indices&quot;, &quot;Collections&quot;, &quot;Underlyings-lists&quot;, &quot;Buckets&quot; etc. etc.</p><p>There is a many to many relationship between Products and Product Collections:</p><ul><li><p>A Product can exist in many Collections</p></li><li><p>A Collection can contain many Products.</p></li></ul><p>A collection has collection code, one parent Product and one or more child Products.</p><p>Product hiearchy vs Product Collections:</p><ul><li><p>You can define a hierarchy of products - so that a child Product inherits attributes of its parent Product -  using the parent_product_code in Product.</p></li><li><p>You can define a collection (also known as baskets or buckets) of products using Product Collections.</p></li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#collection_code\">COLLECTION_CODE</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#collection_code\"><strong>collection_code</strong></a>:</p><p><a href=\"/glossary#items\"><strong>items</strong></a>:</p><p><a href=\"/glossary#member_product_code\"><strong>member_product_code</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_collection\"><strong>product_collection</strong></a>:</p>
          * @summary Create Product Collection
-         * @param {ProductcollectionsCOLLECTIONCODEBody} body JObject object that needs to be added.
+         * @param {PutProductCollectionsV310} body PutProductCollectionsV310 object that needs to be added.
          * @param {string} COLLECTION_CODE the collection code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv310CreateProductCollection: async (body: ProductcollectionsCOLLECTIONCODEBody, COLLECTION_CODE: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv310CreateProductCollection: async (body: PutProductCollectionsV310, COLLECTION_CODE: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv310CreateProductCollection.');
@@ -312,12 +309,12 @@ export const ProductApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * <p>Create or Update Product Attribute Definition</p><p>The category field must be Product</p><p>The type field must be one of; DOUBLE, STRING, INTEGER and DATE_WITH_DAY</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#alias\"><strong>alias</strong></a>:</p><p><a href=\"/glossary#attribute_definition_id\"><strong>attribute_definition_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#can_be_seen_on_views\"><strong>can_be_seen_on_views</strong></a>: false</p><p><a href=\"/glossary#category\"><strong>category</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p>
          * @summary Create or Update Product Attribute Definition
-         * @param {AttributedefinitionsProductBody} body JObject object that needs to be added.
+         * @param {AttributeDefinitionJsonV400} body AttributeDefinitionJsonV400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateOrUpdateProductAttributeDefinition: async (body: AttributedefinitionsProductBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateOrUpdateProductAttributeDefinition: async (body: AttributeDefinitionJsonV400, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateOrUpdateProductAttributeDefinition.');
@@ -377,13 +374,13 @@ export const ProductApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * <p>Create Product Attribute</p><p>Product Attributes are used to describe a financial Product with a list of typed key value pairs.</p><p>Each Product Attribute is linked to its Product by PRODUCT_CODE</p><p>Typical product attributes might be:</p><p>ISIN (for International bonds)<br />VKN (for German bonds)<br />REDCODE (markit short code for credit derivative)<br />LOAN_ID (e.g. used for Anacredit reporting)</p><p>ISSUE_DATE (When the bond was issued in the market)<br />MATURITY_DATE (End of life time of a product)<br />TRADABLE</p><p>See <a href=\"http://www.fpml.org/\">FPML</a> for more examples.</p><p>The type field must be one of &quot;STRING&quot;, &quot;INTEGER&quot;, &quot;DOUBLE&quot; or DATE_WITH_DAY&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_attribute_id\"><strong>product_attribute_id</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Create Product Attribute
-         * @param {PRODUCTCODEAttributeBody1} body JObject object that needs to be added.
+         * @param {ProductAttributeJsonV400} body ProductAttributeJsonV400 object that needs to be added.
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateProductAttribute: async (body: PRODUCTCODEAttributeBody1, PRODUCT_CODE: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateProductAttribute: async (body: ProductAttributeJsonV400, PRODUCT_CODE: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateProductAttribute.');
@@ -448,13 +445,13 @@ export const ProductApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * <p>Create Product Fee</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#frequency\"><strong>frequency</strong></a>: DAILY</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#product_fee_id\">product_fee_id</a>: 696hlAHLFKUHE37469287634</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#frequency\"><strong>frequency</strong></a>: DAILY</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_fee_id\"><strong>product_fee_id</strong></a>: 696hlAHLFKUHE37469287634</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create Product Fee
-         * @param {PRODUCTCODEFeeBody} body JObject object that needs to be added.
+         * @param {ProductFeeJsonV400} body ProductFeeJsonV400 object that needs to be added.
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateProductFee: async (body: PRODUCTCODEFeeBody, PRODUCT_CODE: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateProductFee: async (body: ProductFeeJsonV400, PRODUCT_CODE: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateProductFee.');
@@ -1065,14 +1062,14 @@ export const ProductApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * <p>Update Product Attribute.</p><p>Product Attributes are used to describe a financial Product with a list of typed key value pairs.</p><p>Each Product Attribute is linked to its Product by PRODUCT_CODE</p><p>Update one Product Attribute by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_attribute_id\">PRODUCT_ATTRIBUTE_ID</a>:</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_attribute_id\"><strong>product_attribute_id</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Update Product Attribute
-         * @param {AttributesPRODUCTATTRIBUTEIDBody} body JObject object that needs to be added.
+         * @param {ProductAttributeJsonV400} body ProductAttributeJsonV400 object that needs to be added.
          * @param {string} PRODUCT_ATTRIBUTE_ID the product attribute id
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateProductAttribute: async (body: AttributesPRODUCTATTRIBUTEIDBody, PRODUCT_ATTRIBUTE_ID: string, PRODUCT_CODE: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateProductAttribute: async (body: ProductAttributeJsonV400, PRODUCT_ATTRIBUTE_ID: string, PRODUCT_CODE: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateProductAttribute.');
@@ -1142,13 +1139,13 @@ export const ProductApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * <p>Update Product Fee.</p><p>Update one Product Fee by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><a href=\"/glossary#product_fee_id\">PRODUCT_FEE_ID</a>: 696hlAHLFKUHE37469287634</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#frequency\"><strong>frequency</strong></a>: DAILY</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_fee_id\"><strong>product_fee_id</strong></a>: 696hlAHLFKUHE37469287634</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Update Product Fee
-         * @param {FeesPRODUCTFEEIDBody} body JObject object that needs to be added.
+         * @param {ProductFeeJsonV400} body ProductFeeJsonV400 object that needs to be added.
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateProductFee: async (body: FeesPRODUCTFEEIDBody, PRODUCT_CODE: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateProductFee: async (body: ProductFeeJsonV400, PRODUCT_CODE: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateProductFee.');
@@ -1213,13 +1210,13 @@ export const ProductApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * <p>Create or Update Product for the Bank.</p><p>Typical Super Family values / Asset classes are:</p><p>Debt<br />Equity<br />FX<br />Commodity<br />Derivative</p><p>Product hiearchy vs Product Collections:</p><ul><li><p>You can define a hierarchy of products - so that a child Product inherits attributes of its parent Product -  using the parent_product_code in Product.</p></li><li><p>You can define a collection (also known as baskets or buckets) of products using Product Collections.</p></li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#more_info_url\"><strong>more_info_url</strong></a>: <a href=\"http://www.example.com/abc\">www.example.com/abc</a></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#parent_product_code\"><strong>parent_product_code</strong></a>: 787LOW</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#\"><strong>terms_and_conditions_url</strong></a>: <a href=\"http://www.example.com/xyz\">www.example.com/xyz</a></p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p><p><a href=\"/glossary#\">fees</a>: fees</p>
          * @summary Create Product
-         * @param {ProductsPRODUCTCODEBody} body JObject object that needs to be added.
+         * @param {PutProductJsonV500} body PutProductJsonV500 object that needs to be added.
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv500CreateProduct: async (body: ProductsPRODUCTCODEBody, PRODUCT_CODE: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv500CreateProduct: async (body: PutProductJsonV500, PRODUCT_CODE: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv500CreateProduct.');
@@ -1293,13 +1290,13 @@ export const ProductApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create or Update a Product Collection at the Bank.</p><p>Use Product Collections to create Product &quot;Baskets&quot;, &quot;Portfolios&quot;, &quot;Indices&quot;, &quot;Collections&quot;, &quot;Underlyings-lists&quot;, &quot;Buckets&quot; etc. etc.</p><p>There is a many to many relationship between Products and Product Collections:</p><ul><li><p>A Product can exist in many Collections</p></li><li><p>A Collection can contain many Products.</p></li></ul><p>A collection has collection code, one parent Product and one or more child Products.</p><p>Product hiearchy vs Product Collections:</p><ul><li><p>You can define a hierarchy of products - so that a child Product inherits attributes of its parent Product -  using the parent_product_code in Product.</p></li><li><p>You can define a collection (also known as baskets or buckets) of products using Product Collections.</p></li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#collection_code\">COLLECTION_CODE</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#collection_code\"><strong>collection_code</strong></a>:</p><p><a href=\"/glossary#items\"><strong>items</strong></a>:</p><p><a href=\"/glossary#member_product_code\"><strong>member_product_code</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_collection\"><strong>product_collection</strong></a>:</p>
          * @summary Create Product Collection
-         * @param {ProductcollectionsCOLLECTIONCODEBody} body JObject object that needs to be added.
+         * @param {PutProductCollectionsV310} body PutProductCollectionsV310 object that needs to be added.
          * @param {string} COLLECTION_CODE the collection code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310CreateProductCollection(body: ProductcollectionsCOLLECTIONCODEBody, COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20036>>> {
+        async oBPv310CreateProductCollection(body: PutProductCollectionsV310, COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductCollectionsJsonV310>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv310CreateProductCollection(body, COLLECTION_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1330,7 +1327,7 @@ export const ProductApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetProductCollection(COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20035>>> {
+        async oBPv310GetProductCollection(COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductCollectionJsonTreeV310>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv310GetProductCollection(COLLECTION_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1345,7 +1342,7 @@ export const ProductApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetProductTree(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20037>>> {
+        async oBPv310GetProductTree(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductTreeJsonV310>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv310GetProductTree(PRODUCT_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1355,12 +1352,12 @@ export const ProductApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create or Update Product Attribute Definition</p><p>The category field must be Product</p><p>The type field must be one of; DOUBLE, STRING, INTEGER and DATE_WITH_DAY</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#alias\"><strong>alias</strong></a>:</p><p><a href=\"/glossary#attribute_definition_id\"><strong>attribute_definition_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#can_be_seen_on_views\"><strong>can_be_seen_on_views</strong></a>: false</p><p><a href=\"/glossary#category\"><strong>category</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p>
          * @summary Create or Update Product Attribute Definition
-         * @param {AttributedefinitionsProductBody} body JObject object that needs to be added.
+         * @param {AttributeDefinitionJsonV400} body AttributeDefinitionJsonV400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateOrUpdateProductAttributeDefinition(body: AttributedefinitionsProductBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20082>>> {
+        async oBPv400CreateOrUpdateProductAttributeDefinition(body: AttributeDefinitionJsonV400, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AttributeDefinitionResponseJsonV400>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv400CreateOrUpdateProductAttributeDefinition(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1370,13 +1367,13 @@ export const ProductApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create Product Attribute</p><p>Product Attributes are used to describe a financial Product with a list of typed key value pairs.</p><p>Each Product Attribute is linked to its Product by PRODUCT_CODE</p><p>Typical product attributes might be:</p><p>ISIN (for International bonds)<br />VKN (for German bonds)<br />REDCODE (markit short code for credit derivative)<br />LOAN_ID (e.g. used for Anacredit reporting)</p><p>ISSUE_DATE (When the bond was issued in the market)<br />MATURITY_DATE (End of life time of a product)<br />TRADABLE</p><p>See <a href=\"http://www.fpml.org/\">FPML</a> for more examples.</p><p>The type field must be one of &quot;STRING&quot;, &quot;INTEGER&quot;, &quot;DOUBLE&quot; or DATE_WITH_DAY&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_attribute_id\"><strong>product_attribute_id</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Create Product Attribute
-         * @param {PRODUCTCODEAttributeBody1} body JObject object that needs to be added.
+         * @param {ProductAttributeJsonV400} body ProductAttributeJsonV400 object that needs to be added.
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateProductAttribute(body: PRODUCTCODEAttributeBody1, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20127>>> {
+        async oBPv400CreateProductAttribute(body: ProductAttributeJsonV400, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductAttributeResponseJsonV400>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv400CreateProductAttribute(body, PRODUCT_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1386,13 +1383,13 @@ export const ProductApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create Product Fee</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#frequency\"><strong>frequency</strong></a>: DAILY</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#product_fee_id\">product_fee_id</a>: 696hlAHLFKUHE37469287634</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#frequency\"><strong>frequency</strong></a>: DAILY</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_fee_id\"><strong>product_fee_id</strong></a>: 696hlAHLFKUHE37469287634</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create Product Fee
-         * @param {PRODUCTCODEFeeBody} body JObject object that needs to be added.
+         * @param {ProductFeeJsonV400} body ProductFeeJsonV400 object that needs to be added.
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateProductFee(body: PRODUCTCODEFeeBody, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20128>>> {
+        async oBPv400CreateProductFee(body: ProductFeeJsonV400, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductFeeResponseJsonV400>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv400CreateProductFee(body, PRODUCT_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1451,7 +1448,7 @@ export const ProductApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetProduct(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20096>>> {
+        async oBPv400GetProduct(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductJsonV400>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv400GetProduct(PRODUCT_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1467,7 +1464,7 @@ export const ProductApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetProductAttribute(PRODUCT_ATTRIBUTE_ID: string, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20127>>> {
+        async oBPv400GetProductAttribute(PRODUCT_ATTRIBUTE_ID: string, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductAttributeResponseJsonV400>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv400GetProductAttribute(PRODUCT_ATTRIBUTE_ID, PRODUCT_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1481,7 +1478,7 @@ export const ProductApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetProductAttributeDefinition(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20081>>> {
+        async oBPv400GetProductAttributeDefinition(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AttributeDefinitionsResponseJsonV400>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv400GetProductAttributeDefinition(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1496,7 +1493,7 @@ export const ProductApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetProductFee(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20128>>> {
+        async oBPv400GetProductFee(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductFeeResponseJsonV400>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv400GetProductFee(PRODUCT_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1511,7 +1508,7 @@ export const ProductApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetProductFees(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20097>>> {
+        async oBPv400GetProductFees(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductFeesResponseJsonV400>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv400GetProductFees(PRODUCT_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1525,7 +1522,7 @@ export const ProductApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetProducts(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20095>>> {
+        async oBPv400GetProducts(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductsJsonV400>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv400GetProducts(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1535,14 +1532,14 @@ export const ProductApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update Product Attribute.</p><p>Product Attributes are used to describe a financial Product with a list of typed key value pairs.</p><p>Each Product Attribute is linked to its Product by PRODUCT_CODE</p><p>Update one Product Attribute by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_attribute_id\">PRODUCT_ATTRIBUTE_ID</a>:</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_attribute_id\"><strong>product_attribute_id</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Update Product Attribute
-         * @param {AttributesPRODUCTATTRIBUTEIDBody} body JObject object that needs to be added.
+         * @param {ProductAttributeJsonV400} body ProductAttributeJsonV400 object that needs to be added.
          * @param {string} PRODUCT_ATTRIBUTE_ID the product attribute id
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateProductAttribute(body: AttributesPRODUCTATTRIBUTEIDBody, PRODUCT_ATTRIBUTE_ID: string, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20127>>> {
+        async oBPv400UpdateProductAttribute(body: ProductAttributeJsonV400, PRODUCT_ATTRIBUTE_ID: string, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductAttributeResponseJsonV400>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv400UpdateProductAttribute(body, PRODUCT_ATTRIBUTE_ID, PRODUCT_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1552,13 +1549,13 @@ export const ProductApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update Product Fee.</p><p>Update one Product Fee by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><a href=\"/glossary#product_fee_id\">PRODUCT_FEE_ID</a>: 696hlAHLFKUHE37469287634</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#frequency\"><strong>frequency</strong></a>: DAILY</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_fee_id\"><strong>product_fee_id</strong></a>: 696hlAHLFKUHE37469287634</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Update Product Fee
-         * @param {FeesPRODUCTFEEIDBody} body JObject object that needs to be added.
+         * @param {ProductFeeJsonV400} body ProductFeeJsonV400 object that needs to be added.
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateProductFee(body: FeesPRODUCTFEEIDBody, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20128>>> {
+        async oBPv400UpdateProductFee(body: ProductFeeJsonV400, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductFeeResponseJsonV400>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv400UpdateProductFee(body, PRODUCT_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1568,13 +1565,13 @@ export const ProductApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create or Update Product for the Bank.</p><p>Typical Super Family values / Asset classes are:</p><p>Debt<br />Equity<br />FX<br />Commodity<br />Derivative</p><p>Product hiearchy vs Product Collections:</p><ul><li><p>You can define a hierarchy of products - so that a child Product inherits attributes of its parent Product -  using the parent_product_code in Product.</p></li><li><p>You can define a collection (also known as baskets or buckets) of products using Product Collections.</p></li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#more_info_url\"><strong>more_info_url</strong></a>: <a href=\"http://www.example.com/abc\">www.example.com/abc</a></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#parent_product_code\"><strong>parent_product_code</strong></a>: 787LOW</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#\"><strong>terms_and_conditions_url</strong></a>: <a href=\"http://www.example.com/xyz\">www.example.com/xyz</a></p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p><p><a href=\"/glossary#\">fees</a>: fees</p>
          * @summary Create Product
-         * @param {ProductsPRODUCTCODEBody} body JObject object that needs to be added.
+         * @param {PutProductJsonV500} body PutProductJsonV500 object that needs to be added.
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv500CreateProduct(body: ProductsPRODUCTCODEBody, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200131>>> {
+        async oBPv500CreateProduct(body: PutProductJsonV500, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductJsonV400>>> {
             const localVarAxiosArgs = await ProductApiAxiosParamCreator(configuration).oBPv500CreateProduct(body, PRODUCT_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1593,13 +1590,13 @@ export const ProductApiFactory = function (configuration?: Configuration, basePa
         /**
          * <p>Create or Update a Product Collection at the Bank.</p><p>Use Product Collections to create Product &quot;Baskets&quot;, &quot;Portfolios&quot;, &quot;Indices&quot;, &quot;Collections&quot;, &quot;Underlyings-lists&quot;, &quot;Buckets&quot; etc. etc.</p><p>There is a many to many relationship between Products and Product Collections:</p><ul><li><p>A Product can exist in many Collections</p></li><li><p>A Collection can contain many Products.</p></li></ul><p>A collection has collection code, one parent Product and one or more child Products.</p><p>Product hiearchy vs Product Collections:</p><ul><li><p>You can define a hierarchy of products - so that a child Product inherits attributes of its parent Product -  using the parent_product_code in Product.</p></li><li><p>You can define a collection (also known as baskets or buckets) of products using Product Collections.</p></li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#collection_code\">COLLECTION_CODE</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#collection_code\"><strong>collection_code</strong></a>:</p><p><a href=\"/glossary#items\"><strong>items</strong></a>:</p><p><a href=\"/glossary#member_product_code\"><strong>member_product_code</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_collection\"><strong>product_collection</strong></a>:</p>
          * @summary Create Product Collection
-         * @param {ProductcollectionsCOLLECTIONCODEBody} body JObject object that needs to be added.
+         * @param {PutProductCollectionsV310} body PutProductCollectionsV310 object that needs to be added.
          * @param {string} COLLECTION_CODE the collection code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310CreateProductCollection(body: ProductcollectionsCOLLECTIONCODEBody, COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20036>> {
+        async oBPv310CreateProductCollection(body: PutProductCollectionsV310, COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductCollectionsJsonV310>> {
             return ProductApiFp(configuration).oBPv310CreateProductCollection(body, COLLECTION_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1622,7 +1619,7 @@ export const ProductApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetProductCollection(COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20035>> {
+        async oBPv310GetProductCollection(COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductCollectionJsonTreeV310>> {
             return ProductApiFp(configuration).oBPv310GetProductCollection(COLLECTION_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1633,42 +1630,42 @@ export const ProductApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetProductTree(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20037>> {
+        async oBPv310GetProductTree(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductTreeJsonV310>> {
             return ProductApiFp(configuration).oBPv310GetProductTree(PRODUCT_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create or Update Product Attribute Definition</p><p>The category field must be Product</p><p>The type field must be one of; DOUBLE, STRING, INTEGER and DATE_WITH_DAY</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#alias\"><strong>alias</strong></a>:</p><p><a href=\"/glossary#attribute_definition_id\"><strong>attribute_definition_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#can_be_seen_on_views\"><strong>can_be_seen_on_views</strong></a>: false</p><p><a href=\"/glossary#category\"><strong>category</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p>
          * @summary Create or Update Product Attribute Definition
-         * @param {AttributedefinitionsProductBody} body JObject object that needs to be added.
+         * @param {AttributeDefinitionJsonV400} body AttributeDefinitionJsonV400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateOrUpdateProductAttributeDefinition(body: AttributedefinitionsProductBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20082>> {
+        async oBPv400CreateOrUpdateProductAttributeDefinition(body: AttributeDefinitionJsonV400, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AttributeDefinitionResponseJsonV400>> {
             return ProductApiFp(configuration).oBPv400CreateOrUpdateProductAttributeDefinition(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create Product Attribute</p><p>Product Attributes are used to describe a financial Product with a list of typed key value pairs.</p><p>Each Product Attribute is linked to its Product by PRODUCT_CODE</p><p>Typical product attributes might be:</p><p>ISIN (for International bonds)<br />VKN (for German bonds)<br />REDCODE (markit short code for credit derivative)<br />LOAN_ID (e.g. used for Anacredit reporting)</p><p>ISSUE_DATE (When the bond was issued in the market)<br />MATURITY_DATE (End of life time of a product)<br />TRADABLE</p><p>See <a href=\"http://www.fpml.org/\">FPML</a> for more examples.</p><p>The type field must be one of &quot;STRING&quot;, &quot;INTEGER&quot;, &quot;DOUBLE&quot; or DATE_WITH_DAY&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_attribute_id\"><strong>product_attribute_id</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Create Product Attribute
-         * @param {PRODUCTCODEAttributeBody1} body JObject object that needs to be added.
+         * @param {ProductAttributeJsonV400} body ProductAttributeJsonV400 object that needs to be added.
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateProductAttribute(body: PRODUCTCODEAttributeBody1, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20127>> {
+        async oBPv400CreateProductAttribute(body: ProductAttributeJsonV400, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductAttributeResponseJsonV400>> {
             return ProductApiFp(configuration).oBPv400CreateProductAttribute(body, PRODUCT_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create Product Fee</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#frequency\"><strong>frequency</strong></a>: DAILY</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#product_fee_id\">product_fee_id</a>: 696hlAHLFKUHE37469287634</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#frequency\"><strong>frequency</strong></a>: DAILY</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_fee_id\"><strong>product_fee_id</strong></a>: 696hlAHLFKUHE37469287634</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create Product Fee
-         * @param {PRODUCTCODEFeeBody} body JObject object that needs to be added.
+         * @param {ProductFeeJsonV400} body ProductFeeJsonV400 object that needs to be added.
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateProductFee(body: PRODUCTCODEFeeBody, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20128>> {
+        async oBPv400CreateProductFee(body: ProductFeeJsonV400, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductFeeResponseJsonV400>> {
             return ProductApiFp(configuration).oBPv400CreateProductFee(body, PRODUCT_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1711,7 +1708,7 @@ export const ProductApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetProduct(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20096>> {
+        async oBPv400GetProduct(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductJsonV400>> {
             return ProductApiFp(configuration).oBPv400GetProduct(PRODUCT_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1723,7 +1720,7 @@ export const ProductApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetProductAttribute(PRODUCT_ATTRIBUTE_ID: string, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20127>> {
+        async oBPv400GetProductAttribute(PRODUCT_ATTRIBUTE_ID: string, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductAttributeResponseJsonV400>> {
             return ProductApiFp(configuration).oBPv400GetProductAttribute(PRODUCT_ATTRIBUTE_ID, PRODUCT_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1733,7 +1730,7 @@ export const ProductApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetProductAttributeDefinition(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20081>> {
+        async oBPv400GetProductAttributeDefinition(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AttributeDefinitionsResponseJsonV400>> {
             return ProductApiFp(configuration).oBPv400GetProductAttributeDefinition(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1744,7 +1741,7 @@ export const ProductApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetProductFee(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20128>> {
+        async oBPv400GetProductFee(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductFeeResponseJsonV400>> {
             return ProductApiFp(configuration).oBPv400GetProductFee(PRODUCT_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1755,7 +1752,7 @@ export const ProductApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetProductFees(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20097>> {
+        async oBPv400GetProductFees(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductFeesResponseJsonV400>> {
             return ProductApiFp(configuration).oBPv400GetProductFees(PRODUCT_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1765,44 +1762,44 @@ export const ProductApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetProducts(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20095>> {
+        async oBPv400GetProducts(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductsJsonV400>> {
             return ProductApiFp(configuration).oBPv400GetProducts(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update Product Attribute.</p><p>Product Attributes are used to describe a financial Product with a list of typed key value pairs.</p><p>Each Product Attribute is linked to its Product by PRODUCT_CODE</p><p>Update one Product Attribute by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_attribute_id\">PRODUCT_ATTRIBUTE_ID</a>:</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_attribute_id\"><strong>product_attribute_id</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Update Product Attribute
-         * @param {AttributesPRODUCTATTRIBUTEIDBody} body JObject object that needs to be added.
+         * @param {ProductAttributeJsonV400} body ProductAttributeJsonV400 object that needs to be added.
          * @param {string} PRODUCT_ATTRIBUTE_ID the product attribute id
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateProductAttribute(body: AttributesPRODUCTATTRIBUTEIDBody, PRODUCT_ATTRIBUTE_ID: string, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20127>> {
+        async oBPv400UpdateProductAttribute(body: ProductAttributeJsonV400, PRODUCT_ATTRIBUTE_ID: string, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductAttributeResponseJsonV400>> {
             return ProductApiFp(configuration).oBPv400UpdateProductAttribute(body, PRODUCT_ATTRIBUTE_ID, PRODUCT_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update Product Fee.</p><p>Update one Product Fee by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><a href=\"/glossary#product_fee_id\">PRODUCT_FEE_ID</a>: 696hlAHLFKUHE37469287634</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#frequency\"><strong>frequency</strong></a>: DAILY</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_fee_id\"><strong>product_fee_id</strong></a>: 696hlAHLFKUHE37469287634</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Update Product Fee
-         * @param {FeesPRODUCTFEEIDBody} body JObject object that needs to be added.
+         * @param {ProductFeeJsonV400} body ProductFeeJsonV400 object that needs to be added.
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateProductFee(body: FeesPRODUCTFEEIDBody, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20128>> {
+        async oBPv400UpdateProductFee(body: ProductFeeJsonV400, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductFeeResponseJsonV400>> {
             return ProductApiFp(configuration).oBPv400UpdateProductFee(body, PRODUCT_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create or Update Product for the Bank.</p><p>Typical Super Family values / Asset classes are:</p><p>Debt<br />Equity<br />FX<br />Commodity<br />Derivative</p><p>Product hiearchy vs Product Collections:</p><ul><li><p>You can define a hierarchy of products - so that a child Product inherits attributes of its parent Product -  using the parent_product_code in Product.</p></li><li><p>You can define a collection (also known as baskets or buckets) of products using Product Collections.</p></li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#more_info_url\"><strong>more_info_url</strong></a>: <a href=\"http://www.example.com/abc\">www.example.com/abc</a></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#parent_product_code\"><strong>parent_product_code</strong></a>: 787LOW</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#\"><strong>terms_and_conditions_url</strong></a>: <a href=\"http://www.example.com/xyz\">www.example.com/xyz</a></p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p><p><a href=\"/glossary#\">fees</a>: fees</p>
          * @summary Create Product
-         * @param {ProductsPRODUCTCODEBody} body JObject object that needs to be added.
+         * @param {PutProductJsonV500} body PutProductJsonV500 object that needs to be added.
          * @param {string} PRODUCT_CODE the product code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv500CreateProduct(body: ProductsPRODUCTCODEBody, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200131>> {
+        async oBPv500CreateProduct(body: PutProductJsonV500, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductJsonV400>> {
             return ProductApiFp(configuration).oBPv500CreateProduct(body, PRODUCT_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -1818,14 +1815,14 @@ export class ProductApi extends BaseAPI {
     /**
      * <p>Create or Update a Product Collection at the Bank.</p><p>Use Product Collections to create Product &quot;Baskets&quot;, &quot;Portfolios&quot;, &quot;Indices&quot;, &quot;Collections&quot;, &quot;Underlyings-lists&quot;, &quot;Buckets&quot; etc. etc.</p><p>There is a many to many relationship between Products and Product Collections:</p><ul><li><p>A Product can exist in many Collections</p></li><li><p>A Collection can contain many Products.</p></li></ul><p>A collection has collection code, one parent Product and one or more child Products.</p><p>Product hiearchy vs Product Collections:</p><ul><li><p>You can define a hierarchy of products - so that a child Product inherits attributes of its parent Product -  using the parent_product_code in Product.</p></li><li><p>You can define a collection (also known as baskets or buckets) of products using Product Collections.</p></li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#collection_code\">COLLECTION_CODE</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#collection_code\"><strong>collection_code</strong></a>:</p><p><a href=\"/glossary#items\"><strong>items</strong></a>:</p><p><a href=\"/glossary#member_product_code\"><strong>member_product_code</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_collection\"><strong>product_collection</strong></a>:</p>
      * @summary Create Product Collection
-     * @param {ProductcollectionsCOLLECTIONCODEBody} body JObject object that needs to be added.
+     * @param {PutProductCollectionsV310} body PutProductCollectionsV310 object that needs to be added.
      * @param {string} COLLECTION_CODE the collection code
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv310CreateProductCollection(body: ProductcollectionsCOLLECTIONCODEBody, COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20036>> {
+    public async oBPv310CreateProductCollection(body: PutProductCollectionsV310, COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductCollectionsJsonV310>> {
         return ProductApiFp(this.configuration).oBPv310CreateProductCollection(body, COLLECTION_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1850,7 +1847,7 @@ export class ProductApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv310GetProductCollection(COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20035>> {
+    public async oBPv310GetProductCollection(COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductCollectionJsonTreeV310>> {
         return ProductApiFp(this.configuration).oBPv310GetProductCollection(COLLECTION_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1862,45 +1859,45 @@ export class ProductApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv310GetProductTree(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20037>> {
+    public async oBPv310GetProductTree(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductTreeJsonV310>> {
         return ProductApiFp(this.configuration).oBPv310GetProductTree(PRODUCT_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create or Update Product Attribute Definition</p><p>The category field must be Product</p><p>The type field must be one of; DOUBLE, STRING, INTEGER and DATE_WITH_DAY</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#alias\"><strong>alias</strong></a>:</p><p><a href=\"/glossary#attribute_definition_id\"><strong>attribute_definition_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#can_be_seen_on_views\"><strong>can_be_seen_on_views</strong></a>: false</p><p><a href=\"/glossary#category\"><strong>category</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p>
      * @summary Create or Update Product Attribute Definition
-     * @param {AttributedefinitionsProductBody} body JObject object that needs to be added.
+     * @param {AttributeDefinitionJsonV400} body AttributeDefinitionJsonV400 object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv400CreateOrUpdateProductAttributeDefinition(body: AttributedefinitionsProductBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20082>> {
+    public async oBPv400CreateOrUpdateProductAttributeDefinition(body: AttributeDefinitionJsonV400, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AttributeDefinitionResponseJsonV400>> {
         return ProductApiFp(this.configuration).oBPv400CreateOrUpdateProductAttributeDefinition(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create Product Attribute</p><p>Product Attributes are used to describe a financial Product with a list of typed key value pairs.</p><p>Each Product Attribute is linked to its Product by PRODUCT_CODE</p><p>Typical product attributes might be:</p><p>ISIN (for International bonds)<br />VKN (for German bonds)<br />REDCODE (markit short code for credit derivative)<br />LOAN_ID (e.g. used for Anacredit reporting)</p><p>ISSUE_DATE (When the bond was issued in the market)<br />MATURITY_DATE (End of life time of a product)<br />TRADABLE</p><p>See <a href=\"http://www.fpml.org/\">FPML</a> for more examples.</p><p>The type field must be one of &quot;STRING&quot;, &quot;INTEGER&quot;, &quot;DOUBLE&quot; or DATE_WITH_DAY&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_attribute_id\"><strong>product_attribute_id</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
      * @summary Create Product Attribute
-     * @param {PRODUCTCODEAttributeBody1} body JObject object that needs to be added.
+     * @param {ProductAttributeJsonV400} body ProductAttributeJsonV400 object that needs to be added.
      * @param {string} PRODUCT_CODE the product code
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv400CreateProductAttribute(body: PRODUCTCODEAttributeBody1, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20127>> {
+    public async oBPv400CreateProductAttribute(body: ProductAttributeJsonV400, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductAttributeResponseJsonV400>> {
         return ProductApiFp(this.configuration).oBPv400CreateProductAttribute(body, PRODUCT_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create Product Fee</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#frequency\"><strong>frequency</strong></a>: DAILY</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#product_fee_id\">product_fee_id</a>: 696hlAHLFKUHE37469287634</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#frequency\"><strong>frequency</strong></a>: DAILY</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_fee_id\"><strong>product_fee_id</strong></a>: 696hlAHLFKUHE37469287634</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
      * @summary Create Product Fee
-     * @param {PRODUCTCODEFeeBody} body JObject object that needs to be added.
+     * @param {ProductFeeJsonV400} body ProductFeeJsonV400 object that needs to be added.
      * @param {string} PRODUCT_CODE the product code
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv400CreateProductFee(body: PRODUCTCODEFeeBody, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20128>> {
+    public async oBPv400CreateProductFee(body: ProductFeeJsonV400, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductFeeResponseJsonV400>> {
         return ProductApiFp(this.configuration).oBPv400CreateProductFee(body, PRODUCT_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1947,7 +1944,7 @@ export class ProductApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv400GetProduct(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20096>> {
+    public async oBPv400GetProduct(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductJsonV400>> {
         return ProductApiFp(this.configuration).oBPv400GetProduct(PRODUCT_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1960,7 +1957,7 @@ export class ProductApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv400GetProductAttribute(PRODUCT_ATTRIBUTE_ID: string, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20127>> {
+    public async oBPv400GetProductAttribute(PRODUCT_ATTRIBUTE_ID: string, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductAttributeResponseJsonV400>> {
         return ProductApiFp(this.configuration).oBPv400GetProductAttribute(PRODUCT_ATTRIBUTE_ID, PRODUCT_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1971,7 +1968,7 @@ export class ProductApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv400GetProductAttributeDefinition(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20081>> {
+    public async oBPv400GetProductAttributeDefinition(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AttributeDefinitionsResponseJsonV400>> {
         return ProductApiFp(this.configuration).oBPv400GetProductAttributeDefinition(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1983,7 +1980,7 @@ export class ProductApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv400GetProductFee(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20128>> {
+    public async oBPv400GetProductFee(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductFeeResponseJsonV400>> {
         return ProductApiFp(this.configuration).oBPv400GetProductFee(PRODUCT_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1995,7 +1992,7 @@ export class ProductApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv400GetProductFees(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20097>> {
+    public async oBPv400GetProductFees(PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductFeesResponseJsonV400>> {
         return ProductApiFp(this.configuration).oBPv400GetProductFees(PRODUCT_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -2006,13 +2003,13 @@ export class ProductApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv400GetProducts(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20095>> {
+    public async oBPv400GetProducts(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductsJsonV400>> {
         return ProductApiFp(this.configuration).oBPv400GetProducts(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update Product Attribute.</p><p>Product Attributes are used to describe a financial Product with a list of typed key value pairs.</p><p>Each Product Attribute is linked to its Product by PRODUCT_CODE</p><p>Update one Product Attribute by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_attribute_id\">PRODUCT_ATTRIBUTE_ID</a>:</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_attribute_id\"><strong>product_attribute_id</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
      * @summary Update Product Attribute
-     * @param {AttributesPRODUCTATTRIBUTEIDBody} body JObject object that needs to be added.
+     * @param {ProductAttributeJsonV400} body ProductAttributeJsonV400 object that needs to be added.
      * @param {string} PRODUCT_ATTRIBUTE_ID the product attribute id
      * @param {string} PRODUCT_CODE the product code
      * @param {string} BANK_ID The bank id
@@ -2020,33 +2017,33 @@ export class ProductApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv400UpdateProductAttribute(body: AttributesPRODUCTATTRIBUTEIDBody, PRODUCT_ATTRIBUTE_ID: string, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20127>> {
+    public async oBPv400UpdateProductAttribute(body: ProductAttributeJsonV400, PRODUCT_ATTRIBUTE_ID: string, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductAttributeResponseJsonV400>> {
         return ProductApiFp(this.configuration).oBPv400UpdateProductAttribute(body, PRODUCT_ATTRIBUTE_ID, PRODUCT_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update Product Fee.</p><p>Update one Product Fee by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><a href=\"/glossary#product_fee_id\">PRODUCT_FEE_ID</a>: 696hlAHLFKUHE37469287634</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#frequency\"><strong>frequency</strong></a>: DAILY</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_fee_id\"><strong>product_fee_id</strong></a>: 696hlAHLFKUHE37469287634</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
      * @summary Update Product Fee
-     * @param {FeesPRODUCTFEEIDBody} body JObject object that needs to be added.
+     * @param {ProductFeeJsonV400} body ProductFeeJsonV400 object that needs to be added.
      * @param {string} PRODUCT_CODE the product code
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv400UpdateProductFee(body: FeesPRODUCTFEEIDBody, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20128>> {
+    public async oBPv400UpdateProductFee(body: ProductFeeJsonV400, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductFeeResponseJsonV400>> {
         return ProductApiFp(this.configuration).oBPv400UpdateProductFee(body, PRODUCT_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create or Update Product for the Bank.</p><p>Typical Super Family values / Asset classes are:</p><p>Debt<br />Equity<br />FX<br />Commodity<br />Derivative</p><p>Product hiearchy vs Product Collections:</p><ul><li><p>You can define a hierarchy of products - so that a child Product inherits attributes of its parent Product -  using the parent_product_code in Product.</p></li><li><p>You can define a collection (also known as baskets or buckets) of products using Product Collections.</p></li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#product_code\">PRODUCT_CODE</a>: 1234BW</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#more_info_url\"><strong>more_info_url</strong></a>: <a href=\"http://www.example.com/abc\">www.example.com/abc</a></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#parent_product_code\"><strong>parent_product_code</strong></a>: 787LOW</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#\"><strong>terms_and_conditions_url</strong></a>: <a href=\"http://www.example.com/xyz\">www.example.com/xyz</a></p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p><p><a href=\"/glossary#\">fees</a>: fees</p>
      * @summary Create Product
-     * @param {ProductsPRODUCTCODEBody} body JObject object that needs to be added.
+     * @param {PutProductJsonV500} body PutProductJsonV500 object that needs to be added.
      * @param {string} PRODUCT_CODE the product code
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductApi
      */
-    public async oBPv500CreateProduct(body: ProductsPRODUCTCODEBody, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200131>> {
+    public async oBPv500CreateProduct(body: PutProductJsonV500, PRODUCT_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductJsonV400>> {
         return ProductApiFp(this.configuration).oBPv500CreateProduct(body, PRODUCT_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

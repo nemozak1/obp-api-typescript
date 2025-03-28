@@ -17,9 +17,9 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { ElasticSearchJsonV300 } from '../models';
+import { EmptyElasticSearch } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { INDEXFIELDBody } from '../models';
-import { WarehouseINDEXBody } from '../models';
 /**
  * DataWarehouseApi - axios parameter creator
  * @export
@@ -29,12 +29,12 @@ export const DataWarehouseApiAxiosParamCreator = function (configuration?: Confi
         /**
          * <p>Search the data warehouse and get row level results.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>CanSearchWarehouse entitlement is required. You can request the Role below.</p><p>Elastic (search) is used in the background. See links below for syntax.</p><p>Examples of usage:</p><p>POST /search/warehouse/THE_INDEX_YOU_WANT_TO_USE</p><p>POST /search/warehouse/INDEX1,INDEX2</p><p>POST /search/warehouse/ALL</p><p>{ Any valid elasticsearch query DSL in the body }</p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html\">Elasticsearch query DSL</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-request-body.html\">Elastic simple query</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-aggregations.html\">Elastic aggregations</a></p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#index\">INDEX</a>:</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#match_all\"><strong>match_all</strong></a>:</p><p><a href=\"/glossary#query\"><strong>query</strong></a>:</p><p><a href=\"/glossary#none\">none</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#none\">none</a>:</p>
          * @summary Data Warehouse Search
-         * @param {WarehouseINDEXBody} body JObject object that needs to be added.
+         * @param {ElasticSearchJsonV300} body ElasticSearchJsonV300 object that needs to be added.
          * @param {string} INDEX the elastic search index
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv300DataWarehouseSearch: async (body: WarehouseINDEXBody, INDEX: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv300DataWarehouseSearch: async (body: ElasticSearchJsonV300, INDEX: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv300DataWarehouseSearch.');
@@ -94,13 +94,13 @@ export const DataWarehouseApiAxiosParamCreator = function (configuration?: Confi
         /**
          * <p>Search the data warehouse and get statistical aggregations over a warehouse field</p><p>Does a stats aggregation over some numeric field:</p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-stats-aggregation.html\">https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-stats-aggregation.html</a></p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>CanSearchWarehouseStats Role is required. You can request this below.</p><p>Elastic (search) is used in the background. See links below for syntax.</p><p>Examples of usage:</p><p>POST /search/warehouse/statistics/INDEX/FIELD</p><p>POST /search/warehouse/statistics/ALL/FIELD</p><p>{ Any valid elasticsearch query DSL in the body }</p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html\">Elasticsearch query DSL</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-request-body.html\">Elastic simple query</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-aggregations.html\">Elastic aggregations</a></p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#field\">FIELD</a>:</p><p><a href=\"/glossary#index\">INDEX</a>:</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#match_all\"><strong>match_all</strong></a>:</p><p><a href=\"/glossary#query\"><strong>query</strong></a>:</p><p><a href=\"/glossary#none\">none</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#none\">none</a>:</p>
          * @summary Data Warehouse Statistics
-         * @param {INDEXFIELDBody} body JObject object that needs to be added.
+         * @param {ElasticSearchJsonV300} body ElasticSearchJsonV300 object that needs to be added.
          * @param {string} FIELD the elastic search field
          * @param {string} INDEX the elastic search index
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv300DataWarehouseStatistics: async (body: INDEXFIELDBody, FIELD: string, INDEX: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv300DataWarehouseStatistics: async (body: ElasticSearchJsonV300, FIELD: string, INDEX: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv300DataWarehouseStatistics.');
@@ -174,12 +174,12 @@ export const DataWarehouseApiFp = function(configuration?: Configuration) {
         /**
          * <p>Search the data warehouse and get row level results.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>CanSearchWarehouse entitlement is required. You can request the Role below.</p><p>Elastic (search) is used in the background. See links below for syntax.</p><p>Examples of usage:</p><p>POST /search/warehouse/THE_INDEX_YOU_WANT_TO_USE</p><p>POST /search/warehouse/INDEX1,INDEX2</p><p>POST /search/warehouse/ALL</p><p>{ Any valid elasticsearch query DSL in the body }</p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html\">Elasticsearch query DSL</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-request-body.html\">Elastic simple query</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-aggregations.html\">Elastic aggregations</a></p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#index\">INDEX</a>:</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#match_all\"><strong>match_all</strong></a>:</p><p><a href=\"/glossary#query\"><strong>query</strong></a>:</p><p><a href=\"/glossary#none\">none</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#none\">none</a>:</p>
          * @summary Data Warehouse Search
-         * @param {WarehouseINDEXBody} body JObject object that needs to be added.
+         * @param {ElasticSearchJsonV300} body ElasticSearchJsonV300 object that needs to be added.
          * @param {string} INDEX the elastic search index
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300DataWarehouseSearch(body: WarehouseINDEXBody, INDEX: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<any>>> {
+        async oBPv300DataWarehouseSearch(body: ElasticSearchJsonV300, INDEX: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<EmptyElasticSearch>>> {
             const localVarAxiosArgs = await DataWarehouseApiAxiosParamCreator(configuration).oBPv300DataWarehouseSearch(body, INDEX, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -189,13 +189,13 @@ export const DataWarehouseApiFp = function(configuration?: Configuration) {
         /**
          * <p>Search the data warehouse and get statistical aggregations over a warehouse field</p><p>Does a stats aggregation over some numeric field:</p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-stats-aggregation.html\">https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-stats-aggregation.html</a></p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>CanSearchWarehouseStats Role is required. You can request this below.</p><p>Elastic (search) is used in the background. See links below for syntax.</p><p>Examples of usage:</p><p>POST /search/warehouse/statistics/INDEX/FIELD</p><p>POST /search/warehouse/statistics/ALL/FIELD</p><p>{ Any valid elasticsearch query DSL in the body }</p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html\">Elasticsearch query DSL</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-request-body.html\">Elastic simple query</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-aggregations.html\">Elastic aggregations</a></p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#field\">FIELD</a>:</p><p><a href=\"/glossary#index\">INDEX</a>:</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#match_all\"><strong>match_all</strong></a>:</p><p><a href=\"/glossary#query\"><strong>query</strong></a>:</p><p><a href=\"/glossary#none\">none</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#none\">none</a>:</p>
          * @summary Data Warehouse Statistics
-         * @param {INDEXFIELDBody} body JObject object that needs to be added.
+         * @param {ElasticSearchJsonV300} body ElasticSearchJsonV300 object that needs to be added.
          * @param {string} FIELD the elastic search field
          * @param {string} INDEX the elastic search index
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300DataWarehouseStatistics(body: INDEXFIELDBody, FIELD: string, INDEX: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<any>>> {
+        async oBPv300DataWarehouseStatistics(body: ElasticSearchJsonV300, FIELD: string, INDEX: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<EmptyElasticSearch>>> {
             const localVarAxiosArgs = await DataWarehouseApiAxiosParamCreator(configuration).oBPv300DataWarehouseStatistics(body, FIELD, INDEX, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -214,24 +214,24 @@ export const DataWarehouseApiFactory = function (configuration?: Configuration, 
         /**
          * <p>Search the data warehouse and get row level results.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>CanSearchWarehouse entitlement is required. You can request the Role below.</p><p>Elastic (search) is used in the background. See links below for syntax.</p><p>Examples of usage:</p><p>POST /search/warehouse/THE_INDEX_YOU_WANT_TO_USE</p><p>POST /search/warehouse/INDEX1,INDEX2</p><p>POST /search/warehouse/ALL</p><p>{ Any valid elasticsearch query DSL in the body }</p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html\">Elasticsearch query DSL</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-request-body.html\">Elastic simple query</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-aggregations.html\">Elastic aggregations</a></p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#index\">INDEX</a>:</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#match_all\"><strong>match_all</strong></a>:</p><p><a href=\"/glossary#query\"><strong>query</strong></a>:</p><p><a href=\"/glossary#none\">none</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#none\">none</a>:</p>
          * @summary Data Warehouse Search
-         * @param {WarehouseINDEXBody} body JObject object that needs to be added.
+         * @param {ElasticSearchJsonV300} body ElasticSearchJsonV300 object that needs to be added.
          * @param {string} INDEX the elastic search index
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300DataWarehouseSearch(body: WarehouseINDEXBody, INDEX: string, options?: AxiosRequestConfig): Promise<AxiosResponse<any>> {
+        async oBPv300DataWarehouseSearch(body: ElasticSearchJsonV300, INDEX: string, options?: AxiosRequestConfig): Promise<AxiosResponse<EmptyElasticSearch>> {
             return DataWarehouseApiFp(configuration).oBPv300DataWarehouseSearch(body, INDEX, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Search the data warehouse and get statistical aggregations over a warehouse field</p><p>Does a stats aggregation over some numeric field:</p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-stats-aggregation.html\">https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-stats-aggregation.html</a></p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>CanSearchWarehouseStats Role is required. You can request this below.</p><p>Elastic (search) is used in the background. See links below for syntax.</p><p>Examples of usage:</p><p>POST /search/warehouse/statistics/INDEX/FIELD</p><p>POST /search/warehouse/statistics/ALL/FIELD</p><p>{ Any valid elasticsearch query DSL in the body }</p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html\">Elasticsearch query DSL</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-request-body.html\">Elastic simple query</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-aggregations.html\">Elastic aggregations</a></p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#field\">FIELD</a>:</p><p><a href=\"/glossary#index\">INDEX</a>:</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#match_all\"><strong>match_all</strong></a>:</p><p><a href=\"/glossary#query\"><strong>query</strong></a>:</p><p><a href=\"/glossary#none\">none</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#none\">none</a>:</p>
          * @summary Data Warehouse Statistics
-         * @param {INDEXFIELDBody} body JObject object that needs to be added.
+         * @param {ElasticSearchJsonV300} body ElasticSearchJsonV300 object that needs to be added.
          * @param {string} FIELD the elastic search field
          * @param {string} INDEX the elastic search index
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300DataWarehouseStatistics(body: INDEXFIELDBody, FIELD: string, INDEX: string, options?: AxiosRequestConfig): Promise<AxiosResponse<any>> {
+        async oBPv300DataWarehouseStatistics(body: ElasticSearchJsonV300, FIELD: string, INDEX: string, options?: AxiosRequestConfig): Promise<AxiosResponse<EmptyElasticSearch>> {
             return DataWarehouseApiFp(configuration).oBPv300DataWarehouseStatistics(body, FIELD, INDEX, options).then((request) => request(axios, basePath));
         },
     };
@@ -247,26 +247,26 @@ export class DataWarehouseApi extends BaseAPI {
     /**
      * <p>Search the data warehouse and get row level results.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>CanSearchWarehouse entitlement is required. You can request the Role below.</p><p>Elastic (search) is used in the background. See links below for syntax.</p><p>Examples of usage:</p><p>POST /search/warehouse/THE_INDEX_YOU_WANT_TO_USE</p><p>POST /search/warehouse/INDEX1,INDEX2</p><p>POST /search/warehouse/ALL</p><p>{ Any valid elasticsearch query DSL in the body }</p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html\">Elasticsearch query DSL</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-request-body.html\">Elastic simple query</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-aggregations.html\">Elastic aggregations</a></p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#index\">INDEX</a>:</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#match_all\"><strong>match_all</strong></a>:</p><p><a href=\"/glossary#query\"><strong>query</strong></a>:</p><p><a href=\"/glossary#none\">none</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#none\">none</a>:</p>
      * @summary Data Warehouse Search
-     * @param {WarehouseINDEXBody} body JObject object that needs to be added.
+     * @param {ElasticSearchJsonV300} body ElasticSearchJsonV300 object that needs to be added.
      * @param {string} INDEX the elastic search index
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DataWarehouseApi
      */
-    public async oBPv300DataWarehouseSearch(body: WarehouseINDEXBody, INDEX: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<any>> {
+    public async oBPv300DataWarehouseSearch(body: ElasticSearchJsonV300, INDEX: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<EmptyElasticSearch>> {
         return DataWarehouseApiFp(this.configuration).oBPv300DataWarehouseSearch(body, INDEX, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Search the data warehouse and get statistical aggregations over a warehouse field</p><p>Does a stats aggregation over some numeric field:</p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-stats-aggregation.html\">https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-stats-aggregation.html</a></p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p>CanSearchWarehouseStats Role is required. You can request this below.</p><p>Elastic (search) is used in the background. See links below for syntax.</p><p>Examples of usage:</p><p>POST /search/warehouse/statistics/INDEX/FIELD</p><p>POST /search/warehouse/statistics/ALL/FIELD</p><p>{ Any valid elasticsearch query DSL in the body }</p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html\">Elasticsearch query DSL</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-request-body.html\">Elastic simple query</a></p><p><a href=\"https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-aggregations.html\">Elastic aggregations</a></p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#field\">FIELD</a>:</p><p><a href=\"/glossary#index\">INDEX</a>:</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#match_all\"><strong>match_all</strong></a>:</p><p><a href=\"/glossary#query\"><strong>query</strong></a>:</p><p><a href=\"/glossary#none\">none</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#none\">none</a>:</p>
      * @summary Data Warehouse Statistics
-     * @param {INDEXFIELDBody} body JObject object that needs to be added.
+     * @param {ElasticSearchJsonV300} body ElasticSearchJsonV300 object that needs to be added.
      * @param {string} FIELD the elastic search field
      * @param {string} INDEX the elastic search index
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DataWarehouseApi
      */
-    public async oBPv300DataWarehouseStatistics(body: INDEXFIELDBody, FIELD: string, INDEX: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<any>> {
+    public async oBPv300DataWarehouseStatistics(body: ElasticSearchJsonV300, FIELD: string, INDEX: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<EmptyElasticSearch>> {
         return DataWarehouseApiFp(this.configuration).oBPv300DataWarehouseStatistics(body, FIELD, INDEX, options).then((request) => request(this.axios, this.basePath));
     }
 }

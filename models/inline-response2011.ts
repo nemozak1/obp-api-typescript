@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+import { ManagementDynamicendpointsBody } from './management-dynamicendpoints-body';
  /**
  * 
  *
@@ -23,7 +24,20 @@ export interface InlineResponse2011 {
     /**
      * @type {string}
      * @memberof InlineResponse2011
-     * @example Success
+     * @example 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1
      */
-    success: string;
+    user_id: string;
+
+    /**
+     * @type {string}
+     * @memberof InlineResponse2011
+     * @example dynamic-endpoint-id
+     */
+    dynamic_endpoint_id: string;
+
+    /**
+     * @type {ManagementDynamicendpointsBody}
+     * @memberof InlineResponse2011
+     */
+    swagger_string: ManagementDynamicendpointsBody;
 }

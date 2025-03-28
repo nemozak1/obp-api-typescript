@@ -17,29 +17,27 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { ATMIDAccessibilityfeaturesBody } from '../models';
-import { ATMIDAttributesBody } from '../models';
-import { ATMIDLocationcategoriesBody } from '../models';
-import { ATMIDNotesBody } from '../models';
-import { ATMIDServicesBody } from '../models';
-import { ATMIDSupportedcurrenciesBody } from '../models';
-import { ATMIDSupportedlanguagesBody } from '../models';
-import { AtmsATMIDBody } from '../models';
-import { AttributesATMATTRIBUTEIDBody } from '../models';
-import { BANKIDAtmsBody } from '../models';
+import { AccessibilityFeaturesJson } from '../models';
+import { AtmAccessibilityFeaturesJson } from '../models';
+import { AtmAttributeJsonV510 } from '../models';
+import { AtmAttributeResponseJsonV510 } from '../models';
+import { AtmAttributesResponseJsonV510 } from '../models';
+import { AtmJsonV510 } from '../models';
+import { AtmLocationCategoriesJsonV400 } from '../models';
+import { AtmLocationCategoriesResponseJsonV400 } from '../models';
+import { AtmNotesJsonV400 } from '../models';
+import { AtmNotesResponseJsonV400 } from '../models';
+import { AtmServicesJsonV400 } from '../models';
+import { AtmServicesResponseJsonV400 } from '../models';
+import { AtmSupportedCurrenciesJson } from '../models';
+import { AtmSupportedLanguagesJson } from '../models';
+import { AtmsJsonV400 } from '../models';
+import { AtmsJsonV510 } from '../models';
 import { ErrorBankNotFound } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse200130 } from '../models';
-import { InlineResponse200140 } from '../models';
-import { InlineResponse200141 } from '../models';
-import { InlineResponse20068 } from '../models';
-import { InlineResponse20069 } from '../models';
-import { InlineResponse20070 } from '../models';
-import { InlineResponse20071 } from '../models';
-import { InlineResponse20072 } from '../models';
-import { InlineResponse20073 } from '../models';
-import { InlineResponse20158 } from '../models';
-import { InlineResponse20159 } from '../models';
+import { PostAtmJsonV510 } from '../models';
+import { SupportedCurrenciesJson } from '../models';
+import { SupportedLanguagesJson } from '../models';
 /**
  * ATMApi - axios parameter creator
  * @export
@@ -49,13 +47,13 @@ export const ATMApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * <p>Update ATM Accessibility Features.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p>
          * @summary Update ATM Accessibility Features
-         * @param {ATMIDAccessibilityfeaturesBody} body JObject object that needs to be added.
+         * @param {AccessibilityFeaturesJson} body AccessibilityFeaturesJson object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateAtmAccessibilityFeatures: async (body: ATMIDAccessibilityfeaturesBody, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateAtmAccessibilityFeatures: async (body: AccessibilityFeaturesJson, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateAtmAccessibilityFeatures.');
@@ -120,13 +118,13 @@ export const ATMApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * <p>Update ATM Location Categories.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p>
          * @summary Update ATM Location Categories
-         * @param {ATMIDLocationcategoriesBody} body JObject object that needs to be added.
+         * @param {AtmLocationCategoriesJsonV400} body AtmLocationCategoriesJsonV400 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateAtmLocationCategories: async (body: ATMIDLocationcategoriesBody, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateAtmLocationCategories: async (body: AtmLocationCategoriesJsonV400, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateAtmLocationCategories.');
@@ -191,13 +189,13 @@ export const ATMApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * <p>Update ATM Notes.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p>
          * @summary Update ATM Notes
-         * @param {ATMIDNotesBody} body JObject object that needs to be added.
+         * @param {AtmNotesJsonV400} body AtmNotesJsonV400 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateAtmNotes: async (body: ATMIDNotesBody, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateAtmNotes: async (body: AtmNotesJsonV400, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateAtmNotes.');
@@ -262,13 +260,13 @@ export const ATMApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * <p>Update ATM Services.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p>
          * @summary Update ATM Services
-         * @param {ATMIDServicesBody} body JObject object that needs to be added.
+         * @param {AtmServicesJsonV400} body AtmServicesJsonV400 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateAtmServices: async (body: ATMIDServicesBody, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateAtmServices: async (body: AtmServicesJsonV400, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateAtmServices.');
@@ -333,13 +331,13 @@ export const ATMApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * <p>Update ATM Supported Currencies.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p>
          * @summary Update ATM Supported Currencies
-         * @param {ATMIDSupportedcurrenciesBody} body JObject object that needs to be added.
+         * @param {SupportedCurrenciesJson} body SupportedCurrenciesJson object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateAtmSupportedCurrencies: async (body: ATMIDSupportedcurrenciesBody, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateAtmSupportedCurrencies: async (body: SupportedCurrenciesJson, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateAtmSupportedCurrencies.');
@@ -404,13 +402,13 @@ export const ATMApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * <p>Update ATM Supported Languages.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p>
          * @summary Update ATM Supported Languages
-         * @param {ATMIDSupportedlanguagesBody} body JObject object that needs to be added.
+         * @param {SupportedLanguagesJson} body SupportedLanguagesJson object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateAtmSupportedLanguages: async (body: ATMIDSupportedlanguagesBody, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateAtmSupportedLanguages: async (body: SupportedLanguagesJson, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateAtmSupportedLanguages.');
@@ -531,12 +529,12 @@ export const ATMApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * <p>Create ATM.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>atm_type</strong></a>:</p><p><a href=\"/glossary#\"><strong>balance_inquiry_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>branch_identification</strong></a>: branch_identification</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_international_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_national_fee</strong></a>:</p><p><a href=\"/glossary#city\"><strong>city</strong></a>:</p><p><a href=\"/glossary#closing_time\"><strong>closing_time</strong></a>: 2020-01-27</p><p><a href=\"/glossary#country_code\"><strong>country_code</strong></a>: 1254</p><p><a href=\"/glossary#county\"><strong>county</strong></a>:</p><p><a href=\"/glossary#friday\"><strong>friday</strong></a>:</p><p><a href=\"/glossary#\"><strong>has_deposit_capability</strong></a>: false</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#\"><strong>is_accessible</strong></a>: false</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_1</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_2</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_3</strong></a>:</p><p><a href=\"/glossary#\"><strong>located_at</strong></a>:</p><p><a href=\"/glossary#location\"><strong>location</strong></a>:</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#\"><strong>minimum_withdrawal</strong></a>: minimum_withdrawal</p><p><a href=\"/glossary#monday\"><strong>monday</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p><p><a href=\"/glossary#opening_time\"><strong>opening_time</strong></a>:</p><p><a href=\"/glossary#phone\"><strong>phone</strong></a>:</p><p><a href=\"/glossary#postcode\"><strong>postcode</strong></a>:</p><p><a href=\"/glossary#saturday\"><strong>saturday</strong></a>:</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p><p><a href=\"/glossary#\"><strong>site_identification</strong></a>: site_identification</p><p><a href=\"/glossary#\"><strong>site_name</strong></a>: site_name</p><p><a href=\"/glossary#state\"><strong>state</strong></a>:</p><p><a href=\"/glossary#sunday\"><strong>sunday</strong></a>:</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p><p><a href=\"/glossary#thursday\"><strong>thursday</strong></a>:</p><p><a href=\"/glossary#tuesday\"><strong>tuesday</strong></a>:</p><p><a href=\"/glossary#wednesday\"><strong>wednesday</strong></a>:</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>atm_type</strong></a>:</p><p><a href=\"/glossary#\"><strong>balance_inquiry_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>branch_identification</strong></a>: branch_identification</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_international_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_national_fee</strong></a>:</p><p><a href=\"/glossary#city\"><strong>city</strong></a>:</p><p><a href=\"/glossary#closing_time\"><strong>closing_time</strong></a>: 2020-01-27</p><p><a href=\"/glossary#country_code\"><strong>country_code</strong></a>: 1254</p><p><a href=\"/glossary#county\"><strong>county</strong></a>:</p><p><a href=\"/glossary#friday\"><strong>friday</strong></a>:</p><p><a href=\"/glossary#\"><strong>has_deposit_capability</strong></a>: false</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#\"><strong>is_accessible</strong></a>: false</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_1</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_2</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_3</strong></a>:</p><p><a href=\"/glossary#\"><strong>located_at</strong></a>:</p><p><a href=\"/glossary#location\"><strong>location</strong></a>:</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#\"><strong>minimum_withdrawal</strong></a>: minimum_withdrawal</p><p><a href=\"/glossary#monday\"><strong>monday</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p><p><a href=\"/glossary#opening_time\"><strong>opening_time</strong></a>:</p><p><a href=\"/glossary#phone\"><strong>phone</strong></a>:</p><p><a href=\"/glossary#postcode\"><strong>postcode</strong></a>:</p><p><a href=\"/glossary#saturday\"><strong>saturday</strong></a>:</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p><p><a href=\"/glossary#\"><strong>site_identification</strong></a>: site_identification</p><p><a href=\"/glossary#\"><strong>site_name</strong></a>: site_name</p><p><a href=\"/glossary#state\"><strong>state</strong></a>:</p><p><a href=\"/glossary#sunday\"><strong>sunday</strong></a>:</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p><p><a href=\"/glossary#thursday\"><strong>thursday</strong></a>:</p><p><a href=\"/glossary#tuesday\"><strong>tuesday</strong></a>:</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#wednesday\"><strong>wednesday</strong></a>:</p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Create ATM
-         * @param {BANKIDAtmsBody} body JObject object that needs to be added.
+         * @param {PostAtmJsonV510} body PostAtmJsonV510 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv510CreateAtm: async (body: BANKIDAtmsBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv510CreateAtm: async (body: PostAtmJsonV510, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv510CreateAtm.');
@@ -596,13 +594,13 @@ export const ATMApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * <p>Create ATM Attribute</p><p>The type field must be one of &quot;STRING&quot;, &quot;INTEGER&quot;, &quot;DOUBLE&quot; or DATE_WITH_DAY&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Create ATM Attribute
-         * @param {ATMIDAttributesBody} body JObject object that needs to be added.
+         * @param {AtmAttributeJsonV510} body AtmAttributeJsonV510 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv510CreateAtmAttribute: async (body: ATMIDAttributesBody, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv510CreateAtmAttribute: async (body: AtmAttributeJsonV510, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv510CreateAtmAttribute.');
@@ -1045,13 +1043,13 @@ export const ATMApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * <p>Update ATM.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>atm_type</strong></a>:</p><p><a href=\"/glossary#\"><strong>balance_inquiry_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>branch_identification</strong></a>: branch_identification</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_international_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_national_fee</strong></a>:</p><p><a href=\"/glossary#city\"><strong>city</strong></a>:</p><p><a href=\"/glossary#closing_time\"><strong>closing_time</strong></a>: 2020-01-27</p><p><a href=\"/glossary#country_code\"><strong>country_code</strong></a>: 1254</p><p><a href=\"/glossary#county\"><strong>county</strong></a>:</p><p><a href=\"/glossary#friday\"><strong>friday</strong></a>:</p><p><a href=\"/glossary#\"><strong>has_deposit_capability</strong></a>: false</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#\"><strong>is_accessible</strong></a>: false</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_1</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_2</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_3</strong></a>:</p><p><a href=\"/glossary#\"><strong>located_at</strong></a>:</p><p><a href=\"/glossary#location\"><strong>location</strong></a>:</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#\"><strong>minimum_withdrawal</strong></a>: minimum_withdrawal</p><p><a href=\"/glossary#monday\"><strong>monday</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p><p><a href=\"/glossary#opening_time\"><strong>opening_time</strong></a>:</p><p><a href=\"/glossary#phone\"><strong>phone</strong></a>:</p><p><a href=\"/glossary#postcode\"><strong>postcode</strong></a>:</p><p><a href=\"/glossary#saturday\"><strong>saturday</strong></a>:</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p><p><a href=\"/glossary#\"><strong>site_identification</strong></a>: site_identification</p><p><a href=\"/glossary#\"><strong>site_name</strong></a>: site_name</p><p><a href=\"/glossary#state\"><strong>state</strong></a>:</p><p><a href=\"/glossary#sunday\"><strong>sunday</strong></a>:</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p><p><a href=\"/glossary#thursday\"><strong>thursday</strong></a>:</p><p><a href=\"/glossary#tuesday\"><strong>tuesday</strong></a>:</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#wednesday\"><strong>wednesday</strong></a>:</p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary UPDATE ATM
-         * @param {AtmsATMIDBody} body JObject object that needs to be added.
+         * @param {AtmJsonV510} body AtmJsonV510 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv510UpdateAtm: async (body: AtmsATMIDBody, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv510UpdateAtm: async (body: AtmJsonV510, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv510UpdateAtm.');
@@ -1116,14 +1114,14 @@ export const ATMApiAxiosParamCreator = function (configuration?: Configuration) 
         /**
          * <p>Update ATM Attribute.</p><p>Update an ATM Attribute by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">ATM_ATTRIBUTE_ID</a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Update ATM Attribute
-         * @param {AttributesATMATTRIBUTEIDBody} body JObject object that needs to be added.
+         * @param {AtmAttributeJsonV510} body AtmAttributeJsonV510 object that needs to be added.
          * @param {string} ATM_ATTRIBUTE_ID the atm attribute id
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv510UpdateAtmAttribute: async (body: AttributesATMATTRIBUTEIDBody, ATM_ATTRIBUTE_ID: string, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv510UpdateAtmAttribute: async (body: AtmAttributeJsonV510, ATM_ATTRIBUTE_ID: string, ATM_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv510UpdateAtmAttribute.');
@@ -1202,13 +1200,13 @@ export const ATMApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update ATM Accessibility Features.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p>
          * @summary Update ATM Accessibility Features
-         * @param {ATMIDAccessibilityfeaturesBody} body JObject object that needs to be added.
+         * @param {AccessibilityFeaturesJson} body AccessibilityFeaturesJson object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateAtmAccessibilityFeatures(body: ATMIDAccessibilityfeaturesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20068>>> {
+        async oBPv400UpdateAtmAccessibilityFeatures(body: AccessibilityFeaturesJson, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmAccessibilityFeaturesJson>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv400UpdateAtmAccessibilityFeatures(body, ATM_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1218,13 +1216,13 @@ export const ATMApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update ATM Location Categories.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p>
          * @summary Update ATM Location Categories
-         * @param {ATMIDLocationcategoriesBody} body JObject object that needs to be added.
+         * @param {AtmLocationCategoriesJsonV400} body AtmLocationCategoriesJsonV400 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateAtmLocationCategories(body: ATMIDLocationcategoriesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20069>>> {
+        async oBPv400UpdateAtmLocationCategories(body: AtmLocationCategoriesJsonV400, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmLocationCategoriesResponseJsonV400>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv400UpdateAtmLocationCategories(body, ATM_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1234,13 +1232,13 @@ export const ATMApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update ATM Notes.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p>
          * @summary Update ATM Notes
-         * @param {ATMIDNotesBody} body JObject object that needs to be added.
+         * @param {AtmNotesJsonV400} body AtmNotesJsonV400 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateAtmNotes(body: ATMIDNotesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20070>>> {
+        async oBPv400UpdateAtmNotes(body: AtmNotesJsonV400, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmNotesResponseJsonV400>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv400UpdateAtmNotes(body, ATM_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1250,13 +1248,13 @@ export const ATMApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update ATM Services.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p>
          * @summary Update ATM Services
-         * @param {ATMIDServicesBody} body JObject object that needs to be added.
+         * @param {AtmServicesJsonV400} body AtmServicesJsonV400 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateAtmServices(body: ATMIDServicesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20071>>> {
+        async oBPv400UpdateAtmServices(body: AtmServicesJsonV400, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmServicesResponseJsonV400>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv400UpdateAtmServices(body, ATM_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1266,13 +1264,13 @@ export const ATMApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update ATM Supported Currencies.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p>
          * @summary Update ATM Supported Currencies
-         * @param {ATMIDSupportedcurrenciesBody} body JObject object that needs to be added.
+         * @param {SupportedCurrenciesJson} body SupportedCurrenciesJson object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateAtmSupportedCurrencies(body: ATMIDSupportedcurrenciesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20072>>> {
+        async oBPv400UpdateAtmSupportedCurrencies(body: SupportedCurrenciesJson, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmSupportedCurrenciesJson>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv400UpdateAtmSupportedCurrencies(body, ATM_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1282,13 +1280,13 @@ export const ATMApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update ATM Supported Languages.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p>
          * @summary Update ATM Supported Languages
-         * @param {ATMIDSupportedlanguagesBody} body JObject object that needs to be added.
+         * @param {SupportedLanguagesJson} body SupportedLanguagesJson object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateAtmSupportedLanguages(body: ATMIDSupportedlanguagesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20073>>> {
+        async oBPv400UpdateAtmSupportedLanguages(body: SupportedLanguagesJson, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmSupportedLanguagesJson>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv400UpdateAtmSupportedLanguages(body, ATM_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1302,7 +1300,7 @@ export const ATMApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv500HeadAtms(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200130>>> {
+        async oBPv500HeadAtms(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmsJsonV400>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv500HeadAtms(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1312,12 +1310,12 @@ export const ATMApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create ATM.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>atm_type</strong></a>:</p><p><a href=\"/glossary#\"><strong>balance_inquiry_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>branch_identification</strong></a>: branch_identification</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_international_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_national_fee</strong></a>:</p><p><a href=\"/glossary#city\"><strong>city</strong></a>:</p><p><a href=\"/glossary#closing_time\"><strong>closing_time</strong></a>: 2020-01-27</p><p><a href=\"/glossary#country_code\"><strong>country_code</strong></a>: 1254</p><p><a href=\"/glossary#county\"><strong>county</strong></a>:</p><p><a href=\"/glossary#friday\"><strong>friday</strong></a>:</p><p><a href=\"/glossary#\"><strong>has_deposit_capability</strong></a>: false</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#\"><strong>is_accessible</strong></a>: false</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_1</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_2</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_3</strong></a>:</p><p><a href=\"/glossary#\"><strong>located_at</strong></a>:</p><p><a href=\"/glossary#location\"><strong>location</strong></a>:</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#\"><strong>minimum_withdrawal</strong></a>: minimum_withdrawal</p><p><a href=\"/glossary#monday\"><strong>monday</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p><p><a href=\"/glossary#opening_time\"><strong>opening_time</strong></a>:</p><p><a href=\"/glossary#phone\"><strong>phone</strong></a>:</p><p><a href=\"/glossary#postcode\"><strong>postcode</strong></a>:</p><p><a href=\"/glossary#saturday\"><strong>saturday</strong></a>:</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p><p><a href=\"/glossary#\"><strong>site_identification</strong></a>: site_identification</p><p><a href=\"/glossary#\"><strong>site_name</strong></a>: site_name</p><p><a href=\"/glossary#state\"><strong>state</strong></a>:</p><p><a href=\"/glossary#sunday\"><strong>sunday</strong></a>:</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p><p><a href=\"/glossary#thursday\"><strong>thursday</strong></a>:</p><p><a href=\"/glossary#tuesday\"><strong>tuesday</strong></a>:</p><p><a href=\"/glossary#wednesday\"><strong>wednesday</strong></a>:</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>atm_type</strong></a>:</p><p><a href=\"/glossary#\"><strong>balance_inquiry_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>branch_identification</strong></a>: branch_identification</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_international_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_national_fee</strong></a>:</p><p><a href=\"/glossary#city\"><strong>city</strong></a>:</p><p><a href=\"/glossary#closing_time\"><strong>closing_time</strong></a>: 2020-01-27</p><p><a href=\"/glossary#country_code\"><strong>country_code</strong></a>: 1254</p><p><a href=\"/glossary#county\"><strong>county</strong></a>:</p><p><a href=\"/glossary#friday\"><strong>friday</strong></a>:</p><p><a href=\"/glossary#\"><strong>has_deposit_capability</strong></a>: false</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#\"><strong>is_accessible</strong></a>: false</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_1</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_2</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_3</strong></a>:</p><p><a href=\"/glossary#\"><strong>located_at</strong></a>:</p><p><a href=\"/glossary#location\"><strong>location</strong></a>:</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#\"><strong>minimum_withdrawal</strong></a>: minimum_withdrawal</p><p><a href=\"/glossary#monday\"><strong>monday</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p><p><a href=\"/glossary#opening_time\"><strong>opening_time</strong></a>:</p><p><a href=\"/glossary#phone\"><strong>phone</strong></a>:</p><p><a href=\"/glossary#postcode\"><strong>postcode</strong></a>:</p><p><a href=\"/glossary#saturday\"><strong>saturday</strong></a>:</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p><p><a href=\"/glossary#\"><strong>site_identification</strong></a>: site_identification</p><p><a href=\"/glossary#\"><strong>site_name</strong></a>: site_name</p><p><a href=\"/glossary#state\"><strong>state</strong></a>:</p><p><a href=\"/glossary#sunday\"><strong>sunday</strong></a>:</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p><p><a href=\"/glossary#thursday\"><strong>thursday</strong></a>:</p><p><a href=\"/glossary#tuesday\"><strong>tuesday</strong></a>:</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#wednesday\"><strong>wednesday</strong></a>:</p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Create ATM
-         * @param {BANKIDAtmsBody} body JObject object that needs to be added.
+         * @param {PostAtmJsonV510} body PostAtmJsonV510 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510CreateAtm(body: BANKIDAtmsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20158>>> {
+        async oBPv510CreateAtm(body: PostAtmJsonV510, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmJsonV510>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv510CreateAtm(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1327,13 +1325,13 @@ export const ATMApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create ATM Attribute</p><p>The type field must be one of &quot;STRING&quot;, &quot;INTEGER&quot;, &quot;DOUBLE&quot; or DATE_WITH_DAY&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Create ATM Attribute
-         * @param {ATMIDAttributesBody} body JObject object that needs to be added.
+         * @param {AtmAttributeJsonV510} body AtmAttributeJsonV510 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510CreateAtmAttribute(body: ATMIDAttributesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20159>>> {
+        async oBPv510CreateAtmAttribute(body: AtmAttributeJsonV510, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmAttributeResponseJsonV510>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv510CreateAtmAttribute(body, ATM_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1379,7 +1377,7 @@ export const ATMApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetAtm(ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20158>>> {
+        async oBPv510GetAtm(ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmJsonV510>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv510GetAtm(ATM_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1395,7 +1393,7 @@ export const ATMApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetAtmAttribute(ATM_ATTRIBUTE_ID: string, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20159>>> {
+        async oBPv510GetAtmAttribute(ATM_ATTRIBUTE_ID: string, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmAttributeResponseJsonV510>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv510GetAtmAttribute(ATM_ATTRIBUTE_ID, ATM_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1410,7 +1408,7 @@ export const ATMApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetAtmAttributes(ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200141>>> {
+        async oBPv510GetAtmAttributes(ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmAttributesResponseJsonV510>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv510GetAtmAttributes(ATM_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1424,7 +1422,7 @@ export const ATMApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetAtms(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200140>>> {
+        async oBPv510GetAtms(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmsJsonV510>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv510GetAtms(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1434,13 +1432,13 @@ export const ATMApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update ATM.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>atm_type</strong></a>:</p><p><a href=\"/glossary#\"><strong>balance_inquiry_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>branch_identification</strong></a>: branch_identification</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_international_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_national_fee</strong></a>:</p><p><a href=\"/glossary#city\"><strong>city</strong></a>:</p><p><a href=\"/glossary#closing_time\"><strong>closing_time</strong></a>: 2020-01-27</p><p><a href=\"/glossary#country_code\"><strong>country_code</strong></a>: 1254</p><p><a href=\"/glossary#county\"><strong>county</strong></a>:</p><p><a href=\"/glossary#friday\"><strong>friday</strong></a>:</p><p><a href=\"/glossary#\"><strong>has_deposit_capability</strong></a>: false</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#\"><strong>is_accessible</strong></a>: false</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_1</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_2</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_3</strong></a>:</p><p><a href=\"/glossary#\"><strong>located_at</strong></a>:</p><p><a href=\"/glossary#location\"><strong>location</strong></a>:</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#\"><strong>minimum_withdrawal</strong></a>: minimum_withdrawal</p><p><a href=\"/glossary#monday\"><strong>monday</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p><p><a href=\"/glossary#opening_time\"><strong>opening_time</strong></a>:</p><p><a href=\"/glossary#phone\"><strong>phone</strong></a>:</p><p><a href=\"/glossary#postcode\"><strong>postcode</strong></a>:</p><p><a href=\"/glossary#saturday\"><strong>saturday</strong></a>:</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p><p><a href=\"/glossary#\"><strong>site_identification</strong></a>: site_identification</p><p><a href=\"/glossary#\"><strong>site_name</strong></a>: site_name</p><p><a href=\"/glossary#state\"><strong>state</strong></a>:</p><p><a href=\"/glossary#sunday\"><strong>sunday</strong></a>:</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p><p><a href=\"/glossary#thursday\"><strong>thursday</strong></a>:</p><p><a href=\"/glossary#tuesday\"><strong>tuesday</strong></a>:</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#wednesday\"><strong>wednesday</strong></a>:</p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary UPDATE ATM
-         * @param {AtmsATMIDBody} body JObject object that needs to be added.
+         * @param {AtmJsonV510} body AtmJsonV510 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510UpdateAtm(body: AtmsATMIDBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20158>>> {
+        async oBPv510UpdateAtm(body: AtmJsonV510, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmJsonV510>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv510UpdateAtm(body, ATM_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1450,14 +1448,14 @@ export const ATMApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update ATM Attribute.</p><p>Update an ATM Attribute by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">ATM_ATTRIBUTE_ID</a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Update ATM Attribute
-         * @param {AttributesATMATTRIBUTEIDBody} body JObject object that needs to be added.
+         * @param {AtmAttributeJsonV510} body AtmAttributeJsonV510 object that needs to be added.
          * @param {string} ATM_ATTRIBUTE_ID the atm attribute id
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510UpdateAtmAttribute(body: AttributesATMATTRIBUTEIDBody, ATM_ATTRIBUTE_ID: string, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20159>>> {
+        async oBPv510UpdateAtmAttribute(body: AtmAttributeJsonV510, ATM_ATTRIBUTE_ID: string, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AtmAttributeResponseJsonV510>>> {
             const localVarAxiosArgs = await ATMApiAxiosParamCreator(configuration).oBPv510UpdateAtmAttribute(body, ATM_ATTRIBUTE_ID, ATM_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1476,73 +1474,73 @@ export const ATMApiFactory = function (configuration?: Configuration, basePath?:
         /**
          * <p>Update ATM Accessibility Features.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p>
          * @summary Update ATM Accessibility Features
-         * @param {ATMIDAccessibilityfeaturesBody} body JObject object that needs to be added.
+         * @param {AccessibilityFeaturesJson} body AccessibilityFeaturesJson object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateAtmAccessibilityFeatures(body: ATMIDAccessibilityfeaturesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20068>> {
+        async oBPv400UpdateAtmAccessibilityFeatures(body: AccessibilityFeaturesJson, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmAccessibilityFeaturesJson>> {
             return ATMApiFp(configuration).oBPv400UpdateAtmAccessibilityFeatures(body, ATM_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update ATM Location Categories.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p>
          * @summary Update ATM Location Categories
-         * @param {ATMIDLocationcategoriesBody} body JObject object that needs to be added.
+         * @param {AtmLocationCategoriesJsonV400} body AtmLocationCategoriesJsonV400 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateAtmLocationCategories(body: ATMIDLocationcategoriesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20069>> {
+        async oBPv400UpdateAtmLocationCategories(body: AtmLocationCategoriesJsonV400, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmLocationCategoriesResponseJsonV400>> {
             return ATMApiFp(configuration).oBPv400UpdateAtmLocationCategories(body, ATM_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update ATM Notes.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p>
          * @summary Update ATM Notes
-         * @param {ATMIDNotesBody} body JObject object that needs to be added.
+         * @param {AtmNotesJsonV400} body AtmNotesJsonV400 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateAtmNotes(body: ATMIDNotesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20070>> {
+        async oBPv400UpdateAtmNotes(body: AtmNotesJsonV400, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmNotesResponseJsonV400>> {
             return ATMApiFp(configuration).oBPv400UpdateAtmNotes(body, ATM_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update ATM Services.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p>
          * @summary Update ATM Services
-         * @param {ATMIDServicesBody} body JObject object that needs to be added.
+         * @param {AtmServicesJsonV400} body AtmServicesJsonV400 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateAtmServices(body: ATMIDServicesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20071>> {
+        async oBPv400UpdateAtmServices(body: AtmServicesJsonV400, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmServicesResponseJsonV400>> {
             return ATMApiFp(configuration).oBPv400UpdateAtmServices(body, ATM_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update ATM Supported Currencies.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p>
          * @summary Update ATM Supported Currencies
-         * @param {ATMIDSupportedcurrenciesBody} body JObject object that needs to be added.
+         * @param {SupportedCurrenciesJson} body SupportedCurrenciesJson object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateAtmSupportedCurrencies(body: ATMIDSupportedcurrenciesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20072>> {
+        async oBPv400UpdateAtmSupportedCurrencies(body: SupportedCurrenciesJson, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmSupportedCurrenciesJson>> {
             return ATMApiFp(configuration).oBPv400UpdateAtmSupportedCurrencies(body, ATM_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update ATM Supported Languages.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p>
          * @summary Update ATM Supported Languages
-         * @param {ATMIDSupportedlanguagesBody} body JObject object that needs to be added.
+         * @param {SupportedLanguagesJson} body SupportedLanguagesJson object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateAtmSupportedLanguages(body: ATMIDSupportedlanguagesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20073>> {
+        async oBPv400UpdateAtmSupportedLanguages(body: SupportedLanguagesJson, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmSupportedLanguagesJson>> {
             return ATMApiFp(configuration).oBPv400UpdateAtmSupportedLanguages(body, ATM_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1552,30 +1550,30 @@ export const ATMApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv500HeadAtms(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200130>> {
+        async oBPv500HeadAtms(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmsJsonV400>> {
             return ATMApiFp(configuration).oBPv500HeadAtms(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create ATM.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>atm_type</strong></a>:</p><p><a href=\"/glossary#\"><strong>balance_inquiry_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>branch_identification</strong></a>: branch_identification</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_international_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_national_fee</strong></a>:</p><p><a href=\"/glossary#city\"><strong>city</strong></a>:</p><p><a href=\"/glossary#closing_time\"><strong>closing_time</strong></a>: 2020-01-27</p><p><a href=\"/glossary#country_code\"><strong>country_code</strong></a>: 1254</p><p><a href=\"/glossary#county\"><strong>county</strong></a>:</p><p><a href=\"/glossary#friday\"><strong>friday</strong></a>:</p><p><a href=\"/glossary#\"><strong>has_deposit_capability</strong></a>: false</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#\"><strong>is_accessible</strong></a>: false</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_1</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_2</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_3</strong></a>:</p><p><a href=\"/glossary#\"><strong>located_at</strong></a>:</p><p><a href=\"/glossary#location\"><strong>location</strong></a>:</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#\"><strong>minimum_withdrawal</strong></a>: minimum_withdrawal</p><p><a href=\"/glossary#monday\"><strong>monday</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p><p><a href=\"/glossary#opening_time\"><strong>opening_time</strong></a>:</p><p><a href=\"/glossary#phone\"><strong>phone</strong></a>:</p><p><a href=\"/glossary#postcode\"><strong>postcode</strong></a>:</p><p><a href=\"/glossary#saturday\"><strong>saturday</strong></a>:</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p><p><a href=\"/glossary#\"><strong>site_identification</strong></a>: site_identification</p><p><a href=\"/glossary#\"><strong>site_name</strong></a>: site_name</p><p><a href=\"/glossary#state\"><strong>state</strong></a>:</p><p><a href=\"/glossary#sunday\"><strong>sunday</strong></a>:</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p><p><a href=\"/glossary#thursday\"><strong>thursday</strong></a>:</p><p><a href=\"/glossary#tuesday\"><strong>tuesday</strong></a>:</p><p><a href=\"/glossary#wednesday\"><strong>wednesday</strong></a>:</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>atm_type</strong></a>:</p><p><a href=\"/glossary#\"><strong>balance_inquiry_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>branch_identification</strong></a>: branch_identification</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_international_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_national_fee</strong></a>:</p><p><a href=\"/glossary#city\"><strong>city</strong></a>:</p><p><a href=\"/glossary#closing_time\"><strong>closing_time</strong></a>: 2020-01-27</p><p><a href=\"/glossary#country_code\"><strong>country_code</strong></a>: 1254</p><p><a href=\"/glossary#county\"><strong>county</strong></a>:</p><p><a href=\"/glossary#friday\"><strong>friday</strong></a>:</p><p><a href=\"/glossary#\"><strong>has_deposit_capability</strong></a>: false</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#\"><strong>is_accessible</strong></a>: false</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_1</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_2</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_3</strong></a>:</p><p><a href=\"/glossary#\"><strong>located_at</strong></a>:</p><p><a href=\"/glossary#location\"><strong>location</strong></a>:</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#\"><strong>minimum_withdrawal</strong></a>: minimum_withdrawal</p><p><a href=\"/glossary#monday\"><strong>monday</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p><p><a href=\"/glossary#opening_time\"><strong>opening_time</strong></a>:</p><p><a href=\"/glossary#phone\"><strong>phone</strong></a>:</p><p><a href=\"/glossary#postcode\"><strong>postcode</strong></a>:</p><p><a href=\"/glossary#saturday\"><strong>saturday</strong></a>:</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p><p><a href=\"/glossary#\"><strong>site_identification</strong></a>: site_identification</p><p><a href=\"/glossary#\"><strong>site_name</strong></a>: site_name</p><p><a href=\"/glossary#state\"><strong>state</strong></a>:</p><p><a href=\"/glossary#sunday\"><strong>sunday</strong></a>:</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p><p><a href=\"/glossary#thursday\"><strong>thursday</strong></a>:</p><p><a href=\"/glossary#tuesday\"><strong>tuesday</strong></a>:</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#wednesday\"><strong>wednesday</strong></a>:</p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Create ATM
-         * @param {BANKIDAtmsBody} body JObject object that needs to be added.
+         * @param {PostAtmJsonV510} body PostAtmJsonV510 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510CreateAtm(body: BANKIDAtmsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20158>> {
+        async oBPv510CreateAtm(body: PostAtmJsonV510, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmJsonV510>> {
             return ATMApiFp(configuration).oBPv510CreateAtm(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create ATM Attribute</p><p>The type field must be one of &quot;STRING&quot;, &quot;INTEGER&quot;, &quot;DOUBLE&quot; or DATE_WITH_DAY&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Create ATM Attribute
-         * @param {ATMIDAttributesBody} body JObject object that needs to be added.
+         * @param {AtmAttributeJsonV510} body AtmAttributeJsonV510 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510CreateAtmAttribute(body: ATMIDAttributesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20159>> {
+        async oBPv510CreateAtmAttribute(body: AtmAttributeJsonV510, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmAttributeResponseJsonV510>> {
             return ATMApiFp(configuration).oBPv510CreateAtmAttribute(body, ATM_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1609,7 +1607,7 @@ export const ATMApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetAtm(ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20158>> {
+        async oBPv510GetAtm(ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmJsonV510>> {
             return ATMApiFp(configuration).oBPv510GetAtm(ATM_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1621,7 +1619,7 @@ export const ATMApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetAtmAttribute(ATM_ATTRIBUTE_ID: string, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20159>> {
+        async oBPv510GetAtmAttribute(ATM_ATTRIBUTE_ID: string, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmAttributeResponseJsonV510>> {
             return ATMApiFp(configuration).oBPv510GetAtmAttribute(ATM_ATTRIBUTE_ID, ATM_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1632,7 +1630,7 @@ export const ATMApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetAtmAttributes(ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200141>> {
+        async oBPv510GetAtmAttributes(ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmAttributesResponseJsonV510>> {
             return ATMApiFp(configuration).oBPv510GetAtmAttributes(ATM_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1642,32 +1640,32 @@ export const ATMApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetAtms(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200140>> {
+        async oBPv510GetAtms(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmsJsonV510>> {
             return ATMApiFp(configuration).oBPv510GetAtms(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update ATM.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>atm_type</strong></a>:</p><p><a href=\"/glossary#\"><strong>balance_inquiry_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>branch_identification</strong></a>: branch_identification</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_international_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_national_fee</strong></a>:</p><p><a href=\"/glossary#city\"><strong>city</strong></a>:</p><p><a href=\"/glossary#closing_time\"><strong>closing_time</strong></a>: 2020-01-27</p><p><a href=\"/glossary#country_code\"><strong>country_code</strong></a>: 1254</p><p><a href=\"/glossary#county\"><strong>county</strong></a>:</p><p><a href=\"/glossary#friday\"><strong>friday</strong></a>:</p><p><a href=\"/glossary#\"><strong>has_deposit_capability</strong></a>: false</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#\"><strong>is_accessible</strong></a>: false</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_1</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_2</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_3</strong></a>:</p><p><a href=\"/glossary#\"><strong>located_at</strong></a>:</p><p><a href=\"/glossary#location\"><strong>location</strong></a>:</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#\"><strong>minimum_withdrawal</strong></a>: minimum_withdrawal</p><p><a href=\"/glossary#monday\"><strong>monday</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p><p><a href=\"/glossary#opening_time\"><strong>opening_time</strong></a>:</p><p><a href=\"/glossary#phone\"><strong>phone</strong></a>:</p><p><a href=\"/glossary#postcode\"><strong>postcode</strong></a>:</p><p><a href=\"/glossary#saturday\"><strong>saturday</strong></a>:</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p><p><a href=\"/glossary#\"><strong>site_identification</strong></a>: site_identification</p><p><a href=\"/glossary#\"><strong>site_name</strong></a>: site_name</p><p><a href=\"/glossary#state\"><strong>state</strong></a>:</p><p><a href=\"/glossary#sunday\"><strong>sunday</strong></a>:</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p><p><a href=\"/glossary#thursday\"><strong>thursday</strong></a>:</p><p><a href=\"/glossary#tuesday\"><strong>tuesday</strong></a>:</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#wednesday\"><strong>wednesday</strong></a>:</p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary UPDATE ATM
-         * @param {AtmsATMIDBody} body JObject object that needs to be added.
+         * @param {AtmJsonV510} body AtmJsonV510 object that needs to be added.
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510UpdateAtm(body: AtmsATMIDBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20158>> {
+        async oBPv510UpdateAtm(body: AtmJsonV510, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmJsonV510>> {
             return ATMApiFp(configuration).oBPv510UpdateAtm(body, ATM_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update ATM Attribute.</p><p>Update an ATM Attribute by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">ATM_ATTRIBUTE_ID</a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Update ATM Attribute
-         * @param {AttributesATMATTRIBUTEIDBody} body JObject object that needs to be added.
+         * @param {AtmAttributeJsonV510} body AtmAttributeJsonV510 object that needs to be added.
          * @param {string} ATM_ATTRIBUTE_ID the atm attribute id
          * @param {string} ATM_ID the atm id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510UpdateAtmAttribute(body: AttributesATMATTRIBUTEIDBody, ATM_ATTRIBUTE_ID: string, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20159>> {
+        async oBPv510UpdateAtmAttribute(body: AtmAttributeJsonV510, ATM_ATTRIBUTE_ID: string, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AtmAttributeResponseJsonV510>> {
             return ATMApiFp(configuration).oBPv510UpdateAtmAttribute(body, ATM_ATTRIBUTE_ID, ATM_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -1683,79 +1681,79 @@ export class ATMApi extends BaseAPI {
     /**
      * <p>Update ATM Accessibility Features.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p>
      * @summary Update ATM Accessibility Features
-     * @param {ATMIDAccessibilityfeaturesBody} body JObject object that needs to be added.
+     * @param {AccessibilityFeaturesJson} body AccessibilityFeaturesJson object that needs to be added.
      * @param {string} ATM_ID the atm id
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv400UpdateAtmAccessibilityFeatures(body: ATMIDAccessibilityfeaturesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20068>> {
+    public async oBPv400UpdateAtmAccessibilityFeatures(body: AccessibilityFeaturesJson, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmAccessibilityFeaturesJson>> {
         return ATMApiFp(this.configuration).oBPv400UpdateAtmAccessibilityFeatures(body, ATM_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update ATM Location Categories.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p>
      * @summary Update ATM Location Categories
-     * @param {ATMIDLocationcategoriesBody} body JObject object that needs to be added.
+     * @param {AtmLocationCategoriesJsonV400} body AtmLocationCategoriesJsonV400 object that needs to be added.
      * @param {string} ATM_ID the atm id
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv400UpdateAtmLocationCategories(body: ATMIDLocationcategoriesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20069>> {
+    public async oBPv400UpdateAtmLocationCategories(body: AtmLocationCategoriesJsonV400, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmLocationCategoriesResponseJsonV400>> {
         return ATMApiFp(this.configuration).oBPv400UpdateAtmLocationCategories(body, ATM_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update ATM Notes.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p>
      * @summary Update ATM Notes
-     * @param {ATMIDNotesBody} body JObject object that needs to be added.
+     * @param {AtmNotesJsonV400} body AtmNotesJsonV400 object that needs to be added.
      * @param {string} ATM_ID the atm id
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv400UpdateAtmNotes(body: ATMIDNotesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20070>> {
+    public async oBPv400UpdateAtmNotes(body: AtmNotesJsonV400, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmNotesResponseJsonV400>> {
         return ATMApiFp(this.configuration).oBPv400UpdateAtmNotes(body, ATM_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update ATM Services.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p>
      * @summary Update ATM Services
-     * @param {ATMIDServicesBody} body JObject object that needs to be added.
+     * @param {AtmServicesJsonV400} body AtmServicesJsonV400 object that needs to be added.
      * @param {string} ATM_ID the atm id
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv400UpdateAtmServices(body: ATMIDServicesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20071>> {
+    public async oBPv400UpdateAtmServices(body: AtmServicesJsonV400, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmServicesResponseJsonV400>> {
         return ATMApiFp(this.configuration).oBPv400UpdateAtmServices(body, ATM_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update ATM Supported Currencies.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p>
      * @summary Update ATM Supported Currencies
-     * @param {ATMIDSupportedcurrenciesBody} body JObject object that needs to be added.
+     * @param {SupportedCurrenciesJson} body SupportedCurrenciesJson object that needs to be added.
      * @param {string} ATM_ID the atm id
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv400UpdateAtmSupportedCurrencies(body: ATMIDSupportedcurrenciesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20072>> {
+    public async oBPv400UpdateAtmSupportedCurrencies(body: SupportedCurrenciesJson, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmSupportedCurrenciesJson>> {
         return ATMApiFp(this.configuration).oBPv400UpdateAtmSupportedCurrencies(body, ATM_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update ATM Supported Languages.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p>
      * @summary Update ATM Supported Languages
-     * @param {ATMIDSupportedlanguagesBody} body JObject object that needs to be added.
+     * @param {SupportedLanguagesJson} body SupportedLanguagesJson object that needs to be added.
      * @param {string} ATM_ID the atm id
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv400UpdateAtmSupportedLanguages(body: ATMIDSupportedlanguagesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20073>> {
+    public async oBPv400UpdateAtmSupportedLanguages(body: SupportedLanguagesJson, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmSupportedLanguagesJson>> {
         return ATMApiFp(this.configuration).oBPv400UpdateAtmSupportedLanguages(body, ATM_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1766,32 +1764,32 @@ export class ATMApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv500HeadAtms(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200130>> {
+    public async oBPv500HeadAtms(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmsJsonV400>> {
         return ATMApiFp(this.configuration).oBPv500HeadAtms(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create ATM.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>atm_type</strong></a>:</p><p><a href=\"/glossary#\"><strong>balance_inquiry_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>branch_identification</strong></a>: branch_identification</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_international_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_national_fee</strong></a>:</p><p><a href=\"/glossary#city\"><strong>city</strong></a>:</p><p><a href=\"/glossary#closing_time\"><strong>closing_time</strong></a>: 2020-01-27</p><p><a href=\"/glossary#country_code\"><strong>country_code</strong></a>: 1254</p><p><a href=\"/glossary#county\"><strong>county</strong></a>:</p><p><a href=\"/glossary#friday\"><strong>friday</strong></a>:</p><p><a href=\"/glossary#\"><strong>has_deposit_capability</strong></a>: false</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#\"><strong>is_accessible</strong></a>: false</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_1</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_2</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_3</strong></a>:</p><p><a href=\"/glossary#\"><strong>located_at</strong></a>:</p><p><a href=\"/glossary#location\"><strong>location</strong></a>:</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#\"><strong>minimum_withdrawal</strong></a>: minimum_withdrawal</p><p><a href=\"/glossary#monday\"><strong>monday</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p><p><a href=\"/glossary#opening_time\"><strong>opening_time</strong></a>:</p><p><a href=\"/glossary#phone\"><strong>phone</strong></a>:</p><p><a href=\"/glossary#postcode\"><strong>postcode</strong></a>:</p><p><a href=\"/glossary#saturday\"><strong>saturday</strong></a>:</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p><p><a href=\"/glossary#\"><strong>site_identification</strong></a>: site_identification</p><p><a href=\"/glossary#\"><strong>site_name</strong></a>: site_name</p><p><a href=\"/glossary#state\"><strong>state</strong></a>:</p><p><a href=\"/glossary#sunday\"><strong>sunday</strong></a>:</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p><p><a href=\"/glossary#thursday\"><strong>thursday</strong></a>:</p><p><a href=\"/glossary#tuesday\"><strong>tuesday</strong></a>:</p><p><a href=\"/glossary#wednesday\"><strong>wednesday</strong></a>:</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>atm_type</strong></a>:</p><p><a href=\"/glossary#\"><strong>balance_inquiry_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>branch_identification</strong></a>: branch_identification</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_international_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_national_fee</strong></a>:</p><p><a href=\"/glossary#city\"><strong>city</strong></a>:</p><p><a href=\"/glossary#closing_time\"><strong>closing_time</strong></a>: 2020-01-27</p><p><a href=\"/glossary#country_code\"><strong>country_code</strong></a>: 1254</p><p><a href=\"/glossary#county\"><strong>county</strong></a>:</p><p><a href=\"/glossary#friday\"><strong>friday</strong></a>:</p><p><a href=\"/glossary#\"><strong>has_deposit_capability</strong></a>: false</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#\"><strong>is_accessible</strong></a>: false</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_1</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_2</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_3</strong></a>:</p><p><a href=\"/glossary#\"><strong>located_at</strong></a>:</p><p><a href=\"/glossary#location\"><strong>location</strong></a>:</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#\"><strong>minimum_withdrawal</strong></a>: minimum_withdrawal</p><p><a href=\"/glossary#monday\"><strong>monday</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p><p><a href=\"/glossary#opening_time\"><strong>opening_time</strong></a>:</p><p><a href=\"/glossary#phone\"><strong>phone</strong></a>:</p><p><a href=\"/glossary#postcode\"><strong>postcode</strong></a>:</p><p><a href=\"/glossary#saturday\"><strong>saturday</strong></a>:</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p><p><a href=\"/glossary#\"><strong>site_identification</strong></a>: site_identification</p><p><a href=\"/glossary#\"><strong>site_name</strong></a>: site_name</p><p><a href=\"/glossary#state\"><strong>state</strong></a>:</p><p><a href=\"/glossary#sunday\"><strong>sunday</strong></a>:</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p><p><a href=\"/glossary#thursday\"><strong>thursday</strong></a>:</p><p><a href=\"/glossary#tuesday\"><strong>tuesday</strong></a>:</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#wednesday\"><strong>wednesday</strong></a>:</p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
      * @summary Create ATM
-     * @param {BANKIDAtmsBody} body JObject object that needs to be added.
+     * @param {PostAtmJsonV510} body PostAtmJsonV510 object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv510CreateAtm(body: BANKIDAtmsBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20158>> {
+    public async oBPv510CreateAtm(body: PostAtmJsonV510, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmJsonV510>> {
         return ATMApiFp(this.configuration).oBPv510CreateAtm(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create ATM Attribute</p><p>The type field must be one of &quot;STRING&quot;, &quot;INTEGER&quot;, &quot;DOUBLE&quot; or DATE_WITH_DAY&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
      * @summary Create ATM Attribute
-     * @param {ATMIDAttributesBody} body JObject object that needs to be added.
+     * @param {AtmAttributeJsonV510} body AtmAttributeJsonV510 object that needs to be added.
      * @param {string} ATM_ID the atm id
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv510CreateAtmAttribute(body: ATMIDAttributesBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20159>> {
+    public async oBPv510CreateAtmAttribute(body: AtmAttributeJsonV510, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmAttributeResponseJsonV510>> {
         return ATMApiFp(this.configuration).oBPv510CreateAtmAttribute(body, ATM_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1828,7 +1826,7 @@ export class ATMApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv510GetAtm(ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20158>> {
+    public async oBPv510GetAtm(ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmJsonV510>> {
         return ATMApiFp(this.configuration).oBPv510GetAtm(ATM_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1841,7 +1839,7 @@ export class ATMApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv510GetAtmAttribute(ATM_ATTRIBUTE_ID: string, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20159>> {
+    public async oBPv510GetAtmAttribute(ATM_ATTRIBUTE_ID: string, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmAttributeResponseJsonV510>> {
         return ATMApiFp(this.configuration).oBPv510GetAtmAttribute(ATM_ATTRIBUTE_ID, ATM_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1853,7 +1851,7 @@ export class ATMApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv510GetAtmAttributes(ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200141>> {
+    public async oBPv510GetAtmAttributes(ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmAttributesResponseJsonV510>> {
         return ATMApiFp(this.configuration).oBPv510GetAtmAttributes(ATM_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1864,26 +1862,26 @@ export class ATMApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv510GetAtms(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200140>> {
+    public async oBPv510GetAtms(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmsJsonV510>> {
         return ATMApiFp(this.configuration).oBPv510GetAtms(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update ATM.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#accessibility_features\"><strong>accessibility_features</strong></a>: [&quot;ATAC&quot;,&quot;ATAD&quot;]</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>atm_type</strong></a>:</p><p><a href=\"/glossary#\"><strong>balance_inquiry_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>branch_identification</strong></a>: branch_identification</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_international_fee</strong></a>:</p><p><a href=\"/glossary#\"><strong>cash_withdrawal_national_fee</strong></a>:</p><p><a href=\"/glossary#city\"><strong>city</strong></a>:</p><p><a href=\"/glossary#closing_time\"><strong>closing_time</strong></a>: 2020-01-27</p><p><a href=\"/glossary#country_code\"><strong>country_code</strong></a>: 1254</p><p><a href=\"/glossary#county\"><strong>county</strong></a>:</p><p><a href=\"/glossary#friday\"><strong>friday</strong></a>:</p><p><a href=\"/glossary#\"><strong>has_deposit_capability</strong></a>: false</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#\"><strong>is_accessible</strong></a>: false</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#license\"><strong>license</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_1</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_2</strong></a>:</p><p><a href=\"/glossary#\"><strong>line_3</strong></a>:</p><p><a href=\"/glossary#\"><strong>located_at</strong></a>:</p><p><a href=\"/glossary#location\"><strong>location</strong></a>:</p><p><a href=\"/glossary#\"><strong>location_categories</strong></a>: location_categories</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#meta\"><strong>meta</strong></a>:</p><p><a href=\"/glossary#\"><strong>minimum_withdrawal</strong></a>: minimum_withdrawal</p><p><a href=\"/glossary#monday\"><strong>monday</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>notes</strong></a>: notes</p><p><a href=\"/glossary#opening_time\"><strong>opening_time</strong></a>:</p><p><a href=\"/glossary#phone\"><strong>phone</strong></a>:</p><p><a href=\"/glossary#postcode\"><strong>postcode</strong></a>:</p><p><a href=\"/glossary#saturday\"><strong>saturday</strong></a>:</p><p><a href=\"/glossary#\"><strong>services</strong></a>: services</p><p><a href=\"/glossary#\"><strong>site_identification</strong></a>: site_identification</p><p><a href=\"/glossary#\"><strong>site_name</strong></a>: site_name</p><p><a href=\"/glossary#state\"><strong>state</strong></a>:</p><p><a href=\"/glossary#sunday\"><strong>sunday</strong></a>:</p><p><a href=\"/glossary#supported_currencies\"><strong>supported_currencies</strong></a>: [&quot;EUR&quot;,&quot;MXN&quot;,&quot;USD&quot;]</p><p><a href=\"/glossary#supported_languages\"><strong>supported_languages</strong></a>: [&quot;es&quot;,&quot;fr&quot;,&quot;de&quot;]</p><p><a href=\"/glossary#thursday\"><strong>thursday</strong></a>:</p><p><a href=\"/glossary#tuesday\"><strong>tuesday</strong></a>:</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#wednesday\"><strong>wednesday</strong></a>:</p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
      * @summary UPDATE ATM
-     * @param {AtmsATMIDBody} body JObject object that needs to be added.
+     * @param {AtmJsonV510} body AtmJsonV510 object that needs to be added.
      * @param {string} ATM_ID the atm id
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv510UpdateAtm(body: AtmsATMIDBody, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20158>> {
+    public async oBPv510UpdateAtm(body: AtmJsonV510, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmJsonV510>> {
         return ATMApiFp(this.configuration).oBPv510UpdateAtm(body, ATM_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update ATM Attribute.</p><p>Update an ATM Attribute by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">ATM_ATTRIBUTE_ID</a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\">ATM_ID</a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>atm_attribute_id</strong></a>: xxaf2a-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#atm_id\"><strong>atm_id</strong></a>: atme-9a0f-4bfa-b30b-9003aa467f51</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
      * @summary Update ATM Attribute
-     * @param {AttributesATMATTRIBUTEIDBody} body JObject object that needs to be added.
+     * @param {AtmAttributeJsonV510} body AtmAttributeJsonV510 object that needs to be added.
      * @param {string} ATM_ATTRIBUTE_ID the atm attribute id
      * @param {string} ATM_ID the atm id
      * @param {string} BANK_ID The bank id
@@ -1891,7 +1889,7 @@ export class ATMApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ATMApi
      */
-    public async oBPv510UpdateAtmAttribute(body: AttributesATMATTRIBUTEIDBody, ATM_ATTRIBUTE_ID: string, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20159>> {
+    public async oBPv510UpdateAtmAttribute(body: AtmAttributeJsonV510, ATM_ATTRIBUTE_ID: string, ATM_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AtmAttributeResponseJsonV510>> {
         return ATMApiFp(this.configuration).oBPv510UpdateAtmAttribute(body, ATM_ATTRIBUTE_ID, ATM_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

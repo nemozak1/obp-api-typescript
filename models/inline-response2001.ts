@@ -12,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse2001BankId } from './inline-response2001-bank-id';
-import { InlineResponse201DetailsValue } from './inline-response201-details-value';
-import { Obpv210banksBANKIDtransactiontypesId } from './obpv210banks-bankidtransactiontypes-id';
+import { WebUiPropsCommons } from './web-ui-props-commons';
  /**
  * 
  *
@@ -24,41 +22,8 @@ import { Obpv210banksBANKIDtransactiontypesId } from './obpv210banks-bankidtrans
 export interface InlineResponse2001 {
 
     /**
-     * @type {Obpv210banksBANKIDtransactiontypesId}
+     * @type {Array<WebUiPropsCommons>}
      * @memberof InlineResponse2001
      */
-    id: Obpv210banksBANKIDtransactiontypesId;
-
-    /**
-     * @type {InlineResponse2001BankId}
-     * @memberof InlineResponse2001
-     */
-    bankId: InlineResponse2001BankId;
-
-    /**
-     * @type {string}
-     * @memberof InlineResponse2001
-     * @example 80080
-     */
-    shortCode: string;
-
-    /**
-     * @type {string}
-     * @memberof InlineResponse2001
-     * @example SANDBOX_TAN
-     */
-    summary: string;
-
-    /**
-     * @type {string}
-     * @memberof InlineResponse2001
-     * @example This is the sandbox mode, charging litter money.
-     */
-    description: string;
-
-    /**
-     * @type {InlineResponse201DetailsValue}
-     * @memberof InlineResponse2001
-     */
-    charge: InlineResponse201DetailsValue;
+    webui_props: Array<WebUiPropsCommons>;
 }

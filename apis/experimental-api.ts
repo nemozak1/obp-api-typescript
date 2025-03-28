@@ -17,10 +17,10 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { BANKIDMeetingsBody } from '../models';
+import { CreateMeetingJsonV310 } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse20033 } from '../models';
-import { InlineResponse20110 } from '../models';
+import { MeetingJsonV310 } from '../models';
+import { MeetingsJsonV310 } from '../models';
 /**
  * ExperimentalApi - axios parameter creator
  * @export
@@ -30,12 +30,12 @@ export const ExperimentalApiAxiosParamCreator = function (configuration?: Config
         /**
          * <p>Create Meeting: Initiate a video conference/call with the bank.</p><p>The Meetings resource contains meta data about video/other conference sessions</p><p>provider_id determines the provider of the meeting / video chat service. MUST be url friendly (no spaces).</p><p>purpose_id explains the purpose of the chat. onboarding | mortgage | complaint etc. MUST be url friendly (no spaces).</p><p>Login is required.</p><p>This call is <strong>experimental</strong>. Currently staff_user_id is not set. Further calls will be needed to correctly set this.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#contact_details\"><strong>contact_details</strong></a>:</p><p><a href=\"/glossary#creator\"><strong>creator</strong></a>:</p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#email_address\"><strong>email_address</strong></a>:</p><p><a href=\"/glossary#invitees\"><strong>invitees</strong></a>:</p><p><a href=\"/glossary#mobile_phone\"><strong>mobile_phone</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#provider_id\"><strong>provider_id</strong></a>:</p><p><a href=\"/glossary#purpose_id\"><strong>purpose_id</strong></a>:</p><p><a href=\"/glossary#status\"><strong>status</strong></a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#contact_details\"><strong>contact_details</strong></a>:</p><p><a href=\"/glossary#creator\"><strong>creator</strong></a>:</p><p><a href=\"/glossary#customer_token\"><strong>customer_token</strong></a>:</p><p><a href=\"/glossary#customer_user_id\"><strong>customer_user_id</strong></a>:</p><p><a href=\"/glossary#email_address\"><strong>email_address</strong></a>:</p><p><a href=\"/glossary#invitees\"><strong>invitees</strong></a>:</p><p><a href=\"/glossary#keys\"><strong>keys</strong></a>:</p><p><a href=\"/glossary#meeting_id\"><strong>meeting_id</strong></a>:</p><p><a href=\"/glossary#mobile_phone\"><strong>mobile_phone</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#present\"><strong>present</strong></a>:</p><p><a href=\"/glossary#provider_id\"><strong>provider_id</strong></a>:</p><p><a href=\"/glossary#purpose_id\"><strong>purpose_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>session_id</strong></a>: b4e0352a-9a0f-4bfa-b30b-9003aa467f50</p><p><a href=\"/glossary#staff_token\"><strong>staff_token</strong></a>:</p><p><a href=\"/glossary#staff_user_id\"><strong>staff_user_id</strong></a>:</p><p><a href=\"/glossary#status\"><strong>status</strong></a>:</p><p><a href=\"/glossary#when\"><strong>when</strong></a>: 2020-01-27</p>
          * @summary Create Meeting (video conference/call)
-         * @param {BANKIDMeetingsBody} body JObject object that needs to be added.
+         * @param {CreateMeetingJsonV310} body CreateMeetingJsonV310 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv310CreateMeeting: async (body: BANKIDMeetingsBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv310CreateMeeting: async (body: CreateMeetingJsonV310, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv310CreateMeeting.');
@@ -222,12 +222,12 @@ export const ExperimentalApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create Meeting: Initiate a video conference/call with the bank.</p><p>The Meetings resource contains meta data about video/other conference sessions</p><p>provider_id determines the provider of the meeting / video chat service. MUST be url friendly (no spaces).</p><p>purpose_id explains the purpose of the chat. onboarding | mortgage | complaint etc. MUST be url friendly (no spaces).</p><p>Login is required.</p><p>This call is <strong>experimental</strong>. Currently staff_user_id is not set. Further calls will be needed to correctly set this.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#contact_details\"><strong>contact_details</strong></a>:</p><p><a href=\"/glossary#creator\"><strong>creator</strong></a>:</p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#email_address\"><strong>email_address</strong></a>:</p><p><a href=\"/glossary#invitees\"><strong>invitees</strong></a>:</p><p><a href=\"/glossary#mobile_phone\"><strong>mobile_phone</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#provider_id\"><strong>provider_id</strong></a>:</p><p><a href=\"/glossary#purpose_id\"><strong>purpose_id</strong></a>:</p><p><a href=\"/glossary#status\"><strong>status</strong></a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#contact_details\"><strong>contact_details</strong></a>:</p><p><a href=\"/glossary#creator\"><strong>creator</strong></a>:</p><p><a href=\"/glossary#customer_token\"><strong>customer_token</strong></a>:</p><p><a href=\"/glossary#customer_user_id\"><strong>customer_user_id</strong></a>:</p><p><a href=\"/glossary#email_address\"><strong>email_address</strong></a>:</p><p><a href=\"/glossary#invitees\"><strong>invitees</strong></a>:</p><p><a href=\"/glossary#keys\"><strong>keys</strong></a>:</p><p><a href=\"/glossary#meeting_id\"><strong>meeting_id</strong></a>:</p><p><a href=\"/glossary#mobile_phone\"><strong>mobile_phone</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#present\"><strong>present</strong></a>:</p><p><a href=\"/glossary#provider_id\"><strong>provider_id</strong></a>:</p><p><a href=\"/glossary#purpose_id\"><strong>purpose_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>session_id</strong></a>: b4e0352a-9a0f-4bfa-b30b-9003aa467f50</p><p><a href=\"/glossary#staff_token\"><strong>staff_token</strong></a>:</p><p><a href=\"/glossary#staff_user_id\"><strong>staff_user_id</strong></a>:</p><p><a href=\"/glossary#status\"><strong>status</strong></a>:</p><p><a href=\"/glossary#when\"><strong>when</strong></a>: 2020-01-27</p>
          * @summary Create Meeting (video conference/call)
-         * @param {BANKIDMeetingsBody} body JObject object that needs to be added.
+         * @param {CreateMeetingJsonV310} body CreateMeetingJsonV310 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310CreateMeeting(body: BANKIDMeetingsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20110>>> {
+        async oBPv310CreateMeeting(body: CreateMeetingJsonV310, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MeetingJsonV310>>> {
             const localVarAxiosArgs = await ExperimentalApiAxiosParamCreator(configuration).oBPv310CreateMeeting(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -242,7 +242,7 @@ export const ExperimentalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetMeeting(MEETING_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20110>>> {
+        async oBPv310GetMeeting(MEETING_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MeetingJsonV310>>> {
             const localVarAxiosArgs = await ExperimentalApiAxiosParamCreator(configuration).oBPv310GetMeeting(MEETING_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -256,7 +256,7 @@ export const ExperimentalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetMeetings(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20033>>> {
+        async oBPv310GetMeetings(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MeetingsJsonV310>>> {
             const localVarAxiosArgs = await ExperimentalApiAxiosParamCreator(configuration).oBPv310GetMeetings(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -275,12 +275,12 @@ export const ExperimentalApiFactory = function (configuration?: Configuration, b
         /**
          * <p>Create Meeting: Initiate a video conference/call with the bank.</p><p>The Meetings resource contains meta data about video/other conference sessions</p><p>provider_id determines the provider of the meeting / video chat service. MUST be url friendly (no spaces).</p><p>purpose_id explains the purpose of the chat. onboarding | mortgage | complaint etc. MUST be url friendly (no spaces).</p><p>Login is required.</p><p>This call is <strong>experimental</strong>. Currently staff_user_id is not set. Further calls will be needed to correctly set this.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#contact_details\"><strong>contact_details</strong></a>:</p><p><a href=\"/glossary#creator\"><strong>creator</strong></a>:</p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#email_address\"><strong>email_address</strong></a>:</p><p><a href=\"/glossary#invitees\"><strong>invitees</strong></a>:</p><p><a href=\"/glossary#mobile_phone\"><strong>mobile_phone</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#provider_id\"><strong>provider_id</strong></a>:</p><p><a href=\"/glossary#purpose_id\"><strong>purpose_id</strong></a>:</p><p><a href=\"/glossary#status\"><strong>status</strong></a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#contact_details\"><strong>contact_details</strong></a>:</p><p><a href=\"/glossary#creator\"><strong>creator</strong></a>:</p><p><a href=\"/glossary#customer_token\"><strong>customer_token</strong></a>:</p><p><a href=\"/glossary#customer_user_id\"><strong>customer_user_id</strong></a>:</p><p><a href=\"/glossary#email_address\"><strong>email_address</strong></a>:</p><p><a href=\"/glossary#invitees\"><strong>invitees</strong></a>:</p><p><a href=\"/glossary#keys\"><strong>keys</strong></a>:</p><p><a href=\"/glossary#meeting_id\"><strong>meeting_id</strong></a>:</p><p><a href=\"/glossary#mobile_phone\"><strong>mobile_phone</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#present\"><strong>present</strong></a>:</p><p><a href=\"/glossary#provider_id\"><strong>provider_id</strong></a>:</p><p><a href=\"/glossary#purpose_id\"><strong>purpose_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>session_id</strong></a>: b4e0352a-9a0f-4bfa-b30b-9003aa467f50</p><p><a href=\"/glossary#staff_token\"><strong>staff_token</strong></a>:</p><p><a href=\"/glossary#staff_user_id\"><strong>staff_user_id</strong></a>:</p><p><a href=\"/glossary#status\"><strong>status</strong></a>:</p><p><a href=\"/glossary#when\"><strong>when</strong></a>: 2020-01-27</p>
          * @summary Create Meeting (video conference/call)
-         * @param {BANKIDMeetingsBody} body JObject object that needs to be added.
+         * @param {CreateMeetingJsonV310} body CreateMeetingJsonV310 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310CreateMeeting(body: BANKIDMeetingsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20110>> {
+        async oBPv310CreateMeeting(body: CreateMeetingJsonV310, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MeetingJsonV310>> {
             return ExperimentalApiFp(configuration).oBPv310CreateMeeting(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -291,7 +291,7 @@ export const ExperimentalApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetMeeting(MEETING_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20110>> {
+        async oBPv310GetMeeting(MEETING_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MeetingJsonV310>> {
             return ExperimentalApiFp(configuration).oBPv310GetMeeting(MEETING_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -301,7 +301,7 @@ export const ExperimentalApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetMeetings(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20033>> {
+        async oBPv310GetMeetings(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MeetingsJsonV310>> {
             return ExperimentalApiFp(configuration).oBPv310GetMeetings(BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -317,13 +317,13 @@ export class ExperimentalApi extends BaseAPI {
     /**
      * <p>Create Meeting: Initiate a video conference/call with the bank.</p><p>The Meetings resource contains meta data about video/other conference sessions</p><p>provider_id determines the provider of the meeting / video chat service. MUST be url friendly (no spaces).</p><p>purpose_id explains the purpose of the chat. onboarding | mortgage | complaint etc. MUST be url friendly (no spaces).</p><p>Login is required.</p><p>This call is <strong>experimental</strong>. Currently staff_user_id is not set. Further calls will be needed to correctly set this.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#contact_details\"><strong>contact_details</strong></a>:</p><p><a href=\"/glossary#creator\"><strong>creator</strong></a>:</p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#email_address\"><strong>email_address</strong></a>:</p><p><a href=\"/glossary#invitees\"><strong>invitees</strong></a>:</p><p><a href=\"/glossary#mobile_phone\"><strong>mobile_phone</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#provider_id\"><strong>provider_id</strong></a>:</p><p><a href=\"/glossary#purpose_id\"><strong>purpose_id</strong></a>:</p><p><a href=\"/glossary#status\"><strong>status</strong></a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#contact_details\"><strong>contact_details</strong></a>:</p><p><a href=\"/glossary#creator\"><strong>creator</strong></a>:</p><p><a href=\"/glossary#customer_token\"><strong>customer_token</strong></a>:</p><p><a href=\"/glossary#customer_user_id\"><strong>customer_user_id</strong></a>:</p><p><a href=\"/glossary#email_address\"><strong>email_address</strong></a>:</p><p><a href=\"/glossary#invitees\"><strong>invitees</strong></a>:</p><p><a href=\"/glossary#keys\"><strong>keys</strong></a>:</p><p><a href=\"/glossary#meeting_id\"><strong>meeting_id</strong></a>:</p><p><a href=\"/glossary#mobile_phone\"><strong>mobile_phone</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#present\"><strong>present</strong></a>:</p><p><a href=\"/glossary#provider_id\"><strong>provider_id</strong></a>:</p><p><a href=\"/glossary#purpose_id\"><strong>purpose_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>session_id</strong></a>: b4e0352a-9a0f-4bfa-b30b-9003aa467f50</p><p><a href=\"/glossary#staff_token\"><strong>staff_token</strong></a>:</p><p><a href=\"/glossary#staff_user_id\"><strong>staff_user_id</strong></a>:</p><p><a href=\"/glossary#status\"><strong>status</strong></a>:</p><p><a href=\"/glossary#when\"><strong>when</strong></a>: 2020-01-27</p>
      * @summary Create Meeting (video conference/call)
-     * @param {BANKIDMeetingsBody} body JObject object that needs to be added.
+     * @param {CreateMeetingJsonV310} body CreateMeetingJsonV310 object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExperimentalApi
      */
-    public async oBPv310CreateMeeting(body: BANKIDMeetingsBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20110>> {
+    public async oBPv310CreateMeeting(body: CreateMeetingJsonV310, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<MeetingJsonV310>> {
         return ExperimentalApiFp(this.configuration).oBPv310CreateMeeting(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -335,7 +335,7 @@ export class ExperimentalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ExperimentalApi
      */
-    public async oBPv310GetMeeting(MEETING_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20110>> {
+    public async oBPv310GetMeeting(MEETING_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<MeetingJsonV310>> {
         return ExperimentalApiFp(this.configuration).oBPv310GetMeeting(MEETING_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -346,7 +346,7 @@ export class ExperimentalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ExperimentalApi
      */
-    public async oBPv310GetMeetings(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20033>> {
+    public async oBPv310GetMeetings(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<MeetingsJsonV310>> {
         return ExperimentalApiFp(this.configuration).oBPv310GetMeetings(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+import { JsonValidationV400 } from './json-validation-v400';
  /**
  * 
  *
@@ -21,44 +22,8 @@
 export interface InlineResponse2004 {
 
     /**
-     * @type {string}
+     * @type {Array<JsonValidationV400>}
      * @memberof InlineResponse2004
-     * @example gh.29.uk
      */
-    bank_id: string;
-
-    /**
-     * @type {string}
-     * @memberof InlineResponse2004
-     * @example EUR
-     */
-    from_currency_code: string;
-
-    /**
-     * @type {string}
-     * @memberof InlineResponse2004
-     * @example GBP
-     */
-    to_currency_code: string;
-
-    /**
-     * @type {number}
-     * @memberof InlineResponse2004
-     * @example 1.001
-     */
-    conversion_value: number;
-
-    /**
-     * @type {number}
-     * @memberof InlineResponse2004
-     * @example 0.998
-     */
-    inverse_conversion_value: number;
-
-    /**
-     * @type {string}
-     * @memberof InlineResponse2004
-     * @example 1100-01-01T00:00:00Z
-     */
-    effective_date: string;
+    json_schema_validations: Array<JsonValidationV400>;
 }

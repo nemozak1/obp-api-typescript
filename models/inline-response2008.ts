@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse2008Accounts } from './inline-response2008-accounts';
+import { InlineResponse2008Endpointmappings } from './inline-response2008-endpointmappings';
  /**
  * 
  *
@@ -22,8 +22,8 @@ import { InlineResponse2008Accounts } from './inline-response2008-accounts';
 export interface InlineResponse2008 {
 
     /**
-     * @type {Array<InlineResponse2008Accounts>}
+     * @type {Array<InlineResponse2008Endpointmappings>}
      * @memberof InlineResponse2008
      */
-    accounts: Array<InlineResponse2008Accounts>;
+    endpoint_mappings: Array<InlineResponse2008Endpointmappings>;
 }

@@ -19,11 +19,11 @@ import { Configuration } from '../configuration';
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 import { AliasJSON } from '../models';
 import { CorporateLocationJSON } from '../models';
+import { CounterpartyWithMetadataJson400 } from '../models';
 import { ErrorBankAccountNotFound } from '../models';
 import { ErrorUnknownError } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
 import { ImageUrlJSON } from '../models';
-import { InlineResponse20118 } from '../models';
 import { MoreInfoJSON } from '../models';
 import { OpenCorporateUrlJSON } from '../models';
 import { OtherAccountMetadataJSON } from '../models';
@@ -68,7 +68,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddCounterpartyCorporateLocation.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/corporate_location`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/corporate_location`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -151,7 +151,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddCounterpartyImageUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/image_url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/image_url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -234,7 +234,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddCounterpartyMoreInfo.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/more_info`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/more_info`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -317,7 +317,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddCounterpartyOpenCorporatesUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/open_corporates_url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/open_corporates_url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -400,7 +400,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddCounterpartyPhysicalLocation.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/physical_location`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/physical_location`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -483,7 +483,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddCounterpartyPublicAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -566,7 +566,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddCounterpartyUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -649,7 +649,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddOtherAccountPrivateAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -727,7 +727,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyCorporateLocation.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/corporate_location`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/corporate_location`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -801,7 +801,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyImageUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/image_url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/image_url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -875,7 +875,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyMoreInfo.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/more_info`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/more_info`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -949,7 +949,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyOpenCorporatesUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/open_corporates_url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/open_corporates_url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1023,7 +1023,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyPhysicalLocation.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/physical_location`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/physical_location`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1097,7 +1097,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyPrivateAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1171,7 +1171,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyPublicAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1245,7 +1245,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1319,7 +1319,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121GetCounterpartyPublicAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1393,7 +1393,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121GetOtherAccountMetadata.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1467,7 +1467,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121GetOtherAccountPrivateAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1546,7 +1546,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyCorporateLocation.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/corporate_location`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/corporate_location`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1629,7 +1629,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyImageUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/image_url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/image_url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1712,7 +1712,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyMoreInfo.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/more_info`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/more_info`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1795,7 +1795,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyOpenCorporatesUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/open_corporates_url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/open_corporates_url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1878,7 +1878,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyPhysicalLocation.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/physical_location`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/physical_location`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1961,7 +1961,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyPrivateAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -2044,7 +2044,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyPublicAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -2127,7 +2127,7 @@ export const CounterpartyMetadataApiAxiosParamCreator = function (configuration?
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -2746,7 +2746,7 @@ export const CounterpartyMetadataApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20118>>> {
+        async oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CounterpartyWithMetadataJson400>>> {
             const localVarAxiosArgs = await CounterpartyMetadataApiAxiosParamCreator(configuration).oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3139,7 +3139,7 @@ export const CounterpartyMetadataApiFactory = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20118>> {
+        async oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CounterpartyWithMetadataJson400>> {
             return CounterpartyMetadataApiFp(configuration).oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -3557,7 +3557,7 @@ export class CounterpartyMetadataApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CounterpartyMetadataApi
      */
-    public async oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20118>> {
+    public async oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CounterpartyWithMetadataJson400>> {
         return CounterpartyMetadataApiFp(this.configuration).oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

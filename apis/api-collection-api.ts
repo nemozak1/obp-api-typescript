@@ -17,18 +17,17 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { APICOLLECTIONIDApicollectionendpointsBody } from '../models';
-import { APICOLLECTIONNAMEApicollectionendpointsBody } from '../models';
-import { ApicollectionsAPICOLLECTIONIDBody } from '../models';
+import { ApiCollectionEndpointJson400 } from '../models';
+import { ApiCollectionEndpointsJson400 } from '../models';
+import { ApiCollectionJson400 } from '../models';
+import { ApiCollectionsJson400 } from '../models';
 import { ErrorUnknownError } from '../models';
 import { ErrorUserHasMissingRoles } from '../models';
 import { ErrorUserNotFoundByUserId } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse20055 } from '../models';
-import { InlineResponse20056 } from '../models';
-import { InlineResponse20057 } from '../models';
-import { InlineResponse20144 } from '../models';
-import { MyApicollectionsBody } from '../models';
+import { Full } from '../models';
+import { PostApiCollectionEndpointJson400 } from '../models';
+import { PostApiCollectionJson400 } from '../models';
 /**
  * ApiCollectionApi - axios parameter creator
  * @export
@@ -38,11 +37,11 @@ export const ApiCollectionApiAxiosParamCreator = function (configuration?: Confi
         /**
          * <p>Create Api Collection for logged in user.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_name</strong></a>: Favourites</p><p><a href=\"/glossary#\"><strong>is_sharable</strong></a>: is_sharable</p><p><a href=\"/glossary#description\">description</a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_name</strong></a>: Favourites</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_sharable</strong></a>: is_sharable</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
          * @summary Create My Api Collection
-         * @param {MyApicollectionsBody} body JObject object that needs to be added.
+         * @param {PostApiCollectionJson400} body PostApiCollectionJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateMyApiCollection: async (body: MyApicollectionsBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateMyApiCollection: async (body: PostApiCollectionJson400, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateMyApiCollection.');
@@ -97,11 +96,11 @@ export const ApiCollectionApiAxiosParamCreator = function (configuration?: Confi
         /**
          * <p>Create Api Collection Endpoint.</p><p>glossary-item-not-found</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">API_COLLECTION_NAME</a>: Favourites</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_endpoint_id</strong></a>: 8uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p>
          * @summary Create My Api Collection Endpoint
-         * @param {APICOLLECTIONNAMEApicollectionendpointsBody} body JObject object that needs to be added.
+         * @param {PostApiCollectionEndpointJson400} body PostApiCollectionEndpointJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateMyApiCollectionEndpoint: async (body: APICOLLECTIONNAMEApicollectionendpointsBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateMyApiCollectionEndpoint: async (body: PostApiCollectionEndpointJson400, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateMyApiCollectionEndpoint.');
@@ -156,11 +155,11 @@ export const ApiCollectionApiAxiosParamCreator = function (configuration?: Confi
         /**
          * <p>Create Api Collection Endpoint By Id.</p><p>glossary-item-not-found</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">API_COLLECTION_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_endpoint_id</strong></a>: 8uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p>
          * @summary Create My Api Collection Endpoint By Id
-         * @param {APICOLLECTIONIDApicollectionendpointsBody} body JObject object that needs to be added.
+         * @param {PostApiCollectionEndpointJson400} body PostApiCollectionEndpointJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateMyApiCollectionEndpointById: async (body: APICOLLECTIONIDApicollectionendpointsBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateMyApiCollectionEndpointById: async (body: PostApiCollectionEndpointJson400, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateMyApiCollectionEndpointById.');
@@ -971,11 +970,11 @@ export const ApiCollectionApiAxiosParamCreator = function (configuration?: Confi
         /**
          * <p>Update Api Collection for logged in user.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">API_COLLECTION_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_name</strong></a>: Favourites</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_sharable</strong></a>: is_sharable</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
          * @summary Update My Api Collection By API_COLLECTION_ID
-         * @param {ApicollectionsAPICOLLECTIONIDBody} body JObject object that needs to be added.
+         * @param {PostApiCollectionJson400} body PostApiCollectionJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv510UpdateMyApiCollection: async (body: ApicollectionsAPICOLLECTIONIDBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv510UpdateMyApiCollection: async (body: PostApiCollectionJson400, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv510UpdateMyApiCollection.');
@@ -1039,11 +1038,11 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create Api Collection for logged in user.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_name</strong></a>: Favourites</p><p><a href=\"/glossary#\"><strong>is_sharable</strong></a>: is_sharable</p><p><a href=\"/glossary#description\">description</a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_name</strong></a>: Favourites</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_sharable</strong></a>: is_sharable</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
          * @summary Create My Api Collection
-         * @param {MyApicollectionsBody} body JObject object that needs to be added.
+         * @param {PostApiCollectionJson400} body PostApiCollectionJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateMyApiCollection(body: MyApicollectionsBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20057>>> {
+        async oBPv400CreateMyApiCollection(body: PostApiCollectionJson400, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400CreateMyApiCollection(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1053,11 +1052,11 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create Api Collection Endpoint.</p><p>glossary-item-not-found</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">API_COLLECTION_NAME</a>: Favourites</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_endpoint_id</strong></a>: 8uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p>
          * @summary Create My Api Collection Endpoint
-         * @param {APICOLLECTIONNAMEApicollectionendpointsBody} body JObject object that needs to be added.
+         * @param {PostApiCollectionEndpointJson400} body PostApiCollectionEndpointJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateMyApiCollectionEndpoint(body: APICOLLECTIONNAMEApicollectionendpointsBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20144>>> {
+        async oBPv400CreateMyApiCollectionEndpoint(body: PostApiCollectionEndpointJson400, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionEndpointJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400CreateMyApiCollectionEndpoint(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1067,11 +1066,11 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create Api Collection Endpoint By Id.</p><p>glossary-item-not-found</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">API_COLLECTION_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_endpoint_id</strong></a>: 8uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p>
          * @summary Create My Api Collection Endpoint By Id
-         * @param {APICOLLECTIONIDApicollectionendpointsBody} body JObject object that needs to be added.
+         * @param {PostApiCollectionEndpointJson400} body PostApiCollectionEndpointJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateMyApiCollectionEndpointById(body: APICOLLECTIONIDApicollectionendpointsBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20144>>> {
+        async oBPv400CreateMyApiCollectionEndpointById(body: PostApiCollectionEndpointJson400, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionEndpointJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400CreateMyApiCollectionEndpointById(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1084,7 +1083,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400DeleteMyApiCollection(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<boolean>>> {
+        async oBPv400DeleteMyApiCollection(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Full>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400DeleteMyApiCollection(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1097,7 +1096,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400DeleteMyApiCollectionEndpoint(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<boolean>>> {
+        async oBPv400DeleteMyApiCollectionEndpoint(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Full>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400DeleteMyApiCollectionEndpoint(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1110,7 +1109,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400DeleteMyApiCollectionEndpointById(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<boolean>>> {
+        async oBPv400DeleteMyApiCollectionEndpointById(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Full>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400DeleteMyApiCollectionEndpointById(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1123,7 +1122,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400DeleteMyApiCollectionEndpointByOperationId(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<boolean>>> {
+        async oBPv400DeleteMyApiCollectionEndpointByOperationId(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Full>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400DeleteMyApiCollectionEndpointByOperationId(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1136,7 +1135,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetApiCollectionEndpoints(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20055>>> {
+        async oBPv400GetApiCollectionEndpoints(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionEndpointsJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400GetApiCollectionEndpoints(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1150,7 +1149,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetApiCollectionsForUser(USER_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20056>>> {
+        async oBPv400GetApiCollectionsForUser(USER_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionsJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400GetApiCollectionsForUser(USER_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1163,7 +1162,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetFeaturedApiCollections(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20056>>> {
+        async oBPv400GetFeaturedApiCollections(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionsJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400GetFeaturedApiCollections(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1176,7 +1175,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetMyApiCollectionById(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20057>>> {
+        async oBPv400GetMyApiCollectionById(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400GetMyApiCollectionById(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1189,7 +1188,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetMyApiCollectionByName(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20057>>> {
+        async oBPv400GetMyApiCollectionByName(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400GetMyApiCollectionByName(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1202,7 +1201,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetMyApiCollectionEndpoint(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20144>>> {
+        async oBPv400GetMyApiCollectionEndpoint(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionEndpointJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400GetMyApiCollectionEndpoint(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1215,7 +1214,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetMyApiCollectionEndpoints(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20055>>> {
+        async oBPv400GetMyApiCollectionEndpoints(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionEndpointsJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400GetMyApiCollectionEndpoints(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1228,7 +1227,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetMyApiCollectionEndpointsById(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20055>>> {
+        async oBPv400GetMyApiCollectionEndpointsById(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionEndpointsJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400GetMyApiCollectionEndpointsById(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1241,7 +1240,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetMyApiCollections(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20056>>> {
+        async oBPv400GetMyApiCollections(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionsJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400GetMyApiCollections(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1254,7 +1253,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetSharableApiCollectionById(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20057>>> {
+        async oBPv400GetSharableApiCollectionById(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv400GetSharableApiCollectionById(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1267,7 +1266,7 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetAllApiCollections(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20056>>> {
+        async oBPv510GetAllApiCollections(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionsJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv510GetAllApiCollections(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1277,11 +1276,11 @@ export const ApiCollectionApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update Api Collection for logged in user.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">API_COLLECTION_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_name</strong></a>: Favourites</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_sharable</strong></a>: is_sharable</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
          * @summary Update My Api Collection By API_COLLECTION_ID
-         * @param {ApicollectionsAPICOLLECTIONIDBody} body JObject object that needs to be added.
+         * @param {PostApiCollectionJson400} body PostApiCollectionJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510UpdateMyApiCollection(body: ApicollectionsAPICOLLECTIONIDBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20057>>> {
+        async oBPv510UpdateMyApiCollection(body: PostApiCollectionJson400, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ApiCollectionJson400>>> {
             const localVarAxiosArgs = await ApiCollectionApiAxiosParamCreator(configuration).oBPv510UpdateMyApiCollection(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1300,31 +1299,31 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
         /**
          * <p>Create Api Collection for logged in user.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_name</strong></a>: Favourites</p><p><a href=\"/glossary#\"><strong>is_sharable</strong></a>: is_sharable</p><p><a href=\"/glossary#description\">description</a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_name</strong></a>: Favourites</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_sharable</strong></a>: is_sharable</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
          * @summary Create My Api Collection
-         * @param {MyApicollectionsBody} body JObject object that needs to be added.
+         * @param {PostApiCollectionJson400} body PostApiCollectionJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateMyApiCollection(body: MyApicollectionsBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20057>> {
+        async oBPv400CreateMyApiCollection(body: PostApiCollectionJson400, options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionJson400>> {
             return ApiCollectionApiFp(configuration).oBPv400CreateMyApiCollection(body, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create Api Collection Endpoint.</p><p>glossary-item-not-found</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">API_COLLECTION_NAME</a>: Favourites</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_endpoint_id</strong></a>: 8uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p>
          * @summary Create My Api Collection Endpoint
-         * @param {APICOLLECTIONNAMEApicollectionendpointsBody} body JObject object that needs to be added.
+         * @param {PostApiCollectionEndpointJson400} body PostApiCollectionEndpointJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateMyApiCollectionEndpoint(body: APICOLLECTIONNAMEApicollectionendpointsBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20144>> {
+        async oBPv400CreateMyApiCollectionEndpoint(body: PostApiCollectionEndpointJson400, options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionEndpointJson400>> {
             return ApiCollectionApiFp(configuration).oBPv400CreateMyApiCollectionEndpoint(body, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create Api Collection Endpoint By Id.</p><p>glossary-item-not-found</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">API_COLLECTION_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_endpoint_id</strong></a>: 8uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p>
          * @summary Create My Api Collection Endpoint By Id
-         * @param {APICOLLECTIONIDApicollectionendpointsBody} body JObject object that needs to be added.
+         * @param {PostApiCollectionEndpointJson400} body PostApiCollectionEndpointJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateMyApiCollectionEndpointById(body: APICOLLECTIONIDApicollectionendpointsBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20144>> {
+        async oBPv400CreateMyApiCollectionEndpointById(body: PostApiCollectionEndpointJson400, options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionEndpointJson400>> {
             return ApiCollectionApiFp(configuration).oBPv400CreateMyApiCollectionEndpointById(body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1333,7 +1332,7 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400DeleteMyApiCollection(options?: AxiosRequestConfig): Promise<AxiosResponse<boolean>> {
+        async oBPv400DeleteMyApiCollection(options?: AxiosRequestConfig): Promise<AxiosResponse<Full>> {
             return ApiCollectionApiFp(configuration).oBPv400DeleteMyApiCollection(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1342,7 +1341,7 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400DeleteMyApiCollectionEndpoint(options?: AxiosRequestConfig): Promise<AxiosResponse<boolean>> {
+        async oBPv400DeleteMyApiCollectionEndpoint(options?: AxiosRequestConfig): Promise<AxiosResponse<Full>> {
             return ApiCollectionApiFp(configuration).oBPv400DeleteMyApiCollectionEndpoint(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1351,7 +1350,7 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400DeleteMyApiCollectionEndpointById(options?: AxiosRequestConfig): Promise<AxiosResponse<boolean>> {
+        async oBPv400DeleteMyApiCollectionEndpointById(options?: AxiosRequestConfig): Promise<AxiosResponse<Full>> {
             return ApiCollectionApiFp(configuration).oBPv400DeleteMyApiCollectionEndpointById(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1360,7 +1359,7 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400DeleteMyApiCollectionEndpointByOperationId(options?: AxiosRequestConfig): Promise<AxiosResponse<boolean>> {
+        async oBPv400DeleteMyApiCollectionEndpointByOperationId(options?: AxiosRequestConfig): Promise<AxiosResponse<Full>> {
             return ApiCollectionApiFp(configuration).oBPv400DeleteMyApiCollectionEndpointByOperationId(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1369,7 +1368,7 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetApiCollectionEndpoints(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20055>> {
+        async oBPv400GetApiCollectionEndpoints(options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionEndpointsJson400>> {
             return ApiCollectionApiFp(configuration).oBPv400GetApiCollectionEndpoints(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1379,7 +1378,7 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetApiCollectionsForUser(USER_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20056>> {
+        async oBPv400GetApiCollectionsForUser(USER_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionsJson400>> {
             return ApiCollectionApiFp(configuration).oBPv400GetApiCollectionsForUser(USER_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1388,7 +1387,7 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetFeaturedApiCollections(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20056>> {
+        async oBPv400GetFeaturedApiCollections(options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionsJson400>> {
             return ApiCollectionApiFp(configuration).oBPv400GetFeaturedApiCollections(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1397,7 +1396,7 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetMyApiCollectionById(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20057>> {
+        async oBPv400GetMyApiCollectionById(options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionJson400>> {
             return ApiCollectionApiFp(configuration).oBPv400GetMyApiCollectionById(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1406,7 +1405,7 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetMyApiCollectionByName(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20057>> {
+        async oBPv400GetMyApiCollectionByName(options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionJson400>> {
             return ApiCollectionApiFp(configuration).oBPv400GetMyApiCollectionByName(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1415,7 +1414,7 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetMyApiCollectionEndpoint(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20144>> {
+        async oBPv400GetMyApiCollectionEndpoint(options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionEndpointJson400>> {
             return ApiCollectionApiFp(configuration).oBPv400GetMyApiCollectionEndpoint(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1424,7 +1423,7 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetMyApiCollectionEndpoints(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20055>> {
+        async oBPv400GetMyApiCollectionEndpoints(options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionEndpointsJson400>> {
             return ApiCollectionApiFp(configuration).oBPv400GetMyApiCollectionEndpoints(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1433,7 +1432,7 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetMyApiCollectionEndpointsById(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20055>> {
+        async oBPv400GetMyApiCollectionEndpointsById(options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionEndpointsJson400>> {
             return ApiCollectionApiFp(configuration).oBPv400GetMyApiCollectionEndpointsById(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1442,7 +1441,7 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetMyApiCollections(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20056>> {
+        async oBPv400GetMyApiCollections(options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionsJson400>> {
             return ApiCollectionApiFp(configuration).oBPv400GetMyApiCollections(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1451,7 +1450,7 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetSharableApiCollectionById(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20057>> {
+        async oBPv400GetSharableApiCollectionById(options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionJson400>> {
             return ApiCollectionApiFp(configuration).oBPv400GetSharableApiCollectionById(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1460,17 +1459,17 @@ export const ApiCollectionApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetAllApiCollections(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20056>> {
+        async oBPv510GetAllApiCollections(options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionsJson400>> {
             return ApiCollectionApiFp(configuration).oBPv510GetAllApiCollections(options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update Api Collection for logged in user.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">API_COLLECTION_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_name</strong></a>: Favourites</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_sharable</strong></a>: is_sharable</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
          * @summary Update My Api Collection By API_COLLECTION_ID
-         * @param {ApicollectionsAPICOLLECTIONIDBody} body JObject object that needs to be added.
+         * @param {PostApiCollectionJson400} body PostApiCollectionJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510UpdateMyApiCollection(body: ApicollectionsAPICOLLECTIONIDBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20057>> {
+        async oBPv510UpdateMyApiCollection(body: PostApiCollectionJson400, options?: AxiosRequestConfig): Promise<AxiosResponse<ApiCollectionJson400>> {
             return ApiCollectionApiFp(configuration).oBPv510UpdateMyApiCollection(body, options).then((request) => request(axios, basePath));
         },
     };
@@ -1486,34 +1485,34 @@ export class ApiCollectionApi extends BaseAPI {
     /**
      * <p>Create Api Collection for logged in user.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_name</strong></a>: Favourites</p><p><a href=\"/glossary#\"><strong>is_sharable</strong></a>: is_sharable</p><p><a href=\"/glossary#description\">description</a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_name</strong></a>: Favourites</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_sharable</strong></a>: is_sharable</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
      * @summary Create My Api Collection
-     * @param {MyApicollectionsBody} body JObject object that needs to be added.
+     * @param {PostApiCollectionJson400} body PostApiCollectionJson400 object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400CreateMyApiCollection(body: MyApicollectionsBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20057>> {
+    public async oBPv400CreateMyApiCollection(body: PostApiCollectionJson400, options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv400CreateMyApiCollection(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create Api Collection Endpoint.</p><p>glossary-item-not-found</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">API_COLLECTION_NAME</a>: Favourites</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_endpoint_id</strong></a>: 8uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p>
      * @summary Create My Api Collection Endpoint
-     * @param {APICOLLECTIONNAMEApicollectionendpointsBody} body JObject object that needs to be added.
+     * @param {PostApiCollectionEndpointJson400} body PostApiCollectionEndpointJson400 object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400CreateMyApiCollectionEndpoint(body: APICOLLECTIONNAMEApicollectionendpointsBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20144>> {
+    public async oBPv400CreateMyApiCollectionEndpoint(body: PostApiCollectionEndpointJson400, options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionEndpointJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv400CreateMyApiCollectionEndpoint(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create Api Collection Endpoint By Id.</p><p>glossary-item-not-found</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">API_COLLECTION_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_endpoint_id</strong></a>: 8uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p>
      * @summary Create My Api Collection Endpoint By Id
-     * @param {APICOLLECTIONIDApicollectionendpointsBody} body JObject object that needs to be added.
+     * @param {PostApiCollectionEndpointJson400} body PostApiCollectionEndpointJson400 object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400CreateMyApiCollectionEndpointById(body: APICOLLECTIONIDApicollectionendpointsBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20144>> {
+    public async oBPv400CreateMyApiCollectionEndpointById(body: PostApiCollectionEndpointJson400, options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionEndpointJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv400CreateMyApiCollectionEndpointById(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1523,7 +1522,7 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400DeleteMyApiCollection(options?: AxiosRequestConfig) : Promise<AxiosResponse<boolean>> {
+    public async oBPv400DeleteMyApiCollection(options?: AxiosRequestConfig) : Promise<AxiosResponse<Full>> {
         return ApiCollectionApiFp(this.configuration).oBPv400DeleteMyApiCollection(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1533,7 +1532,7 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400DeleteMyApiCollectionEndpoint(options?: AxiosRequestConfig) : Promise<AxiosResponse<boolean>> {
+    public async oBPv400DeleteMyApiCollectionEndpoint(options?: AxiosRequestConfig) : Promise<AxiosResponse<Full>> {
         return ApiCollectionApiFp(this.configuration).oBPv400DeleteMyApiCollectionEndpoint(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1543,7 +1542,7 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400DeleteMyApiCollectionEndpointById(options?: AxiosRequestConfig) : Promise<AxiosResponse<boolean>> {
+    public async oBPv400DeleteMyApiCollectionEndpointById(options?: AxiosRequestConfig) : Promise<AxiosResponse<Full>> {
         return ApiCollectionApiFp(this.configuration).oBPv400DeleteMyApiCollectionEndpointById(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1553,7 +1552,7 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400DeleteMyApiCollectionEndpointByOperationId(options?: AxiosRequestConfig) : Promise<AxiosResponse<boolean>> {
+    public async oBPv400DeleteMyApiCollectionEndpointByOperationId(options?: AxiosRequestConfig) : Promise<AxiosResponse<Full>> {
         return ApiCollectionApiFp(this.configuration).oBPv400DeleteMyApiCollectionEndpointByOperationId(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1563,7 +1562,7 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400GetApiCollectionEndpoints(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20055>> {
+    public async oBPv400GetApiCollectionEndpoints(options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionEndpointsJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv400GetApiCollectionEndpoints(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1574,7 +1573,7 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400GetApiCollectionsForUser(USER_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20056>> {
+    public async oBPv400GetApiCollectionsForUser(USER_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionsJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv400GetApiCollectionsForUser(USER_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1584,7 +1583,7 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400GetFeaturedApiCollections(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20056>> {
+    public async oBPv400GetFeaturedApiCollections(options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionsJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv400GetFeaturedApiCollections(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1594,7 +1593,7 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400GetMyApiCollectionById(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20057>> {
+    public async oBPv400GetMyApiCollectionById(options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv400GetMyApiCollectionById(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1604,7 +1603,7 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400GetMyApiCollectionByName(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20057>> {
+    public async oBPv400GetMyApiCollectionByName(options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv400GetMyApiCollectionByName(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1614,7 +1613,7 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400GetMyApiCollectionEndpoint(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20144>> {
+    public async oBPv400GetMyApiCollectionEndpoint(options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionEndpointJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv400GetMyApiCollectionEndpoint(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1624,7 +1623,7 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400GetMyApiCollectionEndpoints(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20055>> {
+    public async oBPv400GetMyApiCollectionEndpoints(options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionEndpointsJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv400GetMyApiCollectionEndpoints(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1634,7 +1633,7 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400GetMyApiCollectionEndpointsById(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20055>> {
+    public async oBPv400GetMyApiCollectionEndpointsById(options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionEndpointsJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv400GetMyApiCollectionEndpointsById(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1644,7 +1643,7 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400GetMyApiCollections(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20056>> {
+    public async oBPv400GetMyApiCollections(options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionsJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv400GetMyApiCollections(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1654,7 +1653,7 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv400GetSharableApiCollectionById(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20057>> {
+    public async oBPv400GetSharableApiCollectionById(options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv400GetSharableApiCollectionById(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1664,18 +1663,18 @@ export class ApiCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv510GetAllApiCollections(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20056>> {
+    public async oBPv510GetAllApiCollections(options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionsJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv510GetAllApiCollections(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update Api Collection for logged in user.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">API_COLLECTION_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>api_collection_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>api_collection_name</strong></a>: Favourites</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_sharable</strong></a>: is_sharable</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
      * @summary Update My Api Collection By API_COLLECTION_ID
-     * @param {ApicollectionsAPICOLLECTIONIDBody} body JObject object that needs to be added.
+     * @param {PostApiCollectionJson400} body PostApiCollectionJson400 object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ApiCollectionApi
      */
-    public async oBPv510UpdateMyApiCollection(body: ApicollectionsAPICOLLECTIONIDBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20057>> {
+    public async oBPv510UpdateMyApiCollection(body: PostApiCollectionJson400, options?: AxiosRequestConfig) : Promise<AxiosResponse<ApiCollectionJson400>> {
         return ApiCollectionApiFp(this.configuration).oBPv510UpdateMyApiCollection(body, options).then((request) => request(this.axios, this.basePath));
     }
 }

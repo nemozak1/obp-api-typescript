@@ -17,11 +17,10 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { BANKIDFxBody } from '../models';
+import { CurrenciesJsonV510 } from '../models';
 import { ErrorInvalidISOCurrencyCode } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse200143 } from '../models';
-import { InlineResponse2004 } from '../models';
+import { FXRateJsonV220 } from '../models';
 /**
  * FXApi - axios parameter creator
  * @export
@@ -31,12 +30,12 @@ export const FXApiAxiosParamCreator = function (configuration?: Configuration) {
         /**
          * <p>Create or Update Fx for the Bank.</p><p>Example:</p><p>“from_currency_code”:“EUR”,<br />“to_currency_code”:“USD”,<br />“conversion_value”: 1.136305,<br />“inverse_conversion_value”: 1 / 1.136305 = 0.8800454103431737,</p><p>Thus 1 Euro = 1.136305 US Dollar<br />and<br />1 US Dollar = 0.8800 Euro</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#conversion_value\"><strong>conversion_value</strong></a>: 100</p><p><a href=\"/glossary#effective_date\"><strong>effective_date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#from_currency_code\"><strong>from_currency_code</strong></a>:</p><p><a href=\"/glossary#inverse_conversion_value\"><strong>inverse_conversion_value</strong></a>: 50</p><p><a href=\"/glossary#to_currency_code\"><strong>to_currency_code</strong></a>: EUR</p>
          * @summary Create Fx
-         * @param {BANKIDFxBody} body JObject object that needs to be added.
+         * @param {FXRateJsonV220} body FXRateJsonV220 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv220CreateFx: async (body: BANKIDFxBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv220CreateFx: async (body: FXRateJsonV220, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv220CreateFx.');
@@ -229,12 +228,12 @@ export const FXApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create or Update Fx for the Bank.</p><p>Example:</p><p>“from_currency_code”:“EUR”,<br />“to_currency_code”:“USD”,<br />“conversion_value”: 1.136305,<br />“inverse_conversion_value”: 1 / 1.136305 = 0.8800454103431737,</p><p>Thus 1 Euro = 1.136305 US Dollar<br />and<br />1 US Dollar = 0.8800 Euro</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#conversion_value\"><strong>conversion_value</strong></a>: 100</p><p><a href=\"/glossary#effective_date\"><strong>effective_date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#from_currency_code\"><strong>from_currency_code</strong></a>:</p><p><a href=\"/glossary#inverse_conversion_value\"><strong>inverse_conversion_value</strong></a>: 50</p><p><a href=\"/glossary#to_currency_code\"><strong>to_currency_code</strong></a>: EUR</p>
          * @summary Create Fx
-         * @param {BANKIDFxBody} body JObject object that needs to be added.
+         * @param {FXRateJsonV220} body FXRateJsonV220 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv220CreateFx(body: BANKIDFxBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BANKIDFxBody>>> {
+        async oBPv220CreateFx(body: FXRateJsonV220, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<FXRateJsonV220>>> {
             const localVarAxiosArgs = await FXApiAxiosParamCreator(configuration).oBPv220CreateFx(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -250,7 +249,7 @@ export const FXApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv220GetCurrentFxRate(TO_CURRENCY_CODE: string, FROM_CURRENCY_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2004>>> {
+        async oBPv220GetCurrentFxRate(TO_CURRENCY_CODE: string, FROM_CURRENCY_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<FXRateJsonV220>>> {
             const localVarAxiosArgs = await FXApiAxiosParamCreator(configuration).oBPv220GetCurrentFxRate(TO_CURRENCY_CODE, FROM_CURRENCY_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -264,7 +263,7 @@ export const FXApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetCurrenciesAtBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200143>>> {
+        async oBPv510GetCurrenciesAtBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CurrenciesJsonV510>>> {
             const localVarAxiosArgs = await FXApiAxiosParamCreator(configuration).oBPv510GetCurrenciesAtBank(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -283,12 +282,12 @@ export const FXApiFactory = function (configuration?: Configuration, basePath?: 
         /**
          * <p>Create or Update Fx for the Bank.</p><p>Example:</p><p>“from_currency_code”:“EUR”,<br />“to_currency_code”:“USD”,<br />“conversion_value”: 1.136305,<br />“inverse_conversion_value”: 1 / 1.136305 = 0.8800454103431737,</p><p>Thus 1 Euro = 1.136305 US Dollar<br />and<br />1 US Dollar = 0.8800 Euro</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#conversion_value\"><strong>conversion_value</strong></a>: 100</p><p><a href=\"/glossary#effective_date\"><strong>effective_date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#from_currency_code\"><strong>from_currency_code</strong></a>:</p><p><a href=\"/glossary#inverse_conversion_value\"><strong>inverse_conversion_value</strong></a>: 50</p><p><a href=\"/glossary#to_currency_code\"><strong>to_currency_code</strong></a>: EUR</p>
          * @summary Create Fx
-         * @param {BANKIDFxBody} body JObject object that needs to be added.
+         * @param {FXRateJsonV220} body FXRateJsonV220 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv220CreateFx(body: BANKIDFxBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<BANKIDFxBody>> {
+        async oBPv220CreateFx(body: FXRateJsonV220, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<FXRateJsonV220>> {
             return FXApiFp(configuration).oBPv220CreateFx(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -300,7 +299,7 @@ export const FXApiFactory = function (configuration?: Configuration, basePath?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv220GetCurrentFxRate(TO_CURRENCY_CODE: string, FROM_CURRENCY_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2004>> {
+        async oBPv220GetCurrentFxRate(TO_CURRENCY_CODE: string, FROM_CURRENCY_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<FXRateJsonV220>> {
             return FXApiFp(configuration).oBPv220GetCurrentFxRate(TO_CURRENCY_CODE, FROM_CURRENCY_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -310,7 +309,7 @@ export const FXApiFactory = function (configuration?: Configuration, basePath?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetCurrenciesAtBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200143>> {
+        async oBPv510GetCurrenciesAtBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CurrenciesJsonV510>> {
             return FXApiFp(configuration).oBPv510GetCurrenciesAtBank(BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -326,13 +325,13 @@ export class FXApi extends BaseAPI {
     /**
      * <p>Create or Update Fx for the Bank.</p><p>Example:</p><p>“from_currency_code”:“EUR”,<br />“to_currency_code”:“USD”,<br />“conversion_value”: 1.136305,<br />“inverse_conversion_value”: 1 / 1.136305 = 0.8800454103431737,</p><p>Thus 1 Euro = 1.136305 US Dollar<br />and<br />1 US Dollar = 0.8800 Euro</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#conversion_value\"><strong>conversion_value</strong></a>: 100</p><p><a href=\"/glossary#effective_date\"><strong>effective_date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#from_currency_code\"><strong>from_currency_code</strong></a>:</p><p><a href=\"/glossary#inverse_conversion_value\"><strong>inverse_conversion_value</strong></a>: 50</p><p><a href=\"/glossary#to_currency_code\"><strong>to_currency_code</strong></a>: EUR</p>
      * @summary Create Fx
-     * @param {BANKIDFxBody} body JObject object that needs to be added.
+     * @param {FXRateJsonV220} body FXRateJsonV220 object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FXApi
      */
-    public async oBPv220CreateFx(body: BANKIDFxBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<BANKIDFxBody>> {
+    public async oBPv220CreateFx(body: FXRateJsonV220, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<FXRateJsonV220>> {
         return FXApiFp(this.configuration).oBPv220CreateFx(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -345,7 +344,7 @@ export class FXApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FXApi
      */
-    public async oBPv220GetCurrentFxRate(TO_CURRENCY_CODE: string, FROM_CURRENCY_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2004>> {
+    public async oBPv220GetCurrentFxRate(TO_CURRENCY_CODE: string, FROM_CURRENCY_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<FXRateJsonV220>> {
         return FXApiFp(this.configuration).oBPv220GetCurrentFxRate(TO_CURRENCY_CODE, FROM_CURRENCY_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -356,7 +355,7 @@ export class FXApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FXApi
      */
-    public async oBPv510GetCurrenciesAtBank(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200143>> {
+    public async oBPv510GetCurrenciesAtBank(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CurrenciesJsonV510>> {
         return FXApiFp(this.configuration).oBPv510GetCurrenciesAtBank(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

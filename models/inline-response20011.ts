@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse20011Transactions } from './inline-response20011-transactions';
+import { InlineResponse20011DynamicEndpoints } from './inline-response20011-dynamic-endpoints';
  /**
  * 
  *
@@ -22,8 +22,8 @@ import { InlineResponse20011Transactions } from './inline-response20011-transact
 export interface InlineResponse20011 {
 
     /**
-     * @type {Array<InlineResponse20011Transactions>}
+     * @type {Array<InlineResponse20011DynamicEndpoints>}
      * @memberof InlineResponse20011
      */
-    transactions: Array<InlineResponse20011Transactions>;
+    dynamic_endpoints: Array<InlineResponse20011DynamicEndpoints>;
 }

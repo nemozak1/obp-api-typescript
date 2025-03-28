@@ -17,14 +17,10 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { BANKIDDynamicmessagedocsBody } from '../models';
-import { DynamicmessagedocsDYNAMICMESSAGEDOCIDBody } from '../models';
-import { DynamicmessagedocsDYNAMICMESSAGEDOCIDBody1 } from '../models';
 import { ErrorBankNotFound } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse200109 } from '../models';
-import { InlineResponse20137 } from '../models';
-import { ManagementDynamicmessagedocsBody } from '../models';
+import { InlineResponse2006 } from '../models';
+import { JsonDynamicMessageDoc } from '../models';
 /**
  * DynamicMessageDocApi - axios parameter creator
  * @export
@@ -34,12 +30,12 @@ export const DynamicMessageDocApiAxiosParamCreator = function (configuration?: C
         /**
          * <p>Create a Bank Level Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
          * @summary Create Bank Level Dynamic Message Doc
-         * @param {BANKIDDynamicmessagedocsBody} body JObject object that needs to be added.
+         * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateBankLevelDynamicMessageDoc: async (body: BANKIDDynamicmessagedocsBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateBankLevelDynamicMessageDoc: async (body: JsonDynamicMessageDoc, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateBankLevelDynamicMessageDoc.');
@@ -99,11 +95,11 @@ export const DynamicMessageDocApiAxiosParamCreator = function (configuration?: C
         /**
          * <p>Create a Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
          * @summary Create Dynamic Message Doc
-         * @param {ManagementDynamicmessagedocsBody} body JObject object that needs to be added.
+         * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateDynamicMessageDoc: async (body: ManagementDynamicmessagedocsBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateDynamicMessageDoc: async (body: JsonDynamicMessageDoc, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateDynamicMessageDoc.');
@@ -476,12 +472,12 @@ export const DynamicMessageDocApiAxiosParamCreator = function (configuration?: C
         /**
          * <p>Update a Bank Level Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#\">DYNAMIC_MESSAGE_DOC_ID</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
          * @summary Update Bank Level Dynamic Message Doc
-         * @param {DynamicmessagedocsDYNAMICMESSAGEDOCIDBody} body JObject object that needs to be added.
+         * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateBankLevelDynamicMessageDoc: async (body: DynamicmessagedocsDYNAMICMESSAGEDOCIDBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateBankLevelDynamicMessageDoc: async (body: JsonDynamicMessageDoc, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateBankLevelDynamicMessageDoc.');
@@ -541,11 +537,11 @@ export const DynamicMessageDocApiAxiosParamCreator = function (configuration?: C
         /**
          * <p>Update a Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">DYNAMIC_MESSAGE_DOC_ID</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
          * @summary Update Dynamic Message Doc
-         * @param {DynamicmessagedocsDYNAMICMESSAGEDOCIDBody1} body JObject object that needs to be added.
+         * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateDynamicMessageDoc: async (body: DynamicmessagedocsDYNAMICMESSAGEDOCIDBody1, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateDynamicMessageDoc: async (body: JsonDynamicMessageDoc, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateDynamicMessageDoc.');
@@ -609,12 +605,12 @@ export const DynamicMessageDocApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create a Bank Level Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
          * @summary Create Bank Level Dynamic Message Doc
-         * @param {BANKIDDynamicmessagedocsBody} body JObject object that needs to be added.
+         * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateBankLevelDynamicMessageDoc(body: BANKIDDynamicmessagedocsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20137>>> {
+        async oBPv400CreateBankLevelDynamicMessageDoc(body: JsonDynamicMessageDoc, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonDynamicMessageDoc>>> {
             const localVarAxiosArgs = await DynamicMessageDocApiAxiosParamCreator(configuration).oBPv400CreateBankLevelDynamicMessageDoc(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -624,11 +620,11 @@ export const DynamicMessageDocApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create a Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
          * @summary Create Dynamic Message Doc
-         * @param {ManagementDynamicmessagedocsBody} body JObject object that needs to be added.
+         * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateDynamicMessageDoc(body: ManagementDynamicmessagedocsBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20137>>> {
+        async oBPv400CreateDynamicMessageDoc(body: JsonDynamicMessageDoc, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonDynamicMessageDoc>>> {
             const localVarAxiosArgs = await DynamicMessageDocApiAxiosParamCreator(configuration).oBPv400CreateDynamicMessageDoc(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -669,7 +665,7 @@ export const DynamicMessageDocApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllBankLevelDynamicMessageDocs(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200109>>> {
+        async oBPv400GetAllBankLevelDynamicMessageDocs(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2006>>> {
             const localVarAxiosArgs = await DynamicMessageDocApiAxiosParamCreator(configuration).oBPv400GetAllBankLevelDynamicMessageDocs(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -682,7 +678,7 @@ export const DynamicMessageDocApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllDynamicMessageDocs(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200109>>> {
+        async oBPv400GetAllDynamicMessageDocs(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2006>>> {
             const localVarAxiosArgs = await DynamicMessageDocApiAxiosParamCreator(configuration).oBPv400GetAllDynamicMessageDocs(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -696,7 +692,7 @@ export const DynamicMessageDocApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBankLevelDynamicMessageDoc(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20137>>> {
+        async oBPv400GetBankLevelDynamicMessageDoc(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonDynamicMessageDoc>>> {
             const localVarAxiosArgs = await DynamicMessageDocApiAxiosParamCreator(configuration).oBPv400GetBankLevelDynamicMessageDoc(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -709,7 +705,7 @@ export const DynamicMessageDocApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetDynamicMessageDoc(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20137>>> {
+        async oBPv400GetDynamicMessageDoc(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonDynamicMessageDoc>>> {
             const localVarAxiosArgs = await DynamicMessageDocApiAxiosParamCreator(configuration).oBPv400GetDynamicMessageDoc(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -719,12 +715,12 @@ export const DynamicMessageDocApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update a Bank Level Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#\">DYNAMIC_MESSAGE_DOC_ID</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
          * @summary Update Bank Level Dynamic Message Doc
-         * @param {DynamicmessagedocsDYNAMICMESSAGEDOCIDBody} body JObject object that needs to be added.
+         * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateBankLevelDynamicMessageDoc(body: DynamicmessagedocsDYNAMICMESSAGEDOCIDBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20137>>> {
+        async oBPv400UpdateBankLevelDynamicMessageDoc(body: JsonDynamicMessageDoc, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonDynamicMessageDoc>>> {
             const localVarAxiosArgs = await DynamicMessageDocApiAxiosParamCreator(configuration).oBPv400UpdateBankLevelDynamicMessageDoc(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -734,11 +730,11 @@ export const DynamicMessageDocApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update a Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">DYNAMIC_MESSAGE_DOC_ID</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
          * @summary Update Dynamic Message Doc
-         * @param {DynamicmessagedocsDYNAMICMESSAGEDOCIDBody1} body JObject object that needs to be added.
+         * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateDynamicMessageDoc(body: DynamicmessagedocsDYNAMICMESSAGEDOCIDBody1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20137>>> {
+        async oBPv400UpdateDynamicMessageDoc(body: JsonDynamicMessageDoc, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonDynamicMessageDoc>>> {
             const localVarAxiosArgs = await DynamicMessageDocApiAxiosParamCreator(configuration).oBPv400UpdateDynamicMessageDoc(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -757,22 +753,22 @@ export const DynamicMessageDocApiFactory = function (configuration?: Configurati
         /**
          * <p>Create a Bank Level Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
          * @summary Create Bank Level Dynamic Message Doc
-         * @param {BANKIDDynamicmessagedocsBody} body JObject object that needs to be added.
+         * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateBankLevelDynamicMessageDoc(body: BANKIDDynamicmessagedocsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20137>> {
+        async oBPv400CreateBankLevelDynamicMessageDoc(body: JsonDynamicMessageDoc, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonDynamicMessageDoc>> {
             return DynamicMessageDocApiFp(configuration).oBPv400CreateBankLevelDynamicMessageDoc(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create a Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
          * @summary Create Dynamic Message Doc
-         * @param {ManagementDynamicmessagedocsBody} body JObject object that needs to be added.
+         * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateDynamicMessageDoc(body: ManagementDynamicmessagedocsBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20137>> {
+        async oBPv400CreateDynamicMessageDoc(body: JsonDynamicMessageDoc, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonDynamicMessageDoc>> {
             return DynamicMessageDocApiFp(configuration).oBPv400CreateDynamicMessageDoc(body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -801,7 +797,7 @@ export const DynamicMessageDocApiFactory = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllBankLevelDynamicMessageDocs(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200109>> {
+        async oBPv400GetAllBankLevelDynamicMessageDocs(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2006>> {
             return DynamicMessageDocApiFp(configuration).oBPv400GetAllBankLevelDynamicMessageDocs(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -810,7 +806,7 @@ export const DynamicMessageDocApiFactory = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllDynamicMessageDocs(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200109>> {
+        async oBPv400GetAllDynamicMessageDocs(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2006>> {
             return DynamicMessageDocApiFp(configuration).oBPv400GetAllDynamicMessageDocs(options).then((request) => request(axios, basePath));
         },
         /**
@@ -820,7 +816,7 @@ export const DynamicMessageDocApiFactory = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBankLevelDynamicMessageDoc(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20137>> {
+        async oBPv400GetBankLevelDynamicMessageDoc(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonDynamicMessageDoc>> {
             return DynamicMessageDocApiFp(configuration).oBPv400GetBankLevelDynamicMessageDoc(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -829,28 +825,28 @@ export const DynamicMessageDocApiFactory = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetDynamicMessageDoc(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20137>> {
+        async oBPv400GetDynamicMessageDoc(options?: AxiosRequestConfig): Promise<AxiosResponse<JsonDynamicMessageDoc>> {
             return DynamicMessageDocApiFp(configuration).oBPv400GetDynamicMessageDoc(options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update a Bank Level Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#\">DYNAMIC_MESSAGE_DOC_ID</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
          * @summary Update Bank Level Dynamic Message Doc
-         * @param {DynamicmessagedocsDYNAMICMESSAGEDOCIDBody} body JObject object that needs to be added.
+         * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateBankLevelDynamicMessageDoc(body: DynamicmessagedocsDYNAMICMESSAGEDOCIDBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20137>> {
+        async oBPv400UpdateBankLevelDynamicMessageDoc(body: JsonDynamicMessageDoc, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonDynamicMessageDoc>> {
             return DynamicMessageDocApiFp(configuration).oBPv400UpdateBankLevelDynamicMessageDoc(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update a Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">DYNAMIC_MESSAGE_DOC_ID</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
          * @summary Update Dynamic Message Doc
-         * @param {DynamicmessagedocsDYNAMICMESSAGEDOCIDBody1} body JObject object that needs to be added.
+         * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateDynamicMessageDoc(body: DynamicmessagedocsDYNAMICMESSAGEDOCIDBody1, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20137>> {
+        async oBPv400UpdateDynamicMessageDoc(body: JsonDynamicMessageDoc, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonDynamicMessageDoc>> {
             return DynamicMessageDocApiFp(configuration).oBPv400UpdateDynamicMessageDoc(body, options).then((request) => request(axios, basePath));
         },
     };
@@ -866,24 +862,24 @@ export class DynamicMessageDocApi extends BaseAPI {
     /**
      * <p>Create a Bank Level Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
      * @summary Create Bank Level Dynamic Message Doc
-     * @param {BANKIDDynamicmessagedocsBody} body JObject object that needs to be added.
+     * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DynamicMessageDocApi
      */
-    public async oBPv400CreateBankLevelDynamicMessageDoc(body: BANKIDDynamicmessagedocsBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20137>> {
+    public async oBPv400CreateBankLevelDynamicMessageDoc(body: JsonDynamicMessageDoc, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonDynamicMessageDoc>> {
         return DynamicMessageDocApiFp(this.configuration).oBPv400CreateBankLevelDynamicMessageDoc(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create a Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
      * @summary Create Dynamic Message Doc
-     * @param {ManagementDynamicmessagedocsBody} body JObject object that needs to be added.
+     * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DynamicMessageDocApi
      */
-    public async oBPv400CreateDynamicMessageDoc(body: ManagementDynamicmessagedocsBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20137>> {
+    public async oBPv400CreateDynamicMessageDoc(body: JsonDynamicMessageDoc, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonDynamicMessageDoc>> {
         return DynamicMessageDocApiFp(this.configuration).oBPv400CreateDynamicMessageDoc(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -915,7 +911,7 @@ export class DynamicMessageDocApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicMessageDocApi
      */
-    public async oBPv400GetAllBankLevelDynamicMessageDocs(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200109>> {
+    public async oBPv400GetAllBankLevelDynamicMessageDocs(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2006>> {
         return DynamicMessageDocApiFp(this.configuration).oBPv400GetAllBankLevelDynamicMessageDocs(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -925,7 +921,7 @@ export class DynamicMessageDocApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicMessageDocApi
      */
-    public async oBPv400GetAllDynamicMessageDocs(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200109>> {
+    public async oBPv400GetAllDynamicMessageDocs(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2006>> {
         return DynamicMessageDocApiFp(this.configuration).oBPv400GetAllDynamicMessageDocs(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -936,7 +932,7 @@ export class DynamicMessageDocApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicMessageDocApi
      */
-    public async oBPv400GetBankLevelDynamicMessageDoc(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20137>> {
+    public async oBPv400GetBankLevelDynamicMessageDoc(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonDynamicMessageDoc>> {
         return DynamicMessageDocApiFp(this.configuration).oBPv400GetBankLevelDynamicMessageDoc(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -946,30 +942,30 @@ export class DynamicMessageDocApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicMessageDocApi
      */
-    public async oBPv400GetDynamicMessageDoc(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20137>> {
+    public async oBPv400GetDynamicMessageDoc(options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonDynamicMessageDoc>> {
         return DynamicMessageDocApiFp(this.configuration).oBPv400GetDynamicMessageDoc(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update a Bank Level Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#\">DYNAMIC_MESSAGE_DOC_ID</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
      * @summary Update Bank Level Dynamic Message Doc
-     * @param {DynamicmessagedocsDYNAMICMESSAGEDOCIDBody} body JObject object that needs to be added.
+     * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DynamicMessageDocApi
      */
-    public async oBPv400UpdateBankLevelDynamicMessageDoc(body: DynamicmessagedocsDYNAMICMESSAGEDOCIDBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20137>> {
+    public async oBPv400UpdateBankLevelDynamicMessageDoc(body: JsonDynamicMessageDoc, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonDynamicMessageDoc>> {
         return DynamicMessageDocApiFp(this.configuration).oBPv400UpdateBankLevelDynamicMessageDoc(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update a Dynamic Message Doc.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">DYNAMIC_MESSAGE_DOC_ID</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p>
      * @summary Update Dynamic Message Doc
-     * @param {DynamicmessagedocsDYNAMICMESSAGEDOCIDBody1} body JObject object that needs to be added.
+     * @param {JsonDynamicMessageDoc} body JsonDynamicMessageDoc object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DynamicMessageDocApi
      */
-    public async oBPv400UpdateDynamicMessageDoc(body: DynamicmessagedocsDYNAMICMESSAGEDOCIDBody1, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20137>> {
+    public async oBPv400UpdateDynamicMessageDoc(body: JsonDynamicMessageDoc, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonDynamicMessageDoc>> {
         return DynamicMessageDocApiFp(this.configuration).oBPv400UpdateDynamicMessageDoc(body, options).then((request) => request(this.axios, this.basePath));
     }
 }

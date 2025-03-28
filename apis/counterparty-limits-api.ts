@@ -17,11 +17,10 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { COUNTERPARTYIDLimitsBody } from '../models';
-import { COUNTERPARTYIDLimitsBody1 } from '../models';
+import { CounterpartyLimitStatusV510 } from '../models';
+import { CounterpartyLimitV510 } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse200137 } from '../models';
-import { InlineResponse200138 } from '../models';
+import { PostCounterpartyLimitV510 } from '../models';
 /**
  * CounterpartyLimitsApi - axios parameter creator
  * @export
@@ -31,7 +30,7 @@ export const CounterpartyLimitsApiAxiosParamCreator = function (configuration?: 
         /**
          * <p>Create limits (for single or recurring payments) for a counterparty specified by the COUNTERPARTY_ID.</p><p>Using this endpoint, we can attach a limit record to a Counterparty referenced by its counterparty_id (a UUID).</p><p>For more information on Counterparty Limits, see <a href=\"/glossary#Counterparty-Limits\">here</a></p><p>For an introduction to Counterparties in OBP, see <a href=\"/glossary#Counterparties\">here</a></p><p>You can automate the process of creating counterparty limits and consents for VRP with this <a href=\"https://apiexplorer-ii-sandbox.openbankproject.com//operationid/OBPv5.1.0-createVRPConsentRequest\">endpoint</a>.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#\">COUNTERPARTY_ID</a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#max_monthly_amount\"><strong>max_monthly_amount</strong></a>: 10000.11</p><p><a href=\"/glossary#max_number_of_monthly_transactions\"><strong>max_number_of_monthly_transactions</strong></a>: 10</p><p><a href=\"/glossary#max_number_of_transactions\"><strong>max_number_of_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_number_of_yearly_transactions\"><strong>max_number_of_yearly_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_single_amount\"><strong>max_single_amount</strong></a>: 1000.11</p><p><a href=\"/glossary#max_total_amount\"><strong>max_total_amount</strong></a>: 10000.12</p><p><a href=\"/glossary#max_yearly_amount\"><strong>max_yearly_amount</strong></a>: 12000.11</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#counterparty_limit_id\"><strong>counterparty_limit_id</strong></a>: abc9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#max_monthly_amount\"><strong>max_monthly_amount</strong></a>: 10000.11</p><p><a href=\"/glossary#max_number_of_monthly_transactions\"><strong>max_number_of_monthly_transactions</strong></a>: 10</p><p><a href=\"/glossary#max_number_of_transactions\"><strong>max_number_of_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_number_of_yearly_transactions\"><strong>max_number_of_yearly_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_single_amount\"><strong>max_single_amount</strong></a>: 1000.11</p><p><a href=\"/glossary#max_total_amount\"><strong>max_total_amount</strong></a>: 10000.12</p><p><a href=\"/glossary#max_yearly_amount\"><strong>max_yearly_amount</strong></a>: 12000.11</p><p><a href=\"/glossary#\"><strong>view_id</strong></a>: owner</p>
          * @summary Create Counterparty Limit
-         * @param {COUNTERPARTYIDLimitsBody1} body JObject object that needs to be added.
+         * @param {PostCounterpartyLimitV510} body PostCounterpartyLimitV510 object that needs to be added.
          * @param {string} COUNTERPARTY_ID the counterparty id
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
@@ -39,7 +38,7 @@ export const CounterpartyLimitsApiAxiosParamCreator = function (configuration?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv510CreateCounterpartyLimit: async (body: COUNTERPARTYIDLimitsBody1, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv510CreateCounterpartyLimit: async (body: PostCounterpartyLimitV510, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv510CreateCounterpartyLimit.');
@@ -336,7 +335,7 @@ export const CounterpartyLimitsApiAxiosParamCreator = function (configuration?: 
         /**
          * <p>Update Counterparty Limit.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#\">COUNTERPARTY_ID</a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#counterparty_limit_id\"><strong>counterparty_limit_id</strong></a>: abc9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#max_monthly_amount\"><strong>max_monthly_amount</strong></a>: 10000.11</p><p><a href=\"/glossary#max_number_of_monthly_transactions\"><strong>max_number_of_monthly_transactions</strong></a>: 10</p><p><a href=\"/glossary#max_number_of_transactions\"><strong>max_number_of_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_number_of_yearly_transactions\"><strong>max_number_of_yearly_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_single_amount\"><strong>max_single_amount</strong></a>: 1000.11</p><p><a href=\"/glossary#max_total_amount\"><strong>max_total_amount</strong></a>: 10000.12</p><p><a href=\"/glossary#max_yearly_amount\"><strong>max_yearly_amount</strong></a>: 12000.11</p><p><a href=\"/glossary#\"><strong>view_id</strong></a>: owner</p>
          * @summary Update Counterparty Limit
-         * @param {COUNTERPARTYIDLimitsBody} body JObject object that needs to be added.
+         * @param {PostCounterpartyLimitV510} body PostCounterpartyLimitV510 object that needs to be added.
          * @param {string} COUNTERPARTY_ID the counterparty id
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
@@ -344,7 +343,7 @@ export const CounterpartyLimitsApiAxiosParamCreator = function (configuration?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv510UpdateCounterpartyLimit: async (body: COUNTERPARTYIDLimitsBody, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv510UpdateCounterpartyLimit: async (body: PostCounterpartyLimitV510, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv510UpdateCounterpartyLimit.');
@@ -428,7 +427,7 @@ export const CounterpartyLimitsApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create limits (for single or recurring payments) for a counterparty specified by the COUNTERPARTY_ID.</p><p>Using this endpoint, we can attach a limit record to a Counterparty referenced by its counterparty_id (a UUID).</p><p>For more information on Counterparty Limits, see <a href=\"/glossary#Counterparty-Limits\">here</a></p><p>For an introduction to Counterparties in OBP, see <a href=\"/glossary#Counterparties\">here</a></p><p>You can automate the process of creating counterparty limits and consents for VRP with this <a href=\"https://apiexplorer-ii-sandbox.openbankproject.com//operationid/OBPv5.1.0-createVRPConsentRequest\">endpoint</a>.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#\">COUNTERPARTY_ID</a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#max_monthly_amount\"><strong>max_monthly_amount</strong></a>: 10000.11</p><p><a href=\"/glossary#max_number_of_monthly_transactions\"><strong>max_number_of_monthly_transactions</strong></a>: 10</p><p><a href=\"/glossary#max_number_of_transactions\"><strong>max_number_of_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_number_of_yearly_transactions\"><strong>max_number_of_yearly_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_single_amount\"><strong>max_single_amount</strong></a>: 1000.11</p><p><a href=\"/glossary#max_total_amount\"><strong>max_total_amount</strong></a>: 10000.12</p><p><a href=\"/glossary#max_yearly_amount\"><strong>max_yearly_amount</strong></a>: 12000.11</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#counterparty_limit_id\"><strong>counterparty_limit_id</strong></a>: abc9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#max_monthly_amount\"><strong>max_monthly_amount</strong></a>: 10000.11</p><p><a href=\"/glossary#max_number_of_monthly_transactions\"><strong>max_number_of_monthly_transactions</strong></a>: 10</p><p><a href=\"/glossary#max_number_of_transactions\"><strong>max_number_of_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_number_of_yearly_transactions\"><strong>max_number_of_yearly_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_single_amount\"><strong>max_single_amount</strong></a>: 1000.11</p><p><a href=\"/glossary#max_total_amount\"><strong>max_total_amount</strong></a>: 10000.12</p><p><a href=\"/glossary#max_yearly_amount\"><strong>max_yearly_amount</strong></a>: 12000.11</p><p><a href=\"/glossary#\"><strong>view_id</strong></a>: owner</p>
          * @summary Create Counterparty Limit
-         * @param {COUNTERPARTYIDLimitsBody1} body JObject object that needs to be added.
+         * @param {PostCounterpartyLimitV510} body PostCounterpartyLimitV510 object that needs to be added.
          * @param {string} COUNTERPARTY_ID the counterparty id
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
@@ -436,7 +435,7 @@ export const CounterpartyLimitsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510CreateCounterpartyLimit(body: COUNTERPARTYIDLimitsBody1, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200138>>> {
+        async oBPv510CreateCounterpartyLimit(body: PostCounterpartyLimitV510, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CounterpartyLimitV510>>> {
             const localVarAxiosArgs = await CounterpartyLimitsApiAxiosParamCreator(configuration).oBPv510CreateCounterpartyLimit(body, COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -470,7 +469,7 @@ export const CounterpartyLimitsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetCounterpartyLimit(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200138>>> {
+        async oBPv510GetCounterpartyLimit(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CounterpartyLimitV510>>> {
             const localVarAxiosArgs = await CounterpartyLimitsApiAxiosParamCreator(configuration).oBPv510GetCounterpartyLimit(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -487,7 +486,7 @@ export const CounterpartyLimitsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetCounterpartyLimitStatus(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200137>>> {
+        async oBPv510GetCounterpartyLimitStatus(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CounterpartyLimitStatusV510>>> {
             const localVarAxiosArgs = await CounterpartyLimitsApiAxiosParamCreator(configuration).oBPv510GetCounterpartyLimitStatus(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -497,7 +496,7 @@ export const CounterpartyLimitsApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update Counterparty Limit.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#\">COUNTERPARTY_ID</a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#counterparty_limit_id\"><strong>counterparty_limit_id</strong></a>: abc9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#max_monthly_amount\"><strong>max_monthly_amount</strong></a>: 10000.11</p><p><a href=\"/glossary#max_number_of_monthly_transactions\"><strong>max_number_of_monthly_transactions</strong></a>: 10</p><p><a href=\"/glossary#max_number_of_transactions\"><strong>max_number_of_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_number_of_yearly_transactions\"><strong>max_number_of_yearly_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_single_amount\"><strong>max_single_amount</strong></a>: 1000.11</p><p><a href=\"/glossary#max_total_amount\"><strong>max_total_amount</strong></a>: 10000.12</p><p><a href=\"/glossary#max_yearly_amount\"><strong>max_yearly_amount</strong></a>: 12000.11</p><p><a href=\"/glossary#\"><strong>view_id</strong></a>: owner</p>
          * @summary Update Counterparty Limit
-         * @param {COUNTERPARTYIDLimitsBody} body JObject object that needs to be added.
+         * @param {PostCounterpartyLimitV510} body PostCounterpartyLimitV510 object that needs to be added.
          * @param {string} COUNTERPARTY_ID the counterparty id
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
@@ -505,7 +504,7 @@ export const CounterpartyLimitsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510UpdateCounterpartyLimit(body: COUNTERPARTYIDLimitsBody, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200138>>> {
+        async oBPv510UpdateCounterpartyLimit(body: PostCounterpartyLimitV510, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CounterpartyLimitV510>>> {
             const localVarAxiosArgs = await CounterpartyLimitsApiAxiosParamCreator(configuration).oBPv510UpdateCounterpartyLimit(body, COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -524,7 +523,7 @@ export const CounterpartyLimitsApiFactory = function (configuration?: Configurat
         /**
          * <p>Create limits (for single or recurring payments) for a counterparty specified by the COUNTERPARTY_ID.</p><p>Using this endpoint, we can attach a limit record to a Counterparty referenced by its counterparty_id (a UUID).</p><p>For more information on Counterparty Limits, see <a href=\"/glossary#Counterparty-Limits\">here</a></p><p>For an introduction to Counterparties in OBP, see <a href=\"/glossary#Counterparties\">here</a></p><p>You can automate the process of creating counterparty limits and consents for VRP with this <a href=\"https://apiexplorer-ii-sandbox.openbankproject.com//operationid/OBPv5.1.0-createVRPConsentRequest\">endpoint</a>.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#\">COUNTERPARTY_ID</a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#max_monthly_amount\"><strong>max_monthly_amount</strong></a>: 10000.11</p><p><a href=\"/glossary#max_number_of_monthly_transactions\"><strong>max_number_of_monthly_transactions</strong></a>: 10</p><p><a href=\"/glossary#max_number_of_transactions\"><strong>max_number_of_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_number_of_yearly_transactions\"><strong>max_number_of_yearly_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_single_amount\"><strong>max_single_amount</strong></a>: 1000.11</p><p><a href=\"/glossary#max_total_amount\"><strong>max_total_amount</strong></a>: 10000.12</p><p><a href=\"/glossary#max_yearly_amount\"><strong>max_yearly_amount</strong></a>: 12000.11</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#counterparty_limit_id\"><strong>counterparty_limit_id</strong></a>: abc9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#max_monthly_amount\"><strong>max_monthly_amount</strong></a>: 10000.11</p><p><a href=\"/glossary#max_number_of_monthly_transactions\"><strong>max_number_of_monthly_transactions</strong></a>: 10</p><p><a href=\"/glossary#max_number_of_transactions\"><strong>max_number_of_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_number_of_yearly_transactions\"><strong>max_number_of_yearly_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_single_amount\"><strong>max_single_amount</strong></a>: 1000.11</p><p><a href=\"/glossary#max_total_amount\"><strong>max_total_amount</strong></a>: 10000.12</p><p><a href=\"/glossary#max_yearly_amount\"><strong>max_yearly_amount</strong></a>: 12000.11</p><p><a href=\"/glossary#\"><strong>view_id</strong></a>: owner</p>
          * @summary Create Counterparty Limit
-         * @param {COUNTERPARTYIDLimitsBody1} body JObject object that needs to be added.
+         * @param {PostCounterpartyLimitV510} body PostCounterpartyLimitV510 object that needs to be added.
          * @param {string} COUNTERPARTY_ID the counterparty id
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
@@ -532,7 +531,7 @@ export const CounterpartyLimitsApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510CreateCounterpartyLimit(body: COUNTERPARTYIDLimitsBody1, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200138>> {
+        async oBPv510CreateCounterpartyLimit(body: PostCounterpartyLimitV510, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CounterpartyLimitV510>> {
             return CounterpartyLimitsApiFp(configuration).oBPv510CreateCounterpartyLimit(body, COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -558,7 +557,7 @@ export const CounterpartyLimitsApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetCounterpartyLimit(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200138>> {
+        async oBPv510GetCounterpartyLimit(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CounterpartyLimitV510>> {
             return CounterpartyLimitsApiFp(configuration).oBPv510GetCounterpartyLimit(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -571,13 +570,13 @@ export const CounterpartyLimitsApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510GetCounterpartyLimitStatus(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200137>> {
+        async oBPv510GetCounterpartyLimitStatus(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CounterpartyLimitStatusV510>> {
             return CounterpartyLimitsApiFp(configuration).oBPv510GetCounterpartyLimitStatus(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update Counterparty Limit.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#\">COUNTERPARTY_ID</a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#counterparty_limit_id\"><strong>counterparty_limit_id</strong></a>: abc9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#max_monthly_amount\"><strong>max_monthly_amount</strong></a>: 10000.11</p><p><a href=\"/glossary#max_number_of_monthly_transactions\"><strong>max_number_of_monthly_transactions</strong></a>: 10</p><p><a href=\"/glossary#max_number_of_transactions\"><strong>max_number_of_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_number_of_yearly_transactions\"><strong>max_number_of_yearly_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_single_amount\"><strong>max_single_amount</strong></a>: 1000.11</p><p><a href=\"/glossary#max_total_amount\"><strong>max_total_amount</strong></a>: 10000.12</p><p><a href=\"/glossary#max_yearly_amount\"><strong>max_yearly_amount</strong></a>: 12000.11</p><p><a href=\"/glossary#\"><strong>view_id</strong></a>: owner</p>
          * @summary Update Counterparty Limit
-         * @param {COUNTERPARTYIDLimitsBody} body JObject object that needs to be added.
+         * @param {PostCounterpartyLimitV510} body PostCounterpartyLimitV510 object that needs to be added.
          * @param {string} COUNTERPARTY_ID the counterparty id
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
@@ -585,7 +584,7 @@ export const CounterpartyLimitsApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv510UpdateCounterpartyLimit(body: COUNTERPARTYIDLimitsBody, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200138>> {
+        async oBPv510UpdateCounterpartyLimit(body: PostCounterpartyLimitV510, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CounterpartyLimitV510>> {
             return CounterpartyLimitsApiFp(configuration).oBPv510UpdateCounterpartyLimit(body, COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -601,7 +600,7 @@ export class CounterpartyLimitsApi extends BaseAPI {
     /**
      * <p>Create limits (for single or recurring payments) for a counterparty specified by the COUNTERPARTY_ID.</p><p>Using this endpoint, we can attach a limit record to a Counterparty referenced by its counterparty_id (a UUID).</p><p>For more information on Counterparty Limits, see <a href=\"/glossary#Counterparty-Limits\">here</a></p><p>For an introduction to Counterparties in OBP, see <a href=\"/glossary#Counterparties\">here</a></p><p>You can automate the process of creating counterparty limits and consents for VRP with this <a href=\"https://apiexplorer-ii-sandbox.openbankproject.com//operationid/OBPv5.1.0-createVRPConsentRequest\">endpoint</a>.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#\">COUNTERPARTY_ID</a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#max_monthly_amount\"><strong>max_monthly_amount</strong></a>: 10000.11</p><p><a href=\"/glossary#max_number_of_monthly_transactions\"><strong>max_number_of_monthly_transactions</strong></a>: 10</p><p><a href=\"/glossary#max_number_of_transactions\"><strong>max_number_of_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_number_of_yearly_transactions\"><strong>max_number_of_yearly_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_single_amount\"><strong>max_single_amount</strong></a>: 1000.11</p><p><a href=\"/glossary#max_total_amount\"><strong>max_total_amount</strong></a>: 10000.12</p><p><a href=\"/glossary#max_yearly_amount\"><strong>max_yearly_amount</strong></a>: 12000.11</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#counterparty_limit_id\"><strong>counterparty_limit_id</strong></a>: abc9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#max_monthly_amount\"><strong>max_monthly_amount</strong></a>: 10000.11</p><p><a href=\"/glossary#max_number_of_monthly_transactions\"><strong>max_number_of_monthly_transactions</strong></a>: 10</p><p><a href=\"/glossary#max_number_of_transactions\"><strong>max_number_of_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_number_of_yearly_transactions\"><strong>max_number_of_yearly_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_single_amount\"><strong>max_single_amount</strong></a>: 1000.11</p><p><a href=\"/glossary#max_total_amount\"><strong>max_total_amount</strong></a>: 10000.12</p><p><a href=\"/glossary#max_yearly_amount\"><strong>max_yearly_amount</strong></a>: 12000.11</p><p><a href=\"/glossary#\"><strong>view_id</strong></a>: owner</p>
      * @summary Create Counterparty Limit
-     * @param {COUNTERPARTYIDLimitsBody1} body JObject object that needs to be added.
+     * @param {PostCounterpartyLimitV510} body PostCounterpartyLimitV510 object that needs to be added.
      * @param {string} COUNTERPARTY_ID the counterparty id
      * @param {string} VIEW_ID The view id
      * @param {string} ACCOUNT_ID The account id
@@ -610,7 +609,7 @@ export class CounterpartyLimitsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CounterpartyLimitsApi
      */
-    public async oBPv510CreateCounterpartyLimit(body: COUNTERPARTYIDLimitsBody1, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200138>> {
+    public async oBPv510CreateCounterpartyLimit(body: PostCounterpartyLimitV510, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CounterpartyLimitV510>> {
         return CounterpartyLimitsApiFp(this.configuration).oBPv510CreateCounterpartyLimit(body, COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -638,7 +637,7 @@ export class CounterpartyLimitsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CounterpartyLimitsApi
      */
-    public async oBPv510GetCounterpartyLimit(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200138>> {
+    public async oBPv510GetCounterpartyLimit(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CounterpartyLimitV510>> {
         return CounterpartyLimitsApiFp(this.configuration).oBPv510GetCounterpartyLimit(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -652,13 +651,13 @@ export class CounterpartyLimitsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CounterpartyLimitsApi
      */
-    public async oBPv510GetCounterpartyLimitStatus(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200137>> {
+    public async oBPv510GetCounterpartyLimitStatus(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CounterpartyLimitStatusV510>> {
         return CounterpartyLimitsApiFp(this.configuration).oBPv510GetCounterpartyLimitStatus(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update Counterparty Limit.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#\">COUNTERPARTY_ID</a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#counterparty_limit_id\"><strong>counterparty_limit_id</strong></a>: abc9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#max_monthly_amount\"><strong>max_monthly_amount</strong></a>: 10000.11</p><p><a href=\"/glossary#max_number_of_monthly_transactions\"><strong>max_number_of_monthly_transactions</strong></a>: 10</p><p><a href=\"/glossary#max_number_of_transactions\"><strong>max_number_of_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_number_of_yearly_transactions\"><strong>max_number_of_yearly_transactions</strong></a>: 100</p><p><a href=\"/glossary#max_single_amount\"><strong>max_single_amount</strong></a>: 1000.11</p><p><a href=\"/glossary#max_total_amount\"><strong>max_total_amount</strong></a>: 10000.12</p><p><a href=\"/glossary#max_yearly_amount\"><strong>max_yearly_amount</strong></a>: 12000.11</p><p><a href=\"/glossary#\"><strong>view_id</strong></a>: owner</p>
      * @summary Update Counterparty Limit
-     * @param {COUNTERPARTYIDLimitsBody} body JObject object that needs to be added.
+     * @param {PostCounterpartyLimitV510} body PostCounterpartyLimitV510 object that needs to be added.
      * @param {string} COUNTERPARTY_ID the counterparty id
      * @param {string} VIEW_ID The view id
      * @param {string} ACCOUNT_ID The account id
@@ -667,7 +666,7 @@ export class CounterpartyLimitsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CounterpartyLimitsApi
      */
-    public async oBPv510UpdateCounterpartyLimit(body: COUNTERPARTYIDLimitsBody, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200138>> {
+    public async oBPv510UpdateCounterpartyLimit(body: PostCounterpartyLimitV510, COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CounterpartyLimitV510>> {
         return CounterpartyLimitsApiFp(this.configuration).oBPv510UpdateCounterpartyLimit(body, COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

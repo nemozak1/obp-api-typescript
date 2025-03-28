@@ -19,9 +19,9 @@ import { Configuration } from '../configuration';
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 import { ErrorInvalidConnector } from '../models';
 import { ErrorUnknownError } from '../models';
-import { InlineResponse20058 } from '../models';
-import { InlineResponse2006 } from '../models';
-import { InlineResponse2007 } from '../models';
+import { GlossaryItemsJsonV300 } from '../models';
+import { InlineResponse2002 } from '../models';
+import { MessageDocsJson } from '../models';
 /**
  * DocumentationApi - axios parameter creator
  * @export
@@ -45,7 +45,7 @@ export const DocumentationApiAxiosParamCreator = function (configuration?: Confi
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv140GetBankLevelDynamicResourceDocsObp.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/resource-docs/{API_VERSION}/obp`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/resource-docs/{API_VERSION}/obp`
                 .replace(`{${"API_VERSION"}}`, encodeURIComponent(String(API_VERSION)))
                 .replace(`{${"BANK_ID"}}`, encodeURIComponent(String(BANK_ID)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -102,7 +102,7 @@ export const DocumentationApiAxiosParamCreator = function (configuration?: Confi
             if (API_VERSION === null || API_VERSION === undefined) {
                 throw new RequiredError('API_VERSION','Required parameter API_VERSION was null or undefined when calling oBPv140GetResourceDocsObpV400.');
             }
-            const localVarPath = `/obp/v5.1.0/resource-docs/{API_VERSION}/obp`
+            const localVarPath = `/obp/v2.1.0/resource-docs/{API_VERSION}/obp`
                 .replace(`{${"API_VERSION"}}`, encodeURIComponent(String(API_VERSION)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -158,7 +158,7 @@ export const DocumentationApiAxiosParamCreator = function (configuration?: Confi
             if (API_VERSION === null || API_VERSION === undefined) {
                 throw new RequiredError('API_VERSION','Required parameter API_VERSION was null or undefined when calling oBPv140GetResourceDocsSwagger.');
             }
-            const localVarPath = `/obp/v5.1.0/resource-docs/{API_VERSION}/swagger`
+            const localVarPath = `/obp/v2.1.0/resource-docs/{API_VERSION}/swagger`
                 .replace(`{${"API_VERSION"}}`, encodeURIComponent(String(API_VERSION)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -203,7 +203,7 @@ export const DocumentationApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * <p>These message docs provide example messages sent by OBP to the (Kafka) message queue for processing by the Core Banking / Payment system Adapter - together with an example expected response and possible error codes.<br />Integrators can use these messages to build Adapters that provide core banking services to OBP.</p><p>Note: API Explorer provides a Message Docs page where these messages are displayed.</p><p><code>CONNECTOR</code>: kafka_vSept2018, stored_procedure_vDec2019 ...</p><p>User Authentication is Optional. The User need not be logged in.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Connector\">CONNECTOR</a>: CONNECTOR</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#adapter_implementation\"><strong>adapter_implementation</strong></a>:</p><p><a href=\"/glossary#dependent_endpoints\"><strong>dependent_endpoints</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#example_inbound_message\"><strong>example_inbound_message</strong></a>: {}</p><p><a href=\"/glossary#example_outbound_message\"><strong>example_outbound_message</strong></a>: {}</p><p><a href=\"/glossary#group\"><strong>group</strong></a>:</p><p><a href=\"/glossary#message_docs\"><strong>message_docs</strong></a>:</p><p><a href=\"/glossary#message_format\"><strong>message_format</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><a href=\"/glossary#suggested_order\"><strong>suggested_order</strong></a>:</p><p><a href=\"/glossary#version\"><strong>version</strong></a>:</p><p><a href=\"/glossary#inboundavroschema\">inboundAvroSchema</a>:</p><p><a href=\"/glossary#inbound_topic\">inbound_topic</a>:</p><p><a href=\"/glossary#outboundavroschema\">outboundAvroSchema</a>:</p><p><a href=\"/glossary#outbound_topic\">outbound_topic</a>:</p><p><a href=\"/glossary#requiredfieldinfo\">requiredFieldInfo</a>: false</p>
+         * <p>These message docs provide example messages sent by OBP to the (RabbitMq) message queue for processing by the Core Banking / Payment system Adapter - together with an example expected response and possible error codes.<br />Integrators can use these messages to build Adapters that provide core banking services to OBP.</p><p>Note: API Explorer provides a Message Docs page where these messages are displayed.</p><p><code>CONNECTOR</code>: rest_vMar2019, stored_procedure_vDec2019 ...</p><p>User Authentication is Optional. The User need not be logged in.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Connector\">CONNECTOR</a>: CONNECTOR</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#adapter_implementation\"><strong>adapter_implementation</strong></a>:</p><p><a href=\"/glossary#dependent_endpoints\"><strong>dependent_endpoints</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#example_inbound_message\"><strong>example_inbound_message</strong></a>: {}</p><p><a href=\"/glossary#example_outbound_message\"><strong>example_outbound_message</strong></a>: {}</p><p><a href=\"/glossary#group\"><strong>group</strong></a>:</p><p><a href=\"/glossary#message_docs\"><strong>message_docs</strong></a>:</p><p><a href=\"/glossary#message_format\"><strong>message_format</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><a href=\"/glossary#suggested_order\"><strong>suggested_order</strong></a>:</p><p><a href=\"/glossary#version\"><strong>version</strong></a>:</p><p><a href=\"/glossary#inboundavroschema\">inboundAvroSchema</a>:</p><p><a href=\"/glossary#inbound_topic\">inbound_topic</a>:</p><p><a href=\"/glossary#outboundavroschema\">outboundAvroSchema</a>:</p><p><a href=\"/glossary#outbound_topic\">outbound_topic</a>:</p><p><a href=\"/glossary#requiredfieldinfo\">requiredFieldInfo</a>: false</p>
          * @summary Get Message Docs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -455,12 +455,12 @@ export const DocumentationApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * <p>These message docs provide example messages sent by OBP to the (Kafka) message queue for processing by the Core Banking / Payment system Adapter - together with an example expected response and possible error codes.<br />Integrators can use these messages to build Adapters that provide core banking services to OBP.</p><p>Note: API Explorer provides a Message Docs page where these messages are displayed.</p><p><code>CONNECTOR</code>: kafka_vSept2018, stored_procedure_vDec2019 ...</p><p>User Authentication is Optional. The User need not be logged in.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Connector\">CONNECTOR</a>: CONNECTOR</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#adapter_implementation\"><strong>adapter_implementation</strong></a>:</p><p><a href=\"/glossary#dependent_endpoints\"><strong>dependent_endpoints</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#example_inbound_message\"><strong>example_inbound_message</strong></a>: {}</p><p><a href=\"/glossary#example_outbound_message\"><strong>example_outbound_message</strong></a>: {}</p><p><a href=\"/glossary#group\"><strong>group</strong></a>:</p><p><a href=\"/glossary#message_docs\"><strong>message_docs</strong></a>:</p><p><a href=\"/glossary#message_format\"><strong>message_format</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><a href=\"/glossary#suggested_order\"><strong>suggested_order</strong></a>:</p><p><a href=\"/glossary#version\"><strong>version</strong></a>:</p><p><a href=\"/glossary#inboundavroschema\">inboundAvroSchema</a>:</p><p><a href=\"/glossary#inbound_topic\">inbound_topic</a>:</p><p><a href=\"/glossary#outboundavroschema\">outboundAvroSchema</a>:</p><p><a href=\"/glossary#outbound_topic\">outbound_topic</a>:</p><p><a href=\"/glossary#requiredfieldinfo\">requiredFieldInfo</a>: false</p>
+         * <p>These message docs provide example messages sent by OBP to the (RabbitMq) message queue for processing by the Core Banking / Payment system Adapter - together with an example expected response and possible error codes.<br />Integrators can use these messages to build Adapters that provide core banking services to OBP.</p><p>Note: API Explorer provides a Message Docs page where these messages are displayed.</p><p><code>CONNECTOR</code>: rest_vMar2019, stored_procedure_vDec2019 ...</p><p>User Authentication is Optional. The User need not be logged in.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Connector\">CONNECTOR</a>: CONNECTOR</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#adapter_implementation\"><strong>adapter_implementation</strong></a>:</p><p><a href=\"/glossary#dependent_endpoints\"><strong>dependent_endpoints</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#example_inbound_message\"><strong>example_inbound_message</strong></a>: {}</p><p><a href=\"/glossary#example_outbound_message\"><strong>example_outbound_message</strong></a>: {}</p><p><a href=\"/glossary#group\"><strong>group</strong></a>:</p><p><a href=\"/glossary#message_docs\"><strong>message_docs</strong></a>:</p><p><a href=\"/glossary#message_format\"><strong>message_format</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><a href=\"/glossary#suggested_order\"><strong>suggested_order</strong></a>:</p><p><a href=\"/glossary#version\"><strong>version</strong></a>:</p><p><a href=\"/glossary#inboundavroschema\">inboundAvroSchema</a>:</p><p><a href=\"/glossary#inbound_topic\">inbound_topic</a>:</p><p><a href=\"/glossary#outboundavroschema\">outboundAvroSchema</a>:</p><p><a href=\"/glossary#outbound_topic\">outbound_topic</a>:</p><p><a href=\"/glossary#requiredfieldinfo\">requiredFieldInfo</a>: false</p>
          * @summary Get Message Docs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv220GetMessageDocs(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2006>>> {
+        async oBPv220GetMessageDocs(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MessageDocsJson>>> {
             const localVarAxiosArgs = await DocumentationApiAxiosParamCreator(configuration).oBPv220GetMessageDocs(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -473,7 +473,7 @@ export const DocumentationApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300GetApiGlossary(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2007>>> {
+        async oBPv300GetApiGlossary(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<GlossaryItemsJsonV300>>> {
             const localVarAxiosArgs = await DocumentationApiAxiosParamCreator(configuration).oBPv300GetApiGlossary(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -499,7 +499,7 @@ export const DocumentationApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetScannedApiVersions(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20058>>> {
+        async oBPv400GetScannedApiVersions(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2002>>> {
             const localVarAxiosArgs = await DocumentationApiAxiosParamCreator(configuration).oBPv400GetScannedApiVersions(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -547,12 +547,12 @@ export const DocumentationApiFactory = function (configuration?: Configuration, 
             return DocumentationApiFp(configuration).oBPv140GetResourceDocsSwagger(API_VERSION, options).then((request) => request(axios, basePath));
         },
         /**
-         * <p>These message docs provide example messages sent by OBP to the (Kafka) message queue for processing by the Core Banking / Payment system Adapter - together with an example expected response and possible error codes.<br />Integrators can use these messages to build Adapters that provide core banking services to OBP.</p><p>Note: API Explorer provides a Message Docs page where these messages are displayed.</p><p><code>CONNECTOR</code>: kafka_vSept2018, stored_procedure_vDec2019 ...</p><p>User Authentication is Optional. The User need not be logged in.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Connector\">CONNECTOR</a>: CONNECTOR</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#adapter_implementation\"><strong>adapter_implementation</strong></a>:</p><p><a href=\"/glossary#dependent_endpoints\"><strong>dependent_endpoints</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#example_inbound_message\"><strong>example_inbound_message</strong></a>: {}</p><p><a href=\"/glossary#example_outbound_message\"><strong>example_outbound_message</strong></a>: {}</p><p><a href=\"/glossary#group\"><strong>group</strong></a>:</p><p><a href=\"/glossary#message_docs\"><strong>message_docs</strong></a>:</p><p><a href=\"/glossary#message_format\"><strong>message_format</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><a href=\"/glossary#suggested_order\"><strong>suggested_order</strong></a>:</p><p><a href=\"/glossary#version\"><strong>version</strong></a>:</p><p><a href=\"/glossary#inboundavroschema\">inboundAvroSchema</a>:</p><p><a href=\"/glossary#inbound_topic\">inbound_topic</a>:</p><p><a href=\"/glossary#outboundavroschema\">outboundAvroSchema</a>:</p><p><a href=\"/glossary#outbound_topic\">outbound_topic</a>:</p><p><a href=\"/glossary#requiredfieldinfo\">requiredFieldInfo</a>: false</p>
+         * <p>These message docs provide example messages sent by OBP to the (RabbitMq) message queue for processing by the Core Banking / Payment system Adapter - together with an example expected response and possible error codes.<br />Integrators can use these messages to build Adapters that provide core banking services to OBP.</p><p>Note: API Explorer provides a Message Docs page where these messages are displayed.</p><p><code>CONNECTOR</code>: rest_vMar2019, stored_procedure_vDec2019 ...</p><p>User Authentication is Optional. The User need not be logged in.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Connector\">CONNECTOR</a>: CONNECTOR</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#adapter_implementation\"><strong>adapter_implementation</strong></a>:</p><p><a href=\"/glossary#dependent_endpoints\"><strong>dependent_endpoints</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#example_inbound_message\"><strong>example_inbound_message</strong></a>: {}</p><p><a href=\"/glossary#example_outbound_message\"><strong>example_outbound_message</strong></a>: {}</p><p><a href=\"/glossary#group\"><strong>group</strong></a>:</p><p><a href=\"/glossary#message_docs\"><strong>message_docs</strong></a>:</p><p><a href=\"/glossary#message_format\"><strong>message_format</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><a href=\"/glossary#suggested_order\"><strong>suggested_order</strong></a>:</p><p><a href=\"/glossary#version\"><strong>version</strong></a>:</p><p><a href=\"/glossary#inboundavroschema\">inboundAvroSchema</a>:</p><p><a href=\"/glossary#inbound_topic\">inbound_topic</a>:</p><p><a href=\"/glossary#outboundavroschema\">outboundAvroSchema</a>:</p><p><a href=\"/glossary#outbound_topic\">outbound_topic</a>:</p><p><a href=\"/glossary#requiredfieldinfo\">requiredFieldInfo</a>: false</p>
          * @summary Get Message Docs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv220GetMessageDocs(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2006>> {
+        async oBPv220GetMessageDocs(options?: AxiosRequestConfig): Promise<AxiosResponse<MessageDocsJson>> {
             return DocumentationApiFp(configuration).oBPv220GetMessageDocs(options).then((request) => request(axios, basePath));
         },
         /**
@@ -561,7 +561,7 @@ export const DocumentationApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300GetApiGlossary(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2007>> {
+        async oBPv300GetApiGlossary(options?: AxiosRequestConfig): Promise<AxiosResponse<GlossaryItemsJsonV300>> {
             return DocumentationApiFp(configuration).oBPv300GetApiGlossary(options).then((request) => request(axios, basePath));
         },
         /**
@@ -579,7 +579,7 @@ export const DocumentationApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetScannedApiVersions(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20058>> {
+        async oBPv400GetScannedApiVersions(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2002>> {
             return DocumentationApiFp(configuration).oBPv400GetScannedApiVersions(options).then((request) => request(axios, basePath));
         },
     };
@@ -627,13 +627,13 @@ export class DocumentationApi extends BaseAPI {
         return DocumentationApiFp(this.configuration).oBPv140GetResourceDocsSwagger(API_VERSION, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * <p>These message docs provide example messages sent by OBP to the (Kafka) message queue for processing by the Core Banking / Payment system Adapter - together with an example expected response and possible error codes.<br />Integrators can use these messages to build Adapters that provide core banking services to OBP.</p><p>Note: API Explorer provides a Message Docs page where these messages are displayed.</p><p><code>CONNECTOR</code>: kafka_vSept2018, stored_procedure_vDec2019 ...</p><p>User Authentication is Optional. The User need not be logged in.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Connector\">CONNECTOR</a>: CONNECTOR</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#adapter_implementation\"><strong>adapter_implementation</strong></a>:</p><p><a href=\"/glossary#dependent_endpoints\"><strong>dependent_endpoints</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#example_inbound_message\"><strong>example_inbound_message</strong></a>: {}</p><p><a href=\"/glossary#example_outbound_message\"><strong>example_outbound_message</strong></a>: {}</p><p><a href=\"/glossary#group\"><strong>group</strong></a>:</p><p><a href=\"/glossary#message_docs\"><strong>message_docs</strong></a>:</p><p><a href=\"/glossary#message_format\"><strong>message_format</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><a href=\"/glossary#suggested_order\"><strong>suggested_order</strong></a>:</p><p><a href=\"/glossary#version\"><strong>version</strong></a>:</p><p><a href=\"/glossary#inboundavroschema\">inboundAvroSchema</a>:</p><p><a href=\"/glossary#inbound_topic\">inbound_topic</a>:</p><p><a href=\"/glossary#outboundavroschema\">outboundAvroSchema</a>:</p><p><a href=\"/glossary#outbound_topic\">outbound_topic</a>:</p><p><a href=\"/glossary#requiredfieldinfo\">requiredFieldInfo</a>: false</p>
+     * <p>These message docs provide example messages sent by OBP to the (RabbitMq) message queue for processing by the Core Banking / Payment system Adapter - together with an example expected response and possible error codes.<br />Integrators can use these messages to build Adapters that provide core banking services to OBP.</p><p>Note: API Explorer provides a Message Docs page where these messages are displayed.</p><p><code>CONNECTOR</code>: rest_vMar2019, stored_procedure_vDec2019 ...</p><p>User Authentication is Optional. The User need not be logged in.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Connector\">CONNECTOR</a>: CONNECTOR</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#adapter_implementation\"><strong>adapter_implementation</strong></a>:</p><p><a href=\"/glossary#dependent_endpoints\"><strong>dependent_endpoints</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#example_inbound_message\"><strong>example_inbound_message</strong></a>: {}</p><p><a href=\"/glossary#example_outbound_message\"><strong>example_outbound_message</strong></a>: {}</p><p><a href=\"/glossary#group\"><strong>group</strong></a>:</p><p><a href=\"/glossary#message_docs\"><strong>message_docs</strong></a>:</p><p><a href=\"/glossary#message_format\"><strong>message_format</strong></a>:</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#process\"><strong>process</strong></a>: obp.getBank</p><p><a href=\"/glossary#suggested_order\"><strong>suggested_order</strong></a>:</p><p><a href=\"/glossary#version\"><strong>version</strong></a>:</p><p><a href=\"/glossary#inboundavroschema\">inboundAvroSchema</a>:</p><p><a href=\"/glossary#inbound_topic\">inbound_topic</a>:</p><p><a href=\"/glossary#outboundavroschema\">outboundAvroSchema</a>:</p><p><a href=\"/glossary#outbound_topic\">outbound_topic</a>:</p><p><a href=\"/glossary#requiredfieldinfo\">requiredFieldInfo</a>: false</p>
      * @summary Get Message Docs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DocumentationApi
      */
-    public async oBPv220GetMessageDocs(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2006>> {
+    public async oBPv220GetMessageDocs(options?: AxiosRequestConfig) : Promise<AxiosResponse<MessageDocsJson>> {
         return DocumentationApiFp(this.configuration).oBPv220GetMessageDocs(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -643,7 +643,7 @@ export class DocumentationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DocumentationApi
      */
-    public async oBPv300GetApiGlossary(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2007>> {
+    public async oBPv300GetApiGlossary(options?: AxiosRequestConfig) : Promise<AxiosResponse<GlossaryItemsJsonV300>> {
         return DocumentationApiFp(this.configuration).oBPv300GetApiGlossary(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -663,7 +663,7 @@ export class DocumentationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DocumentationApi
      */
-    public async oBPv400GetScannedApiVersions(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20058>> {
+    public async oBPv400GetScannedApiVersions(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2002>> {
         return DocumentationApiFp(this.configuration).oBPv400GetScannedApiVersions(options).then((request) => request(this.axios, this.basePath));
     }
 }

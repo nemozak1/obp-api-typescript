@@ -17,10 +17,10 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { ConsumerCalllimitsBody } from '../models';
+import { CallLimitPostJsonV400 } from '../models';
 import { ErrorUnknownError } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse20054 } from '../models';
+import { RateLimitingInfoV310 } from '../models';
 /**
  * RateLimitsApi - axios parameter creator
  * @export
@@ -80,12 +80,12 @@ export const RateLimitsApiAxiosParamCreator = function (configuration?: Configur
         /**
          * <p>Set the API rate limits / call limits for a Consumer:</p><p>Rate limiting can be set:</p><p>Per Second<br />Per Minute<br />Per Hour<br />Per Week<br />Per Month</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">CONSUMER_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#from_date\"><strong>from_date</strong></a>: 1100-01-01T01:01:01.000Z</p><p><a href=\"/glossary#per_day_call_limit\"><strong>per_day_call_limit</strong></a>:</p><p><a href=\"/glossary#per_hour_call_limit\"><strong>per_hour_call_limit</strong></a>:</p><p><a href=\"/glossary#per_minute_call_limit\"><strong>per_minute_call_limit</strong></a>:</p><p><a href=\"/glossary#per_month_call_limit\"><strong>per_month_call_limit</strong></a>:</p><p><a href=\"/glossary#per_second_call_limit\"><strong>per_second_call_limit</strong></a>: 10</p><p><a href=\"/glossary#per_week_call_limit\"><strong>per_week_call_limit</strong></a>:</p><p><a href=\"/glossary#to_date\"><strong>to_date</strong></a>: 1100-01-01T01:01:01.000Z</p><p><a href=\"/glossary#\">api_name</a>: api_name</p><p><a href=\"/glossary#api_version\">api_version</a>:</p><p><a href=\"/glossary#\">bank_id</a>: gh.29.uk</p>
          * @summary Set Rate Limits / Call Limits per Consumer
-         * @param {ConsumerCalllimitsBody} body JObject object that needs to be added.
+         * @param {CallLimitPostJsonV400} body CallLimitPostJsonV400 object that needs to be added.
          * @param {string} CONSUMER_ID new consumer id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CallsLimit: async (body: ConsumerCalllimitsBody, CONSUMER_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CallsLimit: async (body: CallLimitPostJsonV400, CONSUMER_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CallsLimit.');
@@ -157,7 +157,7 @@ export const RateLimitsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetRateLimitingInfo(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20054>>> {
+        async oBPv310GetRateLimitingInfo(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<RateLimitingInfoV310>>> {
             const localVarAxiosArgs = await RateLimitsApiAxiosParamCreator(configuration).oBPv310GetRateLimitingInfo(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -167,12 +167,12 @@ export const RateLimitsApiFp = function(configuration?: Configuration) {
         /**
          * <p>Set the API rate limits / call limits for a Consumer:</p><p>Rate limiting can be set:</p><p>Per Second<br />Per Minute<br />Per Hour<br />Per Week<br />Per Month</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">CONSUMER_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#from_date\"><strong>from_date</strong></a>: 1100-01-01T01:01:01.000Z</p><p><a href=\"/glossary#per_day_call_limit\"><strong>per_day_call_limit</strong></a>:</p><p><a href=\"/glossary#per_hour_call_limit\"><strong>per_hour_call_limit</strong></a>:</p><p><a href=\"/glossary#per_minute_call_limit\"><strong>per_minute_call_limit</strong></a>:</p><p><a href=\"/glossary#per_month_call_limit\"><strong>per_month_call_limit</strong></a>:</p><p><a href=\"/glossary#per_second_call_limit\"><strong>per_second_call_limit</strong></a>: 10</p><p><a href=\"/glossary#per_week_call_limit\"><strong>per_week_call_limit</strong></a>:</p><p><a href=\"/glossary#to_date\"><strong>to_date</strong></a>: 1100-01-01T01:01:01.000Z</p><p><a href=\"/glossary#\">api_name</a>: api_name</p><p><a href=\"/glossary#api_version\">api_version</a>:</p><p><a href=\"/glossary#\">bank_id</a>: gh.29.uk</p>
          * @summary Set Rate Limits / Call Limits per Consumer
-         * @param {ConsumerCalllimitsBody} body JObject object that needs to be added.
+         * @param {CallLimitPostJsonV400} body CallLimitPostJsonV400 object that needs to be added.
          * @param {string} CONSUMER_ID new consumer id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CallsLimit(body: ConsumerCalllimitsBody, CONSUMER_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ConsumerCalllimitsBody>>> {
+        async oBPv400CallsLimit(body: CallLimitPostJsonV400, CONSUMER_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CallLimitPostJsonV400>>> {
             const localVarAxiosArgs = await RateLimitsApiAxiosParamCreator(configuration).oBPv400CallsLimit(body, CONSUMER_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -194,18 +194,18 @@ export const RateLimitsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetRateLimitingInfo(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20054>> {
+        async oBPv310GetRateLimitingInfo(options?: AxiosRequestConfig): Promise<AxiosResponse<RateLimitingInfoV310>> {
             return RateLimitsApiFp(configuration).oBPv310GetRateLimitingInfo(options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Set the API rate limits / call limits for a Consumer:</p><p>Rate limiting can be set:</p><p>Per Second<br />Per Minute<br />Per Hour<br />Per Week<br />Per Month</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">CONSUMER_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#from_date\"><strong>from_date</strong></a>: 1100-01-01T01:01:01.000Z</p><p><a href=\"/glossary#per_day_call_limit\"><strong>per_day_call_limit</strong></a>:</p><p><a href=\"/glossary#per_hour_call_limit\"><strong>per_hour_call_limit</strong></a>:</p><p><a href=\"/glossary#per_minute_call_limit\"><strong>per_minute_call_limit</strong></a>:</p><p><a href=\"/glossary#per_month_call_limit\"><strong>per_month_call_limit</strong></a>:</p><p><a href=\"/glossary#per_second_call_limit\"><strong>per_second_call_limit</strong></a>: 10</p><p><a href=\"/glossary#per_week_call_limit\"><strong>per_week_call_limit</strong></a>:</p><p><a href=\"/glossary#to_date\"><strong>to_date</strong></a>: 1100-01-01T01:01:01.000Z</p><p><a href=\"/glossary#\">api_name</a>: api_name</p><p><a href=\"/glossary#api_version\">api_version</a>:</p><p><a href=\"/glossary#\">bank_id</a>: gh.29.uk</p>
          * @summary Set Rate Limits / Call Limits per Consumer
-         * @param {ConsumerCalllimitsBody} body JObject object that needs to be added.
+         * @param {CallLimitPostJsonV400} body CallLimitPostJsonV400 object that needs to be added.
          * @param {string} CONSUMER_ID new consumer id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CallsLimit(body: ConsumerCalllimitsBody, CONSUMER_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ConsumerCalllimitsBody>> {
+        async oBPv400CallsLimit(body: CallLimitPostJsonV400, CONSUMER_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CallLimitPostJsonV400>> {
             return RateLimitsApiFp(configuration).oBPv400CallsLimit(body, CONSUMER_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -225,19 +225,19 @@ export class RateLimitsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RateLimitsApi
      */
-    public async oBPv310GetRateLimitingInfo(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20054>> {
+    public async oBPv310GetRateLimitingInfo(options?: AxiosRequestConfig) : Promise<AxiosResponse<RateLimitingInfoV310>> {
         return RateLimitsApiFp(this.configuration).oBPv310GetRateLimitingInfo(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Set the API rate limits / call limits for a Consumer:</p><p>Rate limiting can be set:</p><p>Per Second<br />Per Minute<br />Per Hour<br />Per Week<br />Per Month</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">CONSUMER_ID</a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#from_date\"><strong>from_date</strong></a>: 1100-01-01T01:01:01.000Z</p><p><a href=\"/glossary#per_day_call_limit\"><strong>per_day_call_limit</strong></a>:</p><p><a href=\"/glossary#per_hour_call_limit\"><strong>per_hour_call_limit</strong></a>:</p><p><a href=\"/glossary#per_minute_call_limit\"><strong>per_minute_call_limit</strong></a>:</p><p><a href=\"/glossary#per_month_call_limit\"><strong>per_month_call_limit</strong></a>:</p><p><a href=\"/glossary#per_second_call_limit\"><strong>per_second_call_limit</strong></a>: 10</p><p><a href=\"/glossary#per_week_call_limit\"><strong>per_week_call_limit</strong></a>:</p><p><a href=\"/glossary#to_date\"><strong>to_date</strong></a>: 1100-01-01T01:01:01.000Z</p><p><a href=\"/glossary#\">api_name</a>: api_name</p><p><a href=\"/glossary#api_version\">api_version</a>:</p><p><a href=\"/glossary#\">bank_id</a>: gh.29.uk</p>
      * @summary Set Rate Limits / Call Limits per Consumer
-     * @param {ConsumerCalllimitsBody} body JObject object that needs to be added.
+     * @param {CallLimitPostJsonV400} body CallLimitPostJsonV400 object that needs to be added.
      * @param {string} CONSUMER_ID new consumer id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RateLimitsApi
      */
-    public async oBPv400CallsLimit(body: ConsumerCalllimitsBody, CONSUMER_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ConsumerCalllimitsBody>> {
+    public async oBPv400CallsLimit(body: CallLimitPostJsonV400, CONSUMER_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CallLimitPostJsonV400>> {
         return RateLimitsApiFp(this.configuration).oBPv400CallsLimit(body, CONSUMER_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

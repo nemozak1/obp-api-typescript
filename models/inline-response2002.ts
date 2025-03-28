@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse2002List } from './inline-response2002-list';
+import { InlineResponse2002ScannedApiVersions } from './inline-response2002-scanned-api-versions';
  /**
  * 
  *
@@ -22,8 +22,8 @@ import { InlineResponse2002List } from './inline-response2002-list';
 export interface InlineResponse2002 {
 
     /**
-     * @type {Array<InlineResponse2002List>}
+     * @type {Array<InlineResponse2002ScannedApiVersions>}
      * @memberof InlineResponse2002
      */
-    list: Array<InlineResponse2002List>;
+    scanned_api_versions: Array<InlineResponse2002ScannedApiVersions>;
 }

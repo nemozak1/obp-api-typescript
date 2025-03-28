@@ -17,16 +17,12 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { BANKIDDynamicresourcedocsBody } from '../models';
-import { DynamicresourcedocsDYNAMICRESOURCEDOCIDBody } from '../models';
-import { DynamicresourcedocsDYNAMICRESOURCEDOCIDBody1 } from '../models';
-import { DynamicresourcedocsEndpointcodeBody } from '../models';
 import { ErrorBankNotFound } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse200110 } from '../models';
-import { InlineResponse20138 } from '../models';
-import { InlineResponse20141 } from '../models';
-import { ManagementDynamicresourcedocsBody } from '../models';
+import { InlineResponse2007 } from '../models';
+import { JsonCodeTemplateJson } from '../models';
+import { JsonDynamicResourceDoc } from '../models';
+import { ResourceDocFragment } from '../models';
 /**
  * DynamicResourceDocApi - axios parameter creator
  * @export
@@ -36,11 +32,11 @@ export const DynamicResourceDocApiAxiosParamCreator = function (configuration?: 
         /**
          * <p>Create a Dynamic Resource Doc endpoint code.</p><p>copy the response and past to PractiseEndpoint, So you can have the benefits of<br />auto compilation and debug</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#code\"><strong>code</strong></a>: 125</p>
          * @summary Create Dynamic Resource Doc endpoint code
-         * @param {DynamicresourcedocsEndpointcodeBody} body JObject object that needs to be added.
+         * @param {ResourceDocFragment} body ResourceDocFragment object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400BuildDynamicEndpointTemplate: async (body: DynamicresourcedocsEndpointcodeBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400BuildDynamicEndpointTemplate: async (body: ResourceDocFragment, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400BuildDynamicEndpointTemplate.');
@@ -95,12 +91,12 @@ export const DynamicResourceDocApiAxiosParamCreator = function (configuration?: 
         /**
          * <p>Create a Bank Level Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
          * @summary Create Bank Level Dynamic Resource Doc
-         * @param {BANKIDDynamicresourcedocsBody} body JObject object that needs to be added.
+         * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateBankLevelDynamicResourceDoc: async (body: BANKIDDynamicresourcedocsBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateBankLevelDynamicResourceDoc: async (body: JsonDynamicResourceDoc, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateBankLevelDynamicResourceDoc.');
@@ -160,11 +156,11 @@ export const DynamicResourceDocApiAxiosParamCreator = function (configuration?: 
         /**
          * <p>Create a Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
          * @summary Create Dynamic Resource Doc
-         * @param {ManagementDynamicresourcedocsBody} body JObject object that needs to be added.
+         * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateDynamicResourceDoc: async (body: ManagementDynamicresourcedocsBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateDynamicResourceDoc: async (body: JsonDynamicResourceDoc, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateDynamicResourceDoc.');
@@ -537,12 +533,12 @@ export const DynamicResourceDocApiAxiosParamCreator = function (configuration?: 
         /**
          * <p>Update a Bank Level Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
          * @summary Update Bank Level Dynamic Resource Doc
-         * @param {DynamicresourcedocsDYNAMICRESOURCEDOCIDBody} body JObject object that needs to be added.
+         * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateBankLevelDynamicResourceDoc: async (body: DynamicresourcedocsDYNAMICRESOURCEDOCIDBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateBankLevelDynamicResourceDoc: async (body: JsonDynamicResourceDoc, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateBankLevelDynamicResourceDoc.');
@@ -602,11 +598,11 @@ export const DynamicResourceDocApiAxiosParamCreator = function (configuration?: 
         /**
          * <p>Update a Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
          * @summary Update Dynamic Resource Doc
-         * @param {DynamicresourcedocsDYNAMICRESOURCEDOCIDBody1} body JObject object that needs to be added.
+         * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateDynamicResourceDoc: async (body: DynamicresourcedocsDYNAMICRESOURCEDOCIDBody1, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateDynamicResourceDoc: async (body: JsonDynamicResourceDoc, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateDynamicResourceDoc.');
@@ -670,11 +666,11 @@ export const DynamicResourceDocApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create a Dynamic Resource Doc endpoint code.</p><p>copy the response and past to PractiseEndpoint, So you can have the benefits of<br />auto compilation and debug</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#code\"><strong>code</strong></a>: 125</p>
          * @summary Create Dynamic Resource Doc endpoint code
-         * @param {DynamicresourcedocsEndpointcodeBody} body JObject object that needs to be added.
+         * @param {ResourceDocFragment} body ResourceDocFragment object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400BuildDynamicEndpointTemplate(body: DynamicresourcedocsEndpointcodeBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20141>>> {
+        async oBPv400BuildDynamicEndpointTemplate(body: ResourceDocFragment, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonCodeTemplateJson>>> {
             const localVarAxiosArgs = await DynamicResourceDocApiAxiosParamCreator(configuration).oBPv400BuildDynamicEndpointTemplate(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -684,12 +680,12 @@ export const DynamicResourceDocApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create a Bank Level Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
          * @summary Create Bank Level Dynamic Resource Doc
-         * @param {BANKIDDynamicresourcedocsBody} body JObject object that needs to be added.
+         * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateBankLevelDynamicResourceDoc(body: BANKIDDynamicresourcedocsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20138>>> {
+        async oBPv400CreateBankLevelDynamicResourceDoc(body: JsonDynamicResourceDoc, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonDynamicResourceDoc>>> {
             const localVarAxiosArgs = await DynamicResourceDocApiAxiosParamCreator(configuration).oBPv400CreateBankLevelDynamicResourceDoc(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -699,11 +695,11 @@ export const DynamicResourceDocApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create a Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
          * @summary Create Dynamic Resource Doc
-         * @param {ManagementDynamicresourcedocsBody} body JObject object that needs to be added.
+         * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateDynamicResourceDoc(body: ManagementDynamicresourcedocsBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20138>>> {
+        async oBPv400CreateDynamicResourceDoc(body: JsonDynamicResourceDoc, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonDynamicResourceDoc>>> {
             const localVarAxiosArgs = await DynamicResourceDocApiAxiosParamCreator(configuration).oBPv400CreateDynamicResourceDoc(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -744,7 +740,7 @@ export const DynamicResourceDocApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllBankLevelDynamicResourceDocs(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200110>>> {
+        async oBPv400GetAllBankLevelDynamicResourceDocs(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2007>>> {
             const localVarAxiosArgs = await DynamicResourceDocApiAxiosParamCreator(configuration).oBPv400GetAllBankLevelDynamicResourceDocs(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -757,7 +753,7 @@ export const DynamicResourceDocApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllDynamicResourceDocs(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200110>>> {
+        async oBPv400GetAllDynamicResourceDocs(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2007>>> {
             const localVarAxiosArgs = await DynamicResourceDocApiAxiosParamCreator(configuration).oBPv400GetAllDynamicResourceDocs(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -771,7 +767,7 @@ export const DynamicResourceDocApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBankLevelDynamicResourceDoc(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20138>>> {
+        async oBPv400GetBankLevelDynamicResourceDoc(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonDynamicResourceDoc>>> {
             const localVarAxiosArgs = await DynamicResourceDocApiAxiosParamCreator(configuration).oBPv400GetBankLevelDynamicResourceDoc(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -784,7 +780,7 @@ export const DynamicResourceDocApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetDynamicResourceDoc(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20138>>> {
+        async oBPv400GetDynamicResourceDoc(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonDynamicResourceDoc>>> {
             const localVarAxiosArgs = await DynamicResourceDocApiAxiosParamCreator(configuration).oBPv400GetDynamicResourceDoc(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -794,12 +790,12 @@ export const DynamicResourceDocApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update a Bank Level Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
          * @summary Update Bank Level Dynamic Resource Doc
-         * @param {DynamicresourcedocsDYNAMICRESOURCEDOCIDBody} body JObject object that needs to be added.
+         * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateBankLevelDynamicResourceDoc(body: DynamicresourcedocsDYNAMICRESOURCEDOCIDBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20138>>> {
+        async oBPv400UpdateBankLevelDynamicResourceDoc(body: JsonDynamicResourceDoc, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonDynamicResourceDoc>>> {
             const localVarAxiosArgs = await DynamicResourceDocApiAxiosParamCreator(configuration).oBPv400UpdateBankLevelDynamicResourceDoc(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -809,11 +805,11 @@ export const DynamicResourceDocApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update a Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
          * @summary Update Dynamic Resource Doc
-         * @param {DynamicresourcedocsDYNAMICRESOURCEDOCIDBody1} body JObject object that needs to be added.
+         * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateDynamicResourceDoc(body: DynamicresourcedocsDYNAMICRESOURCEDOCIDBody1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20138>>> {
+        async oBPv400UpdateDynamicResourceDoc(body: JsonDynamicResourceDoc, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonDynamicResourceDoc>>> {
             const localVarAxiosArgs = await DynamicResourceDocApiAxiosParamCreator(configuration).oBPv400UpdateDynamicResourceDoc(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -832,32 +828,32 @@ export const DynamicResourceDocApiFactory = function (configuration?: Configurat
         /**
          * <p>Create a Dynamic Resource Doc endpoint code.</p><p>copy the response and past to PractiseEndpoint, So you can have the benefits of<br />auto compilation and debug</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#code\"><strong>code</strong></a>: 125</p>
          * @summary Create Dynamic Resource Doc endpoint code
-         * @param {DynamicresourcedocsEndpointcodeBody} body JObject object that needs to be added.
+         * @param {ResourceDocFragment} body ResourceDocFragment object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400BuildDynamicEndpointTemplate(body: DynamicresourcedocsEndpointcodeBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20141>> {
+        async oBPv400BuildDynamicEndpointTemplate(body: ResourceDocFragment, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonCodeTemplateJson>> {
             return DynamicResourceDocApiFp(configuration).oBPv400BuildDynamicEndpointTemplate(body, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create a Bank Level Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
          * @summary Create Bank Level Dynamic Resource Doc
-         * @param {BANKIDDynamicresourcedocsBody} body JObject object that needs to be added.
+         * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateBankLevelDynamicResourceDoc(body: BANKIDDynamicresourcedocsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20138>> {
+        async oBPv400CreateBankLevelDynamicResourceDoc(body: JsonDynamicResourceDoc, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonDynamicResourceDoc>> {
             return DynamicResourceDocApiFp(configuration).oBPv400CreateBankLevelDynamicResourceDoc(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create a Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
          * @summary Create Dynamic Resource Doc
-         * @param {ManagementDynamicresourcedocsBody} body JObject object that needs to be added.
+         * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateDynamicResourceDoc(body: ManagementDynamicresourcedocsBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20138>> {
+        async oBPv400CreateDynamicResourceDoc(body: JsonDynamicResourceDoc, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonDynamicResourceDoc>> {
             return DynamicResourceDocApiFp(configuration).oBPv400CreateDynamicResourceDoc(body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -886,7 +882,7 @@ export const DynamicResourceDocApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllBankLevelDynamicResourceDocs(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200110>> {
+        async oBPv400GetAllBankLevelDynamicResourceDocs(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2007>> {
             return DynamicResourceDocApiFp(configuration).oBPv400GetAllBankLevelDynamicResourceDocs(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -895,7 +891,7 @@ export const DynamicResourceDocApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllDynamicResourceDocs(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200110>> {
+        async oBPv400GetAllDynamicResourceDocs(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2007>> {
             return DynamicResourceDocApiFp(configuration).oBPv400GetAllDynamicResourceDocs(options).then((request) => request(axios, basePath));
         },
         /**
@@ -905,7 +901,7 @@ export const DynamicResourceDocApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBankLevelDynamicResourceDoc(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20138>> {
+        async oBPv400GetBankLevelDynamicResourceDoc(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonDynamicResourceDoc>> {
             return DynamicResourceDocApiFp(configuration).oBPv400GetBankLevelDynamicResourceDoc(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -914,28 +910,28 @@ export const DynamicResourceDocApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetDynamicResourceDoc(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20138>> {
+        async oBPv400GetDynamicResourceDoc(options?: AxiosRequestConfig): Promise<AxiosResponse<JsonDynamicResourceDoc>> {
             return DynamicResourceDocApiFp(configuration).oBPv400GetDynamicResourceDoc(options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update a Bank Level Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
          * @summary Update Bank Level Dynamic Resource Doc
-         * @param {DynamicresourcedocsDYNAMICRESOURCEDOCIDBody} body JObject object that needs to be added.
+         * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateBankLevelDynamicResourceDoc(body: DynamicresourcedocsDYNAMICRESOURCEDOCIDBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20138>> {
+        async oBPv400UpdateBankLevelDynamicResourceDoc(body: JsonDynamicResourceDoc, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonDynamicResourceDoc>> {
             return DynamicResourceDocApiFp(configuration).oBPv400UpdateBankLevelDynamicResourceDoc(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update a Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
          * @summary Update Dynamic Resource Doc
-         * @param {DynamicresourcedocsDYNAMICRESOURCEDOCIDBody1} body JObject object that needs to be added.
+         * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateDynamicResourceDoc(body: DynamicresourcedocsDYNAMICRESOURCEDOCIDBody1, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20138>> {
+        async oBPv400UpdateDynamicResourceDoc(body: JsonDynamicResourceDoc, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonDynamicResourceDoc>> {
             return DynamicResourceDocApiFp(configuration).oBPv400UpdateDynamicResourceDoc(body, options).then((request) => request(axios, basePath));
         },
     };
@@ -951,35 +947,35 @@ export class DynamicResourceDocApi extends BaseAPI {
     /**
      * <p>Create a Dynamic Resource Doc endpoint code.</p><p>copy the response and past to PractiseEndpoint, So you can have the benefits of<br />auto compilation and debug</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#code\"><strong>code</strong></a>: 125</p>
      * @summary Create Dynamic Resource Doc endpoint code
-     * @param {DynamicresourcedocsEndpointcodeBody} body JObject object that needs to be added.
+     * @param {ResourceDocFragment} body ResourceDocFragment object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DynamicResourceDocApi
      */
-    public async oBPv400BuildDynamicEndpointTemplate(body: DynamicresourcedocsEndpointcodeBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20141>> {
+    public async oBPv400BuildDynamicEndpointTemplate(body: ResourceDocFragment, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonCodeTemplateJson>> {
         return DynamicResourceDocApiFp(this.configuration).oBPv400BuildDynamicEndpointTemplate(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create a Bank Level Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
      * @summary Create Bank Level Dynamic Resource Doc
-     * @param {BANKIDDynamicresourcedocsBody} body JObject object that needs to be added.
+     * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DynamicResourceDocApi
      */
-    public async oBPv400CreateBankLevelDynamicResourceDoc(body: BANKIDDynamicresourcedocsBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20138>> {
+    public async oBPv400CreateBankLevelDynamicResourceDoc(body: JsonDynamicResourceDoc, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonDynamicResourceDoc>> {
         return DynamicResourceDocApiFp(this.configuration).oBPv400CreateBankLevelDynamicResourceDoc(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create a Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
      * @summary Create Dynamic Resource Doc
-     * @param {ManagementDynamicresourcedocsBody} body JObject object that needs to be added.
+     * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DynamicResourceDocApi
      */
-    public async oBPv400CreateDynamicResourceDoc(body: ManagementDynamicresourcedocsBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20138>> {
+    public async oBPv400CreateDynamicResourceDoc(body: JsonDynamicResourceDoc, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonDynamicResourceDoc>> {
         return DynamicResourceDocApiFp(this.configuration).oBPv400CreateDynamicResourceDoc(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1011,7 +1007,7 @@ export class DynamicResourceDocApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicResourceDocApi
      */
-    public async oBPv400GetAllBankLevelDynamicResourceDocs(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200110>> {
+    public async oBPv400GetAllBankLevelDynamicResourceDocs(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2007>> {
         return DynamicResourceDocApiFp(this.configuration).oBPv400GetAllBankLevelDynamicResourceDocs(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1021,7 +1017,7 @@ export class DynamicResourceDocApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicResourceDocApi
      */
-    public async oBPv400GetAllDynamicResourceDocs(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200110>> {
+    public async oBPv400GetAllDynamicResourceDocs(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2007>> {
         return DynamicResourceDocApiFp(this.configuration).oBPv400GetAllDynamicResourceDocs(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1032,7 +1028,7 @@ export class DynamicResourceDocApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicResourceDocApi
      */
-    public async oBPv400GetBankLevelDynamicResourceDoc(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20138>> {
+    public async oBPv400GetBankLevelDynamicResourceDoc(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonDynamicResourceDoc>> {
         return DynamicResourceDocApiFp(this.configuration).oBPv400GetBankLevelDynamicResourceDoc(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1042,30 +1038,30 @@ export class DynamicResourceDocApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicResourceDocApi
      */
-    public async oBPv400GetDynamicResourceDoc(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20138>> {
+    public async oBPv400GetDynamicResourceDoc(options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonDynamicResourceDoc>> {
         return DynamicResourceDocApiFp(this.configuration).oBPv400GetDynamicResourceDoc(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update a Bank Level Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
      * @summary Update Bank Level Dynamic Resource Doc
-     * @param {DynamicresourcedocsDYNAMICRESOURCEDOCIDBody} body JObject object that needs to be added.
+     * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DynamicResourceDocApi
      */
-    public async oBPv400UpdateBankLevelDynamicResourceDoc(body: DynamicresourcedocsDYNAMICRESOURCEDOCIDBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20138>> {
+    public async oBPv400UpdateBankLevelDynamicResourceDoc(body: JsonDynamicResourceDoc, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonDynamicResourceDoc>> {
         return DynamicResourceDocApiFp(this.configuration).oBPv400UpdateBankLevelDynamicResourceDoc(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update a Dynamic Resource Doc.</p><p>The connector_method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#roles\"><strong>roles</strong></a>: CanCreateMyUser</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#tags\"><strong>tags</strong></a>: Create-My-User</p>
      * @summary Update Dynamic Resource Doc
-     * @param {DynamicresourcedocsDYNAMICRESOURCEDOCIDBody1} body JObject object that needs to be added.
+     * @param {JsonDynamicResourceDoc} body JsonDynamicResourceDoc object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DynamicResourceDocApi
      */
-    public async oBPv400UpdateDynamicResourceDoc(body: DynamicresourcedocsDYNAMICRESOURCEDOCIDBody1, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20138>> {
+    public async oBPv400UpdateDynamicResourceDoc(body: JsonDynamicResourceDoc, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonDynamicResourceDoc>> {
         return DynamicResourceDocApiFp(this.configuration).oBPv400UpdateDynamicResourceDoc(body, options).then((request) => request(this.axios, this.basePath));
     }
 }

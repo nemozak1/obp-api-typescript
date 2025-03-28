@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse2007GlossaryItems } from './inline-response2007-glossary-items';
+import { JsonDynamicResourceDoc } from './json-dynamic-resource-doc';
  /**
  * 
  *
@@ -22,8 +22,8 @@ import { InlineResponse2007GlossaryItems } from './inline-response2007-glossary-
 export interface InlineResponse2007 {
 
     /**
-     * @type {Array<InlineResponse2007GlossaryItems>}
+     * @type {Array<JsonDynamicResourceDoc>}
      * @memberof InlineResponse2007
      */
-    glossary_items: Array<InlineResponse2007GlossaryItems>;
+    dynamic_resource_docs: Array<JsonDynamicResourceDoc>;
 }

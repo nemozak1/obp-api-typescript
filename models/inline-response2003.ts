@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse2003Roles } from './inline-response2003-roles';
+import { JsonAuthTypeValidation } from './json-auth-type-validation';
  /**
  * 
  *
@@ -22,8 +22,8 @@ import { InlineResponse2003Roles } from './inline-response2003-roles';
 export interface InlineResponse2003 {
 
     /**
-     * @type {Array<InlineResponse2003Roles>}
+     * @type {Array<JsonAuthTypeValidation>}
      * @memberof InlineResponse2003
      */
-    roles: Array<InlineResponse2003Roles>;
+    authentication_types_validations: Array<JsonAuthTypeValidation>;
 }

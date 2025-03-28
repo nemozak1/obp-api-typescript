@@ -21,7 +21,6 @@ import { BasicAccountsJSON } from '../models';
 import { ErrorCannotGetAccounts } from '../models';
 import { ErrorUnknownError } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse20060 } from '../models';
 /**
  * PublicDataApi - axios parameter creator
  * @export
@@ -35,7 +34,7 @@ export const PublicDataApiAxiosParamCreator = function (configuration?: Configur
          * @throws {RequiredError}
          */
         oBPv200PublicAccountsAllBanks: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/obp/v5.1.0/accounts/public`;
+            const localVarPath = `/obp/v2.1.0/accounts/public`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -90,7 +89,7 @@ export const PublicDataApiAxiosParamCreator = function (configuration?: Configur
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv200PublicAccountsAtOneBank.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/public`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/public`
                 .replace(`{${"BANK_ID"}}`, encodeURIComponent(String(BANK_ID)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -233,7 +232,7 @@ export const PublicDataApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetPrivateAccountsAtOneBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20060>>> {
+        async oBPv400GetPrivateAccountsAtOneBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BasicAccountsJSON>>> {
             const localVarAxiosArgs = await PublicDataApiAxiosParamCreator(configuration).oBPv400GetPrivateAccountsAtOneBank(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -275,7 +274,7 @@ export const PublicDataApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetPrivateAccountsAtOneBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20060>> {
+        async oBPv400GetPrivateAccountsAtOneBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<BasicAccountsJSON>> {
             return PublicDataApiFp(configuration).oBPv400GetPrivateAccountsAtOneBank(BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -317,7 +316,7 @@ export class PublicDataApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PublicDataApi
      */
-    public async oBPv400GetPrivateAccountsAtOneBank(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20060>> {
+    public async oBPv400GetPrivateAccountsAtOneBank(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<BasicAccountsJSON>> {
         return PublicDataApiFp(this.configuration).oBPv400GetPrivateAccountsAtOneBank(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

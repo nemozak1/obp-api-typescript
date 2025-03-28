@@ -19,8 +19,9 @@ import { Configuration } from '../configuration';
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 import { ErrorInvalidJsonFormat } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse200104 } from '../models';
-import { InlineResponse200106 } from '../models';
+import { InlineResponse2003 } from '../models';
+import { JsonAuthTypeValidation } from '../models';
+import { NotSupportedYet } from '../models';
 /**
  * AuthenticationTypeValidationApi - axios parameter creator
  * @export
@@ -30,11 +31,11 @@ export const AuthenticationTypeValidationApiAxiosParamCreator = function (config
         /**
          * <p>Create an Authentication Type Validation.</p><p>Please supply allowed authentication types.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON request body fields:</strong></p><p><strong>JSON response body fields:</strong></p>
          * @summary Create an Authentication Type Validation
-         * @param {Array<string>} body array type value.
+         * @param {NotSupportedYet} body $colon$colon object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateAuthenticationTypeValidation: async (body: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateAuthenticationTypeValidation: async (body: NotSupportedYet, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateAuthenticationTypeValidation.');
@@ -289,11 +290,11 @@ export const AuthenticationTypeValidationApiAxiosParamCreator = function (config
         /**
          * <p>Update an Authentication Type Validation.</p><p>Please supply allowed authentication types.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p>
          * @summary Update an Authentication Type Validation
-         * @param {Array<string>} body array type value.
+         * @param {NotSupportedYet} body $colon$colon object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateAuthenticationTypeValidation: async (body: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateAuthenticationTypeValidation: async (body: NotSupportedYet, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateAuthenticationTypeValidation.');
@@ -357,11 +358,11 @@ export const AuthenticationTypeValidationApiFp = function(configuration?: Config
         /**
          * <p>Create an Authentication Type Validation.</p><p>Please supply allowed authentication types.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON request body fields:</strong></p><p><strong>JSON response body fields:</strong></p>
          * @summary Create an Authentication Type Validation
-         * @param {Array<string>} body array type value.
+         * @param {NotSupportedYet} body $colon$colon object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateAuthenticationTypeValidation(body: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200106>>> {
+        async oBPv400CreateAuthenticationTypeValidation(body: NotSupportedYet, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonAuthTypeValidation>>> {
             const localVarAxiosArgs = await AuthenticationTypeValidationApiAxiosParamCreator(configuration).oBPv400CreateAuthenticationTypeValidation(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -387,7 +388,7 @@ export const AuthenticationTypeValidationApiFp = function(configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllAuthenticationTypeValidations(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200104>>> {
+        async oBPv400GetAllAuthenticationTypeValidations(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2003>>> {
             const localVarAxiosArgs = await AuthenticationTypeValidationApiAxiosParamCreator(configuration).oBPv400GetAllAuthenticationTypeValidations(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -400,7 +401,7 @@ export const AuthenticationTypeValidationApiFp = function(configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllAuthenticationTypeValidationsPublic(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200104>>> {
+        async oBPv400GetAllAuthenticationTypeValidationsPublic(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2003>>> {
             const localVarAxiosArgs = await AuthenticationTypeValidationApiAxiosParamCreator(configuration).oBPv400GetAllAuthenticationTypeValidationsPublic(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -413,7 +414,7 @@ export const AuthenticationTypeValidationApiFp = function(configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAuthenticationTypeValidation(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200106>>> {
+        async oBPv400GetAuthenticationTypeValidation(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonAuthTypeValidation>>> {
             const localVarAxiosArgs = await AuthenticationTypeValidationApiAxiosParamCreator(configuration).oBPv400GetAuthenticationTypeValidation(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -423,11 +424,11 @@ export const AuthenticationTypeValidationApiFp = function(configuration?: Config
         /**
          * <p>Update an Authentication Type Validation.</p><p>Please supply allowed authentication types.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p>
          * @summary Update an Authentication Type Validation
-         * @param {Array<string>} body array type value.
+         * @param {NotSupportedYet} body $colon$colon object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateAuthenticationTypeValidation(body: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200106>>> {
+        async oBPv400UpdateAuthenticationTypeValidation(body: NotSupportedYet, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonAuthTypeValidation>>> {
             const localVarAxiosArgs = await AuthenticationTypeValidationApiAxiosParamCreator(configuration).oBPv400UpdateAuthenticationTypeValidation(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -446,11 +447,11 @@ export const AuthenticationTypeValidationApiFactory = function (configuration?: 
         /**
          * <p>Create an Authentication Type Validation.</p><p>Please supply allowed authentication types.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON request body fields:</strong></p><p><strong>JSON response body fields:</strong></p>
          * @summary Create an Authentication Type Validation
-         * @param {Array<string>} body array type value.
+         * @param {NotSupportedYet} body $colon$colon object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateAuthenticationTypeValidation(body: Array<string>, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200106>> {
+        async oBPv400CreateAuthenticationTypeValidation(body: NotSupportedYet, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonAuthTypeValidation>> {
             return AuthenticationTypeValidationApiFp(configuration).oBPv400CreateAuthenticationTypeValidation(body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -468,7 +469,7 @@ export const AuthenticationTypeValidationApiFactory = function (configuration?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllAuthenticationTypeValidations(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200104>> {
+        async oBPv400GetAllAuthenticationTypeValidations(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2003>> {
             return AuthenticationTypeValidationApiFp(configuration).oBPv400GetAllAuthenticationTypeValidations(options).then((request) => request(axios, basePath));
         },
         /**
@@ -477,7 +478,7 @@ export const AuthenticationTypeValidationApiFactory = function (configuration?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllAuthenticationTypeValidationsPublic(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200104>> {
+        async oBPv400GetAllAuthenticationTypeValidationsPublic(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2003>> {
             return AuthenticationTypeValidationApiFp(configuration).oBPv400GetAllAuthenticationTypeValidationsPublic(options).then((request) => request(axios, basePath));
         },
         /**
@@ -486,17 +487,17 @@ export const AuthenticationTypeValidationApiFactory = function (configuration?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAuthenticationTypeValidation(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200106>> {
+        async oBPv400GetAuthenticationTypeValidation(options?: AxiosRequestConfig): Promise<AxiosResponse<JsonAuthTypeValidation>> {
             return AuthenticationTypeValidationApiFp(configuration).oBPv400GetAuthenticationTypeValidation(options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update an Authentication Type Validation.</p><p>Please supply allowed authentication types.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p>
          * @summary Update an Authentication Type Validation
-         * @param {Array<string>} body array type value.
+         * @param {NotSupportedYet} body $colon$colon object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateAuthenticationTypeValidation(body: Array<string>, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200106>> {
+        async oBPv400UpdateAuthenticationTypeValidation(body: NotSupportedYet, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonAuthTypeValidation>> {
             return AuthenticationTypeValidationApiFp(configuration).oBPv400UpdateAuthenticationTypeValidation(body, options).then((request) => request(axios, basePath));
         },
     };
@@ -512,12 +513,12 @@ export class AuthenticationTypeValidationApi extends BaseAPI {
     /**
      * <p>Create an Authentication Type Validation.</p><p>Please supply allowed authentication types.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON request body fields:</strong></p><p><strong>JSON response body fields:</strong></p>
      * @summary Create an Authentication Type Validation
-     * @param {Array<string>} body array type value.
+     * @param {NotSupportedYet} body $colon$colon object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthenticationTypeValidationApi
      */
-    public async oBPv400CreateAuthenticationTypeValidation(body: Array<string>, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200106>> {
+    public async oBPv400CreateAuthenticationTypeValidation(body: NotSupportedYet, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonAuthTypeValidation>> {
         return AuthenticationTypeValidationApiFp(this.configuration).oBPv400CreateAuthenticationTypeValidation(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -537,7 +538,7 @@ export class AuthenticationTypeValidationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AuthenticationTypeValidationApi
      */
-    public async oBPv400GetAllAuthenticationTypeValidations(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200104>> {
+    public async oBPv400GetAllAuthenticationTypeValidations(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2003>> {
         return AuthenticationTypeValidationApiFp(this.configuration).oBPv400GetAllAuthenticationTypeValidations(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -547,7 +548,7 @@ export class AuthenticationTypeValidationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AuthenticationTypeValidationApi
      */
-    public async oBPv400GetAllAuthenticationTypeValidationsPublic(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200104>> {
+    public async oBPv400GetAllAuthenticationTypeValidationsPublic(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2003>> {
         return AuthenticationTypeValidationApiFp(this.configuration).oBPv400GetAllAuthenticationTypeValidationsPublic(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -557,18 +558,18 @@ export class AuthenticationTypeValidationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AuthenticationTypeValidationApi
      */
-    public async oBPv400GetAuthenticationTypeValidation(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200106>> {
+    public async oBPv400GetAuthenticationTypeValidation(options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonAuthTypeValidation>> {
         return AuthenticationTypeValidationApiFp(this.configuration).oBPv400GetAuthenticationTypeValidation(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update an Authentication Type Validation.</p><p>Please supply allowed authentication types.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p>
      * @summary Update an Authentication Type Validation
-     * @param {Array<string>} body array type value.
+     * @param {NotSupportedYet} body $colon$colon object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthenticationTypeValidationApi
      */
-    public async oBPv400UpdateAuthenticationTypeValidation(body: Array<string>, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200106>> {
+    public async oBPv400UpdateAuthenticationTypeValidation(body: NotSupportedYet, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonAuthTypeValidation>> {
         return AuthenticationTypeValidationApiFp(this.configuration).oBPv400UpdateAuthenticationTypeValidation(body, options).then((request) => request(this.axios, this.basePath));
     }
 }

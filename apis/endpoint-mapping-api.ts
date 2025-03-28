@@ -22,9 +22,9 @@ import { EndpointmappingsENDPOINTMAPPINGIDBody } from '../models';
 import { EndpointmappingsENDPOINTMAPPINGIDBody1 } from '../models';
 import { ErrorBankNotFound } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse200111 } from '../models';
-import { InlineResponse200112 } from '../models';
-import { InlineResponse20139 } from '../models';
+import { InlineResponse2008 } from '../models';
+import { InlineResponse2009 } from '../models';
+import { InlineResponse201 } from '../models';
 import { ManagementEndpointmappingsBody } from '../models';
 /**
  * EndpointMappingApi - axios parameter creator
@@ -615,7 +615,7 @@ export const EndpointMappingApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateBankLevelEndpointMapping(body: BANKIDEndpointmappingsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20139>>> {
+        async oBPv400CreateBankLevelEndpointMapping(body: BANKIDEndpointmappingsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse201>>> {
             const localVarAxiosArgs = await EndpointMappingApiAxiosParamCreator(configuration).oBPv400CreateBankLevelEndpointMapping(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -629,7 +629,7 @@ export const EndpointMappingApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateEndpointMapping(body: ManagementEndpointmappingsBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20139>>> {
+        async oBPv400CreateEndpointMapping(body: ManagementEndpointmappingsBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse201>>> {
             const localVarAxiosArgs = await EndpointMappingApiAxiosParamCreator(configuration).oBPv400CreateEndpointMapping(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -670,7 +670,7 @@ export const EndpointMappingApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllBankLevelEndpointMappings(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200111>>> {
+        async oBPv400GetAllBankLevelEndpointMappings(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2008>>> {
             const localVarAxiosArgs = await EndpointMappingApiAxiosParamCreator(configuration).oBPv400GetAllBankLevelEndpointMappings(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -683,7 +683,7 @@ export const EndpointMappingApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllEndpointMappings(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200111>>> {
+        async oBPv400GetAllEndpointMappings(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2008>>> {
             const localVarAxiosArgs = await EndpointMappingApiAxiosParamCreator(configuration).oBPv400GetAllEndpointMappings(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -697,7 +697,7 @@ export const EndpointMappingApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBankLevelEndpointMapping(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200112>>> {
+        async oBPv400GetBankLevelEndpointMapping(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2009>>> {
             const localVarAxiosArgs = await EndpointMappingApiAxiosParamCreator(configuration).oBPv400GetBankLevelEndpointMapping(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -710,7 +710,7 @@ export const EndpointMappingApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetEndpointMapping(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200112>>> {
+        async oBPv400GetEndpointMapping(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2009>>> {
             const localVarAxiosArgs = await EndpointMappingApiAxiosParamCreator(configuration).oBPv400GetEndpointMapping(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -725,7 +725,7 @@ export const EndpointMappingApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateBankLevelEndpointMapping(body: EndpointmappingsENDPOINTMAPPINGIDBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200112>>> {
+        async oBPv400UpdateBankLevelEndpointMapping(body: EndpointmappingsENDPOINTMAPPINGIDBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2009>>> {
             const localVarAxiosArgs = await EndpointMappingApiAxiosParamCreator(configuration).oBPv400UpdateBankLevelEndpointMapping(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -739,7 +739,7 @@ export const EndpointMappingApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateEndpointMapping(body: EndpointmappingsENDPOINTMAPPINGIDBody1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200112>>> {
+        async oBPv400UpdateEndpointMapping(body: EndpointmappingsENDPOINTMAPPINGIDBody1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2009>>> {
             const localVarAxiosArgs = await EndpointMappingApiAxiosParamCreator(configuration).oBPv400UpdateEndpointMapping(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -763,7 +763,7 @@ export const EndpointMappingApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateBankLevelEndpointMapping(body: BANKIDEndpointmappingsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20139>> {
+        async oBPv400CreateBankLevelEndpointMapping(body: BANKIDEndpointmappingsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse201>> {
             return EndpointMappingApiFp(configuration).oBPv400CreateBankLevelEndpointMapping(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -773,7 +773,7 @@ export const EndpointMappingApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateEndpointMapping(body: ManagementEndpointmappingsBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20139>> {
+        async oBPv400CreateEndpointMapping(body: ManagementEndpointmappingsBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse201>> {
             return EndpointMappingApiFp(configuration).oBPv400CreateEndpointMapping(body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -802,7 +802,7 @@ export const EndpointMappingApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllBankLevelEndpointMappings(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200111>> {
+        async oBPv400GetAllBankLevelEndpointMappings(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2008>> {
             return EndpointMappingApiFp(configuration).oBPv400GetAllBankLevelEndpointMappings(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -811,7 +811,7 @@ export const EndpointMappingApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllEndpointMappings(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200111>> {
+        async oBPv400GetAllEndpointMappings(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2008>> {
             return EndpointMappingApiFp(configuration).oBPv400GetAllEndpointMappings(options).then((request) => request(axios, basePath));
         },
         /**
@@ -821,7 +821,7 @@ export const EndpointMappingApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBankLevelEndpointMapping(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200112>> {
+        async oBPv400GetBankLevelEndpointMapping(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2009>> {
             return EndpointMappingApiFp(configuration).oBPv400GetBankLevelEndpointMapping(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -830,7 +830,7 @@ export const EndpointMappingApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetEndpointMapping(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200112>> {
+        async oBPv400GetEndpointMapping(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2009>> {
             return EndpointMappingApiFp(configuration).oBPv400GetEndpointMapping(options).then((request) => request(axios, basePath));
         },
         /**
@@ -841,7 +841,7 @@ export const EndpointMappingApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateBankLevelEndpointMapping(body: EndpointmappingsENDPOINTMAPPINGIDBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200112>> {
+        async oBPv400UpdateBankLevelEndpointMapping(body: EndpointmappingsENDPOINTMAPPINGIDBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2009>> {
             return EndpointMappingApiFp(configuration).oBPv400UpdateBankLevelEndpointMapping(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -851,7 +851,7 @@ export const EndpointMappingApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateEndpointMapping(body: EndpointmappingsENDPOINTMAPPINGIDBody1, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200112>> {
+        async oBPv400UpdateEndpointMapping(body: EndpointmappingsENDPOINTMAPPINGIDBody1, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2009>> {
             return EndpointMappingApiFp(configuration).oBPv400UpdateEndpointMapping(body, options).then((request) => request(axios, basePath));
         },
     };
@@ -873,7 +873,7 @@ export class EndpointMappingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EndpointMappingApi
      */
-    public async oBPv400CreateBankLevelEndpointMapping(body: BANKIDEndpointmappingsBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20139>> {
+    public async oBPv400CreateBankLevelEndpointMapping(body: BANKIDEndpointmappingsBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse201>> {
         return EndpointMappingApiFp(this.configuration).oBPv400CreateBankLevelEndpointMapping(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -884,7 +884,7 @@ export class EndpointMappingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EndpointMappingApi
      */
-    public async oBPv400CreateEndpointMapping(body: ManagementEndpointmappingsBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20139>> {
+    public async oBPv400CreateEndpointMapping(body: ManagementEndpointmappingsBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse201>> {
         return EndpointMappingApiFp(this.configuration).oBPv400CreateEndpointMapping(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -916,7 +916,7 @@ export class EndpointMappingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EndpointMappingApi
      */
-    public async oBPv400GetAllBankLevelEndpointMappings(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200111>> {
+    public async oBPv400GetAllBankLevelEndpointMappings(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2008>> {
         return EndpointMappingApiFp(this.configuration).oBPv400GetAllBankLevelEndpointMappings(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -926,7 +926,7 @@ export class EndpointMappingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EndpointMappingApi
      */
-    public async oBPv400GetAllEndpointMappings(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200111>> {
+    public async oBPv400GetAllEndpointMappings(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2008>> {
         return EndpointMappingApiFp(this.configuration).oBPv400GetAllEndpointMappings(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -937,7 +937,7 @@ export class EndpointMappingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EndpointMappingApi
      */
-    public async oBPv400GetBankLevelEndpointMapping(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200112>> {
+    public async oBPv400GetBankLevelEndpointMapping(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2009>> {
         return EndpointMappingApiFp(this.configuration).oBPv400GetBankLevelEndpointMapping(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -947,7 +947,7 @@ export class EndpointMappingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EndpointMappingApi
      */
-    public async oBPv400GetEndpointMapping(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200112>> {
+    public async oBPv400GetEndpointMapping(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2009>> {
         return EndpointMappingApiFp(this.configuration).oBPv400GetEndpointMapping(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -959,7 +959,7 @@ export class EndpointMappingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EndpointMappingApi
      */
-    public async oBPv400UpdateBankLevelEndpointMapping(body: EndpointmappingsENDPOINTMAPPINGIDBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200112>> {
+    public async oBPv400UpdateBankLevelEndpointMapping(body: EndpointmappingsENDPOINTMAPPINGIDBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2009>> {
         return EndpointMappingApiFp(this.configuration).oBPv400UpdateBankLevelEndpointMapping(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -970,7 +970,7 @@ export class EndpointMappingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EndpointMappingApi
      */
-    public async oBPv400UpdateEndpointMapping(body: EndpointmappingsENDPOINTMAPPINGIDBody1, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200112>> {
+    public async oBPv400UpdateEndpointMapping(body: EndpointmappingsENDPOINTMAPPINGIDBody1, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2009>> {
         return EndpointMappingApiFp(this.configuration).oBPv400UpdateEndpointMapping(body, options).then((request) => request(this.axios, this.basePath));
     }
 }

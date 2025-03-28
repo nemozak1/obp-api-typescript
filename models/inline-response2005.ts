@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse2005Metrics } from './inline-response2005-metrics';
+import { DynamicEntityFooBar } from './dynamic-entity-foo-bar';
  /**
  * 
  *
@@ -22,8 +22,8 @@ import { InlineResponse2005Metrics } from './inline-response2005-metrics';
 export interface InlineResponse2005 {
 
     /**
-     * @type {Array<InlineResponse2005Metrics>}
+     * @type {Array<DynamicEntityFooBar>}
      * @memberof InlineResponse2005
      */
-    metrics: Array<InlineResponse2005Metrics>;
+    dynamic_entities: Array<DynamicEntityFooBar>;
 }

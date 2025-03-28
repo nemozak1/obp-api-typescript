@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse2006MessageDocs } from './inline-response2006-message-docs';
+import { JsonDynamicMessageDoc } from './json-dynamic-message-doc';
  /**
  * 
  *
@@ -22,8 +22,8 @@ import { InlineResponse2006MessageDocs } from './inline-response2006-message-doc
 export interface InlineResponse2006 {
 
     /**
-     * @type {Array<InlineResponse2006MessageDocs>}
+     * @type {Array<JsonDynamicMessageDoc>}
      * @memberof InlineResponse2006
      */
-    message_docs: Array<InlineResponse2006MessageDocs>;
+    dynamic_message_docs: Array<JsonDynamicMessageDoc>;
 }

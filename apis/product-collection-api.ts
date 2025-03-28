@@ -18,9 +18,9 @@ import { Configuration } from '../configuration';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse20035 } from '../models';
-import { InlineResponse20036 } from '../models';
-import { ProductcollectionsCOLLECTIONCODEBody } from '../models';
+import { ProductCollectionJsonTreeV310 } from '../models';
+import { ProductCollectionsJsonV310 } from '../models';
+import { PutProductCollectionsV310 } from '../models';
 /**
  * ProductCollectionApi - axios parameter creator
  * @export
@@ -30,13 +30,13 @@ export const ProductCollectionApiAxiosParamCreator = function (configuration?: C
         /**
          * <p>Create or Update a Product Collection at the Bank.</p><p>Use Product Collections to create Product &quot;Baskets&quot;, &quot;Portfolios&quot;, &quot;Indices&quot;, &quot;Collections&quot;, &quot;Underlyings-lists&quot;, &quot;Buckets&quot; etc. etc.</p><p>There is a many to many relationship between Products and Product Collections:</p><ul><li><p>A Product can exist in many Collections</p></li><li><p>A Collection can contain many Products.</p></li></ul><p>A collection has collection code, one parent Product and one or more child Products.</p><p>Product hiearchy vs Product Collections:</p><ul><li><p>You can define a hierarchy of products - so that a child Product inherits attributes of its parent Product -  using the parent_product_code in Product.</p></li><li><p>You can define a collection (also known as baskets or buckets) of products using Product Collections.</p></li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#collection_code\">COLLECTION_CODE</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#collection_code\"><strong>collection_code</strong></a>:</p><p><a href=\"/glossary#items\"><strong>items</strong></a>:</p><p><a href=\"/glossary#member_product_code\"><strong>member_product_code</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_collection\"><strong>product_collection</strong></a>:</p>
          * @summary Create Product Collection
-         * @param {ProductcollectionsCOLLECTIONCODEBody} body JObject object that needs to be added.
+         * @param {PutProductCollectionsV310} body PutProductCollectionsV310 object that needs to be added.
          * @param {string} COLLECTION_CODE the collection code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv310CreateProductCollection: async (body: ProductcollectionsCOLLECTIONCODEBody, COLLECTION_CODE: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv310CreateProductCollection: async (body: PutProductCollectionsV310, COLLECTION_CODE: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv310CreateProductCollection.');
@@ -172,13 +172,13 @@ export const ProductCollectionApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create or Update a Product Collection at the Bank.</p><p>Use Product Collections to create Product &quot;Baskets&quot;, &quot;Portfolios&quot;, &quot;Indices&quot;, &quot;Collections&quot;, &quot;Underlyings-lists&quot;, &quot;Buckets&quot; etc. etc.</p><p>There is a many to many relationship between Products and Product Collections:</p><ul><li><p>A Product can exist in many Collections</p></li><li><p>A Collection can contain many Products.</p></li></ul><p>A collection has collection code, one parent Product and one or more child Products.</p><p>Product hiearchy vs Product Collections:</p><ul><li><p>You can define a hierarchy of products - so that a child Product inherits attributes of its parent Product -  using the parent_product_code in Product.</p></li><li><p>You can define a collection (also known as baskets or buckets) of products using Product Collections.</p></li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#collection_code\">COLLECTION_CODE</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#collection_code\"><strong>collection_code</strong></a>:</p><p><a href=\"/glossary#items\"><strong>items</strong></a>:</p><p><a href=\"/glossary#member_product_code\"><strong>member_product_code</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_collection\"><strong>product_collection</strong></a>:</p>
          * @summary Create Product Collection
-         * @param {ProductcollectionsCOLLECTIONCODEBody} body JObject object that needs to be added.
+         * @param {PutProductCollectionsV310} body PutProductCollectionsV310 object that needs to be added.
          * @param {string} COLLECTION_CODE the collection code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310CreateProductCollection(body: ProductcollectionsCOLLECTIONCODEBody, COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20036>>> {
+        async oBPv310CreateProductCollection(body: PutProductCollectionsV310, COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductCollectionsJsonV310>>> {
             const localVarAxiosArgs = await ProductCollectionApiAxiosParamCreator(configuration).oBPv310CreateProductCollection(body, COLLECTION_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -193,7 +193,7 @@ export const ProductCollectionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetProductCollection(COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20035>>> {
+        async oBPv310GetProductCollection(COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductCollectionJsonTreeV310>>> {
             const localVarAxiosArgs = await ProductCollectionApiAxiosParamCreator(configuration).oBPv310GetProductCollection(COLLECTION_CODE, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -212,13 +212,13 @@ export const ProductCollectionApiFactory = function (configuration?: Configurati
         /**
          * <p>Create or Update a Product Collection at the Bank.</p><p>Use Product Collections to create Product &quot;Baskets&quot;, &quot;Portfolios&quot;, &quot;Indices&quot;, &quot;Collections&quot;, &quot;Underlyings-lists&quot;, &quot;Buckets&quot; etc. etc.</p><p>There is a many to many relationship between Products and Product Collections:</p><ul><li><p>A Product can exist in many Collections</p></li><li><p>A Collection can contain many Products.</p></li></ul><p>A collection has collection code, one parent Product and one or more child Products.</p><p>Product hiearchy vs Product Collections:</p><ul><li><p>You can define a hierarchy of products - so that a child Product inherits attributes of its parent Product -  using the parent_product_code in Product.</p></li><li><p>You can define a collection (also known as baskets or buckets) of products using Product Collections.</p></li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#collection_code\">COLLECTION_CODE</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#collection_code\"><strong>collection_code</strong></a>:</p><p><a href=\"/glossary#items\"><strong>items</strong></a>:</p><p><a href=\"/glossary#member_product_code\"><strong>member_product_code</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_collection\"><strong>product_collection</strong></a>:</p>
          * @summary Create Product Collection
-         * @param {ProductcollectionsCOLLECTIONCODEBody} body JObject object that needs to be added.
+         * @param {PutProductCollectionsV310} body PutProductCollectionsV310 object that needs to be added.
          * @param {string} COLLECTION_CODE the collection code
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310CreateProductCollection(body: ProductcollectionsCOLLECTIONCODEBody, COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20036>> {
+        async oBPv310CreateProductCollection(body: PutProductCollectionsV310, COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductCollectionsJsonV310>> {
             return ProductCollectionApiFp(configuration).oBPv310CreateProductCollection(body, COLLECTION_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -229,7 +229,7 @@ export const ProductCollectionApiFactory = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetProductCollection(COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20035>> {
+        async oBPv310GetProductCollection(COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductCollectionJsonTreeV310>> {
             return ProductCollectionApiFp(configuration).oBPv310GetProductCollection(COLLECTION_CODE, BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -245,14 +245,14 @@ export class ProductCollectionApi extends BaseAPI {
     /**
      * <p>Create or Update a Product Collection at the Bank.</p><p>Use Product Collections to create Product &quot;Baskets&quot;, &quot;Portfolios&quot;, &quot;Indices&quot;, &quot;Collections&quot;, &quot;Underlyings-lists&quot;, &quot;Buckets&quot; etc. etc.</p><p>There is a many to many relationship between Products and Product Collections:</p><ul><li><p>A Product can exist in many Collections</p></li><li><p>A Collection can contain many Products.</p></li></ul><p>A collection has collection code, one parent Product and one or more child Products.</p><p>Product hiearchy vs Product Collections:</p><ul><li><p>You can define a hierarchy of products - so that a child Product inherits attributes of its parent Product -  using the parent_product_code in Product.</p></li><li><p>You can define a collection (also known as baskets or buckets) of products using Product Collections.</p></li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#collection_code\">COLLECTION_CODE</a>:</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#collection_code\"><strong>collection_code</strong></a>:</p><p><a href=\"/glossary#items\"><strong>items</strong></a>:</p><p><a href=\"/glossary#member_product_code\"><strong>member_product_code</strong></a>:</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#product_collection\"><strong>product_collection</strong></a>:</p>
      * @summary Create Product Collection
-     * @param {ProductcollectionsCOLLECTIONCODEBody} body JObject object that needs to be added.
+     * @param {PutProductCollectionsV310} body PutProductCollectionsV310 object that needs to be added.
      * @param {string} COLLECTION_CODE the collection code
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductCollectionApi
      */
-    public async oBPv310CreateProductCollection(body: ProductcollectionsCOLLECTIONCODEBody, COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20036>> {
+    public async oBPv310CreateProductCollection(body: PutProductCollectionsV310, COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductCollectionsJsonV310>> {
         return ProductCollectionApiFp(this.configuration).oBPv310CreateProductCollection(body, COLLECTION_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -264,7 +264,7 @@ export class ProductCollectionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductCollectionApi
      */
-    public async oBPv310GetProductCollection(COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20035>> {
+    public async oBPv310GetProductCollection(COLLECTION_CODE: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductCollectionJsonTreeV310>> {
         return ProductCollectionApiFp(this.configuration).oBPv310GetProductCollection(COLLECTION_CODE, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -19,10 +19,9 @@ import { Configuration } from '../configuration';
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 import { ErrorInvalidJsonFormat } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse200105 } from '../models';
-import { InlineResponse200116 } from '../models';
-import { JsonschemavalidationsOPERATIONIDBody } from '../models';
-import { JsonschemavalidationsOPERATIONIDBody1 } from '../models';
+import { InlineResponse2004 } from '../models';
+import { JsonSchemaV400 } from '../models';
+import { JsonValidationV400 } from '../models';
 /**
  * JSONSchemaValidationApi - axios parameter creator
  * @export
@@ -32,11 +31,11 @@ export const JSONSchemaValidationApiAxiosParamCreator = function (configuration?
         /**
          * <p>Create a JSON Schema Validation.</p><p>Introduction:</p>  <p>JSON Schema is &quot;a vocabulary that allows you to annotate and validate JSON documents&quot;.</p><p>By applying JSON Schema Validation to your OBP endpoints you can constrain POST and PUT request bodies. For example, you can set minimum / maximum lengths of fields and constrain values to certain lists or regular expressions.</p><p>See <a href=\"https://json-schema.org/\">JSONSchema.org</a> for more information about the JSON Schema standard.</p><p>To create a JSON Schema from an any JSON Request body you can use <a href=\"https://jsonschema.net/app/schemas/0\">JSON Schema Net</a></p><p>(The video link below shows how to use that)</p><p>Note: OBP Dynamic Entities also use JSON Schema Validation so you don't need to additionally wrap the resulting endpoints with extra JSON Schema Validation but you could do.</p><p>You can apply JSON schema validations to any OBP endpoint's request body using the POST and PUT endpoints listed in the link below.</p><p>PLEASE SEE the following video explanation: <a href=\"https://vimeo.com/485287014\">JSON schema validation of request for Static and Dynamic Endpoints and Entities</a></p><p>To use this endpoint, please supply a valid json-schema in the request body.</p><p>Note: It might take a few minutes for the newly created JSON Schema to take effect!</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>$schema</strong></a>: $schema</p><p><a href=\"/glossary#\"><strong>additionalProperties</strong></a>: additionalProperties</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>examples</strong></a>: examples</p><p><a href=\"/glossary#\"><strong>maxLength</strong></a>: maxLength</p><p><a href=\"/glossary#\"><strong>minLength</strong></a>: minLength</p><p><a href=\"/glossary#\"><strong>properties</strong></a>: properties</p><p><a href=\"/glossary#\"><strong>required</strong></a>: required</p><p><a href=\"/glossary#\"><strong>title</strong></a>: Dr.</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>xxx_id</strong></a>: xxx_id</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>$schema</strong></a>: $schema</p><p><a href=\"/glossary#\"><strong>additionalProperties</strong></a>: additionalProperties</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>examples</strong></a>: examples</p><p><a href=\"/glossary#\"><strong>json_schema</strong></a>: json_schema</p><p><a href=\"/glossary#\"><strong>maxLength</strong></a>: maxLength</p><p><a href=\"/glossary#\"><strong>minLength</strong></a>: minLength</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><a href=\"/glossary#\"><strong>properties</strong></a>: properties</p><p><a href=\"/glossary#\"><strong>required</strong></a>: required</p><p><a href=\"/glossary#\"><strong>title</strong></a>: Dr.</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>xxx_id</strong></a>: xxx_id</p>
          * @summary Create a JSON Schema Validation
-         * @param {JsonschemavalidationsOPERATIONIDBody1} body JObject object that needs to be added.
+         * @param {JsonSchemaV400} body JsonSchemaV400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateJsonSchemaValidation: async (body: JsonschemavalidationsOPERATIONIDBody1, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateJsonSchemaValidation: async (body: JsonSchemaV400, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateJsonSchemaValidation.');
@@ -291,11 +290,11 @@ export const JSONSchemaValidationApiAxiosParamCreator = function (configuration?
         /**
          * <p>Update a JSON Schema Validation.</p><p>Introduction:</p>  <p>JSON Schema is &quot;a vocabulary that allows you to annotate and validate JSON documents&quot;.</p><p>By applying JSON Schema Validation to your OBP endpoints you can constrain POST and PUT request bodies. For example, you can set minimum / maximum lengths of fields and constrain values to certain lists or regular expressions.</p><p>See <a href=\"https://json-schema.org/\">JSONSchema.org</a> for more information about the JSON Schema standard.</p><p>To create a JSON Schema from an any JSON Request body you can use <a href=\"https://jsonschema.net/app/schemas/0\">JSON Schema Net</a></p><p>(The video link below shows how to use that)</p><p>Note: OBP Dynamic Entities also use JSON Schema Validation so you don't need to additionally wrap the resulting endpoints with extra JSON Schema Validation but you could do.</p><p>You can apply JSON schema validations to any OBP endpoint's request body using the POST and PUT endpoints listed in the link below.</p><p>PLEASE SEE the following video explanation: <a href=\"https://vimeo.com/485287014\">JSON schema validation of request for Static and Dynamic Endpoints and Entities</a></p><p>To use this endpoint, please supply a valid json-schema in the request body.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>$schema</strong></a>: $schema</p><p><a href=\"/glossary#\"><strong>additionalProperties</strong></a>: additionalProperties</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>examples</strong></a>: examples</p><p><a href=\"/glossary#\"><strong>json_schema</strong></a>: json_schema</p><p><a href=\"/glossary#\"><strong>maxLength</strong></a>: maxLength</p><p><a href=\"/glossary#\"><strong>minLength</strong></a>: minLength</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><a href=\"/glossary#\"><strong>properties</strong></a>: properties</p><p><a href=\"/glossary#\"><strong>required</strong></a>: required</p><p><a href=\"/glossary#\"><strong>title</strong></a>: Dr.</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>xxx_id</strong></a>: xxx_id</p>
          * @summary Update a JSON Schema Validation
-         * @param {JsonschemavalidationsOPERATIONIDBody} body JObject object that needs to be added.
+         * @param {JsonSchemaV400} body JsonSchemaV400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateJsonSchemaValidation: async (body: JsonschemavalidationsOPERATIONIDBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateJsonSchemaValidation: async (body: JsonSchemaV400, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateJsonSchemaValidation.');
@@ -359,11 +358,11 @@ export const JSONSchemaValidationApiFp = function(configuration?: Configuration)
         /**
          * <p>Create a JSON Schema Validation.</p><p>Introduction:</p>  <p>JSON Schema is &quot;a vocabulary that allows you to annotate and validate JSON documents&quot;.</p><p>By applying JSON Schema Validation to your OBP endpoints you can constrain POST and PUT request bodies. For example, you can set minimum / maximum lengths of fields and constrain values to certain lists or regular expressions.</p><p>See <a href=\"https://json-schema.org/\">JSONSchema.org</a> for more information about the JSON Schema standard.</p><p>To create a JSON Schema from an any JSON Request body you can use <a href=\"https://jsonschema.net/app/schemas/0\">JSON Schema Net</a></p><p>(The video link below shows how to use that)</p><p>Note: OBP Dynamic Entities also use JSON Schema Validation so you don't need to additionally wrap the resulting endpoints with extra JSON Schema Validation but you could do.</p><p>You can apply JSON schema validations to any OBP endpoint's request body using the POST and PUT endpoints listed in the link below.</p><p>PLEASE SEE the following video explanation: <a href=\"https://vimeo.com/485287014\">JSON schema validation of request for Static and Dynamic Endpoints and Entities</a></p><p>To use this endpoint, please supply a valid json-schema in the request body.</p><p>Note: It might take a few minutes for the newly created JSON Schema to take effect!</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>$schema</strong></a>: $schema</p><p><a href=\"/glossary#\"><strong>additionalProperties</strong></a>: additionalProperties</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>examples</strong></a>: examples</p><p><a href=\"/glossary#\"><strong>maxLength</strong></a>: maxLength</p><p><a href=\"/glossary#\"><strong>minLength</strong></a>: minLength</p><p><a href=\"/glossary#\"><strong>properties</strong></a>: properties</p><p><a href=\"/glossary#\"><strong>required</strong></a>: required</p><p><a href=\"/glossary#\"><strong>title</strong></a>: Dr.</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>xxx_id</strong></a>: xxx_id</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>$schema</strong></a>: $schema</p><p><a href=\"/glossary#\"><strong>additionalProperties</strong></a>: additionalProperties</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>examples</strong></a>: examples</p><p><a href=\"/glossary#\"><strong>json_schema</strong></a>: json_schema</p><p><a href=\"/glossary#\"><strong>maxLength</strong></a>: maxLength</p><p><a href=\"/glossary#\"><strong>minLength</strong></a>: minLength</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><a href=\"/glossary#\"><strong>properties</strong></a>: properties</p><p><a href=\"/glossary#\"><strong>required</strong></a>: required</p><p><a href=\"/glossary#\"><strong>title</strong></a>: Dr.</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>xxx_id</strong></a>: xxx_id</p>
          * @summary Create a JSON Schema Validation
-         * @param {JsonschemavalidationsOPERATIONIDBody1} body JObject object that needs to be added.
+         * @param {JsonSchemaV400} body JsonSchemaV400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateJsonSchemaValidation(body: JsonschemavalidationsOPERATIONIDBody1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200116>>> {
+        async oBPv400CreateJsonSchemaValidation(body: JsonSchemaV400, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonValidationV400>>> {
             const localVarAxiosArgs = await JSONSchemaValidationApiAxiosParamCreator(configuration).oBPv400CreateJsonSchemaValidation(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -389,7 +388,7 @@ export const JSONSchemaValidationApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllJsonSchemaValidations(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200105>>> {
+        async oBPv400GetAllJsonSchemaValidations(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2004>>> {
             const localVarAxiosArgs = await JSONSchemaValidationApiAxiosParamCreator(configuration).oBPv400GetAllJsonSchemaValidations(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -402,7 +401,7 @@ export const JSONSchemaValidationApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllJsonSchemaValidationsPublic(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200105>>> {
+        async oBPv400GetAllJsonSchemaValidationsPublic(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2004>>> {
             const localVarAxiosArgs = await JSONSchemaValidationApiAxiosParamCreator(configuration).oBPv400GetAllJsonSchemaValidationsPublic(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -415,7 +414,7 @@ export const JSONSchemaValidationApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetJsonSchemaValidation(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200116>>> {
+        async oBPv400GetJsonSchemaValidation(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonValidationV400>>> {
             const localVarAxiosArgs = await JSONSchemaValidationApiAxiosParamCreator(configuration).oBPv400GetJsonSchemaValidation(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -425,11 +424,11 @@ export const JSONSchemaValidationApiFp = function(configuration?: Configuration)
         /**
          * <p>Update a JSON Schema Validation.</p><p>Introduction:</p>  <p>JSON Schema is &quot;a vocabulary that allows you to annotate and validate JSON documents&quot;.</p><p>By applying JSON Schema Validation to your OBP endpoints you can constrain POST and PUT request bodies. For example, you can set minimum / maximum lengths of fields and constrain values to certain lists or regular expressions.</p><p>See <a href=\"https://json-schema.org/\">JSONSchema.org</a> for more information about the JSON Schema standard.</p><p>To create a JSON Schema from an any JSON Request body you can use <a href=\"https://jsonschema.net/app/schemas/0\">JSON Schema Net</a></p><p>(The video link below shows how to use that)</p><p>Note: OBP Dynamic Entities also use JSON Schema Validation so you don't need to additionally wrap the resulting endpoints with extra JSON Schema Validation but you could do.</p><p>You can apply JSON schema validations to any OBP endpoint's request body using the POST and PUT endpoints listed in the link below.</p><p>PLEASE SEE the following video explanation: <a href=\"https://vimeo.com/485287014\">JSON schema validation of request for Static and Dynamic Endpoints and Entities</a></p><p>To use this endpoint, please supply a valid json-schema in the request body.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>$schema</strong></a>: $schema</p><p><a href=\"/glossary#\"><strong>additionalProperties</strong></a>: additionalProperties</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>examples</strong></a>: examples</p><p><a href=\"/glossary#\"><strong>json_schema</strong></a>: json_schema</p><p><a href=\"/glossary#\"><strong>maxLength</strong></a>: maxLength</p><p><a href=\"/glossary#\"><strong>minLength</strong></a>: minLength</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><a href=\"/glossary#\"><strong>properties</strong></a>: properties</p><p><a href=\"/glossary#\"><strong>required</strong></a>: required</p><p><a href=\"/glossary#\"><strong>title</strong></a>: Dr.</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>xxx_id</strong></a>: xxx_id</p>
          * @summary Update a JSON Schema Validation
-         * @param {JsonschemavalidationsOPERATIONIDBody} body JObject object that needs to be added.
+         * @param {JsonSchemaV400} body JsonSchemaV400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateJsonSchemaValidation(body: JsonschemavalidationsOPERATIONIDBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200116>>> {
+        async oBPv400UpdateJsonSchemaValidation(body: JsonSchemaV400, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonValidationV400>>> {
             const localVarAxiosArgs = await JSONSchemaValidationApiAxiosParamCreator(configuration).oBPv400UpdateJsonSchemaValidation(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -448,11 +447,11 @@ export const JSONSchemaValidationApiFactory = function (configuration?: Configur
         /**
          * <p>Create a JSON Schema Validation.</p><p>Introduction:</p>  <p>JSON Schema is &quot;a vocabulary that allows you to annotate and validate JSON documents&quot;.</p><p>By applying JSON Schema Validation to your OBP endpoints you can constrain POST and PUT request bodies. For example, you can set minimum / maximum lengths of fields and constrain values to certain lists or regular expressions.</p><p>See <a href=\"https://json-schema.org/\">JSONSchema.org</a> for more information about the JSON Schema standard.</p><p>To create a JSON Schema from an any JSON Request body you can use <a href=\"https://jsonschema.net/app/schemas/0\">JSON Schema Net</a></p><p>(The video link below shows how to use that)</p><p>Note: OBP Dynamic Entities also use JSON Schema Validation so you don't need to additionally wrap the resulting endpoints with extra JSON Schema Validation but you could do.</p><p>You can apply JSON schema validations to any OBP endpoint's request body using the POST and PUT endpoints listed in the link below.</p><p>PLEASE SEE the following video explanation: <a href=\"https://vimeo.com/485287014\">JSON schema validation of request for Static and Dynamic Endpoints and Entities</a></p><p>To use this endpoint, please supply a valid json-schema in the request body.</p><p>Note: It might take a few minutes for the newly created JSON Schema to take effect!</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>$schema</strong></a>: $schema</p><p><a href=\"/glossary#\"><strong>additionalProperties</strong></a>: additionalProperties</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>examples</strong></a>: examples</p><p><a href=\"/glossary#\"><strong>maxLength</strong></a>: maxLength</p><p><a href=\"/glossary#\"><strong>minLength</strong></a>: minLength</p><p><a href=\"/glossary#\"><strong>properties</strong></a>: properties</p><p><a href=\"/glossary#\"><strong>required</strong></a>: required</p><p><a href=\"/glossary#\"><strong>title</strong></a>: Dr.</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>xxx_id</strong></a>: xxx_id</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>$schema</strong></a>: $schema</p><p><a href=\"/glossary#\"><strong>additionalProperties</strong></a>: additionalProperties</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>examples</strong></a>: examples</p><p><a href=\"/glossary#\"><strong>json_schema</strong></a>: json_schema</p><p><a href=\"/glossary#\"><strong>maxLength</strong></a>: maxLength</p><p><a href=\"/glossary#\"><strong>minLength</strong></a>: minLength</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><a href=\"/glossary#\"><strong>properties</strong></a>: properties</p><p><a href=\"/glossary#\"><strong>required</strong></a>: required</p><p><a href=\"/glossary#\"><strong>title</strong></a>: Dr.</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>xxx_id</strong></a>: xxx_id</p>
          * @summary Create a JSON Schema Validation
-         * @param {JsonschemavalidationsOPERATIONIDBody1} body JObject object that needs to be added.
+         * @param {JsonSchemaV400} body JsonSchemaV400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateJsonSchemaValidation(body: JsonschemavalidationsOPERATIONIDBody1, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200116>> {
+        async oBPv400CreateJsonSchemaValidation(body: JsonSchemaV400, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonValidationV400>> {
             return JSONSchemaValidationApiFp(configuration).oBPv400CreateJsonSchemaValidation(body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -470,7 +469,7 @@ export const JSONSchemaValidationApiFactory = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllJsonSchemaValidations(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200105>> {
+        async oBPv400GetAllJsonSchemaValidations(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2004>> {
             return JSONSchemaValidationApiFp(configuration).oBPv400GetAllJsonSchemaValidations(options).then((request) => request(axios, basePath));
         },
         /**
@@ -479,7 +478,7 @@ export const JSONSchemaValidationApiFactory = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllJsonSchemaValidationsPublic(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200105>> {
+        async oBPv400GetAllJsonSchemaValidationsPublic(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2004>> {
             return JSONSchemaValidationApiFp(configuration).oBPv400GetAllJsonSchemaValidationsPublic(options).then((request) => request(axios, basePath));
         },
         /**
@@ -488,17 +487,17 @@ export const JSONSchemaValidationApiFactory = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetJsonSchemaValidation(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200116>> {
+        async oBPv400GetJsonSchemaValidation(options?: AxiosRequestConfig): Promise<AxiosResponse<JsonValidationV400>> {
             return JSONSchemaValidationApiFp(configuration).oBPv400GetJsonSchemaValidation(options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update a JSON Schema Validation.</p><p>Introduction:</p>  <p>JSON Schema is &quot;a vocabulary that allows you to annotate and validate JSON documents&quot;.</p><p>By applying JSON Schema Validation to your OBP endpoints you can constrain POST and PUT request bodies. For example, you can set minimum / maximum lengths of fields and constrain values to certain lists or regular expressions.</p><p>See <a href=\"https://json-schema.org/\">JSONSchema.org</a> for more information about the JSON Schema standard.</p><p>To create a JSON Schema from an any JSON Request body you can use <a href=\"https://jsonschema.net/app/schemas/0\">JSON Schema Net</a></p><p>(The video link below shows how to use that)</p><p>Note: OBP Dynamic Entities also use JSON Schema Validation so you don't need to additionally wrap the resulting endpoints with extra JSON Schema Validation but you could do.</p><p>You can apply JSON schema validations to any OBP endpoint's request body using the POST and PUT endpoints listed in the link below.</p><p>PLEASE SEE the following video explanation: <a href=\"https://vimeo.com/485287014\">JSON schema validation of request for Static and Dynamic Endpoints and Entities</a></p><p>To use this endpoint, please supply a valid json-schema in the request body.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>$schema</strong></a>: $schema</p><p><a href=\"/glossary#\"><strong>additionalProperties</strong></a>: additionalProperties</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>examples</strong></a>: examples</p><p><a href=\"/glossary#\"><strong>json_schema</strong></a>: json_schema</p><p><a href=\"/glossary#\"><strong>maxLength</strong></a>: maxLength</p><p><a href=\"/glossary#\"><strong>minLength</strong></a>: minLength</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><a href=\"/glossary#\"><strong>properties</strong></a>: properties</p><p><a href=\"/glossary#\"><strong>required</strong></a>: required</p><p><a href=\"/glossary#\"><strong>title</strong></a>: Dr.</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>xxx_id</strong></a>: xxx_id</p>
          * @summary Update a JSON Schema Validation
-         * @param {JsonschemavalidationsOPERATIONIDBody} body JObject object that needs to be added.
+         * @param {JsonSchemaV400} body JsonSchemaV400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateJsonSchemaValidation(body: JsonschemavalidationsOPERATIONIDBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200116>> {
+        async oBPv400UpdateJsonSchemaValidation(body: JsonSchemaV400, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonValidationV400>> {
             return JSONSchemaValidationApiFp(configuration).oBPv400UpdateJsonSchemaValidation(body, options).then((request) => request(axios, basePath));
         },
     };
@@ -514,12 +513,12 @@ export class JSONSchemaValidationApi extends BaseAPI {
     /**
      * <p>Create a JSON Schema Validation.</p><p>Introduction:</p>  <p>JSON Schema is &quot;a vocabulary that allows you to annotate and validate JSON documents&quot;.</p><p>By applying JSON Schema Validation to your OBP endpoints you can constrain POST and PUT request bodies. For example, you can set minimum / maximum lengths of fields and constrain values to certain lists or regular expressions.</p><p>See <a href=\"https://json-schema.org/\">JSONSchema.org</a> for more information about the JSON Schema standard.</p><p>To create a JSON Schema from an any JSON Request body you can use <a href=\"https://jsonschema.net/app/schemas/0\">JSON Schema Net</a></p><p>(The video link below shows how to use that)</p><p>Note: OBP Dynamic Entities also use JSON Schema Validation so you don't need to additionally wrap the resulting endpoints with extra JSON Schema Validation but you could do.</p><p>You can apply JSON schema validations to any OBP endpoint's request body using the POST and PUT endpoints listed in the link below.</p><p>PLEASE SEE the following video explanation: <a href=\"https://vimeo.com/485287014\">JSON schema validation of request for Static and Dynamic Endpoints and Entities</a></p><p>To use this endpoint, please supply a valid json-schema in the request body.</p><p>Note: It might take a few minutes for the newly created JSON Schema to take effect!</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>$schema</strong></a>: $schema</p><p><a href=\"/glossary#\"><strong>additionalProperties</strong></a>: additionalProperties</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>examples</strong></a>: examples</p><p><a href=\"/glossary#\"><strong>maxLength</strong></a>: maxLength</p><p><a href=\"/glossary#\"><strong>minLength</strong></a>: minLength</p><p><a href=\"/glossary#\"><strong>properties</strong></a>: properties</p><p><a href=\"/glossary#\"><strong>required</strong></a>: required</p><p><a href=\"/glossary#\"><strong>title</strong></a>: Dr.</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>xxx_id</strong></a>: xxx_id</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>$schema</strong></a>: $schema</p><p><a href=\"/glossary#\"><strong>additionalProperties</strong></a>: additionalProperties</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>examples</strong></a>: examples</p><p><a href=\"/glossary#\"><strong>json_schema</strong></a>: json_schema</p><p><a href=\"/glossary#\"><strong>maxLength</strong></a>: maxLength</p><p><a href=\"/glossary#\"><strong>minLength</strong></a>: minLength</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><a href=\"/glossary#\"><strong>properties</strong></a>: properties</p><p><a href=\"/glossary#\"><strong>required</strong></a>: required</p><p><a href=\"/glossary#\"><strong>title</strong></a>: Dr.</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>xxx_id</strong></a>: xxx_id</p>
      * @summary Create a JSON Schema Validation
-     * @param {JsonschemavalidationsOPERATIONIDBody1} body JObject object that needs to be added.
+     * @param {JsonSchemaV400} body JsonSchemaV400 object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof JSONSchemaValidationApi
      */
-    public async oBPv400CreateJsonSchemaValidation(body: JsonschemavalidationsOPERATIONIDBody1, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200116>> {
+    public async oBPv400CreateJsonSchemaValidation(body: JsonSchemaV400, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonValidationV400>> {
         return JSONSchemaValidationApiFp(this.configuration).oBPv400CreateJsonSchemaValidation(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -539,7 +538,7 @@ export class JSONSchemaValidationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof JSONSchemaValidationApi
      */
-    public async oBPv400GetAllJsonSchemaValidations(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200105>> {
+    public async oBPv400GetAllJsonSchemaValidations(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2004>> {
         return JSONSchemaValidationApiFp(this.configuration).oBPv400GetAllJsonSchemaValidations(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -549,7 +548,7 @@ export class JSONSchemaValidationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof JSONSchemaValidationApi
      */
-    public async oBPv400GetAllJsonSchemaValidationsPublic(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200105>> {
+    public async oBPv400GetAllJsonSchemaValidationsPublic(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2004>> {
         return JSONSchemaValidationApiFp(this.configuration).oBPv400GetAllJsonSchemaValidationsPublic(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -559,18 +558,18 @@ export class JSONSchemaValidationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof JSONSchemaValidationApi
      */
-    public async oBPv400GetJsonSchemaValidation(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200116>> {
+    public async oBPv400GetJsonSchemaValidation(options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonValidationV400>> {
         return JSONSchemaValidationApiFp(this.configuration).oBPv400GetJsonSchemaValidation(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update a JSON Schema Validation.</p><p>Introduction:</p>  <p>JSON Schema is &quot;a vocabulary that allows you to annotate and validate JSON documents&quot;.</p><p>By applying JSON Schema Validation to your OBP endpoints you can constrain POST and PUT request bodies. For example, you can set minimum / maximum lengths of fields and constrain values to certain lists or regular expressions.</p><p>See <a href=\"https://json-schema.org/\">JSONSchema.org</a> for more information about the JSON Schema standard.</p><p>To create a JSON Schema from an any JSON Request body you can use <a href=\"https://jsonschema.net/app/schemas/0\">JSON Schema Net</a></p><p>(The video link below shows how to use that)</p><p>Note: OBP Dynamic Entities also use JSON Schema Validation so you don't need to additionally wrap the resulting endpoints with extra JSON Schema Validation but you could do.</p><p>You can apply JSON schema validations to any OBP endpoint's request body using the POST and PUT endpoints listed in the link below.</p><p>PLEASE SEE the following video explanation: <a href=\"https://vimeo.com/485287014\">JSON schema validation of request for Static and Dynamic Endpoints and Entities</a></p><p>To use this endpoint, please supply a valid json-schema in the request body.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">OPERATION_ID</a>: OBPv4.0.0-getBanks</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>$schema</strong></a>: $schema</p><p><a href=\"/glossary#\"><strong>additionalProperties</strong></a>: additionalProperties</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>examples</strong></a>: examples</p><p><a href=\"/glossary#\"><strong>json_schema</strong></a>: json_schema</p><p><a href=\"/glossary#\"><strong>maxLength</strong></a>: maxLength</p><p><a href=\"/glossary#\"><strong>minLength</strong></a>: minLength</p><p><a href=\"/glossary#\"><strong>operation_id</strong></a>: OBPv4.0.0-getBanks</p><p><a href=\"/glossary#\"><strong>properties</strong></a>: properties</p><p><a href=\"/glossary#\"><strong>required</strong></a>: required</p><p><a href=\"/glossary#\"><strong>title</strong></a>: Dr.</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>xxx_id</strong></a>: xxx_id</p>
      * @summary Update a JSON Schema Validation
-     * @param {JsonschemavalidationsOPERATIONIDBody} body JObject object that needs to be added.
+     * @param {JsonSchemaV400} body JsonSchemaV400 object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof JSONSchemaValidationApi
      */
-    public async oBPv400UpdateJsonSchemaValidation(body: JsonschemavalidationsOPERATIONIDBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200116>> {
+    public async oBPv400UpdateJsonSchemaValidation(body: JsonSchemaV400, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonValidationV400>> {
         return JSONSchemaValidationApiFp(this.configuration).oBPv400UpdateJsonSchemaValidation(body, options).then((request) => request(this.axios, this.basePath));
     }
 }

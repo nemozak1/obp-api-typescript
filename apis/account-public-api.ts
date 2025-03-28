@@ -21,7 +21,7 @@ import { BasicAccountsJSON } from '../models';
 import { ErrorBankNotFound } from '../models';
 import { ErrorCannotGetAccounts } from '../models';
 import { ErrorUnknownError } from '../models';
-import { InlineResponse20017 } from '../models';
+import { ModeratedCoreAccountJsonV300 } from '../models';
 /**
  * AccountPublicApi - axios parameter creator
  * @export
@@ -35,7 +35,7 @@ export const AccountPublicApiAxiosParamCreator = function (configuration?: Confi
          * @throws {RequiredError}
          */
         oBPv200PublicAccountsAllBanks: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/obp/v5.1.0/accounts/public`;
+            const localVarPath = `/obp/v2.1.0/accounts/public`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -90,7 +90,7 @@ export const AccountPublicApiAxiosParamCreator = function (configuration?: Confi
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv200PublicAccountsAtOneBank.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/public`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/public`
                 .replace(`{${"BANK_ID"}}`, encodeURIComponent(String(BANK_ID)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -247,7 +247,7 @@ export const AccountPublicApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300GetPublicAccountById(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20017>>> {
+        async oBPv300GetPublicAccountById(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ModeratedCoreAccountJsonV300>>> {
             const localVarAxiosArgs = await AccountPublicApiAxiosParamCreator(configuration).oBPv300GetPublicAccountById(VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -291,7 +291,7 @@ export const AccountPublicApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300GetPublicAccountById(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20017>> {
+        async oBPv300GetPublicAccountById(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ModeratedCoreAccountJsonV300>> {
             return AccountPublicApiFp(configuration).oBPv300GetPublicAccountById(VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -335,7 +335,7 @@ export class AccountPublicApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountPublicApi
      */
-    public async oBPv300GetPublicAccountById(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20017>> {
+    public async oBPv300GetPublicAccountById(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ModeratedCoreAccountJsonV300>> {
         return AccountPublicApiFp(this.configuration).oBPv300GetPublicAccountById(VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

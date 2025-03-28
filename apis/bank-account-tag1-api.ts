@@ -17,8 +17,8 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BanksJson400 } from '../models';
 import { ErrorUnknownError } from '../models';
-import { InlineResponse20059 } from '../models';
 /**
  * BankAccountTag1Api - axios parameter creator
  * @export
@@ -190,7 +190,7 @@ export const BankAccountTag1ApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBanks(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20059>>> {
+        async oBPv400GetBanks(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BanksJson400>>> {
             const localVarAxiosArgs = await BankAccountTag1ApiAxiosParamCreator(configuration).oBPv400GetBanks(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -203,7 +203,7 @@ export const BankAccountTag1ApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBanks_1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20059>>> {
+        async oBPv400GetBanks_1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BanksJson400>>> {
             const localVarAxiosArgs = await BankAccountTag1ApiAxiosParamCreator(configuration).oBPv400GetBanks_1(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -216,7 +216,7 @@ export const BankAccountTag1ApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBanks_2(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20059>>> {
+        async oBPv400GetBanks_2(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BanksJson400>>> {
             const localVarAxiosArgs = await BankAccountTag1ApiAxiosParamCreator(configuration).oBPv400GetBanks_2(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -238,7 +238,7 @@ export const BankAccountTag1ApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBanks(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20059>> {
+        async oBPv400GetBanks(options?: AxiosRequestConfig): Promise<AxiosResponse<BanksJson400>> {
             return BankAccountTag1ApiFp(configuration).oBPv400GetBanks(options).then((request) => request(axios, basePath));
         },
         /**
@@ -247,7 +247,7 @@ export const BankAccountTag1ApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBanks_1(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20059>> {
+        async oBPv400GetBanks_1(options?: AxiosRequestConfig): Promise<AxiosResponse<BanksJson400>> {
             return BankAccountTag1ApiFp(configuration).oBPv400GetBanks_1(options).then((request) => request(axios, basePath));
         },
         /**
@@ -256,7 +256,7 @@ export const BankAccountTag1ApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBanks_2(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20059>> {
+        async oBPv400GetBanks_2(options?: AxiosRequestConfig): Promise<AxiosResponse<BanksJson400>> {
             return BankAccountTag1ApiFp(configuration).oBPv400GetBanks_2(options).then((request) => request(axios, basePath));
         },
     };
@@ -276,7 +276,7 @@ export class BankAccountTag1Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BankAccountTag1Api
      */
-    public async oBPv400GetBanks(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20059>> {
+    public async oBPv400GetBanks(options?: AxiosRequestConfig) : Promise<AxiosResponse<BanksJson400>> {
         return BankAccountTag1ApiFp(this.configuration).oBPv400GetBanks(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -286,7 +286,7 @@ export class BankAccountTag1Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BankAccountTag1Api
      */
-    public async oBPv400GetBanks_1(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20059>> {
+    public async oBPv400GetBanks_1(options?: AxiosRequestConfig) : Promise<AxiosResponse<BanksJson400>> {
         return BankAccountTag1ApiFp(this.configuration).oBPv400GetBanks_1(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -296,7 +296,7 @@ export class BankAccountTag1Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BankAccountTag1Api
      */
-    public async oBPv400GetBanks_2(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20059>> {
+    public async oBPv400GetBanks_2(options?: AxiosRequestConfig) : Promise<AxiosResponse<BanksJson400>> {
         return BankAccountTag1ApiFp(this.configuration).oBPv400GetBanks_2(options).then((request) => request(this.axios, this.basePath));
     }
 }

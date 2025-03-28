@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse2009OtherAccounts } from './inline-response2009-other-accounts';
+import { Obpv400managementbanksBANKIDendpointmappingsENDPOINTMAPPINGIDResponseMapping } from './obpv400managementbanks-bankidendpointmappings-endpointmappingidresponse-mapping';
  /**
  * 
  *
@@ -22,8 +22,28 @@ import { InlineResponse2009OtherAccounts } from './inline-response2009-other-acc
 export interface InlineResponse2009 {
 
     /**
-     * @type {Array<InlineResponse2009OtherAccounts>}
+     * @type {string}
+     * @memberof InlineResponse2009
+     * @example OBPv4.0.0-dynamicEndpoint_POST_account
+     */
+    operation_id: string;
+
+    /**
+     * @type {any}
      * @memberof InlineResponse2009
      */
-    other_accounts: Array<InlineResponse2009OtherAccounts>;
+    request_mapping: any;
+
+    /**
+     * @type {Obpv400managementbanksBANKIDendpointmappingsENDPOINTMAPPINGIDResponseMapping}
+     * @memberof InlineResponse2009
+     */
+    response_mapping: Obpv400managementbanksBANKIDendpointmappingsENDPOINTMAPPINGIDResponseMapping;
+
+    /**
+     * @type {string}
+     * @memberof InlineResponse2009
+     * @example b4e0352a-9a0f-4bfa-b30b-9003aa467f50
+     */
+    endpoint_mapping_id: string;
 }

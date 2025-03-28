@@ -17,10 +17,9 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { ACCOUNTIDDirectdebitBody } from '../models';
+import { DirectDebitJsonV400 } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse20119 } from '../models';
-import { VIEWIDDirectdebitBody } from '../models';
+import { PostDirectDebitJsonV400 } from '../models';
 /**
  * DirectDebitApi - axios parameter creator
  * @export
@@ -30,14 +29,14 @@ export const DirectDebitApiAxiosParamCreator = function (configuration?: Configu
         /**
          * <p>Create direct debit for an account.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\">date_expires</a>: 2021-01-27</p><p><a href=\"/glossary#\">date_signed</a>: 2020-01-27</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#active\"><strong>active</strong></a>: false</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_cancelled</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_expires</strong></a>: 2021-01-27</p><p><a href=\"/glossary#\"><strong>date_signed</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#direct_debit_id\"><strong>direct_debit_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
          * @summary Create Direct Debit
-         * @param {VIEWIDDirectdebitBody} body JObject object that needs to be added.
+         * @param {PostDirectDebitJsonV400} body PostDirectDebitJsonV400 object that needs to be added.
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateDirectDebit: async (body: VIEWIDDirectdebitBody, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateDirectDebit: async (body: PostDirectDebitJsonV400, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateDirectDebit.');
@@ -107,13 +106,13 @@ export const DirectDebitApiAxiosParamCreator = function (configuration?: Configu
         /**
          * <p>Create direct debit for an account.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\">date_expires</a>: 2021-01-27</p><p><a href=\"/glossary#\">date_signed</a>: 2020-01-27</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#active\"><strong>active</strong></a>: false</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_cancelled</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_expires</strong></a>: 2021-01-27</p><p><a href=\"/glossary#\"><strong>date_signed</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#direct_debit_id\"><strong>direct_debit_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
          * @summary Create Direct Debit (management)
-         * @param {ACCOUNTIDDirectdebitBody} body JObject object that needs to be added.
+         * @param {PostDirectDebitJsonV400} body PostDirectDebitJsonV400 object that needs to be added.
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateDirectDebitManagement: async (body: ACCOUNTIDDirectdebitBody, ACCOUNT_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateDirectDebitManagement: async (body: PostDirectDebitJsonV400, ACCOUNT_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateDirectDebitManagement.');
@@ -187,14 +186,14 @@ export const DirectDebitApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create direct debit for an account.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\">date_expires</a>: 2021-01-27</p><p><a href=\"/glossary#\">date_signed</a>: 2020-01-27</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#active\"><strong>active</strong></a>: false</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_cancelled</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_expires</strong></a>: 2021-01-27</p><p><a href=\"/glossary#\"><strong>date_signed</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#direct_debit_id\"><strong>direct_debit_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
          * @summary Create Direct Debit
-         * @param {VIEWIDDirectdebitBody} body JObject object that needs to be added.
+         * @param {PostDirectDebitJsonV400} body PostDirectDebitJsonV400 object that needs to be added.
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateDirectDebit(body: VIEWIDDirectdebitBody, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20119>>> {
+        async oBPv400CreateDirectDebit(body: PostDirectDebitJsonV400, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<DirectDebitJsonV400>>> {
             const localVarAxiosArgs = await DirectDebitApiAxiosParamCreator(configuration).oBPv400CreateDirectDebit(body, VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -204,13 +203,13 @@ export const DirectDebitApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create direct debit for an account.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\">date_expires</a>: 2021-01-27</p><p><a href=\"/glossary#\">date_signed</a>: 2020-01-27</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#active\"><strong>active</strong></a>: false</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_cancelled</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_expires</strong></a>: 2021-01-27</p><p><a href=\"/glossary#\"><strong>date_signed</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#direct_debit_id\"><strong>direct_debit_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
          * @summary Create Direct Debit (management)
-         * @param {ACCOUNTIDDirectdebitBody} body JObject object that needs to be added.
+         * @param {PostDirectDebitJsonV400} body PostDirectDebitJsonV400 object that needs to be added.
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateDirectDebitManagement(body: ACCOUNTIDDirectdebitBody, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20119>>> {
+        async oBPv400CreateDirectDebitManagement(body: PostDirectDebitJsonV400, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<DirectDebitJsonV400>>> {
             const localVarAxiosArgs = await DirectDebitApiAxiosParamCreator(configuration).oBPv400CreateDirectDebitManagement(body, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -229,26 +228,26 @@ export const DirectDebitApiFactory = function (configuration?: Configuration, ba
         /**
          * <p>Create direct debit for an account.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\">date_expires</a>: 2021-01-27</p><p><a href=\"/glossary#\">date_signed</a>: 2020-01-27</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#active\"><strong>active</strong></a>: false</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_cancelled</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_expires</strong></a>: 2021-01-27</p><p><a href=\"/glossary#\"><strong>date_signed</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#direct_debit_id\"><strong>direct_debit_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
          * @summary Create Direct Debit
-         * @param {VIEWIDDirectdebitBody} body JObject object that needs to be added.
+         * @param {PostDirectDebitJsonV400} body PostDirectDebitJsonV400 object that needs to be added.
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateDirectDebit(body: VIEWIDDirectdebitBody, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20119>> {
+        async oBPv400CreateDirectDebit(body: PostDirectDebitJsonV400, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<DirectDebitJsonV400>> {
             return DirectDebitApiFp(configuration).oBPv400CreateDirectDebit(body, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create direct debit for an account.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\">date_expires</a>: 2021-01-27</p><p><a href=\"/glossary#\">date_signed</a>: 2020-01-27</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#active\"><strong>active</strong></a>: false</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_cancelled</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_expires</strong></a>: 2021-01-27</p><p><a href=\"/glossary#\"><strong>date_signed</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#direct_debit_id\"><strong>direct_debit_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
          * @summary Create Direct Debit (management)
-         * @param {ACCOUNTIDDirectdebitBody} body JObject object that needs to be added.
+         * @param {PostDirectDebitJsonV400} body PostDirectDebitJsonV400 object that needs to be added.
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateDirectDebitManagement(body: ACCOUNTIDDirectdebitBody, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20119>> {
+        async oBPv400CreateDirectDebitManagement(body: PostDirectDebitJsonV400, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<DirectDebitJsonV400>> {
             return DirectDebitApiFp(configuration).oBPv400CreateDirectDebitManagement(body, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -264,7 +263,7 @@ export class DirectDebitApi extends BaseAPI {
     /**
      * <p>Create direct debit for an account.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\">date_expires</a>: 2021-01-27</p><p><a href=\"/glossary#\">date_signed</a>: 2020-01-27</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#active\"><strong>active</strong></a>: false</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_cancelled</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_expires</strong></a>: 2021-01-27</p><p><a href=\"/glossary#\"><strong>date_signed</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#direct_debit_id\"><strong>direct_debit_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
      * @summary Create Direct Debit
-     * @param {VIEWIDDirectdebitBody} body JObject object that needs to be added.
+     * @param {PostDirectDebitJsonV400} body PostDirectDebitJsonV400 object that needs to be added.
      * @param {string} VIEW_ID The view id
      * @param {string} ACCOUNT_ID The account id
      * @param {string} BANK_ID The bank id
@@ -272,20 +271,20 @@ export class DirectDebitApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DirectDebitApi
      */
-    public async oBPv400CreateDirectDebit(body: VIEWIDDirectdebitBody, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20119>> {
+    public async oBPv400CreateDirectDebit(body: PostDirectDebitJsonV400, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<DirectDebitJsonV400>> {
         return DirectDebitApiFp(this.configuration).oBPv400CreateDirectDebit(body, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create direct debit for an account.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\">date_expires</a>: 2021-01-27</p><p><a href=\"/glossary#\">date_signed</a>: 2020-01-27</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#active\"><strong>active</strong></a>: false</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>customer_id</strong></a>: 7uy8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#\"><strong>date_cancelled</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_expires</strong></a>: 2021-01-27</p><p><a href=\"/glossary#\"><strong>date_signed</strong></a>: 2020-01-27</p><p><a href=\"/glossary#\"><strong>date_starts</strong></a>: 2020-01-27</p><p><a href=\"/glossary#direct_debit_id\"><strong>direct_debit_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p>
      * @summary Create Direct Debit (management)
-     * @param {ACCOUNTIDDirectdebitBody} body JObject object that needs to be added.
+     * @param {PostDirectDebitJsonV400} body PostDirectDebitJsonV400 object that needs to be added.
      * @param {string} ACCOUNT_ID The account id
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DirectDebitApi
      */
-    public async oBPv400CreateDirectDebitManagement(body: ACCOUNTIDDirectdebitBody, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20119>> {
+    public async oBPv400CreateDirectDebitManagement(body: PostDirectDebitJsonV400, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<DirectDebitJsonV400>> {
         return DirectDebitApiFp(this.configuration).oBPv400CreateDirectDebitManagement(body, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

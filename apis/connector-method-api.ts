@@ -17,11 +17,10 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { ConnectormethodsCONNECTORMETHODIDBody } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse200115 } from '../models';
-import { InlineResponse20140 } from '../models';
-import { ManagementConnectormethodsBody } from '../models';
+import { InlineResponse20010 } from '../models';
+import { JsonConnectorMethod } from '../models';
+import { JsonConnectorMethodMethodBody } from '../models';
 /**
  * ConnectorMethodApi - axios parameter creator
  * @export
@@ -31,11 +30,11 @@ export const ConnectorMethodApiAxiosParamCreator = function (configuration?: Con
         /**
          * <p>Create an internal connector.</p><p>The method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><strong>JSON response body fields:</strong></p>
          * @summary Create Connector Method
-         * @param {ManagementConnectormethodsBody} body JObject object that needs to be added.
+         * @param {JsonConnectorMethod} body JsonConnectorMethod object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateConnectorMethod: async (body: ManagementConnectormethodsBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateConnectorMethod: async (body: JsonConnectorMethod, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateConnectorMethod.');
@@ -190,11 +189,11 @@ export const ConnectorMethodApiAxiosParamCreator = function (configuration?: Con
         /**
          * <p>Update an internal connector.</p><p>The method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">CONNECTOR_METHOD_ID</a>: ace0352a-9a0f-4bfa-b30b-9003aa467f51</p><p><strong>JSON response body fields:</strong></p>
          * @summary Update Connector Method
-         * @param {ConnectormethodsCONNECTORMETHODIDBody} body JObject object that needs to be added.
+         * @param {JsonConnectorMethodMethodBody} body JsonConnectorMethodMethodBody object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateConnectorMethod: async (body: ConnectormethodsCONNECTORMETHODIDBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateConnectorMethod: async (body: JsonConnectorMethodMethodBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateConnectorMethod.');
@@ -258,11 +257,11 @@ export const ConnectorMethodApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create an internal connector.</p><p>The method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><strong>JSON response body fields:</strong></p>
          * @summary Create Connector Method
-         * @param {ManagementConnectormethodsBody} body JObject object that needs to be added.
+         * @param {JsonConnectorMethod} body JsonConnectorMethod object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateConnectorMethod(body: ManagementConnectormethodsBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20140>>> {
+        async oBPv400CreateConnectorMethod(body: JsonConnectorMethod, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonConnectorMethod>>> {
             const localVarAxiosArgs = await ConnectorMethodApiAxiosParamCreator(configuration).oBPv400CreateConnectorMethod(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -275,7 +274,7 @@ export const ConnectorMethodApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllConnectorMethods(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200115>>> {
+        async oBPv400GetAllConnectorMethods(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20010>>> {
             const localVarAxiosArgs = await ConnectorMethodApiAxiosParamCreator(configuration).oBPv400GetAllConnectorMethods(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -288,7 +287,7 @@ export const ConnectorMethodApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetConnectorMethod(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20140>>> {
+        async oBPv400GetConnectorMethod(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonConnectorMethod>>> {
             const localVarAxiosArgs = await ConnectorMethodApiAxiosParamCreator(configuration).oBPv400GetConnectorMethod(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -298,11 +297,11 @@ export const ConnectorMethodApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update an internal connector.</p><p>The method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">CONNECTOR_METHOD_ID</a>: ace0352a-9a0f-4bfa-b30b-9003aa467f51</p><p><strong>JSON response body fields:</strong></p>
          * @summary Update Connector Method
-         * @param {ConnectormethodsCONNECTORMETHODIDBody} body JObject object that needs to be added.
+         * @param {JsonConnectorMethodMethodBody} body JsonConnectorMethodMethodBody object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateConnectorMethod(body: ConnectormethodsCONNECTORMETHODIDBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20140>>> {
+        async oBPv400UpdateConnectorMethod(body: JsonConnectorMethodMethodBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<JsonConnectorMethod>>> {
             const localVarAxiosArgs = await ConnectorMethodApiAxiosParamCreator(configuration).oBPv400UpdateConnectorMethod(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -321,11 +320,11 @@ export const ConnectorMethodApiFactory = function (configuration?: Configuration
         /**
          * <p>Create an internal connector.</p><p>The method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><strong>JSON response body fields:</strong></p>
          * @summary Create Connector Method
-         * @param {ManagementConnectormethodsBody} body JObject object that needs to be added.
+         * @param {JsonConnectorMethod} body JsonConnectorMethod object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateConnectorMethod(body: ManagementConnectormethodsBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20140>> {
+        async oBPv400CreateConnectorMethod(body: JsonConnectorMethod, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonConnectorMethod>> {
             return ConnectorMethodApiFp(configuration).oBPv400CreateConnectorMethod(body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -334,7 +333,7 @@ export const ConnectorMethodApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetAllConnectorMethods(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200115>> {
+        async oBPv400GetAllConnectorMethods(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20010>> {
             return ConnectorMethodApiFp(configuration).oBPv400GetAllConnectorMethods(options).then((request) => request(axios, basePath));
         },
         /**
@@ -343,17 +342,17 @@ export const ConnectorMethodApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetConnectorMethod(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20140>> {
+        async oBPv400GetConnectorMethod(options?: AxiosRequestConfig): Promise<AxiosResponse<JsonConnectorMethod>> {
             return ConnectorMethodApiFp(configuration).oBPv400GetConnectorMethod(options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update an internal connector.</p><p>The method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">CONNECTOR_METHOD_ID</a>: ace0352a-9a0f-4bfa-b30b-9003aa467f51</p><p><strong>JSON response body fields:</strong></p>
          * @summary Update Connector Method
-         * @param {ConnectormethodsCONNECTORMETHODIDBody} body JObject object that needs to be added.
+         * @param {JsonConnectorMethodMethodBody} body JsonConnectorMethodMethodBody object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateConnectorMethod(body: ConnectormethodsCONNECTORMETHODIDBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20140>> {
+        async oBPv400UpdateConnectorMethod(body: JsonConnectorMethodMethodBody, options?: AxiosRequestConfig): Promise<AxiosResponse<JsonConnectorMethod>> {
             return ConnectorMethodApiFp(configuration).oBPv400UpdateConnectorMethod(body, options).then((request) => request(axios, basePath));
         },
     };
@@ -369,12 +368,12 @@ export class ConnectorMethodApi extends BaseAPI {
     /**
      * <p>Create an internal connector.</p><p>The method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><strong>JSON response body fields:</strong></p>
      * @summary Create Connector Method
-     * @param {ManagementConnectormethodsBody} body JObject object that needs to be added.
+     * @param {JsonConnectorMethod} body JsonConnectorMethod object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConnectorMethodApi
      */
-    public async oBPv400CreateConnectorMethod(body: ManagementConnectormethodsBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20140>> {
+    public async oBPv400CreateConnectorMethod(body: JsonConnectorMethod, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonConnectorMethod>> {
         return ConnectorMethodApiFp(this.configuration).oBPv400CreateConnectorMethod(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -384,7 +383,7 @@ export class ConnectorMethodApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorMethodApi
      */
-    public async oBPv400GetAllConnectorMethods(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200115>> {
+    public async oBPv400GetAllConnectorMethods(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20010>> {
         return ConnectorMethodApiFp(this.configuration).oBPv400GetAllConnectorMethods(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -394,18 +393,18 @@ export class ConnectorMethodApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorMethodApi
      */
-    public async oBPv400GetConnectorMethod(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20140>> {
+    public async oBPv400GetConnectorMethod(options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonConnectorMethod>> {
         return ConnectorMethodApiFp(this.configuration).oBPv400GetConnectorMethod(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update an internal connector.</p><p>The method_body is URL-encoded format String</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">CONNECTOR_METHOD_ID</a>: ace0352a-9a0f-4bfa-b30b-9003aa467f51</p><p><strong>JSON response body fields:</strong></p>
      * @summary Update Connector Method
-     * @param {ConnectormethodsCONNECTORMETHODIDBody} body JObject object that needs to be added.
+     * @param {JsonConnectorMethodMethodBody} body JsonConnectorMethodMethodBody object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConnectorMethodApi
      */
-    public async oBPv400UpdateConnectorMethod(body: ConnectormethodsCONNECTORMETHODIDBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20140>> {
+    public async oBPv400UpdateConnectorMethod(body: JsonConnectorMethodMethodBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<JsonConnectorMethod>> {
         return ConnectorMethodApiFp(this.configuration).oBPv400UpdateConnectorMethod(body, options).then((request) => request(this.axios, this.basePath));
     }
 }

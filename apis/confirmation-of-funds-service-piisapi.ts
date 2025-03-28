@@ -17,8 +17,8 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { CheckFundsAvailableJson } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse20026 } from '../models';
 /**
  * ConfirmationOfFundsServicePIISApi - axios parameter creator
  * @export
@@ -111,7 +111,7 @@ export const ConfirmationOfFundsServicePIISApiFp = function(configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310CheckFundsAvailable(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20026>>> {
+        async oBPv310CheckFundsAvailable(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CheckFundsAvailableJson>>> {
             const localVarAxiosArgs = await ConfirmationOfFundsServicePIISApiAxiosParamCreator(configuration).oBPv310CheckFundsAvailable(VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -136,7 +136,7 @@ export const ConfirmationOfFundsServicePIISApiFactory = function (configuration?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310CheckFundsAvailable(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20026>> {
+        async oBPv310CheckFundsAvailable(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CheckFundsAvailableJson>> {
             return ConfirmationOfFundsServicePIISApiFp(configuration).oBPv310CheckFundsAvailable(VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -159,7 +159,7 @@ export class ConfirmationOfFundsServicePIISApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConfirmationOfFundsServicePIISApi
      */
-    public async oBPv310CheckFundsAvailable(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20026>> {
+    public async oBPv310CheckFundsAvailable(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CheckFundsAvailableJson>> {
         return ConfirmationOfFundsServicePIISApiFp(this.configuration).oBPv310CheckFundsAvailable(VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

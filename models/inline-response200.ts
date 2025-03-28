@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse200TransactionRequestTypes } from './inline-response200-transaction-request-types';
+import { MethodRoutingCommons } from './method-routing-commons';
  /**
  * 
  *
@@ -22,8 +22,8 @@ import { InlineResponse200TransactionRequestTypes } from './inline-response200-t
 export interface InlineResponse200 {
 
     /**
-     * @type {Array<InlineResponse200TransactionRequestTypes>}
+     * @type {Array<MethodRoutingCommons>}
      * @memberof InlineResponse200
      */
-    transaction_request_types: Array<InlineResponse200TransactionRequestTypes>;
+    method_routings: Array<MethodRoutingCommons>;
 }

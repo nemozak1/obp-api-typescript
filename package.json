@@ -1,14 +1,14 @@
 {
   "name": "obp-api-typescript",
   "version": "1.0.0",
-  "description": "OpenAPI client for ",
+  "description": "OpenAPI client for obp-api-typescript",
   "author": "OpenAPI-Generator Contributors",
   "keywords": [
     "axios",
     "typescript",
     "openapi-client",
     "openapi-generator",
-    ""
+    "obp-api-typescript"
   ],
   "license": "Unlicense",
   "main": "./dist/index.js",

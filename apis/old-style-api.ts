@@ -32,7 +32,7 @@ export const OldStyleApiAxiosParamCreator = function (configuration?: Configurat
          * @throws {RequiredError}
          */
         oBPv200ElasticSearchMetrics: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/obp/v5.1.0/search/metrics`;
+            const localVarPath = `/obp/v2.1.0/search/metrics`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;

@@ -17,38 +17,35 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { AttributedefinitionsBankBody } from '../models';
-import { AttributesBANKATTRIBUTEIDBody } from '../models';
-import { BANKIDAccountwebhooksBody } from '../models';
-import { BANKIDAccountwebhooksBody1 } from '../models';
-import { BANKIDAttributeBody } from '../models';
-import { BANKIDSettlementaccountsBody } from '../models';
-import { BANKIDTransactiontypesBody } from '../models';
+import { AccountNotificationWebhookPostJson } from '../models';
+import { AccountWebhookJson } from '../models';
+import { AccountWebhookPostJson } from '../models';
+import { AccountWebhookPutJson } from '../models';
+import { AccountWebhooksJson } from '../models';
+import { AttributeDefinitionJsonV400 } from '../models';
+import { AttributeDefinitionResponseJsonV400 } from '../models';
+import { BankAccountNotificationWebhookJson } from '../models';
+import { BankAttributeJsonV400 } from '../models';
+import { BankAttributeResponseJsonV400 } from '../models';
+import { BankAttributesResponseJsonV400 } from '../models';
+import { BankJson500 } from '../models';
+import { BanksJson400 } from '../models';
+import { BranchJsonV300 } from '../models';
+import { BranchesJsonV300 } from '../models';
 import { ErrorBankNotFound } from '../models';
 import { ErrorBranchNotFoundByBranchId } from '../models';
 import { ErrorInvalidJsonFormat } from '../models';
 import { ErrorUnknownError } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse200 } from '../models';
-import { InlineResponse2001 } from '../models';
-import { InlineResponse200127 } from '../models';
-import { InlineResponse20016 } from '../models';
-import { InlineResponse20023 } from '../models';
-import { InlineResponse20042 } from '../models';
-import { InlineResponse20059 } from '../models';
-import { InlineResponse20076 } from '../models';
-import { InlineResponse20087 } from '../models';
-import { InlineResponse20098 } from '../models';
-import { InlineResponse20125 } from '../models';
-import { InlineResponse20129 } from '../models';
-import { InlineResponse2013 } from '../models';
-import { InlineResponse20132 } from '../models';
-import { InlineResponse20146 } from '../models';
-import { NotificationsOncreatetransactionBody } from '../models';
-import { NotificationsOncreatetransactionBody1 } from '../models';
+import { PostBankJson500 } from '../models';
+import { SettlementAccountRequestJson } from '../models';
+import { SettlementAccountResponseJson } from '../models';
+import { SettlementAccountsJson } from '../models';
+import { SystemAccountNotificationWebhookJson } from '../models';
+import { TransactionRequestTypesJSON } from '../models';
+import { TransactionType } from '../models';
+import { TransactionTypeJsonV200 } from '../models';
 import { TransactionTypesJsonV200 } from '../models';
-import { V500BanksBody } from '../models';
-import { V500BanksBody1 } from '../models';
 /**
  * BankApi - axios parameter creator
  * @export
@@ -67,7 +64,7 @@ export const BankApiAxiosParamCreator = function (configuration?: Configuration)
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv200GetTransactionTypes.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/transaction-types`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/transaction-types`
                 .replace(`{${"BANK_ID"}}`, encodeURIComponent(String(BANK_ID)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -114,12 +111,12 @@ export const BankApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * <p>Create Transaction Types for the bank specified by BANK_ID:</p><ul><li>id : Unique transaction type id across the API instance. SHOULD be a UUID. MUST be unique.</li><li>bank_id : The bank that supports this TransactionType</li><li>short_code : A short code (SHOULD have no-spaces) which MUST be unique across the bank. May be stored with Transactions to link here</li><li>summary : A succinct summary</li><li>description : A longer description</li><li>charge : The charge to the customer for each one of these</li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#bankid\"><strong>bankId</strong></a>:</p><p><a href=\"/glossary#charge\"><strong>charge</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#shortcode\"><strong>shortCode</strong></a>:</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create Transaction Type at bank
-         * @param {BANKIDTransactiontypesBody} body JObject object that needs to be added.
+         * @param {TransactionTypeJsonV200} body TransactionTypeJsonV200 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv210CreateTransactionType: async (body: BANKIDTransactiontypesBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv210CreateTransactionType: async (body: TransactionTypeJsonV200, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv210CreateTransactionType.');
@@ -353,12 +350,12 @@ export const BankApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * <p>Create an Account Webhook</p><p>Webhooks are used to call external URLs when certain events happen.</p><p>Account Webhooks focus on events around accounts.</p><p>For instance, a webhook could be used to notify an external service if a balance changes on an account.</p><p>This functionality is work in progress! Please note that only implemented trigger is: OnBalanceChange</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#account_webhook_id\"><strong>account_webhook_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p>
          * @summary Create an Account Webhook
-         * @param {BANKIDAccountwebhooksBody1} body JObject object that needs to be added.
+         * @param {AccountWebhookPostJson} body AccountWebhookPostJson object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv310CreateAccountWebhook: async (body: BANKIDAccountwebhooksBody1, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv310CreateAccountWebhook: async (body: AccountWebhookPostJson, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv310CreateAccountWebhook.');
@@ -418,12 +415,12 @@ export const BankApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * <p>Enable/Disable an Account Webhook</p><p>Webhooks are used to call external URLs when certain events happen.</p><p>Account Webhooks focus on events around accounts.</p><p>For instance, a webhook could be used to notify an external service if a balance changes on an account.</p><p>This functionality is work in progress! Please note that only implemented trigger is: OnBalanceChange</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#account_webhook_id\"><strong>account_webhook_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p>
          * @summary Enable/Disable an Account Webhook
-         * @param {BANKIDAccountwebhooksBody} body JObject object that needs to be added.
+         * @param {AccountWebhookPutJson} body AccountWebhookPutJson object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv310EnableDisableAccountWebhook: async (body: BANKIDAccountwebhooksBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv310EnableDisableAccountWebhook: async (body: AccountWebhookPutJson, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv310EnableDisableAccountWebhook.');
@@ -539,12 +536,12 @@ export const BankApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * <p>Create a notification Webhook that will fire for all accounts on the specified Bank.</p><p>Webhooks are used to call external web services when certain events happen.</p><p>For instance, a webhook can be used to notify an external service if a transaction is created on an account.</p><p>When an account notification webhook fires it will POST to the URL you specify during the creation of the webhook.</p><p>Inside the payload you will find account_id and transaction_id and also user_ids and customer_ids of the Users / Customers linked to the Account.</p><p>The webhook will POST the following structure to your service:</p><p>{<br />&quot;event_name&quot;: &quot;OnCreateTransaction&quot;,<br />&quot;event_id&quot;: &quot;9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;bank_id&quot;: &quot;gh.29.uk&quot;,<br />&quot;account_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;transaction_id&quot;: &quot;7ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;related_entities&quot;: [<br />{<br />&quot;user_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;customer_ids&quot;: [&quot;3ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;]<br />}<br />]<br />}</p><p>Thus, your service should accept the above POST body structure.</p><p>In this way, your web service can be informed about an event on an account and act accordingly.</p><p>Further information about the account, transaction or related entities can then be retrieved using the standard REST APIs.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#\"><strong>webhook_id</strong></a>: webhook_id</p>
          * @summary Create bank level Account Notification Webhook
-         * @param {NotificationsOncreatetransactionBody} body JObject object that needs to be added.
+         * @param {AccountNotificationWebhookPostJson} body AccountNotificationWebhookPostJson object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateBankAccountNotificationWebhook: async (body: NotificationsOncreatetransactionBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateBankAccountNotificationWebhook: async (body: AccountNotificationWebhookPostJson, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateBankAccountNotificationWebhook.');
@@ -604,12 +601,12 @@ export const BankApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * <p>Create Bank Attribute</p><p>Typical product attributes might be:</p><p>ISIN (for International bonds)<br />VKN (for German bonds)<br />REDCODE (markit short code for credit derivative)<br />LOAN_ID (e.g. used for Anacredit reporting)</p><p>ISSUE_DATE (When the bond was issued in the market)<br />MATURITY_DATE (End of life time of a product)<br />TRADABLE</p><p>See <a href=\"http://www.fpml.org/\">FPML</a> for more examples.</p><p>The type field must be one of &quot;STRING&quot;, &quot;INTEGER&quot;, &quot;DOUBLE&quot; or DATE_WITH_DAY&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_attribute_id</strong></a>: bank_attribute_id</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Create Bank Attribute
-         * @param {BANKIDAttributeBody} body JObject object that needs to be added.
+         * @param {BankAttributeJsonV400} body BankAttributeJsonV400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateBankAttribute: async (body: BANKIDAttributeBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateBankAttribute: async (body: BankAttributeJsonV400, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateBankAttribute.');
@@ -669,12 +666,12 @@ export const BankApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * <p>Create or Update Bank Attribute Definition</p><p>The category field must be Bank</p><p>The type field must be one of; DOUBLE, STRING, INTEGER and DATE_WITH_DAY</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#alias\"><strong>alias</strong></a>:</p><p><a href=\"/glossary#attribute_definition_id\"><strong>attribute_definition_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#can_be_seen_on_views\"><strong>can_be_seen_on_views</strong></a>: false</p><p><a href=\"/glossary#category\"><strong>category</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p>
          * @summary Create or Update Bank Attribute Definition
-         * @param {AttributedefinitionsBankBody} body JObject object that needs to be added.
+         * @param {AttributeDefinitionJsonV400} body AttributeDefinitionJsonV400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateOrUpdateBankAttributeDefinition: async (body: AttributedefinitionsBankBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateOrUpdateBankAttributeDefinition: async (body: AttributeDefinitionJsonV400, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateOrUpdateBankAttributeDefinition.');
@@ -734,12 +731,12 @@ export const BankApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * <p>Create a new settlement account at a bank.</p><p>The created settlement account id will be the concatenation of the payment system and the account currency.<br />For examples: SEPA_SETTLEMENT_ACCOUNT_EUR, CARD_SETTLEMENT_ACCOUNT_USD</p><p>By default, when you create a new bank, two settlements accounts are created automatically: OBP_DEFAULT_INCOMING_ACCOUNT_ID and OBP_DEFAULT_OUTGOING_ACCOUNT_ID<br />Those two accounts have EUR as default currency.</p><p>If you want to create default settlement account for a specific currency, you can fill the <code>payment_system</code> field with the <code>DEFAULT</code> value.</p><p>When a transaction is saved in OBP through the mapped connector, OBP-API look for the account to save the double-entry transaction.<br />If no OBP account can be found from the counterparty, the double-entry transaction will be saved on a bank settlement account.<br />- First, the mapped connector looks for a settlement account specific to the payment system and currency. E.g SEPA_SETTLEMENT_ACCOUNT_EUR.<br />- If we don't find any specific settlement account with the payment system, we look for a default settlement account for the counterparty currency. E.g DEFAULT_SETTLEMENT_ACCOUNT_EUR.<br />- Else, we select one of the two OBP default settlement accounts (OBP_DEFAULT_INCOMING_ACCOUNT_ID/OBP_DEFAULT_OUTGOING_ACCOUNT_ID) according to the transaction direction.</p><p>If the POST body USER_ID <em>is</em> specified, the logged in user must have the Role CanCreateAccount. Once created, the Account will be owned by the User specified by USER_ID.</p><p>If the POST body USER_ID is <em>not</em> specified, the account will be owned by the logged in User.</p><p>Note: The Amount MUST be zero.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#account_routings\"><strong>account_routings</strong></a>:</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#balance\"><strong>balance</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>branch_id</strong></a>: DERBY6</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>label</strong></a>: My Account</p><p><a href=\"/glossary#\"><strong>payment_system</strong></a>: SEPA</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#account_attribute_id\"><strong>account_attribute_id</strong></a>:</p><p><a href=\"/glossary#account_attributes\"><strong>account_attributes</strong></a>:</p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#account_routings\"><strong>account_routings</strong></a>:</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#balance\"><strong>balance</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>branch_id</strong></a>: DERBY6</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>label</strong></a>: My Account</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>payment_system</strong></a>: SEPA</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#\">product_instance_code</a>: product_instance_code</p>
          * @summary Create Settlement Account
-         * @param {BANKIDSettlementaccountsBody} body JObject object that needs to be added.
+         * @param {SettlementAccountRequestJson} body SettlementAccountRequestJson object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateSettlementAccount: async (body: BANKIDSettlementaccountsBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateSettlementAccount: async (body: SettlementAccountRequestJson, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateSettlementAccount.');
@@ -799,11 +796,11 @@ export const BankApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * <p>Create a notification Webhook that will fire for all accounts on the system.</p><p>Webhooks are used to call external web services when certain events happen.</p><p>For instance, a webhook can be used to notify an external service if a transaction is created on an account.</p><p>When an account notification webhook fires it will POST to the URL you specify during the creation of the webhook.</p><p>Inside the payload you will find account_id and transaction_id and also user_ids and customer_ids of the Users / Customers linked to the Account.</p><p>The webhook will POST the following structure to your service:</p><p>{<br />&quot;event_name&quot;: &quot;OnCreateTransaction&quot;,<br />&quot;event_id&quot;: &quot;9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;bank_id&quot;: &quot;gh.29.uk&quot;,<br />&quot;account_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;transaction_id&quot;: &quot;7ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;related_entities&quot;: [<br />{<br />&quot;user_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;customer_ids&quot;: [&quot;3ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;]<br />}<br />]<br />}</p><p>Thus, your service should accept the above POST body structure.</p><p>In this way, your web service can be informed about an event on an account and act accordingly.</p><p>Further information about the account, transaction or related entities can then be retrieved using the standard REST APIs.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#\"><strong>webhook_id</strong></a>: webhook_id</p>
          * @summary Create system level Account Notification Webhook
-         * @param {NotificationsOncreatetransactionBody1} body JObject object that needs to be added.
+         * @param {AccountNotificationWebhookPostJson} body AccountNotificationWebhookPostJson object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateSystemAccountNotificationWebhook: async (body: NotificationsOncreatetransactionBody1, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateSystemAccountNotificationWebhook: async (body: AccountNotificationWebhookPostJson, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateSystemAccountNotificationWebhook.');
@@ -1188,12 +1185,12 @@ export const BankApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * <p>Update Bank Attribute.</p><p>Update one Bak Attribute by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">BANK_ATTRIBUTE_ID</a>: BANK_ATTRIBUTE_ID</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#alias\"><strong>alias</strong></a>:</p><p><a href=\"/glossary#can_be_seen_on_views\"><strong>can_be_seen_on_views</strong></a>: false</p><p><a href=\"/glossary#category\"><strong>category</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p>
          * @summary Update Bank Attribute
-         * @param {AttributesBANKATTRIBUTEIDBody} body JObject object that needs to be added.
+         * @param {BankAttributeJsonV400} body BankAttributeJsonV400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateBankAttribute: async (body: AttributesBANKATTRIBUTEIDBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateBankAttribute: async (body: BankAttributeJsonV400, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateBankAttribute.');
@@ -1253,11 +1250,11 @@ export const BankApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * <p>Create a new bank (Authenticated access).</p><p>The user creating this will be automatically assigned the Role CanCreateEntitlementAtOneBank.<br />Thus the User can manage the bank they create and assign Roles to other Users.</p><p>Only SANDBOX mode<br />The settlement accounts are created specified by the bank in the POST body.<br />Name and account id are created in accordance to the next rules:<br />- Incoming account (name: Default incoming settlement account, Account ID: OBP_DEFAULT_INCOMING_ACCOUNT_ID, currency: EUR)<br />- Outgoing account (name: Default outgoing settlement account, Account ID: OBP_DEFAULT_OUTGOING_ACCOUNT_ID, currency: EUR)</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#bank_code\"><strong>bank_code</strong></a>: CGHZ</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#bank_routings\">bank_routings</a>: bank routing in form of (scheme, address)</p><p><a href=\"/glossary#full_name\">full_name</a>: full name string</p><p><a href=\"/glossary#id\">id</a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#logo\">logo</a>: logo url</p><p><a href=\"/glossary#website\">website</a>: <a href=\"http://www.openbankproject.com\">www.openbankproject.com</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#bank_code\"><strong>bank_code</strong></a>: CGHZ</p><p><a href=\"/glossary#bank_routings\"><strong>bank_routings</strong></a>: bank routing in form of (scheme, address)</p><p><a href=\"/glossary#full_name\"><strong>full_name</strong></a>: full name string</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#logo\"><strong>logo</strong></a>: logo url</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#website\"><strong>website</strong></a>: <a href=\"http://www.openbankproject.com\">www.openbankproject.com</a></p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p>
          * @summary Create Bank
-         * @param {V500BanksBody1} body JObject object that needs to be added.
+         * @param {PostBankJson500} body PostBankJson500 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv500CreateBank: async (body: V500BanksBody1, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv500CreateBank: async (body: PostBankJson500, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv500CreateBank.');
@@ -1368,11 +1365,11 @@ export const BankApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * <p>Update an existing bank (Authenticated access).</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#bank_code\"><strong>bank_code</strong></a>: CGHZ</p><p><a href=\"/glossary#bank_routings\"><strong>bank_routings</strong></a>: bank routing in form of (scheme, address)</p><p><a href=\"/glossary#full_name\"><strong>full_name</strong></a>: full name string</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#logo\"><strong>logo</strong></a>: logo url</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#website\"><strong>website</strong></a>: <a href=\"http://www.openbankproject.com\">www.openbankproject.com</a></p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p>
          * @summary Update Bank
-         * @param {V500BanksBody} body JObject object that needs to be added.
+         * @param {PostBankJson500} body PostBankJson500 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv500UpdateBank: async (body: V500BanksBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv500UpdateBank: async (body: PostBankJson500, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv500UpdateBank.');
@@ -1450,12 +1447,12 @@ export const BankApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create Transaction Types for the bank specified by BANK_ID:</p><ul><li>id : Unique transaction type id across the API instance. SHOULD be a UUID. MUST be unique.</li><li>bank_id : The bank that supports this TransactionType</li><li>short_code : A short code (SHOULD have no-spaces) which MUST be unique across the bank. May be stored with Transactions to link here</li><li>summary : A succinct summary</li><li>description : A longer description</li><li>charge : The charge to the customer for each one of these</li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#bankid\"><strong>bankId</strong></a>:</p><p><a href=\"/glossary#charge\"><strong>charge</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#shortcode\"><strong>shortCode</strong></a>:</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create Transaction Type at bank
-         * @param {BANKIDTransactiontypesBody} body JObject object that needs to be added.
+         * @param {TransactionTypeJsonV200} body TransactionTypeJsonV200 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv210CreateTransactionType(body: BANKIDTransactiontypesBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2001>>> {
+        async oBPv210CreateTransactionType(body: TransactionTypeJsonV200, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<TransactionType>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv210CreateTransactionType(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1469,7 +1466,7 @@ export const BankApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv210GetTransactionRequestTypesSupportedByBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200>>> {
+        async oBPv210GetTransactionRequestTypesSupportedByBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<TransactionRequestTypesJSON>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv210GetTransactionRequestTypesSupportedByBank(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1484,7 +1481,7 @@ export const BankApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300GetBranch(BRANCH_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2013>>> {
+        async oBPv300GetBranch(BRANCH_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BranchJsonV300>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv300GetBranch(BRANCH_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1498,7 +1495,7 @@ export const BankApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300GetBranches(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20016>>> {
+        async oBPv300GetBranches(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BranchesJsonV300>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv300GetBranches(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1508,12 +1505,12 @@ export const BankApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create an Account Webhook</p><p>Webhooks are used to call external URLs when certain events happen.</p><p>Account Webhooks focus on events around accounts.</p><p>For instance, a webhook could be used to notify an external service if a balance changes on an account.</p><p>This functionality is work in progress! Please note that only implemented trigger is: OnBalanceChange</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#account_webhook_id\"><strong>account_webhook_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p>
          * @summary Create an Account Webhook
-         * @param {BANKIDAccountwebhooksBody1} body JObject object that needs to be added.
+         * @param {AccountWebhookPostJson} body AccountWebhookPostJson object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310CreateAccountWebhook(body: BANKIDAccountwebhooksBody1, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20023>>> {
+        async oBPv310CreateAccountWebhook(body: AccountWebhookPostJson, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AccountWebhookJson>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv310CreateAccountWebhook(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1523,12 +1520,12 @@ export const BankApiFp = function(configuration?: Configuration) {
         /**
          * <p>Enable/Disable an Account Webhook</p><p>Webhooks are used to call external URLs when certain events happen.</p><p>Account Webhooks focus on events around accounts.</p><p>For instance, a webhook could be used to notify an external service if a balance changes on an account.</p><p>This functionality is work in progress! Please note that only implemented trigger is: OnBalanceChange</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#account_webhook_id\"><strong>account_webhook_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p>
          * @summary Enable/Disable an Account Webhook
-         * @param {BANKIDAccountwebhooksBody} body JObject object that needs to be added.
+         * @param {AccountWebhookPutJson} body AccountWebhookPutJson object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310EnableDisableAccountWebhook(body: BANKIDAccountwebhooksBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20023>>> {
+        async oBPv310EnableDisableAccountWebhook(body: AccountWebhookPutJson, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AccountWebhookJson>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv310EnableDisableAccountWebhook(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1542,7 +1539,7 @@ export const BankApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetAccountWebhooks(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20042>>> {
+        async oBPv310GetAccountWebhooks(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AccountWebhooksJson>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv310GetAccountWebhooks(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1552,12 +1549,12 @@ export const BankApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create a notification Webhook that will fire for all accounts on the specified Bank.</p><p>Webhooks are used to call external web services when certain events happen.</p><p>For instance, a webhook can be used to notify an external service if a transaction is created on an account.</p><p>When an account notification webhook fires it will POST to the URL you specify during the creation of the webhook.</p><p>Inside the payload you will find account_id and transaction_id and also user_ids and customer_ids of the Users / Customers linked to the Account.</p><p>The webhook will POST the following structure to your service:</p><p>{<br />&quot;event_name&quot;: &quot;OnCreateTransaction&quot;,<br />&quot;event_id&quot;: &quot;9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;bank_id&quot;: &quot;gh.29.uk&quot;,<br />&quot;account_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;transaction_id&quot;: &quot;7ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;related_entities&quot;: [<br />{<br />&quot;user_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;customer_ids&quot;: [&quot;3ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;]<br />}<br />]<br />}</p><p>Thus, your service should accept the above POST body structure.</p><p>In this way, your web service can be informed about an event on an account and act accordingly.</p><p>Further information about the account, transaction or related entities can then be retrieved using the standard REST APIs.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#\"><strong>webhook_id</strong></a>: webhook_id</p>
          * @summary Create bank level Account Notification Webhook
-         * @param {NotificationsOncreatetransactionBody} body JObject object that needs to be added.
+         * @param {AccountNotificationWebhookPostJson} body AccountNotificationWebhookPostJson object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateBankAccountNotificationWebhook(body: NotificationsOncreatetransactionBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20132>>> {
+        async oBPv400CreateBankAccountNotificationWebhook(body: AccountNotificationWebhookPostJson, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BankAccountNotificationWebhookJson>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv400CreateBankAccountNotificationWebhook(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1567,12 +1564,12 @@ export const BankApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create Bank Attribute</p><p>Typical product attributes might be:</p><p>ISIN (for International bonds)<br />VKN (for German bonds)<br />REDCODE (markit short code for credit derivative)<br />LOAN_ID (e.g. used for Anacredit reporting)</p><p>ISSUE_DATE (When the bond was issued in the market)<br />MATURITY_DATE (End of life time of a product)<br />TRADABLE</p><p>See <a href=\"http://www.fpml.org/\">FPML</a> for more examples.</p><p>The type field must be one of &quot;STRING&quot;, &quot;INTEGER&quot;, &quot;DOUBLE&quot; or DATE_WITH_DAY&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_attribute_id</strong></a>: bank_attribute_id</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Create Bank Attribute
-         * @param {BANKIDAttributeBody} body JObject object that needs to be added.
+         * @param {BankAttributeJsonV400} body BankAttributeJsonV400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateBankAttribute(body: BANKIDAttributeBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20125>>> {
+        async oBPv400CreateBankAttribute(body: BankAttributeJsonV400, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BankAttributeResponseJsonV400>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv400CreateBankAttribute(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1582,12 +1579,12 @@ export const BankApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create or Update Bank Attribute Definition</p><p>The category field must be Bank</p><p>The type field must be one of; DOUBLE, STRING, INTEGER and DATE_WITH_DAY</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#alias\"><strong>alias</strong></a>:</p><p><a href=\"/glossary#attribute_definition_id\"><strong>attribute_definition_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#can_be_seen_on_views\"><strong>can_be_seen_on_views</strong></a>: false</p><p><a href=\"/glossary#category\"><strong>category</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p>
          * @summary Create or Update Bank Attribute Definition
-         * @param {AttributedefinitionsBankBody} body JObject object that needs to be added.
+         * @param {AttributeDefinitionJsonV400} body AttributeDefinitionJsonV400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateOrUpdateBankAttributeDefinition(body: AttributedefinitionsBankBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20076>>> {
+        async oBPv400CreateOrUpdateBankAttributeDefinition(body: AttributeDefinitionJsonV400, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AttributeDefinitionResponseJsonV400>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv400CreateOrUpdateBankAttributeDefinition(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1597,12 +1594,12 @@ export const BankApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create a new settlement account at a bank.</p><p>The created settlement account id will be the concatenation of the payment system and the account currency.<br />For examples: SEPA_SETTLEMENT_ACCOUNT_EUR, CARD_SETTLEMENT_ACCOUNT_USD</p><p>By default, when you create a new bank, two settlements accounts are created automatically: OBP_DEFAULT_INCOMING_ACCOUNT_ID and OBP_DEFAULT_OUTGOING_ACCOUNT_ID<br />Those two accounts have EUR as default currency.</p><p>If you want to create default settlement account for a specific currency, you can fill the <code>payment_system</code> field with the <code>DEFAULT</code> value.</p><p>When a transaction is saved in OBP through the mapped connector, OBP-API look for the account to save the double-entry transaction.<br />If no OBP account can be found from the counterparty, the double-entry transaction will be saved on a bank settlement account.<br />- First, the mapped connector looks for a settlement account specific to the payment system and currency. E.g SEPA_SETTLEMENT_ACCOUNT_EUR.<br />- If we don't find any specific settlement account with the payment system, we look for a default settlement account for the counterparty currency. E.g DEFAULT_SETTLEMENT_ACCOUNT_EUR.<br />- Else, we select one of the two OBP default settlement accounts (OBP_DEFAULT_INCOMING_ACCOUNT_ID/OBP_DEFAULT_OUTGOING_ACCOUNT_ID) according to the transaction direction.</p><p>If the POST body USER_ID <em>is</em> specified, the logged in user must have the Role CanCreateAccount. Once created, the Account will be owned by the User specified by USER_ID.</p><p>If the POST body USER_ID is <em>not</em> specified, the account will be owned by the logged in User.</p><p>Note: The Amount MUST be zero.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#account_routings\"><strong>account_routings</strong></a>:</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#balance\"><strong>balance</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>branch_id</strong></a>: DERBY6</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>label</strong></a>: My Account</p><p><a href=\"/glossary#\"><strong>payment_system</strong></a>: SEPA</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#account_attribute_id\"><strong>account_attribute_id</strong></a>:</p><p><a href=\"/glossary#account_attributes\"><strong>account_attributes</strong></a>:</p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#account_routings\"><strong>account_routings</strong></a>:</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#balance\"><strong>balance</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>branch_id</strong></a>: DERBY6</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>label</strong></a>: My Account</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>payment_system</strong></a>: SEPA</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#\">product_instance_code</a>: product_instance_code</p>
          * @summary Create Settlement Account
-         * @param {BANKIDSettlementaccountsBody} body JObject object that needs to be added.
+         * @param {SettlementAccountRequestJson} body SettlementAccountRequestJson object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateSettlementAccount(body: BANKIDSettlementaccountsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20129>>> {
+        async oBPv400CreateSettlementAccount(body: SettlementAccountRequestJson, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<SettlementAccountResponseJson>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv400CreateSettlementAccount(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1612,11 +1609,11 @@ export const BankApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create a notification Webhook that will fire for all accounts on the system.</p><p>Webhooks are used to call external web services when certain events happen.</p><p>For instance, a webhook can be used to notify an external service if a transaction is created on an account.</p><p>When an account notification webhook fires it will POST to the URL you specify during the creation of the webhook.</p><p>Inside the payload you will find account_id and transaction_id and also user_ids and customer_ids of the Users / Customers linked to the Account.</p><p>The webhook will POST the following structure to your service:</p><p>{<br />&quot;event_name&quot;: &quot;OnCreateTransaction&quot;,<br />&quot;event_id&quot;: &quot;9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;bank_id&quot;: &quot;gh.29.uk&quot;,<br />&quot;account_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;transaction_id&quot;: &quot;7ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;related_entities&quot;: [<br />{<br />&quot;user_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;customer_ids&quot;: [&quot;3ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;]<br />}<br />]<br />}</p><p>Thus, your service should accept the above POST body structure.</p><p>In this way, your web service can be informed about an event on an account and act accordingly.</p><p>Further information about the account, transaction or related entities can then be retrieved using the standard REST APIs.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#\"><strong>webhook_id</strong></a>: webhook_id</p>
          * @summary Create system level Account Notification Webhook
-         * @param {NotificationsOncreatetransactionBody1} body JObject object that needs to be added.
+         * @param {AccountNotificationWebhookPostJson} body AccountNotificationWebhookPostJson object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateSystemAccountNotificationWebhook(body: NotificationsOncreatetransactionBody1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20146>>> {
+        async oBPv400CreateSystemAccountNotificationWebhook(body: AccountNotificationWebhookPostJson, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<SystemAccountNotificationWebhookJson>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv400CreateSystemAccountNotificationWebhook(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1658,7 +1655,7 @@ export const BankApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBankAttribute(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20125>>> {
+        async oBPv400GetBankAttribute(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BankAttributeResponseJsonV400>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv400GetBankAttribute(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1672,7 +1669,7 @@ export const BankApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBankAttributes(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20087>>> {
+        async oBPv400GetBankAttributes(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BankAttributesResponseJsonV400>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv400GetBankAttributes(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1685,7 +1682,7 @@ export const BankApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBanks(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20059>>> {
+        async oBPv400GetBanks(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BanksJson400>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv400GetBanks(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1699,7 +1696,7 @@ export const BankApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetSettlementAccounts(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20098>>> {
+        async oBPv400GetSettlementAccounts(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<SettlementAccountsJson>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv400GetSettlementAccounts(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1709,12 +1706,12 @@ export const BankApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update Bank Attribute.</p><p>Update one Bak Attribute by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">BANK_ATTRIBUTE_ID</a>: BANK_ATTRIBUTE_ID</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#alias\"><strong>alias</strong></a>:</p><p><a href=\"/glossary#can_be_seen_on_views\"><strong>can_be_seen_on_views</strong></a>: false</p><p><a href=\"/glossary#category\"><strong>category</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p>
          * @summary Update Bank Attribute
-         * @param {AttributesBANKATTRIBUTEIDBody} body JObject object that needs to be added.
+         * @param {BankAttributeJsonV400} body BankAttributeJsonV400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateBankAttribute(body: AttributesBANKATTRIBUTEIDBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AttributedefinitionsBankBody>>> {
+        async oBPv400UpdateBankAttribute(body: BankAttributeJsonV400, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AttributeDefinitionJsonV400>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv400UpdateBankAttribute(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1724,11 +1721,11 @@ export const BankApiFp = function(configuration?: Configuration) {
         /**
          * <p>Create a new bank (Authenticated access).</p><p>The user creating this will be automatically assigned the Role CanCreateEntitlementAtOneBank.<br />Thus the User can manage the bank they create and assign Roles to other Users.</p><p>Only SANDBOX mode<br />The settlement accounts are created specified by the bank in the POST body.<br />Name and account id are created in accordance to the next rules:<br />- Incoming account (name: Default incoming settlement account, Account ID: OBP_DEFAULT_INCOMING_ACCOUNT_ID, currency: EUR)<br />- Outgoing account (name: Default outgoing settlement account, Account ID: OBP_DEFAULT_OUTGOING_ACCOUNT_ID, currency: EUR)</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#bank_code\"><strong>bank_code</strong></a>: CGHZ</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#bank_routings\">bank_routings</a>: bank routing in form of (scheme, address)</p><p><a href=\"/glossary#full_name\">full_name</a>: full name string</p><p><a href=\"/glossary#id\">id</a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#logo\">logo</a>: logo url</p><p><a href=\"/glossary#website\">website</a>: <a href=\"http://www.openbankproject.com\">www.openbankproject.com</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#bank_code\"><strong>bank_code</strong></a>: CGHZ</p><p><a href=\"/glossary#bank_routings\"><strong>bank_routings</strong></a>: bank routing in form of (scheme, address)</p><p><a href=\"/glossary#full_name\"><strong>full_name</strong></a>: full name string</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#logo\"><strong>logo</strong></a>: logo url</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#website\"><strong>website</strong></a>: <a href=\"http://www.openbankproject.com\">www.openbankproject.com</a></p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p>
          * @summary Create Bank
-         * @param {V500BanksBody1} body JObject object that needs to be added.
+         * @param {PostBankJson500} body PostBankJson500 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv500CreateBank(body: V500BanksBody1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200127>>> {
+        async oBPv500CreateBank(body: PostBankJson500, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BankJson500>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv500CreateBank(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1742,7 +1739,7 @@ export const BankApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv500GetBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200127>>> {
+        async oBPv500GetBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BankJson500>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv500GetBank(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1752,11 +1749,11 @@ export const BankApiFp = function(configuration?: Configuration) {
         /**
          * <p>Update an existing bank (Authenticated access).</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#bank_code\"><strong>bank_code</strong></a>: CGHZ</p><p><a href=\"/glossary#bank_routings\"><strong>bank_routings</strong></a>: bank routing in form of (scheme, address)</p><p><a href=\"/glossary#full_name\"><strong>full_name</strong></a>: full name string</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#logo\"><strong>logo</strong></a>: logo url</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#website\"><strong>website</strong></a>: <a href=\"http://www.openbankproject.com\">www.openbankproject.com</a></p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p>
          * @summary Update Bank
-         * @param {V500BanksBody} body JObject object that needs to be added.
+         * @param {PostBankJson500} body PostBankJson500 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv500UpdateBank(body: V500BanksBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200127>>> {
+        async oBPv500UpdateBank(body: PostBankJson500, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BankJson500>>> {
             const localVarAxiosArgs = await BankApiAxiosParamCreator(configuration).oBPv500UpdateBank(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1785,12 +1782,12 @@ export const BankApiFactory = function (configuration?: Configuration, basePath?
         /**
          * <p>Create Transaction Types for the bank specified by BANK_ID:</p><ul><li>id : Unique transaction type id across the API instance. SHOULD be a UUID. MUST be unique.</li><li>bank_id : The bank that supports this TransactionType</li><li>short_code : A short code (SHOULD have no-spaces) which MUST be unique across the bank. May be stored with Transactions to link here</li><li>summary : A succinct summary</li><li>description : A longer description</li><li>charge : The charge to the customer for each one of these</li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#bankid\"><strong>bankId</strong></a>:</p><p><a href=\"/glossary#charge\"><strong>charge</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#shortcode\"><strong>shortCode</strong></a>:</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create Transaction Type at bank
-         * @param {BANKIDTransactiontypesBody} body JObject object that needs to be added.
+         * @param {TransactionTypeJsonV200} body TransactionTypeJsonV200 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv210CreateTransactionType(body: BANKIDTransactiontypesBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2001>> {
+        async oBPv210CreateTransactionType(body: TransactionTypeJsonV200, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<TransactionType>> {
             return BankApiFp(configuration).oBPv210CreateTransactionType(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1800,7 +1797,7 @@ export const BankApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv210GetTransactionRequestTypesSupportedByBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200>> {
+        async oBPv210GetTransactionRequestTypesSupportedByBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<TransactionRequestTypesJSON>> {
             return BankApiFp(configuration).oBPv210GetTransactionRequestTypesSupportedByBank(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1811,7 +1808,7 @@ export const BankApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300GetBranch(BRANCH_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2013>> {
+        async oBPv300GetBranch(BRANCH_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<BranchJsonV300>> {
             return BankApiFp(configuration).oBPv300GetBranch(BRANCH_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1821,29 +1818,29 @@ export const BankApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300GetBranches(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20016>> {
+        async oBPv300GetBranches(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<BranchesJsonV300>> {
             return BankApiFp(configuration).oBPv300GetBranches(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create an Account Webhook</p><p>Webhooks are used to call external URLs when certain events happen.</p><p>Account Webhooks focus on events around accounts.</p><p>For instance, a webhook could be used to notify an external service if a balance changes on an account.</p><p>This functionality is work in progress! Please note that only implemented trigger is: OnBalanceChange</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#account_webhook_id\"><strong>account_webhook_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p>
          * @summary Create an Account Webhook
-         * @param {BANKIDAccountwebhooksBody1} body JObject object that needs to be added.
+         * @param {AccountWebhookPostJson} body AccountWebhookPostJson object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310CreateAccountWebhook(body: BANKIDAccountwebhooksBody1, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20023>> {
+        async oBPv310CreateAccountWebhook(body: AccountWebhookPostJson, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AccountWebhookJson>> {
             return BankApiFp(configuration).oBPv310CreateAccountWebhook(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Enable/Disable an Account Webhook</p><p>Webhooks are used to call external URLs when certain events happen.</p><p>Account Webhooks focus on events around accounts.</p><p>For instance, a webhook could be used to notify an external service if a balance changes on an account.</p><p>This functionality is work in progress! Please note that only implemented trigger is: OnBalanceChange</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#account_webhook_id\"><strong>account_webhook_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p>
          * @summary Enable/Disable an Account Webhook
-         * @param {BANKIDAccountwebhooksBody} body JObject object that needs to be added.
+         * @param {AccountWebhookPutJson} body AccountWebhookPutJson object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310EnableDisableAccountWebhook(body: BANKIDAccountwebhooksBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20023>> {
+        async oBPv310EnableDisableAccountWebhook(body: AccountWebhookPutJson, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AccountWebhookJson>> {
             return BankApiFp(configuration).oBPv310EnableDisableAccountWebhook(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1853,61 +1850,61 @@ export const BankApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv310GetAccountWebhooks(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20042>> {
+        async oBPv310GetAccountWebhooks(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AccountWebhooksJson>> {
             return BankApiFp(configuration).oBPv310GetAccountWebhooks(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create a notification Webhook that will fire for all accounts on the specified Bank.</p><p>Webhooks are used to call external web services when certain events happen.</p><p>For instance, a webhook can be used to notify an external service if a transaction is created on an account.</p><p>When an account notification webhook fires it will POST to the URL you specify during the creation of the webhook.</p><p>Inside the payload you will find account_id and transaction_id and also user_ids and customer_ids of the Users / Customers linked to the Account.</p><p>The webhook will POST the following structure to your service:</p><p>{<br />&quot;event_name&quot;: &quot;OnCreateTransaction&quot;,<br />&quot;event_id&quot;: &quot;9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;bank_id&quot;: &quot;gh.29.uk&quot;,<br />&quot;account_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;transaction_id&quot;: &quot;7ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;related_entities&quot;: [<br />{<br />&quot;user_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;customer_ids&quot;: [&quot;3ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;]<br />}<br />]<br />}</p><p>Thus, your service should accept the above POST body structure.</p><p>In this way, your web service can be informed about an event on an account and act accordingly.</p><p>Further information about the account, transaction or related entities can then be retrieved using the standard REST APIs.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#\"><strong>webhook_id</strong></a>: webhook_id</p>
          * @summary Create bank level Account Notification Webhook
-         * @param {NotificationsOncreatetransactionBody} body JObject object that needs to be added.
+         * @param {AccountNotificationWebhookPostJson} body AccountNotificationWebhookPostJson object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateBankAccountNotificationWebhook(body: NotificationsOncreatetransactionBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20132>> {
+        async oBPv400CreateBankAccountNotificationWebhook(body: AccountNotificationWebhookPostJson, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<BankAccountNotificationWebhookJson>> {
             return BankApiFp(configuration).oBPv400CreateBankAccountNotificationWebhook(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create Bank Attribute</p><p>Typical product attributes might be:</p><p>ISIN (for International bonds)<br />VKN (for German bonds)<br />REDCODE (markit short code for credit derivative)<br />LOAN_ID (e.g. used for Anacredit reporting)</p><p>ISSUE_DATE (When the bond was issued in the market)<br />MATURITY_DATE (End of life time of a product)<br />TRADABLE</p><p>See <a href=\"http://www.fpml.org/\">FPML</a> for more examples.</p><p>The type field must be one of &quot;STRING&quot;, &quot;INTEGER&quot;, &quot;DOUBLE&quot; or DATE_WITH_DAY&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_attribute_id</strong></a>: bank_attribute_id</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
          * @summary Create Bank Attribute
-         * @param {BANKIDAttributeBody} body JObject object that needs to be added.
+         * @param {BankAttributeJsonV400} body BankAttributeJsonV400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateBankAttribute(body: BANKIDAttributeBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20125>> {
+        async oBPv400CreateBankAttribute(body: BankAttributeJsonV400, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<BankAttributeResponseJsonV400>> {
             return BankApiFp(configuration).oBPv400CreateBankAttribute(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create or Update Bank Attribute Definition</p><p>The category field must be Bank</p><p>The type field must be one of; DOUBLE, STRING, INTEGER and DATE_WITH_DAY</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#alias\"><strong>alias</strong></a>:</p><p><a href=\"/glossary#attribute_definition_id\"><strong>attribute_definition_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#can_be_seen_on_views\"><strong>can_be_seen_on_views</strong></a>: false</p><p><a href=\"/glossary#category\"><strong>category</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p>
          * @summary Create or Update Bank Attribute Definition
-         * @param {AttributedefinitionsBankBody} body JObject object that needs to be added.
+         * @param {AttributeDefinitionJsonV400} body AttributeDefinitionJsonV400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateOrUpdateBankAttributeDefinition(body: AttributedefinitionsBankBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20076>> {
+        async oBPv400CreateOrUpdateBankAttributeDefinition(body: AttributeDefinitionJsonV400, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AttributeDefinitionResponseJsonV400>> {
             return BankApiFp(configuration).oBPv400CreateOrUpdateBankAttributeDefinition(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create a new settlement account at a bank.</p><p>The created settlement account id will be the concatenation of the payment system and the account currency.<br />For examples: SEPA_SETTLEMENT_ACCOUNT_EUR, CARD_SETTLEMENT_ACCOUNT_USD</p><p>By default, when you create a new bank, two settlements accounts are created automatically: OBP_DEFAULT_INCOMING_ACCOUNT_ID and OBP_DEFAULT_OUTGOING_ACCOUNT_ID<br />Those two accounts have EUR as default currency.</p><p>If you want to create default settlement account for a specific currency, you can fill the <code>payment_system</code> field with the <code>DEFAULT</code> value.</p><p>When a transaction is saved in OBP through the mapped connector, OBP-API look for the account to save the double-entry transaction.<br />If no OBP account can be found from the counterparty, the double-entry transaction will be saved on a bank settlement account.<br />- First, the mapped connector looks for a settlement account specific to the payment system and currency. E.g SEPA_SETTLEMENT_ACCOUNT_EUR.<br />- If we don't find any specific settlement account with the payment system, we look for a default settlement account for the counterparty currency. E.g DEFAULT_SETTLEMENT_ACCOUNT_EUR.<br />- Else, we select one of the two OBP default settlement accounts (OBP_DEFAULT_INCOMING_ACCOUNT_ID/OBP_DEFAULT_OUTGOING_ACCOUNT_ID) according to the transaction direction.</p><p>If the POST body USER_ID <em>is</em> specified, the logged in user must have the Role CanCreateAccount. Once created, the Account will be owned by the User specified by USER_ID.</p><p>If the POST body USER_ID is <em>not</em> specified, the account will be owned by the logged in User.</p><p>Note: The Amount MUST be zero.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#account_routings\"><strong>account_routings</strong></a>:</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#balance\"><strong>balance</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>branch_id</strong></a>: DERBY6</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>label</strong></a>: My Account</p><p><a href=\"/glossary#\"><strong>payment_system</strong></a>: SEPA</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#account_attribute_id\"><strong>account_attribute_id</strong></a>:</p><p><a href=\"/glossary#account_attributes\"><strong>account_attributes</strong></a>:</p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#account_routings\"><strong>account_routings</strong></a>:</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#balance\"><strong>balance</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>branch_id</strong></a>: DERBY6</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>label</strong></a>: My Account</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>payment_system</strong></a>: SEPA</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#\">product_instance_code</a>: product_instance_code</p>
          * @summary Create Settlement Account
-         * @param {BANKIDSettlementaccountsBody} body JObject object that needs to be added.
+         * @param {SettlementAccountRequestJson} body SettlementAccountRequestJson object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateSettlementAccount(body: BANKIDSettlementaccountsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20129>> {
+        async oBPv400CreateSettlementAccount(body: SettlementAccountRequestJson, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<SettlementAccountResponseJson>> {
             return BankApiFp(configuration).oBPv400CreateSettlementAccount(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create a notification Webhook that will fire for all accounts on the system.</p><p>Webhooks are used to call external web services when certain events happen.</p><p>For instance, a webhook can be used to notify an external service if a transaction is created on an account.</p><p>When an account notification webhook fires it will POST to the URL you specify during the creation of the webhook.</p><p>Inside the payload you will find account_id and transaction_id and also user_ids and customer_ids of the Users / Customers linked to the Account.</p><p>The webhook will POST the following structure to your service:</p><p>{<br />&quot;event_name&quot;: &quot;OnCreateTransaction&quot;,<br />&quot;event_id&quot;: &quot;9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;bank_id&quot;: &quot;gh.29.uk&quot;,<br />&quot;account_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;transaction_id&quot;: &quot;7ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;related_entities&quot;: [<br />{<br />&quot;user_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;customer_ids&quot;: [&quot;3ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;]<br />}<br />]<br />}</p><p>Thus, your service should accept the above POST body structure.</p><p>In this way, your web service can be informed about an event on an account and act accordingly.</p><p>Further information about the account, transaction or related entities can then be retrieved using the standard REST APIs.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#\"><strong>webhook_id</strong></a>: webhook_id</p>
          * @summary Create system level Account Notification Webhook
-         * @param {NotificationsOncreatetransactionBody1} body JObject object that needs to be added.
+         * @param {AccountNotificationWebhookPostJson} body AccountNotificationWebhookPostJson object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateSystemAccountNotificationWebhook(body: NotificationsOncreatetransactionBody1, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20146>> {
+        async oBPv400CreateSystemAccountNotificationWebhook(body: AccountNotificationWebhookPostJson, options?: AxiosRequestConfig): Promise<AxiosResponse<SystemAccountNotificationWebhookJson>> {
             return BankApiFp(configuration).oBPv400CreateSystemAccountNotificationWebhook(body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1937,7 +1934,7 @@ export const BankApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBankAttribute(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20125>> {
+        async oBPv400GetBankAttribute(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<BankAttributeResponseJsonV400>> {
             return BankApiFp(configuration).oBPv400GetBankAttribute(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1947,7 +1944,7 @@ export const BankApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBankAttributes(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20087>> {
+        async oBPv400GetBankAttributes(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<BankAttributesResponseJsonV400>> {
             return BankApiFp(configuration).oBPv400GetBankAttributes(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1956,7 +1953,7 @@ export const BankApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBanks(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20059>> {
+        async oBPv400GetBanks(options?: AxiosRequestConfig): Promise<AxiosResponse<BanksJson400>> {
             return BankApiFp(configuration).oBPv400GetBanks(options).then((request) => request(axios, basePath));
         },
         /**
@@ -1966,28 +1963,28 @@ export const BankApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetSettlementAccounts(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20098>> {
+        async oBPv400GetSettlementAccounts(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<SettlementAccountsJson>> {
             return BankApiFp(configuration).oBPv400GetSettlementAccounts(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update Bank Attribute.</p><p>Update one Bak Attribute by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">BANK_ATTRIBUTE_ID</a>: BANK_ATTRIBUTE_ID</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#alias\"><strong>alias</strong></a>:</p><p><a href=\"/glossary#can_be_seen_on_views\"><strong>can_be_seen_on_views</strong></a>: false</p><p><a href=\"/glossary#category\"><strong>category</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p>
          * @summary Update Bank Attribute
-         * @param {AttributesBANKATTRIBUTEIDBody} body JObject object that needs to be added.
+         * @param {BankAttributeJsonV400} body BankAttributeJsonV400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateBankAttribute(body: AttributesBANKATTRIBUTEIDBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AttributedefinitionsBankBody>> {
+        async oBPv400UpdateBankAttribute(body: BankAttributeJsonV400, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AttributeDefinitionJsonV400>> {
             return BankApiFp(configuration).oBPv400UpdateBankAttribute(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Create a new bank (Authenticated access).</p><p>The user creating this will be automatically assigned the Role CanCreateEntitlementAtOneBank.<br />Thus the User can manage the bank they create and assign Roles to other Users.</p><p>Only SANDBOX mode<br />The settlement accounts are created specified by the bank in the POST body.<br />Name and account id are created in accordance to the next rules:<br />- Incoming account (name: Default incoming settlement account, Account ID: OBP_DEFAULT_INCOMING_ACCOUNT_ID, currency: EUR)<br />- Outgoing account (name: Default outgoing settlement account, Account ID: OBP_DEFAULT_OUTGOING_ACCOUNT_ID, currency: EUR)</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#bank_code\"><strong>bank_code</strong></a>: CGHZ</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#bank_routings\">bank_routings</a>: bank routing in form of (scheme, address)</p><p><a href=\"/glossary#full_name\">full_name</a>: full name string</p><p><a href=\"/glossary#id\">id</a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#logo\">logo</a>: logo url</p><p><a href=\"/glossary#website\">website</a>: <a href=\"http://www.openbankproject.com\">www.openbankproject.com</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#bank_code\"><strong>bank_code</strong></a>: CGHZ</p><p><a href=\"/glossary#bank_routings\"><strong>bank_routings</strong></a>: bank routing in form of (scheme, address)</p><p><a href=\"/glossary#full_name\"><strong>full_name</strong></a>: full name string</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#logo\"><strong>logo</strong></a>: logo url</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#website\"><strong>website</strong></a>: <a href=\"http://www.openbankproject.com\">www.openbankproject.com</a></p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p>
          * @summary Create Bank
-         * @param {V500BanksBody1} body JObject object that needs to be added.
+         * @param {PostBankJson500} body PostBankJson500 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv500CreateBank(body: V500BanksBody1, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200127>> {
+        async oBPv500CreateBank(body: PostBankJson500, options?: AxiosRequestConfig): Promise<AxiosResponse<BankJson500>> {
             return BankApiFp(configuration).oBPv500CreateBank(body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1997,17 +1994,17 @@ export const BankApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv500GetBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200127>> {
+        async oBPv500GetBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<BankJson500>> {
             return BankApiFp(configuration).oBPv500GetBank(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update an existing bank (Authenticated access).</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#bank_code\"><strong>bank_code</strong></a>: CGHZ</p><p><a href=\"/glossary#bank_routings\"><strong>bank_routings</strong></a>: bank routing in form of (scheme, address)</p><p><a href=\"/glossary#full_name\"><strong>full_name</strong></a>: full name string</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#logo\"><strong>logo</strong></a>: logo url</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#website\"><strong>website</strong></a>: <a href=\"http://www.openbankproject.com\">www.openbankproject.com</a></p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p>
          * @summary Update Bank
-         * @param {V500BanksBody} body JObject object that needs to be added.
+         * @param {PostBankJson500} body PostBankJson500 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv500UpdateBank(body: V500BanksBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200127>> {
+        async oBPv500UpdateBank(body: PostBankJson500, options?: AxiosRequestConfig): Promise<AxiosResponse<BankJson500>> {
             return BankApiFp(configuration).oBPv500UpdateBank(body, options).then((request) => request(axios, basePath));
         },
     };
@@ -2034,13 +2031,13 @@ export class BankApi extends BaseAPI {
     /**
      * <p>Create Transaction Types for the bank specified by BANK_ID:</p><ul><li>id : Unique transaction type id across the API instance. SHOULD be a UUID. MUST be unique.</li><li>bank_id : The bank that supports this TransactionType</li><li>short_code : A short code (SHOULD have no-spaces) which MUST be unique across the bank. May be stored with Transactions to link here</li><li>summary : A succinct summary</li><li>description : A longer description</li><li>charge : The charge to the customer for each one of these</li></ul><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#bankid\"><strong>bankId</strong></a>:</p><p><a href=\"/glossary#charge\"><strong>charge</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#shortcode\"><strong>shortCode</strong></a>:</p><p><a href=\"/glossary#summary\"><strong>summary</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
      * @summary Create Transaction Type at bank
-     * @param {BANKIDTransactiontypesBody} body JObject object that needs to be added.
+     * @param {TransactionTypeJsonV200} body TransactionTypeJsonV200 object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv210CreateTransactionType(body: BANKIDTransactiontypesBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2001>> {
+    public async oBPv210CreateTransactionType(body: TransactionTypeJsonV200, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<TransactionType>> {
         return BankApiFp(this.configuration).oBPv210CreateTransactionType(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -2051,7 +2048,7 @@ export class BankApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv210GetTransactionRequestTypesSupportedByBank(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200>> {
+    public async oBPv210GetTransactionRequestTypesSupportedByBank(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<TransactionRequestTypesJSON>> {
         return BankApiFp(this.configuration).oBPv210GetTransactionRequestTypesSupportedByBank(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -2063,7 +2060,7 @@ export class BankApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv300GetBranch(BRANCH_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2013>> {
+    public async oBPv300GetBranch(BRANCH_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<BranchJsonV300>> {
         return BankApiFp(this.configuration).oBPv300GetBranch(BRANCH_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -2074,31 +2071,31 @@ export class BankApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv300GetBranches(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20016>> {
+    public async oBPv300GetBranches(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<BranchesJsonV300>> {
         return BankApiFp(this.configuration).oBPv300GetBranches(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create an Account Webhook</p><p>Webhooks are used to call external URLs when certain events happen.</p><p>Account Webhooks focus on events around accounts.</p><p>For instance, a webhook could be used to notify an external service if a balance changes on an account.</p><p>This functionality is work in progress! Please note that only implemented trigger is: OnBalanceChange</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#account_webhook_id\"><strong>account_webhook_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p>
      * @summary Create an Account Webhook
-     * @param {BANKIDAccountwebhooksBody1} body JObject object that needs to be added.
+     * @param {AccountWebhookPostJson} body AccountWebhookPostJson object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv310CreateAccountWebhook(body: BANKIDAccountwebhooksBody1, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20023>> {
+    public async oBPv310CreateAccountWebhook(body: AccountWebhookPostJson, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AccountWebhookJson>> {
         return BankApiFp(this.configuration).oBPv310CreateAccountWebhook(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Enable/Disable an Account Webhook</p><p>Webhooks are used to call external URLs when certain events happen.</p><p>Account Webhooks focus on events around accounts.</p><p>For instance, a webhook could be used to notify an external service if a balance changes on an account.</p><p>This functionality is work in progress! Please note that only implemented trigger is: OnBalanceChange</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#account_webhook_id\"><strong>account_webhook_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p>
      * @summary Enable/Disable an Account Webhook
-     * @param {BANKIDAccountwebhooksBody} body JObject object that needs to be added.
+     * @param {AccountWebhookPutJson} body AccountWebhookPutJson object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv310EnableDisableAccountWebhook(body: BANKIDAccountwebhooksBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20023>> {
+    public async oBPv310EnableDisableAccountWebhook(body: AccountWebhookPutJson, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AccountWebhookJson>> {
         return BankApiFp(this.configuration).oBPv310EnableDisableAccountWebhook(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -2109,66 +2106,66 @@ export class BankApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv310GetAccountWebhooks(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20042>> {
+    public async oBPv310GetAccountWebhooks(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AccountWebhooksJson>> {
         return BankApiFp(this.configuration).oBPv310GetAccountWebhooks(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create a notification Webhook that will fire for all accounts on the specified Bank.</p><p>Webhooks are used to call external web services when certain events happen.</p><p>For instance, a webhook can be used to notify an external service if a transaction is created on an account.</p><p>When an account notification webhook fires it will POST to the URL you specify during the creation of the webhook.</p><p>Inside the payload you will find account_id and transaction_id and also user_ids and customer_ids of the Users / Customers linked to the Account.</p><p>The webhook will POST the following structure to your service:</p><p>{<br />&quot;event_name&quot;: &quot;OnCreateTransaction&quot;,<br />&quot;event_id&quot;: &quot;9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;bank_id&quot;: &quot;gh.29.uk&quot;,<br />&quot;account_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;transaction_id&quot;: &quot;7ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;related_entities&quot;: [<br />{<br />&quot;user_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;customer_ids&quot;: [&quot;3ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;]<br />}<br />]<br />}</p><p>Thus, your service should accept the above POST body structure.</p><p>In this way, your web service can be informed about an event on an account and act accordingly.</p><p>Further information about the account, transaction or related entities can then be retrieved using the standard REST APIs.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#\"><strong>webhook_id</strong></a>: webhook_id</p>
      * @summary Create bank level Account Notification Webhook
-     * @param {NotificationsOncreatetransactionBody} body JObject object that needs to be added.
+     * @param {AccountNotificationWebhookPostJson} body AccountNotificationWebhookPostJson object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv400CreateBankAccountNotificationWebhook(body: NotificationsOncreatetransactionBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20132>> {
+    public async oBPv400CreateBankAccountNotificationWebhook(body: AccountNotificationWebhookPostJson, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<BankAccountNotificationWebhookJson>> {
         return BankApiFp(this.configuration).oBPv400CreateBankAccountNotificationWebhook(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create Bank Attribute</p><p>Typical product attributes might be:</p><p>ISIN (for International bonds)<br />VKN (for German bonds)<br />REDCODE (markit short code for credit derivative)<br />LOAN_ID (e.g. used for Anacredit reporting)</p><p>ISSUE_DATE (When the bond was issued in the market)<br />MATURITY_DATE (End of life time of a product)<br />TRADABLE</p><p>See <a href=\"http://www.fpml.org/\">FPML</a> for more examples.</p><p>The type field must be one of &quot;STRING&quot;, &quot;INTEGER&quot;, &quot;DOUBLE&quot; or DATE_WITH_DAY&quot;</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#\"><strong>bank_attribute_id</strong></a>: bank_attribute_id</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#is_active\">is_active</a>: false</p>
      * @summary Create Bank Attribute
-     * @param {BANKIDAttributeBody} body JObject object that needs to be added.
+     * @param {BankAttributeJsonV400} body BankAttributeJsonV400 object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv400CreateBankAttribute(body: BANKIDAttributeBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20125>> {
+    public async oBPv400CreateBankAttribute(body: BankAttributeJsonV400, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<BankAttributeResponseJsonV400>> {
         return BankApiFp(this.configuration).oBPv400CreateBankAttribute(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create or Update Bank Attribute Definition</p><p>The category field must be Bank</p><p>The type field must be one of; DOUBLE, STRING, INTEGER and DATE_WITH_DAY</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#alias\"><strong>alias</strong></a>:</p><p><a href=\"/glossary#attribute_definition_id\"><strong>attribute_definition_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>bank_id</strong></a>: gh.29.uk</p><p><a href=\"/glossary#can_be_seen_on_views\"><strong>can_be_seen_on_views</strong></a>: false</p><p><a href=\"/glossary#category\"><strong>category</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p>
      * @summary Create or Update Bank Attribute Definition
-     * @param {AttributedefinitionsBankBody} body JObject object that needs to be added.
+     * @param {AttributeDefinitionJsonV400} body AttributeDefinitionJsonV400 object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv400CreateOrUpdateBankAttributeDefinition(body: AttributedefinitionsBankBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20076>> {
+    public async oBPv400CreateOrUpdateBankAttributeDefinition(body: AttributeDefinitionJsonV400, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AttributeDefinitionResponseJsonV400>> {
         return BankApiFp(this.configuration).oBPv400CreateOrUpdateBankAttributeDefinition(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create a new settlement account at a bank.</p><p>The created settlement account id will be the concatenation of the payment system and the account currency.<br />For examples: SEPA_SETTLEMENT_ACCOUNT_EUR, CARD_SETTLEMENT_ACCOUNT_USD</p><p>By default, when you create a new bank, two settlements accounts are created automatically: OBP_DEFAULT_INCOMING_ACCOUNT_ID and OBP_DEFAULT_OUTGOING_ACCOUNT_ID<br />Those two accounts have EUR as default currency.</p><p>If you want to create default settlement account for a specific currency, you can fill the <code>payment_system</code> field with the <code>DEFAULT</code> value.</p><p>When a transaction is saved in OBP through the mapped connector, OBP-API look for the account to save the double-entry transaction.<br />If no OBP account can be found from the counterparty, the double-entry transaction will be saved on a bank settlement account.<br />- First, the mapped connector looks for a settlement account specific to the payment system and currency. E.g SEPA_SETTLEMENT_ACCOUNT_EUR.<br />- If we don't find any specific settlement account with the payment system, we look for a default settlement account for the counterparty currency. E.g DEFAULT_SETTLEMENT_ACCOUNT_EUR.<br />- Else, we select one of the two OBP default settlement accounts (OBP_DEFAULT_INCOMING_ACCOUNT_ID/OBP_DEFAULT_OUTGOING_ACCOUNT_ID) according to the transaction direction.</p><p>If the POST body USER_ID <em>is</em> specified, the logged in user must have the Role CanCreateAccount. Once created, the Account will be owned by the User specified by USER_ID.</p><p>If the POST body USER_ID is <em>not</em> specified, the account will be owned by the logged in User.</p><p>Note: The Amount MUST be zero.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#account_routings\"><strong>account_routings</strong></a>:</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#balance\"><strong>balance</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>branch_id</strong></a>: DERBY6</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>label</strong></a>: My Account</p><p><a href=\"/glossary#\"><strong>payment_system</strong></a>: SEPA</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#account_attribute_id\"><strong>account_attribute_id</strong></a>:</p><p><a href=\"/glossary#account_attributes\"><strong>account_attributes</strong></a>:</p><p><a href=\"/glossary#\"><strong>account_id</strong></a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#account_routings\"><strong>account_routings</strong></a>:</p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#\"><strong>amount</strong></a>: 10.12</p><p><a href=\"/glossary#balance\"><strong>balance</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>branch_id</strong></a>: DERBY6</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>label</strong></a>: My Account</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#\"><strong>payment_system</strong></a>: SEPA</p><p><a href=\"/glossary#product_code\"><strong>product_code</strong></a>: 1234BW</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p><p><a href=\"/glossary#\"><strong>user_id</strong></a>: 9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#\">product_instance_code</a>: product_instance_code</p>
      * @summary Create Settlement Account
-     * @param {BANKIDSettlementaccountsBody} body JObject object that needs to be added.
+     * @param {SettlementAccountRequestJson} body SettlementAccountRequestJson object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv400CreateSettlementAccount(body: BANKIDSettlementaccountsBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20129>> {
+    public async oBPv400CreateSettlementAccount(body: SettlementAccountRequestJson, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<SettlementAccountResponseJson>> {
         return BankApiFp(this.configuration).oBPv400CreateSettlementAccount(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create a notification Webhook that will fire for all accounts on the system.</p><p>Webhooks are used to call external web services when certain events happen.</p><p>For instance, a webhook can be used to notify an external service if a transaction is created on an account.</p><p>When an account notification webhook fires it will POST to the URL you specify during the creation of the webhook.</p><p>Inside the payload you will find account_id and transaction_id and also user_ids and customer_ids of the Users / Customers linked to the Account.</p><p>The webhook will POST the following structure to your service:</p><p>{<br />&quot;event_name&quot;: &quot;OnCreateTransaction&quot;,<br />&quot;event_id&quot;: &quot;9ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;bank_id&quot;: &quot;gh.29.uk&quot;,<br />&quot;account_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;transaction_id&quot;: &quot;7ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;related_entities&quot;: [<br />{<br />&quot;user_id&quot;: &quot;8ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;,<br />&quot;customer_ids&quot;: [&quot;3ca9a7e4-6d02-40e3-a129-0b2bf89de9b1&quot;]<br />}<br />]<br />}</p><p>Thus, your service should accept the above POST body structure.</p><p>In this way, your web service can be informed about an event on an account and act accordingly.</p><p>Further information about the account, transaction or related entities can then be retrieved using the standard REST APIs.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#http_method\"><strong>http_method</strong></a>: GET</p><p><a href=\"/glossary#http_protocol\"><strong>http_protocol</strong></a>:</p><p><a href=\"/glossary#trigger_name\"><strong>trigger_name</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#\"><strong>webhook_id</strong></a>: webhook_id</p>
      * @summary Create system level Account Notification Webhook
-     * @param {NotificationsOncreatetransactionBody1} body JObject object that needs to be added.
+     * @param {AccountNotificationWebhookPostJson} body AccountNotificationWebhookPostJson object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv400CreateSystemAccountNotificationWebhook(body: NotificationsOncreatetransactionBody1, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20146>> {
+    public async oBPv400CreateSystemAccountNotificationWebhook(body: AccountNotificationWebhookPostJson, options?: AxiosRequestConfig) : Promise<AxiosResponse<SystemAccountNotificationWebhookJson>> {
         return BankApiFp(this.configuration).oBPv400CreateSystemAccountNotificationWebhook(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -2201,7 +2198,7 @@ export class BankApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv400GetBankAttribute(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20125>> {
+    public async oBPv400GetBankAttribute(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<BankAttributeResponseJsonV400>> {
         return BankApiFp(this.configuration).oBPv400GetBankAttribute(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -2212,7 +2209,7 @@ export class BankApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv400GetBankAttributes(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20087>> {
+    public async oBPv400GetBankAttributes(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<BankAttributesResponseJsonV400>> {
         return BankApiFp(this.configuration).oBPv400GetBankAttributes(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -2222,7 +2219,7 @@ export class BankApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv400GetBanks(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20059>> {
+    public async oBPv400GetBanks(options?: AxiosRequestConfig) : Promise<AxiosResponse<BanksJson400>> {
         return BankApiFp(this.configuration).oBPv400GetBanks(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -2233,30 +2230,30 @@ export class BankApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv400GetSettlementAccounts(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20098>> {
+    public async oBPv400GetSettlementAccounts(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<SettlementAccountsJson>> {
         return BankApiFp(this.configuration).oBPv400GetSettlementAccounts(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update Bank Attribute.</p><p>Update one Bak Attribute by its id.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#\">BANK_ATTRIBUTE_ID</a>: BANK_ATTRIBUTE_ID</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#alias\"><strong>alias</strong></a>:</p><p><a href=\"/glossary#can_be_seen_on_views\"><strong>can_be_seen_on_views</strong></a>: false</p><p><a href=\"/glossary#category\"><strong>category</strong></a>:</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#is_active\"><strong>is_active</strong></a>: false</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#type\"><strong>type</strong></a>:</p>
      * @summary Update Bank Attribute
-     * @param {AttributesBANKATTRIBUTEIDBody} body JObject object that needs to be added.
+     * @param {BankAttributeJsonV400} body BankAttributeJsonV400 object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv400UpdateBankAttribute(body: AttributesBANKATTRIBUTEIDBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AttributedefinitionsBankBody>> {
+    public async oBPv400UpdateBankAttribute(body: BankAttributeJsonV400, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AttributeDefinitionJsonV400>> {
         return BankApiFp(this.configuration).oBPv400UpdateBankAttribute(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Create a new bank (Authenticated access).</p><p>The user creating this will be automatically assigned the Role CanCreateEntitlementAtOneBank.<br />Thus the User can manage the bank they create and assign Roles to other Users.</p><p>Only SANDBOX mode<br />The settlement accounts are created specified by the bank in the POST body.<br />Name and account id are created in accordance to the next rules:<br />- Incoming account (name: Default incoming settlement account, Account ID: OBP_DEFAULT_INCOMING_ACCOUNT_ID, currency: EUR)<br />- Outgoing account (name: Default outgoing settlement account, Account ID: OBP_DEFAULT_OUTGOING_ACCOUNT_ID, currency: EUR)</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#bank_code\"><strong>bank_code</strong></a>: CGHZ</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#bank_routings\">bank_routings</a>: bank routing in form of (scheme, address)</p><p><a href=\"/glossary#full_name\">full_name</a>: full name string</p><p><a href=\"/glossary#id\">id</a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#logo\">logo</a>: logo url</p><p><a href=\"/glossary#website\">website</a>: <a href=\"http://www.openbankproject.com\">www.openbankproject.com</a></p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#bank_code\"><strong>bank_code</strong></a>: CGHZ</p><p><a href=\"/glossary#bank_routings\"><strong>bank_routings</strong></a>: bank routing in form of (scheme, address)</p><p><a href=\"/glossary#full_name\"><strong>full_name</strong></a>: full name string</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#logo\"><strong>logo</strong></a>: logo url</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#website\"><strong>website</strong></a>: <a href=\"http://www.openbankproject.com\">www.openbankproject.com</a></p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p>
      * @summary Create Bank
-     * @param {V500BanksBody1} body JObject object that needs to be added.
+     * @param {PostBankJson500} body PostBankJson500 object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv500CreateBank(body: V500BanksBody1, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200127>> {
+    public async oBPv500CreateBank(body: PostBankJson500, options?: AxiosRequestConfig) : Promise<AxiosResponse<BankJson500>> {
         return BankApiFp(this.configuration).oBPv500CreateBank(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -2267,18 +2264,18 @@ export class BankApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv500GetBank(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200127>> {
+    public async oBPv500GetBank(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<BankJson500>> {
         return BankApiFp(this.configuration).oBPv500GetBank(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update an existing bank (Authenticated access).</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#address\"><strong>address</strong></a>:</p><p><a href=\"/glossary#bank_code\"><strong>bank_code</strong></a>: CGHZ</p><p><a href=\"/glossary#bank_routings\"><strong>bank_routings</strong></a>: bank routing in form of (scheme, address)</p><p><a href=\"/glossary#full_name\"><strong>full_name</strong></a>: full name string</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#logo\"><strong>logo</strong></a>: logo url</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#scheme\"><strong>scheme</strong></a>: OBP</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><a href=\"/glossary#website\"><strong>website</strong></a>: <a href=\"http://www.openbankproject.com\">www.openbankproject.com</a></p><p><a href=\"/glossary#attributes\">attributes</a>: attribute value in form of (name, value)</p>
      * @summary Update Bank
-     * @param {V500BanksBody} body JObject object that needs to be added.
+     * @param {PostBankJson500} body PostBankJson500 object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankApi
      */
-    public async oBPv500UpdateBank(body: V500BanksBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200127>> {
+    public async oBPv500UpdateBank(body: PostBankJson500, options?: AxiosRequestConfig) : Promise<AxiosResponse<BankJson500>> {
         return BankApiFp(this.configuration).oBPv500UpdateBank(body, options).then((request) => request(this.axios, this.basePath));
     }
 }

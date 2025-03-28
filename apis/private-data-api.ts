@@ -17,9 +17,9 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BasicAccountsJSON } from '../models';
+import { CoreAccountsJsonV300 } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse20014 } from '../models';
-import { InlineResponse20060 } from '../models';
 /**
  * PrivateDataApi - axios parameter creator
  * @export
@@ -147,7 +147,7 @@ export const PrivateDataApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300CorePrivateAccountsAllBanks(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20014>>> {
+        async oBPv300CorePrivateAccountsAllBanks(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CoreAccountsJsonV300>>> {
             const localVarAxiosArgs = await PrivateDataApiAxiosParamCreator(configuration).oBPv300CorePrivateAccountsAllBanks(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -161,7 +161,7 @@ export const PrivateDataApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetPrivateAccountsAtOneBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20060>>> {
+        async oBPv400GetPrivateAccountsAtOneBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<BasicAccountsJSON>>> {
             const localVarAxiosArgs = await PrivateDataApiAxiosParamCreator(configuration).oBPv400GetPrivateAccountsAtOneBank(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -183,7 +183,7 @@ export const PrivateDataApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300CorePrivateAccountsAllBanks(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20014>> {
+        async oBPv300CorePrivateAccountsAllBanks(options?: AxiosRequestConfig): Promise<AxiosResponse<CoreAccountsJsonV300>> {
             return PrivateDataApiFp(configuration).oBPv300CorePrivateAccountsAllBanks(options).then((request) => request(axios, basePath));
         },
         /**
@@ -193,7 +193,7 @@ export const PrivateDataApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetPrivateAccountsAtOneBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20060>> {
+        async oBPv400GetPrivateAccountsAtOneBank(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<BasicAccountsJSON>> {
             return PrivateDataApiFp(configuration).oBPv400GetPrivateAccountsAtOneBank(BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -213,7 +213,7 @@ export class PrivateDataApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PrivateDataApi
      */
-    public async oBPv300CorePrivateAccountsAllBanks(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20014>> {
+    public async oBPv300CorePrivateAccountsAllBanks(options?: AxiosRequestConfig) : Promise<AxiosResponse<CoreAccountsJsonV300>> {
         return PrivateDataApiFp(this.configuration).oBPv300CorePrivateAccountsAllBanks(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -224,7 +224,7 @@ export class PrivateDataApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PrivateDataApi
      */
-    public async oBPv400GetPrivateAccountsAtOneBank(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20060>> {
+    public async oBPv400GetPrivateAccountsAtOneBank(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<BasicAccountsJSON>> {
         return PrivateDataApiFp(this.configuration).oBPv400GetPrivateAccountsAtOneBank(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

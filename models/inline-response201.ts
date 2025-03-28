@@ -12,10 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse201Challenge } from './inline-response201-challenge';
-import { InlineResponse201Charge } from './inline-response201-charge';
-import { InlineResponse201Details } from './inline-response201-details';
-import { Obpv210banksBANKIDaccountsACCOUNTIDVIEWIDtransactionrequesttypesSANDBOXTANtransactionrequestsTo } from './obpv210banks-bankidaccounts-accountidviewidtransactionrequesttypes-sandboxtantransactionrequests-to';
+import { Obpv400managementbanksBANKIDendpointmappingsENDPOINTMAPPINGIDResponseMapping } from './obpv400managementbanks-bankidendpointmappings-endpointmappingidresponse-mapping';
  /**
  * 
  *
@@ -27,65 +24,19 @@ export interface InlineResponse201 {
     /**
      * @type {string}
      * @memberof InlineResponse201
-     * @example 4050046c-63b3-4868-8a22-14b4181d33a6
+     * @example OBPv4.0.0-dynamicEndpoint_POST_account
      */
-    id: string;
+    operation_id: string;
 
     /**
-     * @type {string}
+     * @type {any}
      * @memberof InlineResponse201
-     * @example SANDBOX_TAN
      */
-    type: string;
+    request_mapping: any;
 
     /**
-     * @type {Obpv210banksBANKIDaccountsACCOUNTIDVIEWIDtransactionrequesttypesSANDBOXTANtransactionrequestsTo}
+     * @type {Obpv400managementbanksBANKIDendpointmappingsENDPOINTMAPPINGIDResponseMapping}
      * @memberof InlineResponse201
      */
-    from: Obpv210banksBANKIDaccountsACCOUNTIDVIEWIDtransactionrequesttypesSANDBOXTANtransactionrequestsTo;
-
-    /**
-     * @type {InlineResponse201Details}
-     * @memberof InlineResponse201
-     */
-    details: InlineResponse201Details;
-
-    /**
-     * @type {Array<string>}
-     * @memberof InlineResponse201
-     */
-    transaction_ids: Array<string>;
-
-    /**
-     * @type {string}
-     * @memberof InlineResponse201
-     * @example COMPLETED
-     */
-    status: string;
-
-    /**
-     * @type {string}
-     * @memberof InlineResponse201
-     * @example 1100-01-01T00:00:00Z
-     */
-    start_date: string;
-
-    /**
-     * @type {string}
-     * @memberof InlineResponse201
-     * @example 1100-01-01T00:00:00Z
-     */
-    end_date: string;
-
-    /**
-     * @type {InlineResponse201Challenge}
-     * @memberof InlineResponse201
-     */
-    challenge: InlineResponse201Challenge;
-
-    /**
-     * @type {InlineResponse201Charge}
-     * @memberof InlineResponse201
-     */
-    charge: InlineResponse201Charge;
+    response_mapping: Obpv400managementbanksBANKIDendpointmappingsENDPOINTMAPPINGIDResponseMapping;
 }

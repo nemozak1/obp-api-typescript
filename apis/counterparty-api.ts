@@ -19,23 +19,22 @@ import { Configuration } from '../configuration';
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 import { AliasJSON } from '../models';
 import { CorporateLocationJSON } from '../models';
+import { CounterpartiesJson400 } from '../models';
+import { CounterpartyWithMetadataJson400 } from '../models';
 import { ErrorBankAccountNotFound } from '../models';
 import { ErrorUnknownError } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
 import { ImageUrlJSON } from '../models';
-import { InlineResponse20010 } from '../models';
-import { InlineResponse20062 } from '../models';
-import { InlineResponse2009 } from '../models';
-import { InlineResponse20118 } from '../models';
 import { MoreInfoJSON } from '../models';
 import { OpenCorporateUrlJSON } from '../models';
 import { OtherAccountJSON } from '../models';
+import { OtherAccountJsonV300 } from '../models';
 import { OtherAccountMetadataJSON } from '../models';
+import { OtherAccountsJsonV300 } from '../models';
 import { PhysicalLocationJSON } from '../models';
+import { PostCounterpartyJson400 } from '../models';
 import { SuccessMessage } from '../models';
 import { UrlJSON } from '../models';
-import { VIEWIDCounterpartiesBody } from '../models';
-import { VIEWIDCounterpartiesBody1 } from '../models';
 /**
  * CounterpartyApi - axios parameter creator
  * @export
@@ -74,7 +73,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddCounterpartyCorporateLocation.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/corporate_location`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/corporate_location`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -157,7 +156,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddCounterpartyImageUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/image_url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/image_url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -240,7 +239,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddCounterpartyMoreInfo.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/more_info`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/more_info`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -323,7 +322,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddCounterpartyOpenCorporatesUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/open_corporates_url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/open_corporates_url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -406,7 +405,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddCounterpartyPhysicalLocation.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/physical_location`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/physical_location`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -489,7 +488,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddCounterpartyPublicAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -572,7 +571,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddCounterpartyUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -655,7 +654,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121AddOtherAccountPrivateAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -733,7 +732,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyCorporateLocation.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/corporate_location`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/corporate_location`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -807,7 +806,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyImageUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/image_url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/image_url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -881,7 +880,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyMoreInfo.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/more_info`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/more_info`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -955,7 +954,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyOpenCorporatesUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/open_corporates_url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/open_corporates_url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1029,7 +1028,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyPhysicalLocation.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/physical_location`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/physical_location`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1103,7 +1102,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyPrivateAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1177,7 +1176,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyPublicAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1251,7 +1250,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121DeleteCounterpartyUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1325,7 +1324,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121GetCounterpartyPublicAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1399,7 +1398,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121GetOtherAccountForTransaction.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/transactions/{TRANSACTION_ID}/other_account`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/transactions/{TRANSACTION_ID}/other_account`
                 .replace(`{${"TRANSACTION_ID"}}`, encodeURIComponent(String(TRANSACTION_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1473,7 +1472,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121GetOtherAccountMetadata.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1547,7 +1546,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121GetOtherAccountPrivateAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1626,7 +1625,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyCorporateLocation.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/corporate_location`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/corporate_location`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1709,7 +1708,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyImageUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/image_url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/image_url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1792,7 +1791,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyMoreInfo.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/more_info`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/more_info`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1875,7 +1874,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyOpenCorporatesUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/open_corporates_url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/open_corporates_url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -1958,7 +1957,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyPhysicalLocation.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/physical_location`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/physical_location`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -2041,7 +2040,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyPrivateAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/private_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -2124,7 +2123,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyPublicAlias.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/public_alias`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -2207,7 +2206,7 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv121UpdateCounterpartyUrl.');
             }
-            const localVarPath = `/obp/v5.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/url`
+            const localVarPath = `/obp/v2.1.0/banks/{BANK_ID}/accounts/{ACCOUNT_ID}/{VIEW_ID}/other_accounts/{OTHER_ACCOUNT_ID}/metadata/url`
                 .replace(`{${"OTHER_ACCOUNT_ID"}}`, encodeURIComponent(String(OTHER_ACCOUNT_ID)))
                 .replace(`{${"VIEW_ID"}}`, encodeURIComponent(String(VIEW_ID)))
                 .replace(`{${"ACCOUNT_ID"}}`, encodeURIComponent(String(ACCOUNT_ID)))
@@ -2403,14 +2402,14 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
         /**
          * <p>This endpoint creates an (Explicit) Counterparty for an Account.</p><p>For an introduction to Counterparties in OBP see <a href=\"/glossary#Counterparties\">here</a></p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#corporate_location\"><strong>corporate_location</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#image_url\"><strong>image_url</strong></a>:</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#metadata\"><strong>metadata</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#open_corporates_url\"><strong>open_corporates_url</strong></a>:</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#physical_location\"><strong>physical_location</strong></a>:</p><p><a href=\"/glossary#private_alias\"><strong>private_alias</strong></a>:</p><p><a href=\"/glossary#provider\"><strong>provider</strong></a>: ETHEREUM</p><p><a href=\"/glossary#public_alias\"><strong>public_alias</strong></a>:</p><p><a href=\"/glossary#this_account_id\"><strong>this_account_id</strong></a>:</p><p><a href=\"/glossary#this_bank_id\"><strong>this_bank_id</strong></a>:</p><p><a href=\"/glossary#this_view_id\"><strong>this_view_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#User\"><strong>user</strong></a>:</p><p><a href=\"/glossary#\"><strong>username</strong></a>: felixsmith</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create Counterparty (Explicit)
-         * @param {VIEWIDCounterpartiesBody} body JObject object that needs to be added.
+         * @param {PostCounterpartyJson400} body PostCounterpartyJson400 object that needs to be added.
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateCounterparty: async (body: VIEWIDCounterpartiesBody, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateCounterparty: async (body: PostCounterpartyJson400, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateCounterparty.');
@@ -2480,14 +2479,14 @@ export const CounterpartyApiAxiosParamCreator = function (configuration?: Config
         /**
          * <p>This is a management endpoint that allows the creation of a Counterparty on any Account.</p><p>For an introduction to Counterparties in OBP, see <a href=\"/glossary#Counterparties\">here</a></p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#corporate_location\"><strong>corporate_location</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#image_url\"><strong>image_url</strong></a>:</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#metadata\"><strong>metadata</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#open_corporates_url\"><strong>open_corporates_url</strong></a>:</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#physical_location\"><strong>physical_location</strong></a>:</p><p><a href=\"/glossary#private_alias\"><strong>private_alias</strong></a>:</p><p><a href=\"/glossary#provider\"><strong>provider</strong></a>: ETHEREUM</p><p><a href=\"/glossary#public_alias\"><strong>public_alias</strong></a>:</p><p><a href=\"/glossary#this_account_id\"><strong>this_account_id</strong></a>:</p><p><a href=\"/glossary#this_bank_id\"><strong>this_bank_id</strong></a>:</p><p><a href=\"/glossary#this_view_id\"><strong>this_view_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#User\"><strong>user</strong></a>:</p><p><a href=\"/glossary#\"><strong>username</strong></a>: felixsmith</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create Counterparty for any account (Explicit)
-         * @param {VIEWIDCounterpartiesBody1} body JObject object that needs to be added.
+         * @param {PostCounterpartyJson400} body PostCounterpartyJson400 object that needs to be added.
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400CreateCounterpartyForAnyAccount: async (body: VIEWIDCounterpartiesBody1, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400CreateCounterpartyForAnyAccount: async (body: PostCounterpartyJson400, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateCounterpartyForAnyAccount.');
@@ -3571,7 +3570,7 @@ export const CounterpartyApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300GetOtherAccountByIdForBankAccount(OTHER_ACCOUNT_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20010>>> {
+        async oBPv300GetOtherAccountByIdForBankAccount(OTHER_ACCOUNT_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<OtherAccountJsonV300>>> {
             const localVarAxiosArgs = await CounterpartyApiAxiosParamCreator(configuration).oBPv300GetOtherAccountByIdForBankAccount(OTHER_ACCOUNT_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3587,7 +3586,7 @@ export const CounterpartyApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300GetOtherAccountsForBankAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2009>>> {
+        async oBPv300GetOtherAccountsForBankAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<OtherAccountsJsonV300>>> {
             const localVarAxiosArgs = await CounterpartyApiAxiosParamCreator(configuration).oBPv300GetOtherAccountsForBankAccount(VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3597,14 +3596,14 @@ export const CounterpartyApiFp = function(configuration?: Configuration) {
         /**
          * <p>This endpoint creates an (Explicit) Counterparty for an Account.</p><p>For an introduction to Counterparties in OBP see <a href=\"/glossary#Counterparties\">here</a></p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#corporate_location\"><strong>corporate_location</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#image_url\"><strong>image_url</strong></a>:</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#metadata\"><strong>metadata</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#open_corporates_url\"><strong>open_corporates_url</strong></a>:</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#physical_location\"><strong>physical_location</strong></a>:</p><p><a href=\"/glossary#private_alias\"><strong>private_alias</strong></a>:</p><p><a href=\"/glossary#provider\"><strong>provider</strong></a>: ETHEREUM</p><p><a href=\"/glossary#public_alias\"><strong>public_alias</strong></a>:</p><p><a href=\"/glossary#this_account_id\"><strong>this_account_id</strong></a>:</p><p><a href=\"/glossary#this_bank_id\"><strong>this_bank_id</strong></a>:</p><p><a href=\"/glossary#this_view_id\"><strong>this_view_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#User\"><strong>user</strong></a>:</p><p><a href=\"/glossary#\"><strong>username</strong></a>: felixsmith</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create Counterparty (Explicit)
-         * @param {VIEWIDCounterpartiesBody} body JObject object that needs to be added.
+         * @param {PostCounterpartyJson400} body PostCounterpartyJson400 object that needs to be added.
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateCounterparty(body: VIEWIDCounterpartiesBody, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20118>>> {
+        async oBPv400CreateCounterparty(body: PostCounterpartyJson400, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CounterpartyWithMetadataJson400>>> {
             const localVarAxiosArgs = await CounterpartyApiAxiosParamCreator(configuration).oBPv400CreateCounterparty(body, VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3614,14 +3613,14 @@ export const CounterpartyApiFp = function(configuration?: Configuration) {
         /**
          * <p>This is a management endpoint that allows the creation of a Counterparty on any Account.</p><p>For an introduction to Counterparties in OBP, see <a href=\"/glossary#Counterparties\">here</a></p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#corporate_location\"><strong>corporate_location</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#image_url\"><strong>image_url</strong></a>:</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#metadata\"><strong>metadata</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#open_corporates_url\"><strong>open_corporates_url</strong></a>:</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#physical_location\"><strong>physical_location</strong></a>:</p><p><a href=\"/glossary#private_alias\"><strong>private_alias</strong></a>:</p><p><a href=\"/glossary#provider\"><strong>provider</strong></a>: ETHEREUM</p><p><a href=\"/glossary#public_alias\"><strong>public_alias</strong></a>:</p><p><a href=\"/glossary#this_account_id\"><strong>this_account_id</strong></a>:</p><p><a href=\"/glossary#this_bank_id\"><strong>this_bank_id</strong></a>:</p><p><a href=\"/glossary#this_view_id\"><strong>this_view_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#User\"><strong>user</strong></a>:</p><p><a href=\"/glossary#\"><strong>username</strong></a>: felixsmith</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create Counterparty for any account (Explicit)
-         * @param {VIEWIDCounterpartiesBody1} body JObject object that needs to be added.
+         * @param {PostCounterpartyJson400} body PostCounterpartyJson400 object that needs to be added.
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateCounterpartyForAnyAccount(body: VIEWIDCounterpartiesBody1, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20118>>> {
+        async oBPv400CreateCounterpartyForAnyAccount(body: PostCounterpartyJson400, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CounterpartyWithMetadataJson400>>> {
             const localVarAxiosArgs = await CounterpartyApiAxiosParamCreator(configuration).oBPv400CreateCounterpartyForAnyAccount(body, VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3671,7 +3670,7 @@ export const CounterpartyApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetCounterpartiesForAnyAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20062>>> {
+        async oBPv400GetCounterpartiesForAnyAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CounterpartiesJson400>>> {
             const localVarAxiosArgs = await CounterpartyApiAxiosParamCreator(configuration).oBPv400GetCounterpartiesForAnyAccount(VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3688,7 +3687,7 @@ export const CounterpartyApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetCounterpartyByIdForAnyAccount(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20118>>> {
+        async oBPv400GetCounterpartyByIdForAnyAccount(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CounterpartyWithMetadataJson400>>> {
             const localVarAxiosArgs = await CounterpartyApiAxiosParamCreator(configuration).oBPv400GetCounterpartyByIdForAnyAccount(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3705,7 +3704,7 @@ export const CounterpartyApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetCounterpartyByNameForAnyAccount(COUNTERPARTY_NAME: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20118>>> {
+        async oBPv400GetCounterpartyByNameForAnyAccount(COUNTERPARTY_NAME: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CounterpartyWithMetadataJson400>>> {
             const localVarAxiosArgs = await CounterpartyApiAxiosParamCreator(configuration).oBPv400GetCounterpartyByNameForAnyAccount(COUNTERPARTY_NAME, VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3721,7 +3720,7 @@ export const CounterpartyApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetExplicitCounterpartiesForAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20062>>> {
+        async oBPv400GetExplicitCounterpartiesForAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CounterpartiesJson400>>> {
             const localVarAxiosArgs = await CounterpartyApiAxiosParamCreator(configuration).oBPv400GetExplicitCounterpartiesForAccount(VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3738,7 +3737,7 @@ export const CounterpartyApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20118>>> {
+        async oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<CounterpartyWithMetadataJson400>>> {
             const localVarAxiosArgs = await CounterpartyApiAxiosParamCreator(configuration).oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -4144,7 +4143,7 @@ export const CounterpartyApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300GetOtherAccountByIdForBankAccount(OTHER_ACCOUNT_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20010>> {
+        async oBPv300GetOtherAccountByIdForBankAccount(OTHER_ACCOUNT_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<OtherAccountJsonV300>> {
             return CounterpartyApiFp(configuration).oBPv300GetOtherAccountByIdForBankAccount(OTHER_ACCOUNT_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4156,33 +4155,33 @@ export const CounterpartyApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv300GetOtherAccountsForBankAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2009>> {
+        async oBPv300GetOtherAccountsForBankAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<OtherAccountsJsonV300>> {
             return CounterpartyApiFp(configuration).oBPv300GetOtherAccountsForBankAccount(VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>This endpoint creates an (Explicit) Counterparty for an Account.</p><p>For an introduction to Counterparties in OBP see <a href=\"/glossary#Counterparties\">here</a></p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#corporate_location\"><strong>corporate_location</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#image_url\"><strong>image_url</strong></a>:</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#metadata\"><strong>metadata</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#open_corporates_url\"><strong>open_corporates_url</strong></a>:</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#physical_location\"><strong>physical_location</strong></a>:</p><p><a href=\"/glossary#private_alias\"><strong>private_alias</strong></a>:</p><p><a href=\"/glossary#provider\"><strong>provider</strong></a>: ETHEREUM</p><p><a href=\"/glossary#public_alias\"><strong>public_alias</strong></a>:</p><p><a href=\"/glossary#this_account_id\"><strong>this_account_id</strong></a>:</p><p><a href=\"/glossary#this_bank_id\"><strong>this_bank_id</strong></a>:</p><p><a href=\"/glossary#this_view_id\"><strong>this_view_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#User\"><strong>user</strong></a>:</p><p><a href=\"/glossary#\"><strong>username</strong></a>: felixsmith</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create Counterparty (Explicit)
-         * @param {VIEWIDCounterpartiesBody} body JObject object that needs to be added.
+         * @param {PostCounterpartyJson400} body PostCounterpartyJson400 object that needs to be added.
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateCounterparty(body: VIEWIDCounterpartiesBody, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20118>> {
+        async oBPv400CreateCounterparty(body: PostCounterpartyJson400, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CounterpartyWithMetadataJson400>> {
             return CounterpartyApiFp(configuration).oBPv400CreateCounterparty(body, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>This is a management endpoint that allows the creation of a Counterparty on any Account.</p><p>For an introduction to Counterparties in OBP, see <a href=\"/glossary#Counterparties\">here</a></p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#corporate_location\"><strong>corporate_location</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#image_url\"><strong>image_url</strong></a>:</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#metadata\"><strong>metadata</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#open_corporates_url\"><strong>open_corporates_url</strong></a>:</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#physical_location\"><strong>physical_location</strong></a>:</p><p><a href=\"/glossary#private_alias\"><strong>private_alias</strong></a>:</p><p><a href=\"/glossary#provider\"><strong>provider</strong></a>: ETHEREUM</p><p><a href=\"/glossary#public_alias\"><strong>public_alias</strong></a>:</p><p><a href=\"/glossary#this_account_id\"><strong>this_account_id</strong></a>:</p><p><a href=\"/glossary#this_bank_id\"><strong>this_bank_id</strong></a>:</p><p><a href=\"/glossary#this_view_id\"><strong>this_view_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#User\"><strong>user</strong></a>:</p><p><a href=\"/glossary#\"><strong>username</strong></a>: felixsmith</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
          * @summary Create Counterparty for any account (Explicit)
-         * @param {VIEWIDCounterpartiesBody1} body JObject object that needs to be added.
+         * @param {PostCounterpartyJson400} body PostCounterpartyJson400 object that needs to be added.
          * @param {string} VIEW_ID The view id
          * @param {string} ACCOUNT_ID The account id
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateCounterpartyForAnyAccount(body: VIEWIDCounterpartiesBody1, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20118>> {
+        async oBPv400CreateCounterpartyForAnyAccount(body: PostCounterpartyJson400, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CounterpartyWithMetadataJson400>> {
             return CounterpartyApiFp(configuration).oBPv400CreateCounterpartyForAnyAccount(body, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4220,7 +4219,7 @@ export const CounterpartyApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetCounterpartiesForAnyAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20062>> {
+        async oBPv400GetCounterpartiesForAnyAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CounterpartiesJson400>> {
             return CounterpartyApiFp(configuration).oBPv400GetCounterpartiesForAnyAccount(VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4233,7 +4232,7 @@ export const CounterpartyApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetCounterpartyByIdForAnyAccount(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20118>> {
+        async oBPv400GetCounterpartyByIdForAnyAccount(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CounterpartyWithMetadataJson400>> {
             return CounterpartyApiFp(configuration).oBPv400GetCounterpartyByIdForAnyAccount(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4246,7 +4245,7 @@ export const CounterpartyApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetCounterpartyByNameForAnyAccount(COUNTERPARTY_NAME: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20118>> {
+        async oBPv400GetCounterpartyByNameForAnyAccount(COUNTERPARTY_NAME: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CounterpartyWithMetadataJson400>> {
             return CounterpartyApiFp(configuration).oBPv400GetCounterpartyByNameForAnyAccount(COUNTERPARTY_NAME, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4258,7 +4257,7 @@ export const CounterpartyApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetExplicitCounterpartiesForAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20062>> {
+        async oBPv400GetExplicitCounterpartiesForAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CounterpartiesJson400>> {
             return CounterpartyApiFp(configuration).oBPv400GetExplicitCounterpartiesForAccount(VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4271,7 +4270,7 @@ export const CounterpartyApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20118>> {
+        async oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<CounterpartyWithMetadataJson400>> {
             return CounterpartyApiFp(configuration).oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(axios, basePath));
         },
     };
@@ -4703,7 +4702,7 @@ export class CounterpartyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CounterpartyApi
      */
-    public async oBPv300GetOtherAccountByIdForBankAccount(OTHER_ACCOUNT_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20010>> {
+    public async oBPv300GetOtherAccountByIdForBankAccount(OTHER_ACCOUNT_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<OtherAccountJsonV300>> {
         return CounterpartyApiFp(this.configuration).oBPv300GetOtherAccountByIdForBankAccount(OTHER_ACCOUNT_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -4716,13 +4715,13 @@ export class CounterpartyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CounterpartyApi
      */
-    public async oBPv300GetOtherAccountsForBankAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2009>> {
+    public async oBPv300GetOtherAccountsForBankAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<OtherAccountsJsonV300>> {
         return CounterpartyApiFp(this.configuration).oBPv300GetOtherAccountsForBankAccount(VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>This endpoint creates an (Explicit) Counterparty for an Account.</p><p>For an introduction to Counterparties in OBP see <a href=\"/glossary#Counterparties\">here</a></p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#corporate_location\"><strong>corporate_location</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#image_url\"><strong>image_url</strong></a>:</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#metadata\"><strong>metadata</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#open_corporates_url\"><strong>open_corporates_url</strong></a>:</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#physical_location\"><strong>physical_location</strong></a>:</p><p><a href=\"/glossary#private_alias\"><strong>private_alias</strong></a>:</p><p><a href=\"/glossary#provider\"><strong>provider</strong></a>: ETHEREUM</p><p><a href=\"/glossary#public_alias\"><strong>public_alias</strong></a>:</p><p><a href=\"/glossary#this_account_id\"><strong>this_account_id</strong></a>:</p><p><a href=\"/glossary#this_bank_id\"><strong>this_bank_id</strong></a>:</p><p><a href=\"/glossary#this_view_id\"><strong>this_view_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#User\"><strong>user</strong></a>:</p><p><a href=\"/glossary#\"><strong>username</strong></a>: felixsmith</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
      * @summary Create Counterparty (Explicit)
-     * @param {VIEWIDCounterpartiesBody} body JObject object that needs to be added.
+     * @param {PostCounterpartyJson400} body PostCounterpartyJson400 object that needs to be added.
      * @param {string} VIEW_ID The view id
      * @param {string} ACCOUNT_ID The account id
      * @param {string} BANK_ID The bank id
@@ -4730,13 +4729,13 @@ export class CounterpartyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CounterpartyApi
      */
-    public async oBPv400CreateCounterparty(body: VIEWIDCounterpartiesBody, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20118>> {
+    public async oBPv400CreateCounterparty(body: PostCounterpartyJson400, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CounterpartyWithMetadataJson400>> {
         return CounterpartyApiFp(this.configuration).oBPv400CreateCounterparty(body, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>This is a management endpoint that allows the creation of a Counterparty on any Account.</p><p>For an introduction to Counterparties in OBP, see <a href=\"/glossary#Counterparties\">here</a></p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p><p><strong>URL Parameters:</strong></p><p><a href=\"/glossary#Account.account_id\">ACCOUNT_ID</a>: 8ca8a7e4-6d02-40e3-a129-0b2bf89de9f0</p><p><a href=\"/glossary#Bank.bank_id\">BANK_ID</a>: gh.29.uk</p><p><a href=\"/glossary#this_view_id\">VIEW_ID</a>: owner</p><p><strong>JSON request body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p><p><strong>JSON response body fields:</strong></p><p><a href=\"/glossary#bespoke\"><strong>bespoke</strong></a>:</p><p><a href=\"/glossary#corporate_location\"><strong>corporate_location</strong></a>: 10</p><p><a href=\"/glossary#\"><strong>counterparty_id</strong></a>: 9fg8a7e4-6d02-40e3-a129-0b2bf89de8uh</p><p><a href=\"/glossary#created_by_user_id\"><strong>created_by_user_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>currency</strong></a>: EUR</p><p><a href=\"/glossary#\"><strong>date</strong></a>: 2020-01-27</p><p><a href=\"/glossary#description\"><strong>description</strong></a>: Description of the object. Maximum length is 2000. It can be any characters here.</p><p><a href=\"/glossary#id\"><strong>id</strong></a>: d8839721-ad8f-45dd-9f78-2080414b93f9</p><p><a href=\"/glossary#image_url\"><strong>image_url</strong></a>:</p><p><a href=\"/glossary#\"><strong>is_beneficiary</strong></a>: false</p><p><a href=\"/glossary#\"><strong>key</strong></a>: CustomerNumber</p><p><a href=\"/glossary#latitude\"><strong>latitude</strong></a>: 38.8951</p><p><a href=\"/glossary#longitude\"><strong>longitude</strong></a>: -77.0364</p><p><a href=\"/glossary#metadata\"><strong>metadata</strong></a>:</p><p><a href=\"/glossary#more_info\"><strong>more_info</strong></a>: More information about this fee</p><p><a href=\"/glossary#name\"><strong>name</strong></a>: ACCOUNT_MANAGEMENT_FEE</p><p><a href=\"/glossary#open_corporates_url\"><strong>open_corporates_url</strong></a>:</p><p><a href=\"/glossary#other_account_routing_address\"><strong>other_account_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_routing_scheme\"><strong>other_account_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_address\"><strong>other_account_secondary_routing_address</strong></a>:</p><p><a href=\"/glossary#other_account_secondary_routing_scheme\"><strong>other_account_secondary_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_address\"><strong>other_bank_routing_address</strong></a>:</p><p><a href=\"/glossary#other_bank_routing_scheme\"><strong>other_bank_routing_scheme</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_address\"><strong>other_branch_routing_address</strong></a>:</p><p><a href=\"/glossary#other_branch_routing_scheme\"><strong>other_branch_routing_scheme</strong></a>:</p><p><a href=\"/glossary#physical_location\"><strong>physical_location</strong></a>:</p><p><a href=\"/glossary#private_alias\"><strong>private_alias</strong></a>:</p><p><a href=\"/glossary#provider\"><strong>provider</strong></a>: ETHEREUM</p><p><a href=\"/glossary#public_alias\"><strong>public_alias</strong></a>:</p><p><a href=\"/glossary#this_account_id\"><strong>this_account_id</strong></a>:</p><p><a href=\"/glossary#this_bank_id\"><strong>this_bank_id</strong></a>:</p><p><a href=\"/glossary#this_view_id\"><strong>this_view_id</strong></a>:</p><p><a href=\"/glossary#\"><strong>url</strong></a>: <a href=\"http://www.example.com/id-docs/123/image.png\">http://www.example.com/id-docs/123/image.png</a></p><p><a href=\"/glossary#User\"><strong>user</strong></a>:</p><p><a href=\"/glossary#\"><strong>username</strong></a>: felixsmith</p><p><a href=\"/glossary#\"><strong>value</strong></a>: 5987953</p>
      * @summary Create Counterparty for any account (Explicit)
-     * @param {VIEWIDCounterpartiesBody1} body JObject object that needs to be added.
+     * @param {PostCounterpartyJson400} body PostCounterpartyJson400 object that needs to be added.
      * @param {string} VIEW_ID The view id
      * @param {string} ACCOUNT_ID The account id
      * @param {string} BANK_ID The bank id
@@ -4744,7 +4743,7 @@ export class CounterpartyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CounterpartyApi
      */
-    public async oBPv400CreateCounterpartyForAnyAccount(body: VIEWIDCounterpartiesBody1, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20118>> {
+    public async oBPv400CreateCounterpartyForAnyAccount(body: PostCounterpartyJson400, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CounterpartyWithMetadataJson400>> {
         return CounterpartyApiFp(this.configuration).oBPv400CreateCounterpartyForAnyAccount(body, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -4785,7 +4784,7 @@ export class CounterpartyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CounterpartyApi
      */
-    public async oBPv400GetCounterpartiesForAnyAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20062>> {
+    public async oBPv400GetCounterpartiesForAnyAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CounterpartiesJson400>> {
         return CounterpartyApiFp(this.configuration).oBPv400GetCounterpartiesForAnyAccount(VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -4799,7 +4798,7 @@ export class CounterpartyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CounterpartyApi
      */
-    public async oBPv400GetCounterpartyByIdForAnyAccount(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20118>> {
+    public async oBPv400GetCounterpartyByIdForAnyAccount(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CounterpartyWithMetadataJson400>> {
         return CounterpartyApiFp(this.configuration).oBPv400GetCounterpartyByIdForAnyAccount(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -4813,7 +4812,7 @@ export class CounterpartyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CounterpartyApi
      */
-    public async oBPv400GetCounterpartyByNameForAnyAccount(COUNTERPARTY_NAME: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20118>> {
+    public async oBPv400GetCounterpartyByNameForAnyAccount(COUNTERPARTY_NAME: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CounterpartyWithMetadataJson400>> {
         return CounterpartyApiFp(this.configuration).oBPv400GetCounterpartyByNameForAnyAccount(COUNTERPARTY_NAME, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -4826,7 +4825,7 @@ export class CounterpartyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CounterpartyApi
      */
-    public async oBPv400GetExplicitCounterpartiesForAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20062>> {
+    public async oBPv400GetExplicitCounterpartiesForAccount(VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CounterpartiesJson400>> {
         return CounterpartyApiFp(this.configuration).oBPv400GetExplicitCounterpartiesForAccount(VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -4840,7 +4839,7 @@ export class CounterpartyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CounterpartyApi
      */
-    public async oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20118>> {
+    public async oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID: string, VIEW_ID: string, ACCOUNT_ID: string, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<CounterpartyWithMetadataJson400>> {
         return CounterpartyApiFp(this.configuration).oBPv400GetExplicitCounterpartyById(COUNTERPARTY_ID, VIEW_ID, ACCOUNT_ID, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -18,12 +18,11 @@ import { Configuration } from '../configuration';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 import { BANKIDDynamicendpointsBody } from '../models';
-import { DYNAMICENDPOINTIDHostBody } from '../models';
-import { DYNAMICENDPOINTIDHostBody1 } from '../models';
+import { DynamicEndpointHostJson400 } from '../models';
 import { ErrorBankNotFound } from '../models';
 import { ErrorUserNotLoggedIn } from '../models';
-import { InlineResponse200107 } from '../models';
-import { InlineResponse20135 } from '../models';
+import { InlineResponse20011 } from '../models';
+import { InlineResponse2011 } from '../models';
 import { ManagementDynamicendpointsBody } from '../models';
 /**
  * DynamicEndpointManageApi - axios parameter creator
@@ -48,7 +47,7 @@ export const DynamicEndpointManageApiAxiosParamCreator = function (configuration
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv400CreateBankLevelDynamicEndpoint.');
             }
-            const localVarPath = `/obp/v4.0.0/management/banks/{BANK_ID}/dynamic-endpoints`
+            const localVarPath = `/obp/v5.1.0/management/banks/{BANK_ID}/dynamic-endpoints`
                 .replace(`{${"BANK_ID"}}`, encodeURIComponent(String(BANK_ID)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -108,7 +107,7 @@ export const DynamicEndpointManageApiAxiosParamCreator = function (configuration
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400CreateDynamicEndpoint.');
             }
-            const localVarPath = `/obp/v4.0.0/management/dynamic-endpoints`;
+            const localVarPath = `/obp/v5.1.0/management/dynamic-endpoints`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -167,7 +166,7 @@ export const DynamicEndpointManageApiAxiosParamCreator = function (configuration
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv400DeleteBankLevelDynamicEndpoint.');
             }
-            const localVarPath = `/obp/v4.0.0/management/banks/{BANK_ID}/dynamic-endpoints/DYNAMIC_ENDPOINT_ID`
+            const localVarPath = `/obp/v5.1.0/management/banks/{BANK_ID}/dynamic-endpoints/DYNAMIC_ENDPOINT_ID`
                 .replace(`{${"BANK_ID"}}`, encodeURIComponent(String(BANK_ID)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -218,7 +217,7 @@ export const DynamicEndpointManageApiAxiosParamCreator = function (configuration
          * @throws {RequiredError}
          */
         oBPv400DeleteDynamicEndpoint: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/obp/v4.0.0/management/dynamic-endpoints/DYNAMIC_ENDPOINT_ID`;
+            const localVarPath = `/obp/v5.1.0/management/dynamic-endpoints/DYNAMIC_ENDPOINT_ID`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -268,7 +267,7 @@ export const DynamicEndpointManageApiAxiosParamCreator = function (configuration
          * @throws {RequiredError}
          */
         oBPv400DeleteMyDynamicEndpoint: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/obp/v4.0.0/my/dynamic-endpoints/DYNAMIC_ENDPOINT_ID`;
+            const localVarPath = `/obp/v5.1.0/my/dynamic-endpoints/DYNAMIC_ENDPOINT_ID`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -323,7 +322,7 @@ export const DynamicEndpointManageApiAxiosParamCreator = function (configuration
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv400GetBankLevelDynamicEndpoint.');
             }
-            const localVarPath = `/obp/v4.0.0/management/banks/{BANK_ID}/dynamic-endpoints/DYNAMIC_ENDPOINT_ID`
+            const localVarPath = `/obp/v5.1.0/management/banks/{BANK_ID}/dynamic-endpoints/DYNAMIC_ENDPOINT_ID`
                 .replace(`{${"BANK_ID"}}`, encodeURIComponent(String(BANK_ID)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -379,7 +378,7 @@ export const DynamicEndpointManageApiAxiosParamCreator = function (configuration
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv400GetBankLevelDynamicEndpoints.');
             }
-            const localVarPath = `/obp/v4.0.0/management/banks/{BANK_ID}/dynamic-endpoints`
+            const localVarPath = `/obp/v5.1.0/management/banks/{BANK_ID}/dynamic-endpoints`
                 .replace(`{${"BANK_ID"}}`, encodeURIComponent(String(BANK_ID)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -430,7 +429,7 @@ export const DynamicEndpointManageApiAxiosParamCreator = function (configuration
          * @throws {RequiredError}
          */
         oBPv400GetDynamicEndpoint: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/obp/v4.0.0/management/dynamic-endpoints/DYNAMIC_ENDPOINT_ID`;
+            const localVarPath = `/obp/v5.1.0/management/dynamic-endpoints/DYNAMIC_ENDPOINT_ID`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -480,7 +479,7 @@ export const DynamicEndpointManageApiAxiosParamCreator = function (configuration
          * @throws {RequiredError}
          */
         oBPv400GetDynamicEndpoints: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/obp/v4.0.0/management/dynamic-endpoints`;
+            const localVarPath = `/obp/v5.1.0/management/dynamic-endpoints`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -530,7 +529,7 @@ export const DynamicEndpointManageApiAxiosParamCreator = function (configuration
          * @throws {RequiredError}
          */
         oBPv400GetMyDynamicEndpoints: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/obp/v4.0.0/my/dynamic-endpoints`;
+            const localVarPath = `/obp/v5.1.0/my/dynamic-endpoints`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -576,12 +575,12 @@ export const DynamicEndpointManageApiAxiosParamCreator = function (configuration
         /**
          * <p>Update Bank Level  dynamic endpoint Host.<br />The value can be obp_mock, dynamic_entity, or some service url.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p>
          * @summary  Update Bank Level Dynamic Endpoint Host
-         * @param {DYNAMICENDPOINTIDHostBody} body JObject object that needs to be added.
+         * @param {DynamicEndpointHostJson400} body DynamicEndpointHostJson400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateBankLevelDynamicEndpointHost: async (body: DYNAMICENDPOINTIDHostBody, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateBankLevelDynamicEndpointHost: async (body: DynamicEndpointHostJson400, BANK_ID: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateBankLevelDynamicEndpointHost.');
@@ -590,7 +589,7 @@ export const DynamicEndpointManageApiAxiosParamCreator = function (configuration
             if (BANK_ID === null || BANK_ID === undefined) {
                 throw new RequiredError('BANK_ID','Required parameter BANK_ID was null or undefined when calling oBPv400UpdateBankLevelDynamicEndpointHost.');
             }
-            const localVarPath = `/obp/v4.0.0/management/banks/{BANK_ID}/dynamic-endpoints/DYNAMIC_ENDPOINT_ID/host`
+            const localVarPath = `/obp/v5.1.0/management/banks/{BANK_ID}/dynamic-endpoints/DYNAMIC_ENDPOINT_ID/host`
                 .replace(`{${"BANK_ID"}}`, encodeURIComponent(String(BANK_ID)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -641,16 +640,16 @@ export const DynamicEndpointManageApiAxiosParamCreator = function (configuration
         /**
          * <p>Update dynamic endpoint Host.<br />The value can be obp_mock, dynamic_entity, or some service url.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p>
          * @summary  Update Dynamic Endpoint Host
-         * @param {DYNAMICENDPOINTIDHostBody1} body JObject object that needs to be added.
+         * @param {DynamicEndpointHostJson400} body DynamicEndpointHostJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oBPv400UpdateDynamicEndpointHost: async (body: DYNAMICENDPOINTIDHostBody1, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        oBPv400UpdateDynamicEndpointHost: async (body: DynamicEndpointHostJson400, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling oBPv400UpdateDynamicEndpointHost.');
             }
-            const localVarPath = `/obp/v4.0.0/management/dynamic-endpoints/DYNAMIC_ENDPOINT_ID/host`;
+            const localVarPath = `/obp/v5.1.0/management/dynamic-endpoints/DYNAMIC_ENDPOINT_ID/host`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -714,7 +713,7 @@ export const DynamicEndpointManageApiFp = function(configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateBankLevelDynamicEndpoint(body: BANKIDDynamicendpointsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20135>>> {
+        async oBPv400CreateBankLevelDynamicEndpoint(body: BANKIDDynamicendpointsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2011>>> {
             const localVarAxiosArgs = await DynamicEndpointManageApiAxiosParamCreator(configuration).oBPv400CreateBankLevelDynamicEndpoint(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -728,7 +727,7 @@ export const DynamicEndpointManageApiFp = function(configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateDynamicEndpoint(body: ManagementDynamicendpointsBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20135>>> {
+        async oBPv400CreateDynamicEndpoint(body: ManagementDynamicendpointsBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2011>>> {
             const localVarAxiosArgs = await DynamicEndpointManageApiAxiosParamCreator(configuration).oBPv400CreateDynamicEndpoint(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -782,7 +781,7 @@ export const DynamicEndpointManageApiFp = function(configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBankLevelDynamicEndpoint(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20135>>> {
+        async oBPv400GetBankLevelDynamicEndpoint(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2011>>> {
             const localVarAxiosArgs = await DynamicEndpointManageApiAxiosParamCreator(configuration).oBPv400GetBankLevelDynamicEndpoint(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -796,7 +795,7 @@ export const DynamicEndpointManageApiFp = function(configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBankLevelDynamicEndpoints(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200107>>> {
+        async oBPv400GetBankLevelDynamicEndpoints(BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20011>>> {
             const localVarAxiosArgs = await DynamicEndpointManageApiAxiosParamCreator(configuration).oBPv400GetBankLevelDynamicEndpoints(BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -809,7 +808,7 @@ export const DynamicEndpointManageApiFp = function(configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetDynamicEndpoint(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20135>>> {
+        async oBPv400GetDynamicEndpoint(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2011>>> {
             const localVarAxiosArgs = await DynamicEndpointManageApiAxiosParamCreator(configuration).oBPv400GetDynamicEndpoint(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -822,7 +821,7 @@ export const DynamicEndpointManageApiFp = function(configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetDynamicEndpoints(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200107>>> {
+        async oBPv400GetDynamicEndpoints(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20011>>> {
             const localVarAxiosArgs = await DynamicEndpointManageApiAxiosParamCreator(configuration).oBPv400GetDynamicEndpoints(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -835,7 +834,7 @@ export const DynamicEndpointManageApiFp = function(configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetMyDynamicEndpoints(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse200107>>> {
+        async oBPv400GetMyDynamicEndpoints(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse20011>>> {
             const localVarAxiosArgs = await DynamicEndpointManageApiAxiosParamCreator(configuration).oBPv400GetMyDynamicEndpoints(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -845,12 +844,12 @@ export const DynamicEndpointManageApiFp = function(configuration?: Configuration
         /**
          * <p>Update Bank Level  dynamic endpoint Host.<br />The value can be obp_mock, dynamic_entity, or some service url.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p>
          * @summary  Update Bank Level Dynamic Endpoint Host
-         * @param {DYNAMICENDPOINTIDHostBody} body JObject object that needs to be added.
+         * @param {DynamicEndpointHostJson400} body DynamicEndpointHostJson400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateBankLevelDynamicEndpointHost(body: DYNAMICENDPOINTIDHostBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<DYNAMICENDPOINTIDHostBody>>> {
+        async oBPv400UpdateBankLevelDynamicEndpointHost(body: DynamicEndpointHostJson400, BANK_ID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<DynamicEndpointHostJson400>>> {
             const localVarAxiosArgs = await DynamicEndpointManageApiAxiosParamCreator(configuration).oBPv400UpdateBankLevelDynamicEndpointHost(body, BANK_ID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -860,11 +859,11 @@ export const DynamicEndpointManageApiFp = function(configuration?: Configuration
         /**
          * <p>Update dynamic endpoint Host.<br />The value can be obp_mock, dynamic_entity, or some service url.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p>
          * @summary  Update Dynamic Endpoint Host
-         * @param {DYNAMICENDPOINTIDHostBody1} body JObject object that needs to be added.
+         * @param {DynamicEndpointHostJson400} body DynamicEndpointHostJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateDynamicEndpointHost(body: DYNAMICENDPOINTIDHostBody1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<DYNAMICENDPOINTIDHostBody1>>> {
+        async oBPv400UpdateDynamicEndpointHost(body: DynamicEndpointHostJson400, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<DynamicEndpointHostJson400>>> {
             const localVarAxiosArgs = await DynamicEndpointManageApiAxiosParamCreator(configuration).oBPv400UpdateDynamicEndpointHost(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -888,7 +887,7 @@ export const DynamicEndpointManageApiFactory = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateBankLevelDynamicEndpoint(body: BANKIDDynamicendpointsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20135>> {
+        async oBPv400CreateBankLevelDynamicEndpoint(body: BANKIDDynamicendpointsBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2011>> {
             return DynamicEndpointManageApiFp(configuration).oBPv400CreateBankLevelDynamicEndpoint(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -898,7 +897,7 @@ export const DynamicEndpointManageApiFactory = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400CreateDynamicEndpoint(body: ManagementDynamicendpointsBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20135>> {
+        async oBPv400CreateDynamicEndpoint(body: ManagementDynamicendpointsBody, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2011>> {
             return DynamicEndpointManageApiFp(configuration).oBPv400CreateDynamicEndpoint(body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -936,7 +935,7 @@ export const DynamicEndpointManageApiFactory = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBankLevelDynamicEndpoint(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20135>> {
+        async oBPv400GetBankLevelDynamicEndpoint(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2011>> {
             return DynamicEndpointManageApiFp(configuration).oBPv400GetBankLevelDynamicEndpoint(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -946,7 +945,7 @@ export const DynamicEndpointManageApiFactory = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetBankLevelDynamicEndpoints(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200107>> {
+        async oBPv400GetBankLevelDynamicEndpoints(BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20011>> {
             return DynamicEndpointManageApiFp(configuration).oBPv400GetBankLevelDynamicEndpoints(BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
@@ -955,7 +954,7 @@ export const DynamicEndpointManageApiFactory = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetDynamicEndpoint(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20135>> {
+        async oBPv400GetDynamicEndpoint(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2011>> {
             return DynamicEndpointManageApiFp(configuration).oBPv400GetDynamicEndpoint(options).then((request) => request(axios, basePath));
         },
         /**
@@ -964,7 +963,7 @@ export const DynamicEndpointManageApiFactory = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetDynamicEndpoints(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200107>> {
+        async oBPv400GetDynamicEndpoints(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20011>> {
             return DynamicEndpointManageApiFp(configuration).oBPv400GetDynamicEndpoints(options).then((request) => request(axios, basePath));
         },
         /**
@@ -973,28 +972,28 @@ export const DynamicEndpointManageApiFactory = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400GetMyDynamicEndpoints(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse200107>> {
+        async oBPv400GetMyDynamicEndpoints(options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse20011>> {
             return DynamicEndpointManageApiFp(configuration).oBPv400GetMyDynamicEndpoints(options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update Bank Level  dynamic endpoint Host.<br />The value can be obp_mock, dynamic_entity, or some service url.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p>
          * @summary  Update Bank Level Dynamic Endpoint Host
-         * @param {DYNAMICENDPOINTIDHostBody} body JObject object that needs to be added.
+         * @param {DynamicEndpointHostJson400} body DynamicEndpointHostJson400 object that needs to be added.
          * @param {string} BANK_ID The bank id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateBankLevelDynamicEndpointHost(body: DYNAMICENDPOINTIDHostBody, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<DYNAMICENDPOINTIDHostBody>> {
+        async oBPv400UpdateBankLevelDynamicEndpointHost(body: DynamicEndpointHostJson400, BANK_ID: string, options?: AxiosRequestConfig): Promise<AxiosResponse<DynamicEndpointHostJson400>> {
             return DynamicEndpointManageApiFp(configuration).oBPv400UpdateBankLevelDynamicEndpointHost(body, BANK_ID, options).then((request) => request(axios, basePath));
         },
         /**
          * <p>Update dynamic endpoint Host.<br />The value can be obp_mock, dynamic_entity, or some service url.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p>
          * @summary  Update Dynamic Endpoint Host
-         * @param {DYNAMICENDPOINTIDHostBody1} body JObject object that needs to be added.
+         * @param {DynamicEndpointHostJson400} body DynamicEndpointHostJson400 object that needs to be added.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oBPv400UpdateDynamicEndpointHost(body: DYNAMICENDPOINTIDHostBody1, options?: AxiosRequestConfig): Promise<AxiosResponse<DYNAMICENDPOINTIDHostBody1>> {
+        async oBPv400UpdateDynamicEndpointHost(body: DynamicEndpointHostJson400, options?: AxiosRequestConfig): Promise<AxiosResponse<DynamicEndpointHostJson400>> {
             return DynamicEndpointManageApiFp(configuration).oBPv400UpdateDynamicEndpointHost(body, options).then((request) => request(axios, basePath));
         },
     };
@@ -1016,7 +1015,7 @@ export class DynamicEndpointManageApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicEndpointManageApi
      */
-    public async oBPv400CreateBankLevelDynamicEndpoint(body: BANKIDDynamicendpointsBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20135>> {
+    public async oBPv400CreateBankLevelDynamicEndpoint(body: BANKIDDynamicendpointsBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2011>> {
         return DynamicEndpointManageApiFp(this.configuration).oBPv400CreateBankLevelDynamicEndpoint(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1027,7 +1026,7 @@ export class DynamicEndpointManageApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicEndpointManageApi
      */
-    public async oBPv400CreateDynamicEndpoint(body: ManagementDynamicendpointsBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20135>> {
+    public async oBPv400CreateDynamicEndpoint(body: ManagementDynamicendpointsBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2011>> {
         return DynamicEndpointManageApiFp(this.configuration).oBPv400CreateDynamicEndpoint(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1069,7 +1068,7 @@ export class DynamicEndpointManageApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicEndpointManageApi
      */
-    public async oBPv400GetBankLevelDynamicEndpoint(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20135>> {
+    public async oBPv400GetBankLevelDynamicEndpoint(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2011>> {
         return DynamicEndpointManageApiFp(this.configuration).oBPv400GetBankLevelDynamicEndpoint(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1080,7 +1079,7 @@ export class DynamicEndpointManageApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicEndpointManageApi
      */
-    public async oBPv400GetBankLevelDynamicEndpoints(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200107>> {
+    public async oBPv400GetBankLevelDynamicEndpoints(BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20011>> {
         return DynamicEndpointManageApiFp(this.configuration).oBPv400GetBankLevelDynamicEndpoints(BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1090,7 +1089,7 @@ export class DynamicEndpointManageApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicEndpointManageApi
      */
-    public async oBPv400GetDynamicEndpoint(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20135>> {
+    public async oBPv400GetDynamicEndpoint(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2011>> {
         return DynamicEndpointManageApiFp(this.configuration).oBPv400GetDynamicEndpoint(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1100,7 +1099,7 @@ export class DynamicEndpointManageApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicEndpointManageApi
      */
-    public async oBPv400GetDynamicEndpoints(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200107>> {
+    public async oBPv400GetDynamicEndpoints(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20011>> {
         return DynamicEndpointManageApiFp(this.configuration).oBPv400GetDynamicEndpoints(options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -1110,30 +1109,30 @@ export class DynamicEndpointManageApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DynamicEndpointManageApi
      */
-    public async oBPv400GetMyDynamicEndpoints(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse200107>> {
+    public async oBPv400GetMyDynamicEndpoints(options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse20011>> {
         return DynamicEndpointManageApiFp(this.configuration).oBPv400GetMyDynamicEndpoints(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update Bank Level  dynamic endpoint Host.<br />The value can be obp_mock, dynamic_entity, or some service url.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p>
      * @summary  Update Bank Level Dynamic Endpoint Host
-     * @param {DYNAMICENDPOINTIDHostBody} body JObject object that needs to be added.
+     * @param {DynamicEndpointHostJson400} body DynamicEndpointHostJson400 object that needs to be added.
      * @param {string} BANK_ID The bank id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DynamicEndpointManageApi
      */
-    public async oBPv400UpdateBankLevelDynamicEndpointHost(body: DYNAMICENDPOINTIDHostBody, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<DYNAMICENDPOINTIDHostBody>> {
+    public async oBPv400UpdateBankLevelDynamicEndpointHost(body: DynamicEndpointHostJson400, BANK_ID: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<DynamicEndpointHostJson400>> {
         return DynamicEndpointManageApiFp(this.configuration).oBPv400UpdateBankLevelDynamicEndpointHost(body, BANK_ID, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * <p>Update dynamic endpoint Host.<br />The value can be obp_mock, dynamic_entity, or some service url.</p><p>User Authentication is Required. The User must be logged in. The Application must also be authenticated.</p>
      * @summary  Update Dynamic Endpoint Host
-     * @param {DYNAMICENDPOINTIDHostBody1} body JObject object that needs to be added.
+     * @param {DynamicEndpointHostJson400} body DynamicEndpointHostJson400 object that needs to be added.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DynamicEndpointManageApi
      */
-    public async oBPv400UpdateDynamicEndpointHost(body: DYNAMICENDPOINTIDHostBody1, options?: AxiosRequestConfig) : Promise<AxiosResponse<DYNAMICENDPOINTIDHostBody1>> {
+    public async oBPv400UpdateDynamicEndpointHost(body: DynamicEndpointHostJson400, options?: AxiosRequestConfig) : Promise<AxiosResponse<DynamicEndpointHostJson400>> {
         return DynamicEndpointManageApiFp(this.configuration).oBPv400UpdateDynamicEndpointHost(body, options).then((request) => request(this.axios, this.basePath));
     }
 }
